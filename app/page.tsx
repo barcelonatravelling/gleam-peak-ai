@@ -515,7 +515,7 @@ export default function GleamPeakWebsite() {
         />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/8 bg-[#070114]/68 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070114]/80 backdrop-blur-xl">
   <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
     
     <button
@@ -662,16 +662,16 @@ function HomePage({ t, changePage }: any) {
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <button
-              onClick={() => changePage("call")}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-[#0a0216] shadow-[0_10px_30px_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(255,255,255,0.22)]"
-            >
+  onClick={() => changePage("call")}
+  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-[#0a0216] shadow-[0_10px_30px_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(255,255,255,0.22)]"
+>
               {t.home.ctas.primary}
               <ArrowRight className="h-4 w-4" />
             </button>
             <button
-              onClick={() => changePage("solutions")}
-              claclassName="inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/6 px-6 py-4 text-sm font-semibold text-white/88 shadow-[0_8px_30px_rgba(100,40,180,0.10)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
-            >
+  onClick={() => changePage("solutions")}
+  className="inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/6 px-6 py-4 text-sm font-semibold text-white/88 shadow-[0_8px_30px_rgba(100,40,180,0.10)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
+>
               {t.home.ctas.secondary}
             </button>
           </div>
