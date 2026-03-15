@@ -503,31 +503,31 @@ export default function GleamPeakWebsite() {
         />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/8 bg-[#090214]/78 backdrop-blur-xl">
-  <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+      <header className="sticky top-0 z-50 border-b border-white/8 bg-[#070114]/68 backdrop-blur-xl">
+  <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
     
     <button
-      onClick={() => changePage("home")}
-      className="flex items-center gap-3 text-left"
-    >
-    <Image
-  src="/logo.png"
-  alt="Gleam Peak AI"
-  width={300}
-  height={130}
-  className="h-auto w-[190px] sm:w-[230px] md:w-[270px]"
-/>
-    </button>
+  onClick={() => changePage("home")}
+  className="group flex items-center text-left"
+>
+  <Image
+    src="/logo.png"
+    alt="Gleam Peak AI"
+    width={300}
+    height={120}
+    className="h-auto w-[150px] sm:w-[180px] md:w-[220px] transition duration-300 group-hover:scale-[1.02]"
+  />
+</button>
 
-    <nav className="hidden items-center gap-7 text-sm text-white/72 md:flex">
+    <nav className="hidden items-center gap-7 text-[14px] font-medium text-white/72 md:flex">
       {navItems.map((item) => (
         <button
-          key={item.key}
-          onClick={() => changePage(item.key)}
-          className={`transition hover:text-white ${page === item.key ? "text-white" : ""}`}
-        >
-          {item.label}
-        </button>
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/6 p-2.5 text-white transition hover:bg-white/10 md:hidden"
+  aria-label="Open menu"
+>
+  {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+</button>
       ))}
     </nav>
 
@@ -550,8 +550,81 @@ export default function GleamPeakWebsite() {
 
   </div>
 </header>
+<AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.2, ease: "easeOut" as const }}
+      className="border-b border-white/8 bg-[#070114]/95 px-5 py-4 backdrop-blur-xl md:hidden"
+    >
+      <div className="mx-auto flex max-w-7xl flex-col gap-3">
+        {navItems.map((item) => (
+          <button
+            key={item.key}
+            onClick={() => {
+              changePage(item.key);
+              setMenuOpen(false);
+            }}
+            className={`rounded-2xl border px-4 py-3 text-left text-sm font-medium transition ${
+              page === item.key
+                ? "border-fuchsia-400/30 bg-white/10 text-white"
+                : "border-white/8 bg-white/5 text-white/78 hover:bg-white/10 hover:text-white"
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
 
-      <main className="mx-auto max-w-7xl px-6 pb-16 pt-10 lg:px-10 lg:pb-24 lg:pt-14">
+        <button
+          onClick={() => setLang(lang === "en" ? "es" : "en")}
+          className="mt-1 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white/85 transition hover:bg-white/10"
+        >
+          {t.common.switchLanguage}
+        </button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+<AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.22, ease: "easeOut" as const }}
+      className="border-b border-white/10 bg-[#090214]/96 px-6 py-5 backdrop-blur-2xl md:hidden"
+    >
+      <div className="mx-auto flex max-w-7xl flex-col gap-3">
+        {navItems.map((item) => (
+          <button
+            key={item.key}
+            onClick={() => {
+              changePage(item.key);
+              setMenuOpen(false);
+            }}
+            className={`rounded-2xl border px-4 py-3 text-left text-sm font-medium transition ${
+              page === item.key
+                ? "border-fuchsia-400/30 bg-white/10 text-white"
+                : "border-white/8 bg-white/5 text-white/78 hover:bg-white/10 hover:text-white"
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+
+        <button
+          onClick={() => setLang(lang === "en" ? "es" : "en")}
+          className="mt-2 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white/85 transition hover:bg-white/10"
+        >
+          {t.common.switchLanguage}
+        </button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+      <main className="mx-auto max-w-7xl px-5 pb-16 pt-8 lg:px-8 lg:pb-24 lg:pt-10">
         <AnimatePresence mode="wait">
           <motion.div key={`${page}-${lang}`} {...pageAnimation}>
             {page === "home" && <HomePage t={t} changePage={changePage} />}
@@ -590,7 +663,7 @@ function HomePage({ t, changePage }: any) {
             {t.home.kicker}
           </div>
 
-          <h1 className="max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-[11ch] text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
             {t.home.title}
           </h1>
 
