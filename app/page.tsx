@@ -492,10 +492,22 @@ export default function GleamPeakWebsite() {
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.34),transparent_30%),radial-gradient(circle_at_78%_16%,rgba(217,70,239,0.16),transparent_18%),radial-gradient(circle_at_20%_78%,rgba(124,58,237,0.16),transparent_22%),linear-gradient(to_bottom,#06010e,#120423,#06010e)]" />
         <motion.div
-          animate={{ y: [0, -12, 0], opacity: [0.25, 0.38, 0.25] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-fuchsia-500/18 blur-3xl"
-        />
+  animate={{ scale: [1, 1.08, 1], opacity: [0.16, 0.28, 0.16] }}
+  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" as const }}
+  className="absolute left-[10%] top-24 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl"
+/>
+
+<motion.div
+  animate={{ x: [0, 20, 0], y: [0, 16, 0], opacity: [0.14, 0.24, 0.14] }}
+  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" as const }}
+  className="absolute right-[8%] top-40 h-80 w-80 rounded-full bg-violet-500/20 blur-3xl"
+/>
+
+<motion.div
+  animate={{ scale: [1, 1.06, 1], opacity: [0.1, 0.18, 0.1] }}
+  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" as const }}
+  className="absolute left-1/2 top-[28rem] h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl"
+/>
         <motion.div
           animate={{ x: [0, 22, 0], y: [0, 14, 0] }}
           transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
@@ -632,14 +644,14 @@ function HomePage({ t, changePage }: any) {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <button
               onClick={() => changePage("call")}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-[#12031c] transition hover:scale-[1.01]"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-[#0a0216] shadow-[0_10px_30px_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(255,255,255,0.22)]"
             >
               {t.home.ctas.primary}
               <ArrowRight className="h-4 w-4" />
             </button>
             <button
               onClick={() => changePage("solutions")}
-              className="inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/6 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              claclassName="inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/6 px-6 py-4 text-sm font-semibold text-white/88 shadow-[0_8px_30px_rgba(100,40,180,0.10)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
             >
               {t.home.ctas.secondary}
             </button>
@@ -647,9 +659,9 @@ function HomePage({ t, changePage }: any) {
 
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
             {t.home.stats.map((item: any) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.05] p-5">
-                <p className="text-2xl font-semibold text-white">{item.title}</p>
-                <p className="mt-2 text-sm leading-6 text-white/58">{item.text}</p>
+              <div key={item.title} className="group rounded-[28px] border border-white/10 bg-white/[0.06] p-5 shadow-[0_10px_30px_rgba(30,10,60,0.18)] transition duration-300 hover:-translate-y-1 hover:border-fuchsia-400/20 hover:bg-white/[0.08] hover:shadow-[0_18px_45px_rgba(80,20,160,0.22)]">
+               <p className="text-2xl font-semibold tracking-[-0.02em] text-white transition duration-300 group-hover:text-fuchsia-100">{item.title}</p>
+<p className="mt-2 text-sm leading-6 text-white/64 transition duration-300 group-hover:text-white/78">{item.text}</p>
               </div>
             ))}
           </div>
@@ -672,9 +684,9 @@ function HomePage({ t, changePage }: any) {
 
             <div className="mt-6 space-y-4">
               {t.home.previewCards.map((card: any) => (
-                <div key={card.title} className="rounded-2xl border border-white/10 bg-[#11051d]/80 p-5">
-                  <p className="text-sm text-white/48">{card.title}</p>
-                  <p className="mt-2 text-base leading-7 text-white/84">{card.text}</p>
+                <div key={card.title} className="group rounded-[28px] border border-white/10 bg-[#11051d]/80 p-5 shadow-[0_10px_30px_rgba(30,10,60,0.18)] transition duration-300 hover:-translate-y-1 hover:border-fuchsia-400/20 hover:bg-[#160822]/90 hover:shadow-[0_18px_45px_rgba(80,20,160,0.22)]">
+                  <p className="text-sm text-white/52 transition duration-300 group-hover:text-fuchsia-100">{card.title}</p>
+<p className="mt-2 text-base leading-7 text-white/84 transition duration-300 group-hover:text-white">{card.text}</p>
                 </div>
               ))}
             </div>
