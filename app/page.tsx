@@ -510,12 +510,13 @@ export default function GleamPeakWebsite() {
       onClick={() => changePage("home")}
       className="flex items-center gap-3 text-left"
     >
-      <Image
-        src="/logo.png"
-        alt="Gleam Peak AI"
-        width={180}
-        height={60}
-      />
+    <Image
+  src="/logo.png"
+  alt="Gleam Peak AI"
+  width={300}
+  height={130}
+  className="h-auto w-[190px] sm:w-[230px] md:w-[270px]"
+/>
     </button>
 
     <nav className="hidden items-center gap-7 text-sm text-white/72 md:flex">
@@ -530,7 +531,7 @@ export default function GleamPeakWebsite() {
       ))}
     </nav>
 
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 h-[80px]">
       <button
         onClick={() => setLang(lang === "en" ? "es" : "en")}
         className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
