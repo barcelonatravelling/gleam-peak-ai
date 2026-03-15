@@ -577,53 +577,11 @@ export default function GleamPeakWebsite() {
           </button>
         ))}
 
-        <button
-          onClick={() => setLang(lang === "en" ? "es" : "en")}
-          className="mt-1 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white/85 transition hover:bg-white/10"
-        >
-          {t.common.switchLanguage}
-        </button>
+        
       </div>
     </motion.div>
   )}
-</AnimatePresence>
-<AnimatePresence>
-  {menuOpen && (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.22, ease: "easeOut" as const }}
-      className="border-b border-white/10 bg-[#090214]/96 px-6 py-5 backdrop-blur-2xl md:hidden"
-    >
-      <div className="mx-auto flex max-w-7xl flex-col gap-3">
-        {navItems.map((item) => (
-          <button
-            key={item.key}
-            onClick={() => {
-              changePage(item.key);
-              setMenuOpen(false);
-            }}
-            className={`rounded-2xl border px-4 py-3 text-left text-sm font-medium transition ${
-              page === item.key
-                ? "border-fuchsia-400/30 bg-white/10 text-white"
-                : "border-white/8 bg-white/5 text-white/78 hover:bg-white/10 hover:text-white"
-            }`}
-          >
-            {item.label}
-          </button>
-        ))}
 
-        <button
-          onClick={() => setLang(lang === "en" ? "es" : "en")}
-          className="mt-2 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white/85 transition hover:bg-white/10"
-        >
-          {t.common.switchLanguage}
-        </button>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
       <main className="mx-auto max-w-7xl px-5 pb-16 pt-8 lg:px-8 lg:pb-24 lg:pt-10">
         <AnimatePresence mode="wait">
           <motion.div key={`${page}-${lang}`} {...pageAnimation}>
