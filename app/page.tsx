@@ -511,7 +511,7 @@ export default function GleamPeakWebsite() {
       className="flex items-center gap-3 text-left"
     >
       <Image
-        src="/logo.jpeg"
+        src="/logo.png"
         alt="Gleam Peak AI"
         width={180}
         height={60}
