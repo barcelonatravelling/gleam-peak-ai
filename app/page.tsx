@@ -625,7 +625,26 @@ export default function GleamPeakWebsite() {
 
 function HomePage({ t, changePage }: any) {
   return (
-    <div className="space-y-20 lg:space-y-24">
+  <div className="relative space-y-20 lg:space-y-24">
+
+      <motion.div
+        animate={{ scale: [1, 1.08, 1], opacity: [0.16, 0.28, 0.16] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" as const }}
+        className="absolute left-[10%] top-24 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl"
+      />
+
+      <motion.div
+        animate={{ x: [0, 20, 0], y: [0, 16, 0], opacity: [0.14, 0.24, 0.14] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" as const }}
+        className="absolute right-[8%] top-40 h-80 w-80 rounded-full bg-violet-500/20 blur-3xl"
+      />
+
+      <motion.div
+        animate={{ scale: [1, 1.06, 1], opacity: [0.1, 0.18, 0.1] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" as const }}
+        className="absolute left-1/2 top-[28rem] h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl"
+      />
+
       <section className="grid items-center gap-14 lg:grid-cols-[1.12fr_0.88fr]">
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-fuchsia-400/20 bg-fuchsia-500/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-fuchsia-100/90">
