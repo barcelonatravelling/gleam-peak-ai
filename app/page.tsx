@@ -692,7 +692,46 @@ const content = {
 } as const;
 
 const pageOrder: PageKey[] = ["home", "solutions", "automation", "industries", "cases", "call"];
+type Locale = "en" | "es";
 
+type LocaleContent = {
+  brand: string;
+  nav: {
+    home: string;
+    solutions: string;
+    automation: string;
+    industries: string;
+    cases: string;
+    call: string;
+  };
+  common: {
+    switchLanguage: string;
+    backHome: string;
+    nextStep: string;
+    discuss: string;
+    sendRequest: string;
+    trustedTitle: string;
+    trustedHeadline: string;
+    trustedItems: string[];
+    trustBlocks: {
+      title: string;
+      text: string;
+      icon: string;
+    }[];
+    form: {
+      name: string;
+      company: string;
+      email: string;
+      message: string;
+    };
+  };
+  home: any;
+  solutionsPage: any;
+  automationPage: any;
+  industriesPage: any;
+  casesPage: any;
+  callPage: any;
+};
 const pageAnimation = {
   initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
@@ -700,7 +739,7 @@ const pageAnimation = {
   transition: { duration: 0.32, ease: "easeOut" as const },
 };
 export default function GleamPeakWebsite() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Locale>("en");
   const [page, setPage] = useState<PageKey>("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -719,7 +758,7 @@ export default function GleamPeakWebsite() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const t = content[lang];
+  const t: LocaleContent = content[lang];
 
   const navItems = useMemo(
     () => [
