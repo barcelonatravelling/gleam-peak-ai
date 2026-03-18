@@ -758,7 +758,7 @@ export default function GleamPeakWebsite() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const t: LocaleContent = content[lang];
+  const t = content[lang] as any;
 
   const navItems = useMemo(
     () => [
@@ -890,7 +890,7 @@ function BackgroundGlow() {
   );
 }
 
-function HomePage({ t, changePage }: { t: LocaleContent; changePage: (page: PageKey) => void }) {
+function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => void }) {
   return (
     <>
       <section className="pt-1 pb-16 lg:pt-2">
@@ -1108,7 +1108,7 @@ function HomePage({ t, changePage }: { t: LocaleContent; changePage: (page: Page
   );
 }
 
-function SolutionsPage({ t, changePage, nextPage }: { t: typeof content.en; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
+function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.solutionsPage.kicker} title={t.solutionsPage.title} intro={t.solutionsPage.intro}>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -1134,7 +1134,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: typeof content.en; chan
   );
 }
 
-function AutomationPage({ t, changePage, nextPage }: { t: typeof content.en; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
+function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
@@ -1170,7 +1170,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: typeof content.en; cha
   );
 }
 
-function IndustriesPage({ t, changePage, nextPage }: { t: typeof content.en; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
+function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.industriesPage.kicker} title={t.industriesPage.title} intro={t.industriesPage.intro}>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
@@ -1184,7 +1184,7 @@ function IndustriesPage({ t, changePage, nextPage }: { t: typeof content.en; cha
   );
 }
 
-function CasesPage({ t, changePage, nextPage }: { t: typeof content.en; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
+function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.casesPage.kicker} title={t.casesPage.title} intro={t.casesPage.intro}>
       <div className="grid gap-6 lg:grid-cols-3">
@@ -1206,7 +1206,7 @@ function CasesPage({ t, changePage, nextPage }: { t: typeof content.en; changePa
   );
 }
 
-function CallPage({ t, changePage }: { t: typeof content.en; changePage: (page: PageKey) => void }) {
+function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => void }) {
   return (
     <PageShell kicker={t.callPage.kicker} title={t.callPage.title} intro={t.callPage.intro}>
       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/12 via-violet-500/8 to-white/[0.04] shadow-2xl">
@@ -1348,7 +1348,7 @@ function CompactCard({
   );
 }
 
-function PageFooterNav({ t, changePage, nextPage }: { t: typeof content.en; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
+function PageFooterNav({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <div className="mt-10 flex flex-col gap-4 border-t border-white/8 pt-8 sm:flex-row sm:items-center sm:justify-between">
       <button onClick={() => changePage("home")} className="inline-flex items-center gap-2 text-sm text-white/68 transition hover:text-white">
