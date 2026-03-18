@@ -1152,7 +1152,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
             <p className="text-sm text-white/48">{t.automationPage.processTitle}</p>
             <h3 className="mt-2 text-2xl font-semibold">{t.automationPage.processSubtitle}</h3>
             <div className="mt-8 space-y-4">
-              {t.automationPage.process.map((item) => (
+              {t.automationPage.process.map((item: any) => (
                 <div key={item.step} className="flex gap-4 border-t border-white/8 pt-4 first:border-t-0 first:pt-0">
                   <div className="text-sm font-semibold tracking-[0.18em] text-fuchsia-200/80">{item.step}</div>
                   <div>
