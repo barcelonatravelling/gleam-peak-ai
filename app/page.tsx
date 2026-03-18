@@ -1085,7 +1085,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
 
-          {t.home.industries.map((item) => {
+          {t.home.industries.map((item: any) => {
 
             const Icon = iconMap[item.icon as IconKey] ?? Building2;
 
