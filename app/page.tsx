@@ -973,7 +973,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
               <div className="grid gap-4">
 
-                {t.home.orchestration.cards.map((card) => {
+                {t.home.orchestration.cards.map((card: any) => {
 
                   const Icon = iconMap[card.icon as IconKey] ?? Sparkles;
 
