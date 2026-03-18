@@ -1140,7 +1140,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
-          {t.automationPage.items.map((item) => (
+          {t.automationPage.items.map((item: any) => (
             <div key={item} className="rounded-2xl border border-white/8 bg-[#0d0618] px-5 py-4 text-white/84">
               {item}
             </div>
