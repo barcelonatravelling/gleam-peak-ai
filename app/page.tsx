@@ -712,12 +712,12 @@ type LocaleContent = {
     sendRequest: string;
     trustedTitle: string;
     trustedHeadline: string;
-    trustedItems: string[];
-    trustBlocks: {
-      title: string;
-      text: string;
-      icon: string;
-    }[];
+    trustedItems: readonly string[];
+    trustBlocks: readonly {
+  title: string;
+  text: string;
+  icon: string;
+}[];
     form: {
       name: string;
       company: string;
