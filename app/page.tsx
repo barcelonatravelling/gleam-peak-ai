@@ -1208,15 +1208,20 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
 
 function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => void }) {
   return (
-    <PageShell kicker={t.callPage.kicker} title={t.callPage.title} intro={t.callPage.intro}>
+    <PageShell
+      kicker={t.callPage.kicker}
+      title={t.callPage.title}
+      intro={t.callPage.intro}
+    >
       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/12 via-violet-500/8 to-white/[0.04] shadow-2xl">
         <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="border-b border-white/8 p-8 lg:border-b-0 lg:border-r lg:p-10">
             <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.08]">
               <Sparkles className="h-6 w-6 text-fuchsia-200" />
             </div>
+
             <div className="space-y-4 text-sm text-white/62">
-              {t.callPage.bullets.map((item) => (
+              {t.callPage.bullets.map((item: string) => (
                 <div key={item}>• {item}</div>
               ))}
             </div>
@@ -1225,20 +1230,44 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
           <div className="p-8 lg:p-10">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm text-white/56">{t.common.form.name}</label>
-                <input className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none" placeholder={t.common.form.name} />
+                <label className="mb-2 block text-sm text-white/56">
+                  {t.common.form.name}
+                </label>
+                <input
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  placeholder={t.common.form.name}
+                />
               </div>
+
               <div>
-                <label className="mb-2 block text-sm text-white/56">{t.common.form.company}</label>
-                <input className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none" placeholder={t.common.form.company} />
+                <label className="mb-2 block text-sm text-white/56">
+                  {t.common.form.company}
+                </label>
+                <input
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  placeholder={t.common.form.company}
+                />
               </div>
+
               <div className="sm:col-span-2">
-                <label className="mb-2 block text-sm text-white/56">{t.common.form.email}</label>
-                <input className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none" placeholder={t.common.form.email} />
+                <label className="mb-2 block text-sm text-white/56">
+                  {t.common.form.email}
+                </label>
+                <input
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  placeholder={t.common.form.email}
+                />
               </div>
+
               <div className="sm:col-span-2">
-                <label className="mb-2 block text-sm text-white/56">{t.common.form.message}</label>
-                <textarea rows={5} className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none" placeholder={t.common.form.message} />
+                <label className="mb-2 block text-sm text-white/56">
+                  {t.common.form.message}
+                </label>
+                <textarea
+                  rows={5}
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  placeholder={t.common.form.message}
+                />
               </div>
             </div>
 
@@ -1251,7 +1280,10 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
       </div>
 
       <div className="mt-8 flex justify-start">
-        <button onClick={() => changePage("home")} className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+        <button
+          onClick={() => changePage("home")}
+          className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white"
+        >
           <ChevronRight className="h-4 w-4 rotate-180" />
           {t.common.backHome}
         </button>
