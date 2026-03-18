@@ -1054,7 +1054,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
 
-          {t.home.solutions.map((item) => {
+          {t.home.solutions.map((item: any) => {
 
             const Icon = iconMap[item.icon as IconKey] ?? Sparkles;
 
