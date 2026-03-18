@@ -1175,7 +1175,7 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
   return (
     <PageShell kicker={t.industriesPage.kicker} title={t.industriesPage.title} intro={t.industriesPage.intro}>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        {t.industriesPage.cards.map((industry) => {
+        {t.industriesPage.cards.map((industry: any) => {
           const Icon = iconMap[industry.icon as IconKey] ?? Building2;
           return <CompactCard key={industry.title} icon={Icon} title={industry.title} text={industry.text} />;
         })}
