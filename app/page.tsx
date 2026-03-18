@@ -1189,7 +1189,7 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
   return (
     <PageShell kicker={t.casesPage.kicker} title={t.casesPage.title} intro={t.casesPage.intro}>
       <div className="grid gap-6 lg:grid-cols-3">
-        {t.casesPage.cards.map((item) => (
+        {t.casesPage.cards.map((item: any) => (
           <div key={item.title} className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-7">
             <div className="flex items-center justify-between gap-4">
               <Bot className="h-5 w-5 text-fuchsia-200" />
