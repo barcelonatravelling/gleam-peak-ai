@@ -1112,7 +1112,8 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
   return (
     <PageShell kicker={t.solutionsPage.kicker} title={t.solutionsPage.title} intro={t.solutionsPage.intro}>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {t.solutionsPage.cards.map((card) => {
+        {t.solutionsPage.cards.map((card: any) => {
+          
           const Icon = iconMap[card.icon as IconKey] ?? BrainCircuit;
           return <FeatureCard key={card.title} icon={Icon} title={card.title} text={card.text} button={t.common.discuss} onClick={() => changePage("call")} />;
         })}
