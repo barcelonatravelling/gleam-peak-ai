@@ -1028,7 +1028,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
 
-          {t.home.impact.items.map((item) => (
+          {t.home.impact.items.map((item: any) => (
 
             <div
               key={item}
