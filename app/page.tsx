@@ -1,5 +1,5 @@
 "use client";
-
+import AssistantChat from "../components/AssistantChat";
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -858,6 +858,7 @@ export default function GleamPeakWebsite() {
           </div>
         </div>
       </footer>
+      <AssistantChat bookingUrl="#" />
     </div>
   );
 }
