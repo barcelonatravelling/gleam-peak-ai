@@ -858,7 +858,7 @@ export default function GleamPeakWebsite() {
           </div>
         </div>
       </footer>
-      <AssistantChat bookingUrl="#" />
+      <AssistantChat bookingUrl={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} />
     </div>
   );
 }

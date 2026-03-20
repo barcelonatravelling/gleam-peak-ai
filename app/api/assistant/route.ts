@@ -66,21 +66,10 @@ RULES:
 `;
 
 function extractOutputText(data: any): string {
-  if (typeof data?.output_text === "string" && data.output_text.trim()) {
-    return data.output_text.trim();
-  }
-
-  const output = Array.isArray(data?.output) ? data.output : [];
-  for (const item of output) {
-    const content = Array.isArray(item?.content) ? item.content : [];
-    for (const part of content) {
-      if (part?.type === "output_text" && typeof part?.text === "string") {
-        return part.text.trim();
-      }
-    }
-  }
-
-  return "I’m sorry, I couldn’t generate a response right now.";
+  return (
+    data?.choices?.[0]?.message?.content?.trim() ||
+    "Lo siento, no pude generar una respuesta ahora mismo."
+  );
 }
 
 export async function POST(req: Request) {
@@ -278,22 +267,24 @@ RULES:
     }
 
     const trimmedMessages = messages.slice(-12).map((m) => ({
-      role: m.role,
-      content: [{ type: "input_text", text: m.content }],
-    }));
+  role: m.role,
+  content: m.content,
+}));
 
-    const response = await fetch("https://api.openai.com/v1/responses", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
-      body: JSON.stringify({
-        model,
-        instructions: SYSTEM_PROMPT,
-        input: trimmedMessages,
-        temperature: 0.7,
-      }),
+     body: JSON.stringify({
+  model,
+  messages: [
+    { role: "system", content: SYSTEM_PROMPT },
+    ...trimmedMessages,
+  ],
+  temperature: 0.7,
+}),
     });
 
     const data = await response.json();
