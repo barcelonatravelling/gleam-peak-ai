@@ -15,7 +15,7 @@ type AssistantChatProps = {
 const WELCOME_MESSAGE: ChatMessage = {
   role: "assistant",
   content:
-    "Hola, soy el asistente de Gleam Peak AI. Puedo ayudarte a identificar cómo la inteligencia artificial puede mejorar tu negocio, automatizar procesos y detectar oportunidades de alto impacto. También puedo responder en English. Cuéntame brevemente a qué te dedicas y qué te gustaría optimizar.",
+    "Hola, soy el asistente estratégico de Gleam Peak AI. Puedo ayudarte a detectar dónde la inteligencia artificial puede aumentar eficiencia, automatizar operaciones y desbloquear oportunidades de crecimiento en tu empresa. Cuéntame brevemente a qué te dedicas y qué te gustaría mejorar.",
 };
 
 export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
@@ -105,6 +105,36 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   const bookingHref =
     bookingUrl && bookingUrl !== "#" ? bookingUrl : "mailto:info@gleampeak.ai";
 
+  const fullConversation = messages
+    .map((m) => m.content.toLowerCase())
+    .join(" ");
+
+  const isHotLead =
+    fullConversation.includes("automatizar") ||
+    fullConversation.includes("automatización") ||
+    fullConversation.includes("automation") ||
+    fullConversation.includes("ventas") ||
+    fullConversation.includes("sales") ||
+    fullConversation.includes("clientes") ||
+    fullConversation.includes("customers") ||
+    fullConversation.includes("leads") ||
+    fullConversation.includes("escalar") ||
+    fullConversation.includes("scale") ||
+    fullConversation.includes("crecer") ||
+    fullConversation.includes("growth") ||
+    fullConversation.includes("equipo") ||
+    fullConversation.includes("team") ||
+    fullConversation.includes("ahorrar tiempo") ||
+    fullConversation.includes("save time");
+
+  const ctaText = fullConversation.includes("ventas") || fullConversation.includes("sales")
+    ? "Ver cómo aumentar ventas con IA"
+    : fullConversation.includes("clientes") || fullConversation.includes("customers")
+    ? "Ver cómo atender más clientes con IA"
+    : fullConversation.includes("automatizar") || fullConversation.includes("automation")
+    ? "Ver qué automatizar con IA"
+    : "Ver cómo escalar mi negocio con IA";
+
   return (
     <>
       <button
@@ -154,48 +184,63 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
               </button>
             </div>
 
-            <div className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
-              {messages.map((message, index) => (
-                <div
-                  key={`${message.role}-${index}`}
-                  className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-7 ${
-                    message.role === "assistant"
-                      ? "border border-white/10 bg-white/[0.04] text-white/85"
-                      : "ml-auto bg-fuchsia-500/15 text-white"
-                  }`}
-                >
-                  {message.content}
-                </div>
-              ))}
+            <div className="flex-1 overflow-y-auto px-4 py-4">
+              <div className="space-y-4">
+                {messages.map((message, index) => (
+                  <div
+                    key={`${message.role}-${index}`}
+                    className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-7 ${
+                      message.role === "assistant"
+                        ? "border border-white/10 bg-white/[0.04] text-white/85"
+                        : "ml-auto bg-fuchsia-500/15 text-white"
+                    }`}
+                  >
+                    {message.content}
+                  </div>
+                ))}
 
-              {loading ? (
-                <div className="max-w-[88%] rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white/65">
-                  Pensando…
-                </div>
-              ) : null}
+                {loading ? (
+                  <div className="max-w-[88%] rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white/65">
+                    Pensando…
+                  </div>
+                ) : null}
 
-              {error ? (
-                <div className="rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
-                  {error}
-                </div>
-              ) : null}
+                {error ? (
+                  <div className="rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
+                    {error}
+                  </div>
+                ) : null}
 
-              <div ref={messagesEndRef} />
+                {isHotLead ? (
+                  <div className="rounded-2xl border border-fuchsia-300/10 bg-white/[0.03] px-4 py-4">
+                    <p className="text-sm leading-6 text-white/75">
+                      Esto parece un caso con potencial real para IA. Si quieres,
+                      lo vemos aplicado a tu negocio en una sesión estratégica.
+                    </p>
+
+                    <div className="mt-3 flex gap-3">
+                      <a
+                        href={bookingHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#12041e] transition hover:scale-[1.01]"
+                      >
+                        <ArrowRight className="h-4 w-4" />
+                        {ctaText}
+                      </a>
+                    </div>
+
+                    <p className="mt-2 text-xs leading-5 text-white/40">
+                      Sesión estratégica de 30 min · Sin compromiso
+                    </p>
+                  </div>
+                ) : null}
+
+                <div ref={messagesEndRef} />
+              </div>
             </div>
 
             <div className="border-t border-white/10 px-4 py-4">
-              <div className="mb-3 flex gap-3">
-                <a
-                  href={bookingHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#12041e] transition hover:scale-[1.01]"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                  Book a call
-                </a>
-              </div>
-
               <form onSubmit={onSubmit} className="flex items-end gap-3">
                 <textarea
                   ref={textareaRef}
@@ -203,7 +248,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   rows={2}
-                  placeholder="Describe tu negocio y qué te gustaría mejorar..."
+                  placeholder="Cuéntame brevemente tu negocio y qué te gustaría mejorar o automatizar..."
                   className="min-h-[52px] flex-1 resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none placeholder:text-white/30"
                 />
                 <button
