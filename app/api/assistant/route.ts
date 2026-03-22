@@ -169,6 +169,7 @@ export async function POST(req: Request) {
 
     const apiKey = process.env.OPENAI_API_KEY;
     const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
+    const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "";
 
     if (!apiKey) {
       return NextResponse.json(
@@ -178,6 +179,21 @@ export async function POST(req: Request) {
     }
 
     const trimmedMessages = messages.slice(-10);
+
+    const systemPromptWithBooking = `
+${SYSTEM_PROMPT}
+
+BOOKING LINK:
+${bookingUrl}
+
+BOOKING RULES:
+- If the user asks to book, reserve, schedule, or asks "where do I book?", include the exact booking link.
+- Do not write "[enlace de reserva]".
+- Do not say "aquí" unless you also include the real URL.
+- If the user is ready, reply briefly and include the exact link.
+- Example:
+"Perfecto. Puedes reservar aquí: ${bookingUrl}"
+`;
 
     const response = await fetch(
       "https://api.openai.com/v1/chat/completions",
@@ -190,7 +206,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           model,
           messages: [
-            { role: "system", content: SYSTEM_PROMPT },
+            { role: "system", content: systemPromptWithBooking },
             ...trimmedMessages,
           ],
           temperature: 0.45,
