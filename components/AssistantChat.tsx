@@ -27,6 +27,53 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
+  function renderMessageContent(content: string) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = content.split(urlRegex);
+
+  function renderMessageContent(content: string) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = content.split(urlRegex);
+
+  return parts.map((part, index) => {
+    const isUrl = /^https?:\/\/[^\s]+$/.test(part);
+
+    if (isUrl) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noreferrer"
+          className="underline break-all text-white"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
+
+  return parts.map((part, index) => {
+    if (urlRegex.test(part)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noreferrer"
+          className="underline break-all text-white"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
   const canSend = useMemo(() => {
     return input.trim().length > 0 && !loading;
   }, [input, loading]);
@@ -125,18 +172,18 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
             </div>
 
             <div className="max-h-[400px] space-y-3 overflow-y-auto pr-1">
-              {messages.map((message, index) => (
-                <div
-                  key={`${message.role}-${index}`}
-                  className={
-                    message.role === "user"
-                      ? "ml-auto max-w-[85%] rounded-2xl bg-fuchsia-500/20 px-4 py-3 text-right"
-                      : "max-w-[85%] rounded-2xl bg-white/10 px-4 py-3"
-                  }
-                >
-                  {message.content}
-                </div>
-              ))}
+             {messages.map((message, index) => (
+  <div
+    key={`${message.role}-${index}`}
+    className={
+      message.role === "user"
+        ? "ml-auto max-w-[85%] rounded-2xl bg-fuchsia-500/20 px-4 py-3 text-right"
+        : "max-w-[85%] rounded-2xl bg-white/10 px-4 py-3"
+    }
+  >
+    {renderMessageContent(message.content)}
+  </div>
+))}
 
               {loading && (
                 <div className="max-w-[85%] rounded-2xl bg-white/10 px-4 py-3 text-white/70">
