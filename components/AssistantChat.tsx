@@ -14,22 +14,12 @@ type AssistantChatProps = {
 
 const WELCOME_MESSAGE: ChatMessage = {
   role: "assistant",
-  content: "Hola 👋 ¿Qué área de tu empresa te gustaría optimizar o escalar ahora mismo?",
+  content:
+    "Hola 👋 ¿Qué área de tu empresa te gustaría optimizar o escalar ahora mismo?",
 };
 
 export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   const [open, setOpen] = useState(false);
-  useEffect(() => {
-  function handleOpen() {
-    setOpen(true);
-  }
-
-  window.addEventListener("open-assistant", handleOpen);
-
-  return () => {
-    window.removeEventListener("open-assistant", handleOpen);
-  };
-}, []);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
@@ -38,53 +28,42 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  function renderMessageContent(content: string) {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = content.split(urlRegex);
-
-  function renderMessageContent(content: string) {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = content.split(urlRegex);
-
-  return parts.map((part, index) => {
-    const isUrl = /^https?:\/\/[^\s]+$/.test(part);
-
-    if (isUrl) {
-      return (
-        <a
-          key={index}
-          href={part}
-          target="_blank"
-          rel="noreferrer"
-          className="underline break-all text-white"
-        >
-          {part}
-        </a>
-      );
+  useEffect(() => {
+    function handleOpen() {
+      setOpen(true);
     }
 
-    return <span key={index}>{part}</span>;
-  });
-}
+    window.addEventListener("open-assistant", handleOpen);
 
-  return parts.map((part, index) => {
-    if (urlRegex.test(part)) {
-      return (
-        <a
-          key={index}
-          href={part}
-          target="_blank"
-          rel="noreferrer"
-          className="underline break-all text-white"
-        >
-          {part}
-        </a>
-      );
-    }
+    return () => {
+      window.removeEventListener("open-assistant", handleOpen);
+    };
+  }, []);
 
-    return <span key={index}>{part}</span>;
-  });
-}
+  function renderMessageContent(content: string) {
+    const parts = content.split(/(https?:\/\/[^\s]+)/g);
+
+    return parts.map((part, index) => {
+      const isUrl = /^https?:\/\/[^\s]+$/.test(part);
+
+      if (isUrl) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noreferrer"
+            className="underline break-all text-white"
+          >
+            {part}
+          </a>
+        );
+      }
+
+      return <span key={index}>{part}</span>;
+    });
+  }
+
   const canSend = useMemo(() => {
     return input.trim().length > 0 && !loading;
   }, [input, loading]);
@@ -159,15 +138,6 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-[9999] inline-flex items-center gap-3 rounded-full bg-[#11061d] px-5 py-3 text-white shadow-lg"
-        aria-label="Abrir asistente IA"
-      >
-        <Bot className="h-4 w-4" />
-        AI Assistant
-      </button>
-
       {open && (
         <div className="fixed inset-0 z-[9999] bg-black/40 backdrop-blur-sm">
           <div className="absolute bottom-24 right-6 w-[400px] max-w-[calc(100vw-24px)] rounded-2xl bg-[#0a0614] p-4 text-white shadow-2xl">
@@ -183,18 +153,18 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
             </div>
 
             <div className="max-h-[400px] space-y-3 overflow-y-auto pr-1">
-             {messages.map((message, index) => (
-  <div
-    key={`${message.role}-${index}`}
-    className={
-      message.role === "user"
-        ? "ml-auto max-w-[85%] rounded-2xl bg-fuchsia-500/20 px-4 py-3 text-right"
-        : "max-w-[85%] rounded-2xl bg-white/10 px-4 py-3"
-    }
-  >
-    {renderMessageContent(message.content)}
-  </div>
-))}
+              {messages.map((message, index) => (
+                <div
+                  key={`${message.role}-${index}`}
+                  className={
+                    message.role === "user"
+                      ? "ml-auto max-w-[85%] rounded-2xl bg-fuchsia-500/20 px-4 py-3 text-right"
+                      : "max-w-[85%] rounded-2xl bg-white/10 px-4 py-3"
+                  }
+                >
+                  {renderMessageContent(message.content)}
+                </div>
+              ))}
 
               {loading && (
                 <div className="max-w-[85%] rounded-2xl bg-white/10 px-4 py-3 text-white/70">
@@ -218,7 +188,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 rows={2}
-                placeholder="Qué área de tu empresa quieres optimizar o escalar..."
+                placeholder="¿Qué área de tu empresa quieres optimizar o escalar?"
                 className="min-h-[52px] flex-1 resize-none rounded-xl bg-white/10 p-3 text-white placeholder:text-white/40 outline-none"
               />
               <button
