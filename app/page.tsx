@@ -1268,7 +1268,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                 <textarea
                   rows={5}
                   className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
-                  placeholder={t.common.form.message}
+                  placeholder="ZZZ PRUEBA NUEVA PLACEHOLDER"
                 />
               </div>
             </div>
