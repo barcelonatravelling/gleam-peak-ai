@@ -207,7 +207,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 rows={2}
-                placeholder="BBB CHAT 777."
+                placeholder="Qué área de tu empresa quieres optimizar o escalar"
                 className="min-h-[52px] flex-1 resize-none rounded-xl bg-white/10 p-3 text-white placeholder:text-white/40 outline-none"
               />
               <button
