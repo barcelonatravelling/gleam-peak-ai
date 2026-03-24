@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import FloatingButton from "@/components/FloatingButton";
 import {
   ArrowRight,
   Bot,
@@ -815,6 +816,7 @@ export default function GleamPeakWebsite() {
             <button onClick={() => setMenuOpen((prev) => !prev)} className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/5 p-2.5 text-white transition hover:bg-white/10 md:hidden" aria-label="Open menu">
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
+            
           </div>
         </div>
       </header>
@@ -844,6 +846,8 @@ export default function GleamPeakWebsite() {
             {page === "call" && <CallPage t={t} changePage={changePage} />}
           </motion.div>
         </AnimatePresence>
+        <FloatingButton />
+        
       </main>
 
       <footer className="border-t border-white/8 bg-[#080210]">
@@ -858,6 +862,7 @@ export default function GleamPeakWebsite() {
           </div>
         </div>
       </footer>
+      <FloatingButton />
       <AssistantChat bookingUrl={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} />
     </div>
   );
