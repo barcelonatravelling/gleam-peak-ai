@@ -1,3 +1,4 @@
+
 "use client";
 import AssistantChat from "../components/AssistantChat";
 import type { ReactNode } from "react";
@@ -823,7 +824,7 @@ export default function GleamPeakWebsite() {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div initial={{ opacity: 0, y: -18, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -14, scale: 0.985 }} transition={{ duration: 0.24, ease: "easeOut" }} className="fixed inset-0 z-50 overflow-y-auto bg-[rgba(7,1,20,0.94)] px-5 pb-6 pt-24 backdrop-blur-2xl md:hidden">
+          <motion.div initial={{ opacity: 0, y: -18, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -14, scale: 0.985 }} transition={{ duration: 0.24, ease: "easeOut" }} className="fixed inset-0 z-[9999] overflow-y-auto bg-[rgba(7,1,20,0.94)] px-5 pb-6 pt-24 backdrop-blur-2xl md:hidden">
             <div className="mx-auto flex max-w-7xl flex-col gap-3">
               {navItems.map((item) => (
                 <button key={item.key} onClick={() => changePage(item.key)} className={`rounded-[22px] border px-4 py-4 text-left text-[15px] font-medium tracking-[-0.01em] transition duration-300 ${page === item.key ? "border-fuchsia-400/30 bg-white/10 text-white shadow-[0_8px_30px_rgba(120,40,180,0.12)]" : "border-white/8 bg-white/5 text-white/78 hover:bg-white/10 hover:text-white"}`}>

@@ -20,6 +20,17 @@ const WELCOME_MESSAGE: ChatMessage = {
 
 export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+  function handleOpen() {
+    setOpen(true);
+  }
+
+  window.addEventListener("open-assistant", handleOpen);
+
+  return () => {
+    window.removeEventListener("open-assistant", handleOpen);
+  };
+}, []);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
