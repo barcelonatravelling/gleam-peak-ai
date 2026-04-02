@@ -32,12 +32,21 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   };
 }, []);
   const [input, setInput] = useState("");
+  const [hasTyped, setHasTyped] = useState(false);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
   const [error, setError] = useState("");
+  const [hasStarted, setHasStarted] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  function autoResizeTextarea() {
+  if (!textareaRef.current) return;
+
+  textareaRef.current.style.height = "0px";
+  textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+}
 
   useEffect(() => {
     function handleOpen() {
@@ -86,6 +95,10 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   }, [messages, open, loading]);
 
   useEffect(() => {
+  autoResizeTextarea();
+}, [input]);
+
+  useEffect(() => {
     if (!open) return;
 
     const timeout = window.setTimeout(() => {
@@ -106,6 +119,9 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
 
     setMessages(nextMessages);
     setInput("");
+    requestAnimationFrame(() => {
+  autoResizeTextarea();
+});
     setLoading(true);
     setError("");
 
@@ -155,7 +171,11 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
             <div className="mb-4 flex items-center justify-between">
               <div className="font-medium">Gleam Peak AI</div>
               <button
-                onClick={() => setOpen(false)}
+                onClick={() => {
+  setOpen(false);
+  setInput("");
+  setHasTyped(false);
+}}
                 aria-label="Cerrar asistente"
                 className="rounded-full p-1 text-white/80 hover:bg-white/10 hover:text-white"
               >
@@ -178,10 +198,10 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
               ))}
 
               {loading && (
-                <div className="max-w-[85%] rounded-2xl bg-white/10 px-4 py-3 text-white/70">
-                  Pensando…
-                </div>
-              )}
+  <div className="max-w-[85%] rounded-2xl bg-white/10 px-4 py-3 text-white/70 animate-pulse">
+    Pensando...
+  </div>
+)}
 
               {error && (
                 <div className="rounded-2xl bg-red-500/20 px-4 py-3 text-red-100">
@@ -196,11 +216,17 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
               <textarea
                 ref={textareaRef}
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e) => {
+  setInput(e.target.value);
+  if (!hasTyped) setHasTyped(true);
+}}
                 onKeyDown={handleKeyDown}
-                rows={2}
-                placeholder="¿Qué área de tu empresa quieres optimizar o escalar?"
-                className="min-h-[52px] flex-1 resize-none rounded-xl bg-white/10 p-3 text-white placeholder:text-white/40 outline-none"
+                rows={1}
+                
+              placeholder={
+  hasTyped ? "" : "¿Qué área de tu empresa quieres optimizar o escalar?"
+}
+               className="min-h-[52px] max-h-[140px] flex-1 resize-none overflow-y-auto rounded-xl bg-white/10 p-3 text-white placeholder:text-white/40 outline-none"
               />
               <button
                 type="submit"
