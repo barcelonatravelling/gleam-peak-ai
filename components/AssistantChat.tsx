@@ -15,7 +15,7 @@ type AssistantChatProps = {
 const WELCOME_MESSAGE: ChatMessage = {
   role: "assistant",
   content:
-    "Hola 👋 ¿Qué área de tu empresa te gustaría optimizar o escalar ahora mismo?",
+    "Hola 👋 ¿A qué se dedica tu empresa?",
 };
 
 export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
