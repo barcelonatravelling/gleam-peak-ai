@@ -16,7 +16,7 @@ type AssistantChatProps = {
 const translations = {
   es: {
     welcome: "Hola 👋 ¿A qué se dedica tu empresa?",
-    placeholder: "¿Qué área de tu empresa quieres optimizar?",
+    placeholder: "Escribe tu mensaje...",
     thinking: "Pensando...",
     error: "El asistente no pudo responder.",
     bookNow: "Reservar llamada ahora",
@@ -24,7 +24,7 @@ const translations = {
   },
   en: {
     welcome: "Hi 👋 What does your company do?",
-    placeholder: "Which area of your business do you want to optimize?",
+    placeholder: "Write your message...",
     thinking: "Thinking...",
     error: "The assistant could not respond.",
     bookNow: "Book a call now",
@@ -32,8 +32,12 @@ const translations = {
   },
 } as const;
 
-export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) {
+export default function AssistantChat({
+  bookingUrl,
+  lang,
+}: AssistantChatProps) {
   const t = translations[lang];
+
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [hasTyped, setHasTyped] = useState(false);
@@ -43,13 +47,6 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
   ]);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (messages.length === 1 && messages[0].role === "assistant") {
-      setMessages([{ role: "assistant", content: t.welcome }]);
-    }
-  }, [lang]);
-
-  // 🔥 Lead logic
   const [hotLead, setHotLead] = useState(false);
   const [ctaPulse, setCtaPulse] = useState(false);
   const [leadStage, setLeadStage] = useState<"cold" | "warm" | "hot">("cold");
@@ -57,9 +54,15 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  // ----------------------------
-  // OPEN EVENT
-  // ----------------------------
+  useEffect(() => {
+    setMessages((prev) => {
+      if (prev.length === 1 && prev[0].role === "assistant") {
+        return [{ role: "assistant", content: t.welcome }];
+      }
+      return prev;
+    });
+  }, [lang, t.welcome]);
+
   useEffect(() => {
     function handleOpen() {
       setOpen(true);
@@ -69,18 +72,12 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
     return () => window.removeEventListener("open-assistant", handleOpen);
   }, []);
 
-  // ----------------------------
-  // AUTO SCROLL
-  // ----------------------------
   useEffect(() => {
     if (open) {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, open, loading]);
 
-  // ----------------------------
-  // AUTO RESIZE TEXTAREA
-  // ----------------------------
   function autoResizeTextarea() {
     if (!textareaRef.current) return;
 
@@ -92,9 +89,6 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
     autoResizeTextarea();
   }, [input]);
 
-  // ----------------------------
-  // FOCUS INPUT
-  // ----------------------------
   useEffect(() => {
     if (!open) return;
 
@@ -105,9 +99,6 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
     return () => clearTimeout(timeout);
   }, [open]);
 
-  // ----------------------------
-  // CTA PULSE (solo 3s)
-  // ----------------------------
   useEffect(() => {
     if (!hotLead) return;
 
@@ -117,9 +108,6 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
     return () => clearTimeout(timeout);
   }, [hotLead]);
 
-  // ----------------------------
-  // LEAD DETECTION
-  // ----------------------------
   function detectHotLead(text: string) {
     const normalized = text.toLowerCase();
 
@@ -170,45 +158,35 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
       normalized.includes("encaja con lo que") ||
       normalized.includes("verlo aplicado") ||
       normalized.includes("makes sense to see") ||
+      normalized.includes("aligns closely with what we optimize") ||
       normalized.includes("fits with what") ||
       normalized.includes("see it applied")
     );
   }
 
-  // ----------------------------
-  // LEAD LOGGING (interno)
-  // ----------------------------
   useEffect(() => {
     if (leadStage === "cold") return;
     console.log("[Lead Stage]:", leadStage);
   }, [leadStage]);
 
-  // ----------------------------
-  // CTA VISIBILITY
-  // ----------------------------
   const shouldShowBookingButton = useMemo(() => {
-    if (hotLead) return true;
-    if (messages.length >= 4) return true;
-    return false;
-  }, [hotLead, messages]);
+    return hotLead;
+  }, [hotLead]);
 
-  // ----------------------------
-  // SEND MESSAGE
-  // ----------------------------
   async function sendMessage() {
     const text = input.trim();
     if (!text || loading) return;
 
     const nextMessages: ChatMessage[] = [
-  ...messages,
-  { role: "user", content: text },
-];
+      ...messages,
+      { role: "user", content: text },
+    ];
+
     setMessages(nextMessages);
     setInput("");
     setLoading(true);
     setError("");
 
-    // detectar lead usuario
     const stage = detectLeadStage(text);
 
     if (stage === "warm") {
@@ -229,12 +207,15 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
 
       const data = await res.json();
 
+      if (!res.ok) {
+        throw new Error(data?.error || "Assistant request failed.");
+      }
+
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: data.reply },
       ]);
 
-      // detectar lead assistant
       if (shouldAssistantTriggerCTA(data.reply)) {
         setLeadStage("hot");
         setHotLead(true);
@@ -246,9 +227,6 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
     }
   }
 
-  // ----------------------------
-  // RESET
-  // ----------------------------
   function resetAssistant() {
     setOpen(false);
     setInput("");
@@ -261,48 +239,50 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
     setLeadStage("cold");
   }
 
-  // ----------------------------
-  // RENDER
-  // ----------------------------
   return (
     <>
       {open && (
         <div className="fixed inset-0 z-[9999] bg-black/40 backdrop-blur-sm">
           <div className="absolute bottom-24 right-6 w-[400px] rounded-2xl bg-[#0a0614] p-4 text-white shadow-2xl">
-            
-            {/* HEADER */}
             <div className="mb-4 flex justify-between">
               <div>Gleam Peak AI</div>
-              <button onClick={resetAssistant}>
+              <button onClick={resetAssistant} aria-label="Close assistant">
                 <X className="h-4 w-4" />
               </button>
             </div>
 
-            {/* MESSAGES */}
             <div className="max-h-[400px] space-y-3 overflow-y-auto pr-1">
               {messages.map((m, i) => (
                 <div
                   key={i}
                   className={
                     m.role === "user"
-                      ? "ml-auto bg-fuchsia-500/20 px-4 py-3 rounded-2xl text-right"
-                      : "bg-white/10 px-4 py-3 rounded-2xl"
+                      ? "ml-auto rounded-2xl bg-fuchsia-500/20 px-4 py-3 text-right"
+                      : "rounded-2xl bg-white/10 px-4 py-3"
                   }
                 >
-                  {m.content.split("\n").map((line, i) => (
-                    <span key={i}>
+                  {m.content.split("\n").map((line, lineIndex, arr) => (
+                    <span key={lineIndex}>
                       {line}
-                      <br />
+                      {lineIndex < arr.length - 1 && <br />}
                     </span>
                   ))}
                 </div>
               ))}
 
-              {loading && <div className="text-white/60">{t.thinking}</div>}
+              {loading && (
+                <div className="text-white/60">{t.thinking}</div>
+              )}
+
+              {error && (
+                <div className="rounded-2xl bg-red-500/20 px-4 py-3 text-red-100">
+                  {error}
+                </div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
 
-            {/* INPUT */}
             <div className="mt-4 flex gap-2">
               <textarea
                 ref={textareaRef}
@@ -314,26 +294,32 @@ export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) 
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
-                    sendMessage();
+                    void sendMessage();
                   }
                 }}
-                className="flex-1 rounded-xl bg-white/10 p-3"
+                className="flex-1 rounded-xl bg-white/10 p-3 text-white outline-none placeholder:text-white/50"
                 placeholder={hasTyped ? "" : t.placeholder}
+                rows={1}
               />
-              <button onClick={sendMessage}>
-                <Send />
+              <button
+                onClick={() => void sendMessage()}
+                aria-label="Send message"
+                className="rounded-xl bg-white px-3 py-3 text-black"
+              >
+                <Send className="h-4 w-4" />
               </button>
             </div>
 
-            {/* CTA */}
             {shouldShowBookingButton && (
               <a
                 href={bookingUrl}
                 target="_blank"
-                className={`mt-4 block text-center px-4 py-3 rounded-xl bg-white text-black transition-all duration-500
-                ${ctaPulse ? "opacity-0 translate-y-3 animate-[fadeInUp_0.6s_ease-out_forwards]" : ""}
-                ${hotLead ? "shadow-lg ring-1 ring-white/20 font-semibold" : ""}
-                `}
+                rel="noreferrer"
+                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-black transition-all duration-500 ${
+                  ctaPulse
+                    ? "opacity-0 translate-y-3 animate-[fadeInUp_0.6s_ease-out_forwards]"
+                    : ""
+                } ${hotLead ? "font-semibold shadow-lg ring-1 ring-white/20" : ""}`}
               >
                 {hotLead ? t.bookNow : t.bookStrategic}
               </a>
