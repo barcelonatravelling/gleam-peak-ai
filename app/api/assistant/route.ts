@@ -219,7 +219,7 @@ Close when any of these are true:
 -----
 
 FAST CLOSE:
-
+s
 If the process is manual or inefficient:
 → Stop diagnosing
 → Move directly to closing
@@ -376,8 +376,9 @@ function extractOutputText(data: any): string {
 export async function POST(req: Request) {
 
   try {
-    const { messages } = (await req.json()) as {
+    const { messages, lang } = (await req.json()) as {
       messages?: ChatMessage[];
+      lang?: "en" | "es";
     };
 
     if (!Array.isArray(messages) || messages.length === 0) {
@@ -387,6 +388,7 @@ export async function POST(req: Request) {
       );
     }
     
+    const siteLang = lang === "en" ? "en" : "es";
 
     const apiKey = process.env.OPENAI_API_KEY;
     const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
@@ -406,6 +408,13 @@ ${SYSTEM_PROMPT}
 
 BOOKING LINK:
 ${bookingUrl}
+
+SITE LANGUAGE:
+${siteLang}
+
+LANGUAGE RULES:
+- Reply in the user's language.
+- If the user's input is not clearly English or Spanish, reply in ${siteLang === "en" ? "English" : "Spanish"}.
 
 BOOKING RULES:
 - If the user asks to book, reserve, schedule, or asks "where do I book?", include the exact booking link.

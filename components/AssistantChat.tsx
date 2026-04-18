@@ -10,20 +10,44 @@ type ChatMessage = {
 
 type AssistantChatProps = {
   bookingUrl: string;
+  lang: "en" | "es";
 };
 
-const WELCOME_MESSAGE: ChatMessage = {
-  role: "assistant",
-  content: "Hola 👋 ¿A qué se dedica tu empresa?",
-};
+const translations = {
+  es: {
+    welcome: "Hola 👋 ¿A qué se dedica tu empresa?",
+    placeholder: "¿Qué área de tu empresa quieres optimizar?",
+    thinking: "Pensando...",
+    error: "El asistente no pudo responder.",
+    bookNow: "Reservar llamada ahora",
+    bookStrategic: "Reservar llamada estratégica",
+  },
+  en: {
+    welcome: "Hi 👋 What does your company do?",
+    placeholder: "Which area of your business do you want to optimize?",
+    thinking: "Thinking...",
+    error: "The assistant could not respond.",
+    bookNow: "Book a call now",
+    bookStrategic: "Book a strategic call",
+  },
+} as const;
 
-export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
+export default function AssistantChat({ bookingUrl, lang }: AssistantChatProps) {
+  const t = translations[lang];
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [hasTyped, setHasTyped] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    { role: "assistant", content: t.welcome },
+  ]);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (messages.length === 1 && messages[0].role === "assistant") {
+      setMessages([{ role: "assistant", content: t.welcome }]);
+    }
+  }, [lang]);
 
   // 🔥 Lead logic
   const [hotLead, setHotLead] = useState(false);
@@ -97,27 +121,38 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   // LEAD DETECTION
   // ----------------------------
   function detectHotLead(text: string) {
-    const t = text.toLowerCase();
+    const normalized = text.toLowerCase();
 
     return (
-      t.includes("me interesa") ||
-      t.includes("quiero") ||
-      t.includes("cómo lo haríamos") ||
-      t.includes("como lo hariamos") ||
-      t.includes("reservar") ||
-      t.includes("agendar")
+      normalized.includes("me interesa") ||
+      normalized.includes("quiero") ||
+      normalized.includes("cómo lo haríamos") ||
+      normalized.includes("como lo hariamos") ||
+      normalized.includes("reservar") ||
+      normalized.includes("agendar") ||
+      normalized.includes("interested") ||
+      normalized.includes("i want") ||
+      normalized.includes("how would we") ||
+      normalized.includes("book") ||
+      normalized.includes("reserve") ||
+      normalized.includes("schedule")
     );
   }
 
   function detectWarmLead(text: string) {
-    const t = text.toLowerCase();
+    const normalized = text.toLowerCase();
 
     return (
-      t.includes("quiero mejorar") ||
-      t.includes("no sé") ||
-      t.includes("no se") ||
-      t.includes("me gustaría") ||
-      t.includes("me gustaria")
+      normalized.includes("quiero mejorar") ||
+      normalized.includes("no sé") ||
+      normalized.includes("no se") ||
+      normalized.includes("me gustaría") ||
+      normalized.includes("me gustaria") ||
+      normalized.includes("want to improve") ||
+      normalized.includes("i don't know") ||
+      normalized.includes("not sure") ||
+      normalized.includes("i would like") ||
+      normalized.includes("i'd like")
     );
   }
 
@@ -128,12 +163,15 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   }
 
   function shouldAssistantTriggerCTA(text: string) {
-    const t = text.toLowerCase();
+    const normalized = text.toLowerCase();
 
     return (
-      t.includes("tiene sentido verlo") ||
-      t.includes("encaja con lo que") ||
-      t.includes("verlo aplicado")
+      normalized.includes("tiene sentido verlo") ||
+      normalized.includes("encaja con lo que") ||
+      normalized.includes("verlo aplicado") ||
+      normalized.includes("makes sense to see") ||
+      normalized.includes("fits with what") ||
+      normalized.includes("see it applied")
     );
   }
 
@@ -186,7 +224,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
       const res = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: nextMessages }),
+        body: JSON.stringify({ messages: nextMessages, lang }),
       });
 
       const data = await res.json();
@@ -202,7 +240,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
         setHotLead(true);
       }
     } catch {
-      setError("El asistente no pudo responder.");
+      setError(t.error);
     } finally {
       setLoading(false);
     }
@@ -216,7 +254,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
     setInput("");
     setHasTyped(false);
     setLoading(false);
-    setMessages([WELCOME_MESSAGE]);
+    setMessages([{ role: "assistant", content: t.welcome }]);
     setError("");
     setHotLead(false);
     setCtaPulse(false);
@@ -260,7 +298,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                 </div>
               ))}
 
-              {loading && <div className="text-white/60">Pensando...</div>}
+              {loading && <div className="text-white/60">{t.thinking}</div>}
               <div ref={messagesEndRef} />
             </div>
 
@@ -280,11 +318,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                   }
                 }}
                 className="flex-1 rounded-xl bg-white/10 p-3"
-                placeholder={
-                  hasTyped
-                    ? ""
-                    : "¿Qué área de tu empresa quieres optimizar?"
-                }
+                placeholder={hasTyped ? "" : t.placeholder}
               />
               <button onClick={sendMessage}>
                 <Send />
@@ -301,9 +335,7 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                 ${hotLead ? "shadow-lg ring-1 ring-white/20 font-semibold" : ""}
                 `}
               >
-                {hotLead
-                  ? "Reservar llamada ahora"
-                  : "Reservar llamada estratégica"}
+                {hotLead ? t.bookNow : t.bookStrategic}
               </a>
             )}
           </div>

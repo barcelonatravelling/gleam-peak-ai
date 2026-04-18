@@ -741,7 +741,7 @@ const pageAnimation = {
   transition: { duration: 0.32, ease: "easeOut" as const },
 };
 export default function GleamPeakWebsite() {
-  const [lang, setLang] = useState<Locale>("en");
+  const [lang, setLang] = useState<Lang>("es");
   const [page, setPage] = useState<PageKey>("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -759,6 +759,10 @@ export default function GleamPeakWebsite() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const t = content[lang] as any;
 
@@ -847,7 +851,7 @@ export default function GleamPeakWebsite() {
             {page === "call" && <CallPage t={t} changePage={changePage} />}
           </motion.div>
         </AnimatePresence>
-        <FloatingButton />
+        <FloatingButton lang={lang} />
         
       </main>
 
@@ -863,8 +867,8 @@ export default function GleamPeakWebsite() {
           </div>
         </div>
       </footer>
-      <FloatingButton />
-      <AssistantChat bookingUrl={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} />
+      <FloatingButton lang={lang} />
+      <AssistantChat bookingUrl={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} lang={lang} />
     </div>
   );
 }
