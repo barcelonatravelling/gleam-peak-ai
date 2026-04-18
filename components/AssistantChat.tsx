@@ -161,7 +161,10 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
     const text = input.trim();
     if (!text || loading) return;
 
-    const nextMessages = [...messages, { role: "user", content: text }];
+    const nextMessages: ChatMessage[] = [
+  ...messages,
+  { role: "user", content: text },
+];
     setMessages(nextMessages);
     setInput("");
     setLoading(true);
