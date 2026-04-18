@@ -1,4 +1,4 @@
-  "use client";
+"use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Send, X } from "lucide-react";
@@ -24,25 +24,42 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
   const [error, setError] = useState("");
+
+  // 🔥 Lead logic
   const [hotLead, setHotLead] = useState(false);
   const [ctaPulse, setCtaPulse] = useState(false);
+  const [leadStage, setLeadStage] = useState<"cold" | "warm" | "hot">("cold");
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
+  // ----------------------------
+  // OPEN EVENT
+  // ----------------------------
   useEffect(() => {
     function handleOpen() {
       setOpen(true);
     }
 
     window.addEventListener("open-assistant", handleOpen);
-    return () => {
-      window.removeEventListener("open-assistant", handleOpen);
-    };
+    return () => window.removeEventListener("open-assistant", handleOpen);
   }, []);
 
+  // ----------------------------
+  // AUTO SCROLL
+  // ----------------------------
+  useEffect(() => {
+    if (open) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, open, loading]);
+
+  // ----------------------------
+  // AUTO RESIZE TEXTAREA
+  // ----------------------------
   function autoResizeTextarea() {
     if (!textareaRef.current) return;
+
     textareaRef.current.style.height = "0px";
     textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
   }
@@ -51,158 +68,146 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
     autoResizeTextarea();
   }, [input]);
 
-  useEffect(() => {
-    if (!open) return;
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, open, loading]);
-
+  // ----------------------------
+  // FOCUS INPUT
+  // ----------------------------
   useEffect(() => {
     if (!open) return;
 
-    const timeout = window.setTimeout(() => {
+    const timeout = setTimeout(() => {
       textareaRef.current?.focus();
     }, 150);
 
-    return () => window.clearTimeout(timeout);
+    return () => clearTimeout(timeout);
   }, [open]);
 
-  function renderMessageContent(content: string) {
-    return content.split("\n").map((line, index, arr) => (
-      <span key={`${line}-${index}`}>
-        {line}
-        {index < arr.length - 1 && <br />}
-      </span>
-    ));
-  }
+  // ----------------------------
+  // CTA PULSE (solo 3s)
+  // ----------------------------
+  useEffect(() => {
+    if (!hotLead) return;
 
+    setCtaPulse(true);
+    const timeout = setTimeout(() => setCtaPulse(false), 3000);
+
+    return () => clearTimeout(timeout);
+  }, [hotLead]);
+
+  // ----------------------------
+  // LEAD DETECTION
+  // ----------------------------
   function detectHotLead(text: string) {
-    const normalized = text.toLowerCase();
+    const t = text.toLowerCase();
 
     return (
-      normalized.includes("me interesa") ||
-      normalized.includes("quiero verlo") ||
-      normalized.includes("cómo lo haríamos") ||
-      normalized.includes("quiero mejorar") ||
-      normalized.includes("quiero automatizar") ||
-      normalized.includes("lo hacemos manual") ||
-      normalized.includes("tenemos todo manual") ||
-      normalized.includes("perdemos mucho tiempo") ||
-      normalized.includes("por whatsapp") ||
-      normalized.includes("por redes sociales") ||
-      normalized.includes("no sé qué mejorar") ||
-      normalized.includes("no se qué mejorar") ||
-      normalized.includes("no se que mejorar")
+      t.includes("me interesa") ||
+      t.includes("quiero") ||
+      t.includes("cómo lo haríamos") ||
+      t.includes("como lo hariamos") ||
+      t.includes("reservar") ||
+      t.includes("agendar")
     );
+  }
+
+  function detectWarmLead(text: string) {
+    const t = text.toLowerCase();
+
+    return (
+      t.includes("quiero mejorar") ||
+      t.includes("no sé") ||
+      t.includes("no se") ||
+      t.includes("me gustaría") ||
+      t.includes("me gustaria")
+    );
+  }
+
+  function detectLeadStage(text: string): "cold" | "warm" | "hot" {
+    if (detectHotLead(text)) return "hot";
+    if (detectWarmLead(text)) return "warm";
+    return "cold";
   }
 
   function shouldAssistantTriggerCTA(text: string) {
-    const normalized = text.toLowerCase();
+    const t = text.toLowerCase();
 
     return (
-      normalized.includes("verlo aplicado a tu caso") ||
-      normalized.includes("encaja bastante con lo que solemos optimizar") ||
-      normalized.includes("merece la pena verlo") ||
-      normalized.includes("puedes reservar una llamada") ||
-      normalized.includes("esto es justo donde solemos intervenir")
+      t.includes("tiene sentido verlo") ||
+      t.includes("encaja con lo que") ||
+      t.includes("verlo aplicado")
     );
   }
 
-  const canSend = useMemo(() => {
-    return input.trim().length > 0 && !loading;
-  }, [input, loading]);
+  // ----------------------------
+  // LEAD LOGGING (interno)
+  // ----------------------------
+  useEffect(() => {
+    if (leadStage === "cold") return;
+    console.log("[Lead Stage]:", leadStage);
+  }, [leadStage]);
 
+  // ----------------------------
+  // CTA VISIBILITY
+  // ----------------------------
   const shouldShowBookingButton = useMemo(() => {
     if (hotLead) return true;
-
-    return messages.some((message) => {
-      const text = message.content.toLowerCase();
-
-      if (message.role === "assistant") {
-        return shouldAssistantTriggerCTA(text);
-      }
-
-      if (message.role === "user") {
-        return detectHotLead(text);
-      }
-
-      return false;
-    });
+    if (messages.length >= 4) return true;
+    return false;
   }, [hotLead, messages]);
 
-  useEffect(() => {
-    if (!shouldShowBookingButton) return;
-
-    setCtaPulse(true);
-    const timeout = window.setTimeout(() => {
-      setCtaPulse(false);
-    }, 3000);
-
-    return () => window.clearTimeout(timeout);
-  }, [shouldShowBookingButton]);
-
+  // ----------------------------
+  // SEND MESSAGE
+  // ----------------------------
   async function sendMessage() {
     const text = input.trim();
     if (!text || loading) return;
 
-    if (detectHotLead(text)) {
-      setHotLead(true);
-    }
-
-    const nextMessages: ChatMessage[] = [
-      ...messages,
-      { role: "user", content: text },
-    ];
-
+    const nextMessages = [...messages, { role: "user", content: text }];
     setMessages(nextMessages);
     setInput("");
-    requestAnimationFrame(() => {
-      autoResizeTextarea();
-    });
     setLoading(true);
     setError("");
+
+    // detectar lead usuario
+    const stage = detectLeadStage(text);
+
+    if (stage === "warm") {
+      setLeadStage((prev) => (prev === "hot" ? prev : "warm"));
+    }
+
+    if (stage === "hot") {
+      setLeadStage("hot");
+      setHotLead(true);
+    }
 
     try {
       const res = await fetch("/api/assistant", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: nextMessages }),
       });
 
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data?.error || "Assistant request failed.");
-      }
-
-      if (shouldAssistantTriggerCTA(data.reply)) {
-        setHotLead(true);
-      }
-
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: data.reply },
       ]);
+
+      // detectar lead assistant
+      if (shouldAssistantTriggerCTA(data.reply)) {
+        setLeadStage("hot");
+        setHotLead(true);
+      }
     } catch {
-      setError("El asistente no pudo responder. Intenta nuevamente.");
+      setError("El asistente no pudo responder.");
     } finally {
       setLoading(false);
     }
   }
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    void sendMessage();
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      void sendMessage();
-    }
-  }
-
+  // ----------------------------
+  // RESET
+  // ----------------------------
   function resetAssistant() {
     setOpen(false);
     setInput("");
@@ -212,54 +217,52 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
     setError("");
     setHotLead(false);
     setCtaPulse(false);
+    setLeadStage("cold");
   }
 
+  // ----------------------------
+  // RENDER
+  // ----------------------------
   return (
     <>
       {open && (
         <div className="fixed inset-0 z-[9999] bg-black/40 backdrop-blur-sm">
-          <div className="absolute bottom-24 right-6 w-[400px] max-w-[calc(100vw-24px)] rounded-2xl bg-[#0a0614] p-4 text-white shadow-2xl">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="font-medium">Gleam Peak AI</div>
-              <button
-                onClick={resetAssistant}
-                aria-label="Cerrar asistente"
-                className="rounded-full p-1 text-white/80 hover:bg-white/10 hover:text-white"
-              >
+          <div className="absolute bottom-24 right-6 w-[400px] rounded-2xl bg-[#0a0614] p-4 text-white shadow-2xl">
+            
+            {/* HEADER */}
+            <div className="mb-4 flex justify-between">
+              <div>Gleam Peak AI</div>
+              <button onClick={resetAssistant}>
                 <X className="h-4 w-4" />
               </button>
             </div>
 
+            {/* MESSAGES */}
             <div className="max-h-[400px] space-y-3 overflow-y-auto pr-1">
-              {messages.map((message, index) => (
+              {messages.map((m, i) => (
                 <div
-                  key={`${message.role}-${index}`}
+                  key={i}
                   className={
-                    message.role === "user"
-                      ? "ml-auto max-w-[85%] rounded-2xl bg-fuchsia-500/20 px-4 py-3 text-right"
-                      : "max-w-[85%] rounded-2xl bg-white/10 px-4 py-3"
+                    m.role === "user"
+                      ? "ml-auto bg-fuchsia-500/20 px-4 py-3 rounded-2xl text-right"
+                      : "bg-white/10 px-4 py-3 rounded-2xl"
                   }
                 >
-                  {renderMessageContent(message.content)}
+                  {m.content.split("\n").map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
                 </div>
               ))}
 
-              {loading && (
-                <div className="max-w-[85%] rounded-2xl bg-white/10 px-4 py-3 text-white/70 animate-pulse">
-                  Pensando...
-                </div>
-              )}
-
-              {error && (
-                <div className="rounded-2xl bg-red-500/20 px-4 py-3 text-red-100">
-                  {error}
-                </div>
-              )}
-
+              {loading && <div className="text-white/60">Pensando...</div>}
               <div ref={messagesEndRef} />
             </div>
 
-            <form onSubmit={onSubmit} className="mt-4 flex items-end gap-2">
+            {/* INPUT */}
+            <div className="mt-4 flex gap-2">
               <textarea
                 ref={textareaRef}
                 value={input}
@@ -267,29 +270,33 @@ export default function AssistantChat({ bookingUrl }: AssistantChatProps) {
                   setInput(e.target.value);
                   if (!hasTyped) setHasTyped(true);
                 }}
-                onKeyDown={handleKeyDown}
-                rows={1}
-                placeholder={hasTyped ? "" : "Escribe tu mensaje..."}
-                className="min-h-[52px] max-h-[140px] flex-1 resize-none overflow-y-auto rounded-xl bg-white/10 p-3 text-white placeholder:text-white/40 outline-none"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                  }
+                }}
+                className="flex-1 rounded-xl bg-white/10 p-3"
+                placeholder={
+                  hasTyped
+                    ? ""
+                    : "¿Qué área de tu empresa quieres optimizar?"
+                }
               />
-              <button
-                type="submit"
-                disabled={!canSend}
-                className="rounded-xl bg-white px-3 py-3 text-black disabled:opacity-50"
-                aria-label="Enviar mensaje"
-              >
-                <Send className="h-4 w-4" />
+              <button onClick={sendMessage}>
+                <Send />
               </button>
-            </form>
+            </div>
 
-            {bookingUrl && bookingUrl !== "#" && shouldShowBookingButton && (
+            {/* CTA */}
+            {shouldShowBookingButton && (
               <a
                 href={bookingUrl}
                 target="_blank"
-                rel="noreferrer"
-                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm text-black transition hover:opacity-90 ${
-                  hotLead ? "font-semibold shadow-lg" : "font-medium"
-                } ${ctaPulse ? "animate-pulse" : ""}`}
+                className={`mt-4 block text-center px-4 py-3 rounded-xl bg-white text-black transition-all duration-500
+                ${ctaPulse ? "opacity-0 translate-y-3 animate-[fadeInUp_0.6s_ease-out_forwards]" : ""}
+                ${hotLead ? "shadow-lg ring-1 ring-white/20 font-semibold" : ""}
+                `}
               >
                 {hotLead
                   ? "Reservar llamada ahora"
