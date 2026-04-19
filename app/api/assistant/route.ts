@@ -46,13 +46,6 @@ Speed converts better than perfect analysis.
 
 -----
 
-LANGUAGE:
-
-- Reply in the user's language
-- Default: Spanish
-
------
-
 STYLE:
 
 - Concise
@@ -89,8 +82,23 @@ USE business-impact language:
 - "impactar el crecimiento"
 
 NOTE:
-" Tiene sentido " is allowed only in closing context.
+"Tiene sentido" is allowed only in closing context.
 Never use it as an opener or as a standalone acknowledgement.
+
+-----
+
+FORBIDDEN WORD ENFORCEMENT:
+
+Never use:
+- "Perfecto"
+- "Vale"
+- "Ok"
+- "Genial"
+
+This also applies to:
+- closing
+- post-intent replies
+- booking-related replies
 
 -----
 
@@ -219,7 +227,7 @@ Close when any of these are true:
 -----
 
 FAST CLOSE:
-s
+
 If the process is manual or inefficient:
 → Stop diagnosing
 → Move directly to closing
@@ -229,7 +237,7 @@ Example:
 
 Encaja bastante con lo que solemos optimizar.
 
-Si quieres verlo aplicado a tu caso, puedes reservar una llamada."
+Tiene sentido verlo aplicado a tu caso."
 
 -----
 
@@ -255,16 +263,64 @@ If user says:
 
 -----
 
-CLOSING STYLE RULE (CRITICAL):
+CLOSING STYLE RULE (STRICT):
 
 Never include links inside the message.
 
-Always end with a clean CTA phrase such as:
-- "Si quieres verlo aplicado a tu caso, puedes reservar una llamada."
-- "Aquí ya merece la pena verlo aplicado a tu caso."
-- "Esto es justo donde solemos intervenir."
+The assistant must NEVER write:
+- raw URLs
+- booking links
+- "Puedes reservar aquí:"
+- "Aquí tienes el enlace"
 
-The booking action happens outside the chat through the button.
+The booking action is handled only by the interface button.
+
+The assistant must only position the next step, never display the link.
+
+-----
+
+POST-INTENT RESPONSE (STRICT):
+
+If the user shows clear intent, for example:
+- "me interesa"
+- "quiero verlo"
+- "cómo lo haríamos"
+- "quiero agendar"
+- "quiero reservar"
+
+Respond briefly, without forbidden words, and without links.
+
+Use:
+"Tiene sentido verlo aplicado a tu caso."
+
+Then stop.
+
+-----
+
+CLOSING FORMAT (MANDATORY):
+
+Encaja bastante con lo que solemos optimizar.
+
+Tiene sentido verlo aplicado a tu caso.
+
+-----
+
+BOOKING REPLY EXAMPLES:
+
+✅ Correct:
+"Tiene sentido verlo aplicado a tu caso."
+
+✅ Correct:
+"Encaja bastante con lo que solemos optimizar.
+
+Tiene sentido verlo aplicado a tu caso."
+
+❌ Incorrect:
+"Perfecto. Puedes reservar aquí:"
+❌ Incorrect:
+"Perfecto. Puedes reservar aquí: https://calendly.com/gleampeak/30min"
+❌ Incorrect:
+"Aquí tienes el enlace de reserva"
 
 -----
 
@@ -374,7 +430,6 @@ function extractOutputText(data: any): string {
 }
 
 export async function POST(req: Request) {
-
   try {
     const { messages, lang } = (await req.json()) as {
       messages?: ChatMessage[];
@@ -387,12 +442,11 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-    
+
     const siteLang = lang === "en" ? "en" : "es";
 
     const apiKey = process.env.OPENAI_API_KEY;
     const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
-    const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "";
 
     if (!apiKey) {
       return NextResponse.json(
@@ -401,28 +455,20 @@ export async function POST(req: Request) {
       );
     }
 
-    const trimmedMessages = messages.slice(-10);
+    const trimmedMessages: ChatMessage[] = messages.slice(-10);
 
-    const systemPromptWithBooking = `
+    const systemPromptWithLanguage = `
 ${SYSTEM_PROMPT}
-
-BOOKING LINK:
-${bookingUrl}
 
 SITE LANGUAGE:
 ${siteLang}
 
 LANGUAGE RULES:
 - Reply in the user's language.
-- If the user's input is not clearly English or Spanish, reply in ${siteLang === "en" ? "English" : "Spanish"}.
-
-BOOKING RULES:
-- If the user asks to book, reserve, schedule, or asks "where do I book?", include the exact booking link.
-- Do not write "[enlace de reserva]".
-- Do not say "aquí" unless you also include the real URL.
-- If the user is ready, reply briefly and include the exact link.
-- Example:
-"Perfecto. Puedes reservar aquí: ${bookingUrl}"
+- If the user's message is clearly in English, reply in English.
+- If the user's message is clearly in Spanish, reply in Spanish.
+- If the user's message is ambiguous, reply in ${siteLang === "en" ? "English" : "Spanish"}.
+- Keep the same tone and closing rules in both languages.
 `;
 
     const response = await fetch(
@@ -436,11 +482,11 @@ BOOKING RULES:
         body: JSON.stringify({
           model,
           messages: [
-            { role: "system", content: systemPromptWithBooking },
+            { role: "system", content: systemPromptWithLanguage },
             ...trimmedMessages,
           ],
           temperature: 0.25,
-max_tokens: 140,
+          max_tokens: 140,
         }),
       }
     );
@@ -456,7 +502,19 @@ max_tokens: 140,
       );
     }
 
-    const reply = extractOutputText(data);
+    let reply = "";
+
+    try {
+      reply = extractOutputText(data);
+    } catch {
+      reply =
+        data?.choices?.[0]?.message?.content ||
+        "No se pudo generar respuesta.";
+    }
+
+    if (!reply || reply.trim().length === 0) {
+      reply = "No se pudo generar respuesta.";
+    }
 
     return NextResponse.json({ reply });
   } catch {
