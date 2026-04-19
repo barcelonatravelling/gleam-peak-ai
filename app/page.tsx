@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import FloatingButton from "@/components/FloatingButton";
+import Footer from "@/components/Footer";
 import {
   ArrowRight,
   Bot,
@@ -838,39 +839,55 @@ export default function GleamPeakWebsite() {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+</AnimatePresence>
 
-     <main className="mx-auto max-w-7xl px-5 pb-16 pt-24 lg:px-8 lg:pb-24 lg:pt-28">
-        <AnimatePresence mode="wait">
-          <motion.div key={`${page}-${lang}`} {...pageAnimation}>
-            {page === "home" && <HomePage t={t} changePage={changePage} />}
-            {page === "solutions" && <SolutionsPage t={t} changePage={changePage} nextPage={nextPage} />}
-            {page === "automation" && <AutomationPage t={t} changePage={changePage} nextPage={nextPage} />}
-            {page === "industries" && <IndustriesPage t={t} changePage={changePage} nextPage={nextPage} />}
-            {page === "cases" && <CasesPage t={t} changePage={changePage} nextPage={nextPage} />}
-            {page === "call" && <CallPage t={t} changePage={changePage} />}
-          </motion.div>
-        </AnimatePresence>
-        <FloatingButton lang={lang} />
-        
-      </main>
+<main className="mx-auto max-w-7xl px-5 pb-16 pt-24 lg:px-8 lg:pb-24 lg:pt-28">
+  <AnimatePresence mode="wait">
+    <motion.div key={`${page}-${lang}`} {...pageAnimation}>
+      {page === "home" && <HomePage t={t} changePage={changePage} />}
+      {page === "solutions" && (
+        <SolutionsPage
+          t={t}
+          changePage={changePage}
+          nextPage={nextPage}
+        />
+      )}
+      {page === "automation" && (
+        <AutomationPage
+          t={t}
+          changePage={changePage}
+          nextPage={nextPage}
+        />
+      )}
+      {page === "industries" && (
+        <IndustriesPage
+          t={t}
+          changePage={changePage}
+          nextPage={nextPage}
+        />
+      )}
+      {page === "cases" && (
+        <CasesPage
+          t={t}
+          changePage={changePage}
+          nextPage={nextPage}
+        />
+      )}
+      {page === "call" && <CallPage t={t} changePage={changePage} />}
+    </motion.div>
+  </AnimatePresence>
 
-      <footer className="border-t border-white/8 bg-[#080210]">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-white/45 md:flex-row lg:px-10">
-          <div>© {t.brand}</div>
-          <div className="flex flex-wrap items-center justify-center gap-5">
-            {navItems.map((item) => (
-              <button key={item.key} onClick={() => changePage(item.key)} className="transition hover:text-white/80">
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </footer>
-      <FloatingButton lang={lang} />
-      <AssistantChat bookingUrl={process.env.NEXT_PUBLIC_BOOKING_URL || "#"} lang={lang} />
-    </div>
-  );
+  <FloatingButton lang={lang} />
+</main>
+
+<Footer lang={lang} />
+
+<AssistantChat
+  bookingUrl={process.env.NEXT_PUBLIC_BOOKING_URL || "#"}
+  lang={lang}
+/>
+</div>
+);
 }
 
 function BackgroundGlow() {
