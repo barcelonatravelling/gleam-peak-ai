@@ -808,13 +808,20 @@ export default function GleamPeakWebsite() {
             />
           </button>
 
-          <nav className="hidden items-center gap-7 text-[14px] font-medium text-white/72 md:flex">
-            {navItems.map((item) => (
-              <button key={item.key} onClick={() => changePage(item.key)} className={`transition hover:text-white ${page === item.key ? "text-white" : ""}`}>
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          <nav className="hidden items-center gap-7 ...">
+  {navItems.map((item) => (
+    <button
+      key={item.key}
+      onClick={() => changePage(item.key)}
+      style={{ cursor: "pointer" }}
+      className={`cursor-pointer transition hover:text-white ${
+        page === item.key ? "text-white" : "text-white/72"
+      }`}
+    >
+      {item.label}
+    </button>
+  ))}
+</nav>
 
           <div className="flex items-center gap-3">
             <button onClick={() => setLang(lang === "en" ? "es" : "en")} className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm font-medium text-white/85 transition hover:bg-white/10">
