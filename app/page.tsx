@@ -808,7 +808,7 @@ export default function GleamPeakWebsite() {
             />
           </button>
 
-          <nav className="hidden items-center gap-7 ...">
+          <nav className="hidden md:flex items-center gap-7 text-[14px] font-medium text-white/72">
   {navItems.map((item) => (
     <button
       key={item.key}
