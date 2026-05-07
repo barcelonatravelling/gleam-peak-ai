@@ -794,7 +794,10 @@ export default function GleamPeakWebsite() {
 
       <header className="fixed left-0 right-0 top-0 z-[100] border-b border-white/10 bg-[#070114]/85 backdrop-blur-xl">
         <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between px-6 lg:px-8">
-          <button onClick={() => changePage("home")} className="group flex items-center text-left">
+          <button
+  onClick={() => changePage("home")}
+  className="group cursor-pointer flex items-center"
+>
             <Image
               src="/logo.png"
               alt="Gleam Peak AI"
