@@ -279,44 +279,44 @@ const content = {
         "Reporting and decision-support systems",
       ],
     },
-    automationPage: {
-      kicker: "AI Automation",
-      title: "Automate the work that slows your business down",
-      intro:
-        "We build AI automation for repetitive tasks, customer communication, CRM updates, internal routing, reporting and operational workflows.",
-      items: [
-        "Customer inquiries and inbox triage",
-        "Lead follow-up and reminders",
-        "Meeting summaries and preparation",
-        "Internal request routing",
-        "CRM and pipeline updates",
-        "Operational reporting",
-      ],
-      processTitle: "How we work",
-      processSubtitle: "From manual process to AI-powered workflow",
-      process: [
-        {
-          step: "01",
-          title: "Map the process",
-          text: "We understand how the workflow works today, where time is lost and what should improve first.",
-        },
-        {
-          step: "02",
-          title: "Design the system",
-          text: "We define the AI logic, integrations, data flow and implementation plan.",
-        },
-        {
-          step: "03",
-          title: "Build and test",
-          text: "We create the solution, test it with real use cases and refine it for reliability.",
-        },
-        {
-          step: "04",
-          title: "Scale",
-          text: "We expand what works, improve performance and turn the system into a long-term operational advantage.",
-        },
-      ],
+  automationPage: {
+  kicker: "AI Automation",
+  title: "Intelligent infrastructure for next-generation operations",
+  intro:
+    "We design AI systems that can coordinate, prioritize and execute complex workflows across teams, tools and business units.",
+  items: [
+    "Multi-system orchestration",
+    "Decision engines",
+    "Private knowledge copilots",
+    "Predictive automation",
+    "AI workflow intelligence",
+    "Autonomous operations",
+  ],
+  processTitle: "How we work",
+  processSubtitle: "From manual process to intelligent operating system",
+  process: [
+    {
+      step: "01",
+      title: "Operational mapping",
+      text: "We identify critical workflows, dependencies, bottlenecks and areas where AI can create leverage.",
     },
+    {
+      step: "02",
+      title: "System architecture",
+      text: "We define the AI logic, integrations, data flows, permissions and automation layers.",
+    },
+    {
+      step: "03",
+      title: "Deployment",
+      text: "We build, test and refine the system with real operational scenarios and measurable outcomes.",
+    },
+    {
+      step: "04",
+      title: "Optimization",
+      text: "We improve performance, expand use cases and turn AI into a scalable operating advantage.",
+    },
+  ],
+},
 
     industriesPage: {
       kicker: "Industries",
@@ -631,43 +631,43 @@ const content = {
       ],
     },
     automationPage: {
-      kicker: "Automatización IA",
-      title: "Automatiza lo que hoy frena tu negocio",
-      intro:
-        "Construimos automatizaciones inteligentes para tareas repetitivas, atención al cliente, CRM, reporting y procesos internos.",
-      items: [
-        "Consultas y correos entrantes",
-        "Seguimiento de leads",
-        "Resúmenes de reuniones",
-        "Enrutamiento interno",
-        "Actualización de CRM",
-        "Reporting operativo",
-      ],
-      processTitle: "Cómo trabajamos",
-      processSubtitle: "Del proceso manual al flujo automatizado",
-      process: [
-        {
-          step: "01",
-          title: "Mapeamos el proceso",
-          text: "Entendemos cómo funciona hoy, dónde se pierde tiempo y qué mejorar primero.",
-        },
-        {
-          step: "02",
-          title: "Diseñamos la solución",
-          text: "Definimos lógica, integraciones, flujo de datos y plan de implementación.",
-        },
-        {
-          step: "03",
-          title: "Construimos y probamos",
-          text: "Creamos la solución, la testamos y la refinamos para que funcione bien.",
-        },
-        {
-          step: "04",
-          title: "Escalamos",
-          text: "Expandimos lo que funciona y lo convertimos en ventaja operativa.",
-        },
-      ],
+  kicker: "Automatización IA",
+  title: "Infraestructura inteligente para operaciones de nueva generación",
+  intro:
+    "Diseñamos sistemas de IA capaces de coordinar, priorizar y ejecutar procesos complejos entre equipos, herramientas y áreas de negocio.",
+  items: [
+    "Orquestación multi-sistema",
+    "Motores inteligentes de decisión",
+    "Copilotos privados de conocimiento",
+    "Automatización predictiva",
+    "Inteligencia de flujos operativos",
+    "Operaciones autónomas",
+  ],
+  processTitle: "Cómo trabajamos",
+  processSubtitle: "Del proceso manual al sistema operativo inteligente",
+  process: [
+    {
+      step: "01",
+      title: "Mapeo operativo",
+      text: "Identificamos flujos críticos, dependencias, cuellos de botella y áreas donde la IA puede crear ventaja.",
     },
+    {
+      step: "02",
+      title: "Arquitectura del sistema",
+      text: "Definimos lógica de IA, integraciones, flujos de datos, permisos y capas de automatización.",
+    },
+    {
+      step: "03",
+      title: "Despliegue",
+      text: "Construimos, probamos y refinamos el sistema con escenarios reales y resultados medibles.",
+    },
+    {
+      step: "04",
+      title: "Optimización",
+      text: "Mejoramos rendimiento, ampliamos casos de uso y convertimos la IA en ventaja operativa escalable.",
+    },
+  ],
+},
     industriesPage: {
       kicker: "Industrias",
       title: "IA adaptada a entornos operativos reales",
