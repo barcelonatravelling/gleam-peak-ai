@@ -1051,6 +1051,47 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             </div>
 
           </div>
+          
+          <div className="mt-6 flex flex-col gap-2">
+  <span className="text-sm text-white/50 tracking-wide">
+    {language === "es"
+      ? "Conecta con Gleam Peak"
+      : "Connect with Gleam Peak"}
+  </span>
+
+  <div className="flex items-center gap-4 text-sm text-white/75">
+    <a
+      href="https://linkedin.com/company/gleampeak"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-fuchsia-300 transition-colors"
+    >
+      LinkedIn
+    </a>
+
+    <span className="text-white/25">•</span>
+
+    <a
+      href="https://instagram.com/gleampeak.ai"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-fuchsia-300 transition-colors"
+    >
+      Instagram
+    </a>
+
+    <span className="text-white/25">•</span>
+
+    <a
+      href="https://wa.me/34645654591"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-fuchsia-300 transition-colors"
+    >
+      WhatsApp
+    </a>
+  </div>
+</div>
 
           {/* RIGHT PANEL */}
 
