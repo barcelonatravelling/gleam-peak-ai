@@ -784,7 +784,8 @@ export default function GleamPeakWebsite() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const t = content[lang] as any;
+  const t = content?.es ?? content?.en;
+  if (!t) return null;
 
   const navItems = useMemo(
     () => [
