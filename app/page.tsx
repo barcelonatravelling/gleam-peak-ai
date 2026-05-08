@@ -332,54 +332,54 @@ const content = {
   ],
 },
 
-    industriesPage: {
-      kicker: "Industries",
-      title: "AI adapted to real operational environments",
-      intro:
-        "Every sector works differently. We design AI around how your business actually operates.",
-      cards: [
-        {
-          title: "Financial Services",
-          text: "Risk review, internal support, compliance workflows and faster decision-making.",
-          icon: "shield",
-        },
-        {
-          title: "Technology & SaaS",
-          text: "Copilots, support automation and internal AI systems for faster execution.",
-          icon: "brain",
-        },
-        {
-          title: "Logistics & Operations",
-          text: "Workflow optimization, resource coordination and operational visibility.",
-          icon: "workflow",
-        },
-        {
-          title: "Retail & Commerce",
-          text: "Customer support, demand signals and smarter commercial operations.",
-          icon: "chart",
-        },
-        {
-          title: "Healthcare & Life Sciences",
-          text: "Operational support, knowledge systems and process coordination.",
-          icon: "bot",
-        },
-        {
-          title: "Professional Services",
-          text: "Internal copilots, documentation flows and faster team execution.",
-          icon: "building",
-        },
-        {
-          title: "Hospitality & Travel",
-          text: "Bookings, customer communication, multilingual support and upselling.",
-          icon: "message",
-        },
-        {
-          title: "Luxury & Wellness",
-          text: "Premium customer support, concierge automation and high-touch service systems.",
-          icon: "sparkles",
-        },
-      ],
+   industriesPage: {
+  kicker: "Industries",
+  title: "Sector-specific AI systems designed for real operational complexity",
+  intro:
+    "Every industry has unique workflows, operational pressure points and strategic priorities. We design AI systems that adapt to sector reality — not generic templates.",
+  cards: [
+    {
+      title: "Financial Services",
+      text: "Risk intelligence, compliance automation, fraud detection and operational decision systems for faster, sharper execution.",
+      icon: "shield",
     },
+    {
+      title: "Technology & SaaS",
+      text: "AI copilots, internal operating layers and intelligent support systems that accelerate execution across teams.",
+      icon: "brain",
+    },
+    {
+      title: "Logistics & Operations",
+      text: "Predictive coordination, operational orchestration and intelligent resource allocation across complex workflows.",
+      icon: "workflow",
+    },
+    {
+      title: "Retail & Commerce",
+      text: "Demand intelligence, personalized customer systems and commercial automation that improve margin and scale.",
+      icon: "chart",
+    },
+    {
+      title: "Healthcare & Life Sciences",
+      text: "Operational intelligence, knowledge systems and AI-assisted coordination for highly complex environments.",
+      icon: "bot",
+    },
+    {
+      title: "Professional Services",
+      text: "Private knowledge layers, document intelligence and AI systems that amplify execution quality and billable leverage.",
+      icon: "building",
+    },
+    {
+      title: "Hospitality & Travel",
+      text: "Reservation intelligence, multilingual guest systems, concierge automation and revenue optimization layers.",
+      icon: "message",
+    },
+    {
+      title: "Luxury & Wellness",
+      text: "High-touch AI experiences for concierge, premium care journeys, intelligent nurturing and elite customer operations.",
+      icon: "sparkles",
+    },
+  ],
+},
    casesPage: {
   kicker: "Case Studies",
   title: "Illustrative examples of enterprise AI impact",
@@ -554,62 +554,54 @@ const content = {
           icon: "chart",
         },
       ],
-      industriesSection: {
-        kicker: "Industrias",
-        title: "IA adaptada a cómo funciona cada negocio",
-        intro:
-          "Desde logística hasta turismo, retail o wellness, adaptamos la IA a la operación real de cada sector.",
-      },
-      industries: [
-        {
-          title: "Servicios Financieros",
-          text: "Automatización para revisión de riesgo, cumplimiento y soporte interno.",
-          icon: "shield",
-        },
-        {
-          title: "Tecnología y SaaS",
-          text: "Copilotos, automatización de soporte y sistemas internos de IA.",
-          icon: "brain",
-        },
-        {
-          title: "Logística y Operaciones",
-          text: "Automatización de flujos, coordinación y visibilidad operativa.",
-          icon: "workflow",
-        },
-        {
-          title: "Retail y Comercio",
-          text: "Atención al cliente, automatización comercial y señales de demanda.",
-          icon: "chart",
-        },
-        {
-          title: "Salud y Ciencias de la Vida",
-          text: "Sistemas de soporte, coordinación y conocimiento interno.",
-          icon: "bot",
-        },
-        {
-          title: "Servicios Profesionales",
-          text: "Flujos documentales, copilotos internos y más eficiencia.",
-          icon: "building",
-        },
-        {
-          title: "Hospitality y Turismo",
-          text: "Reservas, comunicación multilingüe, upselling y atención automatizada.",
-          icon: "message",
-        },
-        {
-          title: "Lujo y Wellness",
-          text: "Experiencias premium, concierge automatizado y soporte de alto nivel.",
-          icon: "sparkles",
-        },
-      ],
-      finalCta: {
-        kicker: "Empieza por el proceso correcto",
-        title: "Identifiquemos dónde la IA puede crear más valor",
-        text:
-          "Te ayudamos a elegir el mejor primer caso de uso, diseñar el sistema y llevarlo a implementación.",
-        button: "Reservar llamada estratégica",
-      },
+      industriesPage: {
+  kicker: "Industrias",
+  title: "Sistemas sectoriales de IA diseñados para complejidad operativa real",
+  intro:
+    "Cada industria tiene flujos, presiones operativas y prioridades estratégicas distintas. Diseñamos sistemas de IA adaptados a la realidad de cada sector — no soluciones genéricas.",
+  cards: [
+    {
+      title: "Servicios Financieros",
+      text: "Inteligencia de riesgo, automatización de cumplimiento, detección de fraude y sistemas de decisión para una ejecución más ágil y precisa.",
+      icon: "shield",
     },
+    {
+      title: "Tecnología y SaaS",
+      text: "Copilotos, capas operativas inteligentes y sistemas internos de IA que aceleran la ejecución entre equipos.",
+      icon: "brain",
+    },
+    {
+      title: "Logística y Operaciones",
+      text: "Coordinación predictiva, orquestación operativa y asignación inteligente de recursos en flujos complejos.",
+      icon: "workflow",
+    },
+    {
+      title: "Retail y Comercio",
+      text: "Inteligencia de demanda, sistemas personalizados para clientes y automatización comercial que mejora margen y escalabilidad.",
+      icon: "chart",
+    },
+    {
+      title: "Salud y Ciencias de la Vida",
+      text: "Inteligencia operativa, sistemas de conocimiento y coordinación asistida por IA para entornos de alta complejidad.",
+      icon: "bot",
+    },
+    {
+      title: "Servicios Profesionales",
+      text: "Capas privadas de conocimiento, inteligencia documental y sistemas de IA que multiplican calidad de ejecución y eficiencia facturable.",
+      icon: "building",
+    },
+    {
+      title: "Hospitality y Turismo",
+      text: "Inteligencia para reservas, atención multilingüe, concierge automatizado y capas de optimización de ingresos.",
+      icon: "message",
+    },
+    {
+      title: "Lujo y Wellness",
+      text: "Experiencias premium impulsadas por IA para concierge, customer care de alto nivel y operaciones exclusivas.",
+      icon: "sparkles",
+    },
+  ],
+},
     solutionsPage: {
   kicker: "Soluciones IA",
   title: "Sistemas empresariales de IA construidos alrededor del valor estratégico",
