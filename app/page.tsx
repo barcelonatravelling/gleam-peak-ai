@@ -243,32 +243,46 @@ const content = {
       },
     },
     solutionsPage: {
-      kicker: "AI Solutions",
-      title: "AI solutions designed to solve real business problems",
-      intro:
-        "We help companies identify, design and implement AI systems that improve operations, customer response, internal efficiency and decision-making.",
-      cards: [
-        {
-          title: "AI Strategy",
-          text: "Identify where AI can create value, prioritize the best opportunities and define a practical roadmap.",
-          icon: "brain",
-        },
-        {
-          title: "AI Automation",
-          text: "Automate repetitive workflows, reduce manual work and improve execution across teams.",
-          icon: "cpu",
-        },
-        {
-          title: "AI Assistants",
-          text: "Deploy assistants for support, sales, reservations, internal requests and knowledge access.",
-          icon: "bot",
-        },
-        {
-          title: "Decision Intelligence",
-          text: "Turn reporting, data and internal information into clearer insights for better decisions.",
-          icon: "chart",
-        },
-      ],
+  kicker: "AI Solutions",
+  title: "Enterprise AI systems built around strategic business value",
+  intro:
+    "We design applied AI infrastructure that becomes part of how the company operates — improving execution speed, intelligence layers and operating leverage at scale.",
+  cards: [
+    {
+      title: "Enterprise AI Strategy",
+      text:
+        "Identify where AI creates the highest leverage, define the right architecture and build a roadmap aligned with measurable business outcomes.",
+      icon: "brain",
+    },
+    {
+      title: "Operational AI Systems",
+      text:
+        "Deploy intelligent systems that coordinate workflows, automate execution and create operational capacity across business units.",
+      icon: "cpu",
+    },
+    {
+      title: "Enterprise AI Agents",
+      text:
+        "Private AI agents trained on company workflows, documentation and business logic that assist teams, customers and internal operations.",
+      icon: "bot",
+    },
+    {
+      title: "Decision Intelligence Layers",
+      text:
+        "Transform fragmented data into executive intelligence, predictive signals and systems that support faster, sharper decisions.",
+      icon: "chart",
+    },
+  ],
+  listTitle: "What we build",
+  items: [
+    "Private enterprise AI layers",
+    "AI operating systems for workflows",
+    "Executive intelligence infrastructure",
+    "Autonomous operational coordination",
+    "Knowledge systems connected to company data",
+    "Predictive and decision-support engines",
+  ],
+}, 
       listTitle: "What we can build",
       items: [
         "AI roadmap and opportunity analysis",
@@ -597,42 +611,46 @@ const content = {
       },
     },
     solutionsPage: {
-      kicker: "Soluciones IA",
-      title: "Soluciones de IA para problemas reales de negocio",
-      intro:
-        "Ayudamos a empresas a identificar, diseñar e implementar sistemas de IA que mejoran operaciones, atención al cliente y eficiencia interna.",
-      cards: [
-        {
-          title: "Estrategia de IA",
-          text: "Identificamos dónde la IA puede aportar valor y definimos una hoja de ruta clara.",
-          icon: "brain",
-        },
-        {
-          title: "Automatización con IA",
-          text: "Automatizamos flujos repetitivos y reducimos trabajo manual.",
-          icon: "cpu",
-        },
-        {
-          title: "Asistentes de IA",
-          text: "Asistentes para soporte, ventas, reservas y conocimiento interno.",
-          icon: "bot",
-        },
-        {
-          title: "Inteligencia para decisiones",
-          text: "Convertimos datos y reporting en información útil para decidir mejor.",
-          icon: "chart",
-        },
-      ],
-      listTitle: "Lo que podemos construir",
-      items: [
-        "Hoja de ruta de IA",
-        "Asistentes inteligentes para clientes",
-        "Copilotos internos para equipos",
-        "Automatización comercial",
-        "Bases de conocimiento inteligentes",
-        "Reporting y apoyo a decisiones",
-      ],
+  kicker: "Soluciones IA",
+  title: "Sistemas empresariales de IA construidos alrededor del valor estratégico",
+  intro:
+    "Diseñamos infraestructura aplicada de IA que pasa a formar parte de cómo opera la empresa — mejorando velocidad de ejecución, inteligencia operativa y capacidad de crecimiento a escala.",
+  cards: [
+    {
+      title: "Estrategia Empresarial de IA",
+      text:
+        "Identificamos dónde la IA crea mayor ventaja, definimos la arquitectura adecuada y trazamos una hoja de ruta alineada con resultados medibles.",
+      icon: "brain",
     },
+    {
+      title: "Sistemas Operativos con IA",
+      text:
+        "Desplegamos sistemas inteligentes que coordinan flujos, automatizan ejecución y crean nueva capacidad operativa en toda la empresa.",
+      icon: "cpu",
+    },
+    {
+      title: "Agentes Empresariales de IA",
+      text:
+        "Agentes privados entrenados con procesos, documentación y lógica de negocio para asistir equipos, clientes y operaciones internas.",
+      icon: "bot",
+    },
+    {
+      title: "Capas de Inteligencia para Decisión",
+      text:
+        "Convertimos datos fragmentados en inteligencia ejecutiva, señales predictivas y sistemas que apoyan decisiones más rápidas y precisas.",
+      icon: "chart",
+    },
+  ],
+  listTitle: "Lo que construimos",
+  items: [
+    "Capas privadas empresariales de IA",
+    "Sistemas operativos de IA para flujos",
+    "Infraestructura de inteligencia ejecutiva",
+    "Coordinación operativa autónoma",
+    "Sistemas de conocimiento conectados a datos empresariales",
+    "Motores predictivos y de apoyo a decisiones",
+  ],
+},
     automationPage: {
   kicker: "Automatización IA",
   title: "Infraestructura inteligente para operaciones de nueva generación",
