@@ -282,17 +282,7 @@ const content = {
     "Knowledge systems connected to company data",
     "Predictive and decision-support engines",
   ],
-}, 
-      listTitle: "What we can build",
-      items: [
-        "AI roadmap and opportunity analysis",
-        "Customer-facing AI assistants",
-        "Internal copilots for teams",
-        "Lead capture and qualification flows",
-        "Knowledge systems connected to company documents",
-        "Reporting and decision-support systems",
-      ],
-    },
+},
   automationPage: {
   kicker: "AI Automation",
   title: "Intelligent infrastructure for next-generation operations",
@@ -681,54 +671,7 @@ const content = {
     },
   ],
 },
-    industriesPage: {
-      kicker: "Industrias",
-      title: "IA adaptada a entornos operativos reales",
-      intro:
-        "Cada sector funciona distinto. Diseñamos IA alrededor de cómo opera realmente tu negocio.",
-      cards: [
-        {
-          title: "Servicios Financieros",
-          text: "Riesgo, cumplimiento, soporte interno y decisiones más ágiles.",
-          icon: "shield",
-        },
-        {
-          title: "Tecnología y SaaS",
-          text: "Copilotos, automatización y sistemas internos inteligentes.",
-          icon: "brain",
-        },
-        {
-          title: "Logística y Operaciones",
-          text: "Optimización de flujos, coordinación y visibilidad operativa.",
-          icon: "workflow",
-        },
-        {
-          title: "Retail y Comercio",
-          text: "Atención al cliente y operaciones comerciales más inteligentes.",
-          icon: "chart",
-        },
-        {
-          title: "Salud y Ciencias de la Vida",
-          text: "Soporte operativo, conocimiento y coordinación.",
-          icon: "bot",
-        },
-        {
-          title: "Servicios Profesionales",
-          text: "Copilotos internos, documentación y velocidad operativa.",
-          icon: "building",
-        },
-        {
-          title: "Hospitality y Turismo",
-          text: "Reservas, atención, soporte multilingüe y upselling.",
-          icon: "message",
-        },
-        {
-          title: "Lujo y Wellness",
-          text: "Atención premium y automatización de experiencia cliente.",
-          icon: "sparkles",
-        },
-      ],
-    },
+    
   casesPage: {
   kicker: "Casos de estudio",
   title: "Ejemplos ilustrativos de impacto empresarial con IA",
@@ -764,9 +707,10 @@ const content = {
         "Conversación enfocada en negocio",
         "Recomendaciones claras y prácticas",
         "Ideas adaptadas a tu empresa",
-      ],
-    },
+          ],
   },
+},
+},
 } as const;
 
 const pageOrder: PageKey[] = ["home", "solutions", "automation", "industries", "cases", "call"];
@@ -1054,9 +998,9 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
           
           <div className="mt-6 flex flex-col gap-2">
   <span className="text-sm text-white/50 tracking-wide">
-    {language === "es"
-      ? "Conecta con Gleam Peak"
-      : "Connect with Gleam Peak"}
+    {t.nav.home === "Inicio"
+  ? "Conecta con Gleam Peak"
+  : "Connect with Gleam Peak"}
   </span>
 
   <div className="flex items-center gap-4 text-sm text-white/75">
