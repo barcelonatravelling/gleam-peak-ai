@@ -366,29 +366,32 @@ const content = {
         },
       ],
     },
-    casesPage: {
-      kicker: "Case Studies",
-      title: "Examples of measurable business impact",
-      intro:
-        "Illustrative examples of how practical AI can improve operations and customer experience.",
-      cards: [
-        {
-          title: "Lead Qualification",
-          result: "+38% faster response",
-          text: "AI qualifies incoming leads, routes them correctly and activates personalized follow-up automatically.",
-        },
-        {
-          title: "Internal Knowledge Copilot",
-          result: "Up to 70% faster answers",
-          text: "Teams find internal answers faster through AI connected to company documentation.",
-        },
-        {
-          title: "Operational Automation",
-          result: "Hours recovered weekly",
-          text: "Reporting, task coordination and repetitive workflows become automated and more efficient.",
-        },
-      ],
+   casesPage: {
+  kicker: "Case Studies",
+  title: "Illustrative examples of enterprise AI impact",
+  intro:
+    "Examples of how applied AI can unlock revenue, operational efficiency and strategic visibility across the business.",
+  cards: [
+    {
+      title: "AI Revenue Engine",
+      result: "+42% faster conversion cycle",
+      text:
+        "An AI system qualifies inbound opportunities, routes high-intent leads, personalizes follow-up and helps commercial teams move faster with higher precision.",
     },
+    {
+      title: "Enterprise Knowledge Layer",
+      result: "Up to 75% faster access to answers",
+      text:
+        "A private AI layer connected to company documentation, SOPs and internal knowledge gives teams instant access to trusted operational intelligence.",
+    },
+    {
+      title: "Operational Intelligence System",
+      result: "Hundreds of hours recovered quarterly",
+      text:
+        "AI-driven coordination, automated execution and operational visibility reduce friction, improve consistency and free teams for higher-value work.",
+    },
+  ],
+},
     callPage: {
       kicker: "Book a Call",
       title: "Let’s identify where AI can help your business most",
@@ -716,29 +719,32 @@ const content = {
         },
       ],
     },
-    casesPage: {
-      kicker: "Casos de estudio",
-      title: "Ejemplos de impacto real con IA",
-      intro:
-        "Ejemplos ilustrativos de cómo una IA bien aplicada mejora operaciones y experiencia cliente.",
-      cards: [
-        {
-          title: "Cualificación de Leads",
-          result: "+38% más rápido",
-          text: "La IA cualifica leads, los distribuye correctamente y activa seguimiento automático.",
-        },
-        {
-          title: "Copiloto Interno",
-          result: "Hasta 70% más rápido",
-          text: "Los equipos encuentran respuestas internas mucho más rápido gracias a IA conectada a documentación.",
-        },
-        {
-          title: "Automatización Operativa",
-          result: "Horas recuperadas cada semana",
-          text: "Reporting, coordinación y tareas repetitivas pasan a estar automatizadas.",
-        },
-      ],
+  casesPage: {
+  kicker: "Casos de estudio",
+  title: "Ejemplos ilustrativos de impacto empresarial con IA",
+  intro:
+    "Ejemplos de cómo una IA bien aplicada puede desbloquear crecimiento, eficiencia operativa y mayor visibilidad estratégica en la empresa.",
+  cards: [
+    {
+      title: "Motor de Ingresos con IA",
+      result: "+42% más rapidez en conversión",
+      text:
+        "Un sistema de IA cualifica oportunidades, prioriza leads de alta intención, personaliza seguimientos y ayuda a los equipos comerciales a cerrar más rápido y con mayor precisión.",
     },
+    {
+      title: "Capa Empresarial de Conocimiento",
+      result: "Hasta un 75% más rápido en acceso a respuestas",
+      text:
+        "Una capa privada de IA conectada a documentación, SOPs y conocimiento interno da a los equipos acceso instantáneo a inteligencia operativa confiable.",
+    },
+    {
+      title: "Sistema de Inteligencia Operativa",
+      result: "Cientos de horas recuperadas por trimestre",
+      text:
+        "Coordinación impulsada por IA, ejecución automatizada y mayor visibilidad operativa reducen fricción, mejoran consistencia y liberan tiempo para trabajo de mayor valor.",
+    },
+  ],
+},
     callPage: {
       kicker: "Reservar llamada",
       title: "Veamos dónde la IA puede ayudarte más",
