@@ -766,7 +766,7 @@ const textStyles = {
     "mt-5 max-w-[10.5ch] text-[38px] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:text-[48px] lg:text-[54px] xl:text-[60px]",
 
   heroSubtitle:
-    "mt-6 max-w-xl text-[15px] leading-7 text-white/74 sm:text-[16px]",
+    "mt-7 max-w-2xl text-[18px] leading-9 text-white/78 sm:text-[20px]",
 
   sectionTitle:
     "mt-4 max-w-4xl text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[46px]",
@@ -787,10 +787,10 @@ const textStyles = {
     "mt-3 text-[14px] leading-6 text-white/74 sm:text-[15px]",
 
   compactTitle:
-    "text-[21px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[23px]",
+    "text-[24px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[26px]",
 
   compactText:
-    "mt-3 text-[15px] leading-7 text-white/74 sm:text-[16px]",
+    "mt-4 text-[17px] leading-8 text-white/78 sm:text-[18px]",
 
   kicker:
     "text-[11px] uppercase tracking-[0.24em] text-fuchsia-200/75",
