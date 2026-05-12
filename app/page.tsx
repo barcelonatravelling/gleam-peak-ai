@@ -707,10 +707,9 @@ const content = {
         "Conversación enfocada en negocio",
         "Recomendaciones claras y prácticas",
         "Ideas adaptadas a tu empresa",
-          ],
+      ],
+    },
   },
-},
-},
 } as const;
 
 const pageOrder: PageKey[] = ["home", "solutions", "automation", "industries", "cases", "call"];
