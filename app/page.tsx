@@ -707,10 +707,11 @@ const content = {
         "Conversación enfocada en negocio",
         "Recomendaciones claras y prácticas",
         "Ideas adaptadas a tu empresa",
-      ],
-    },
+          ],
   },
-} as const;
+},
+},
+};
 
 const pageOrder: PageKey[] = ["home", "solutions", "automation", "industries", "cases", "call"];
 type Locale = "en" | "es";
@@ -783,9 +784,33 @@ export default function GleamPeakWebsite() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const t = content?.es ?? content?.en;
-  if (!t) return null;
+const base = content.en as any;
+const selected = (content as any)[lang] ?? base;
 
+const t = {
+  ...base,
+  ...selected,
+  home: {
+    ...base.home,
+    ...selected.home,
+    impact: {
+      ...base.home.impact,
+      ...selected.home?.impact,
+    },
+    solutionsSection: {
+      ...base.home.solutionsSection,
+      ...selected.home?.solutionsSection,
+    },
+    industriesSection: {
+      ...base.home.industriesSection,
+      ...selected.home?.industriesSection,
+    },
+    orchestration: {
+      ...base.home.orchestration,
+      ...selected.home?.orchestration,
+    },
+  },
+} as any;
   const navItems = useMemo(
     () => [
       { key: "home" as const, label: t.nav.home },
