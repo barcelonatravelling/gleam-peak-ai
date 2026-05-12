@@ -763,7 +763,8 @@ const pageAnimation = {
 
 const textStyles = {
   heroTitle:
-    "mt-5 max-w-[11ch] text-[46px] font-semibold leading-[0.92] tracking-[-0.055em] text-white sm:text-[58px] lg:text-[66px] xl:text-[72px]",
+    heroTitle:
+  "mt-5 max-w-[11ch] text-[40px] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[52px] lg:text-[58px] xl:text-[64px]",
 
   heroSubtitle:
     "mt-6 max-w-2xl text-[16px] leading-8 text-white/72 sm:text-[17px]",
