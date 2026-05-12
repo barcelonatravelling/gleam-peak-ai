@@ -46,6 +46,44 @@ export default function Footer({ lang }: FooterProps) {
           </a>
         </div>
       </div>
+      <div className="mt-8 flex flex-col items-center gap-4">
+  <div className="flex items-center gap-4 text-sm text-white/60">
+    <a
+      href="https://linkedin.com/company/gleampeak"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-fuchsia-300 transition-colors"
+    >
+      LinkedIn
+    </a>
+
+    <span>•</span>
+
+    <a
+      href="https://instagram.com/gleampeak.ai"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-fuchsia-300 transition-colors"
+    >
+      Instagram
+    </a>
+
+    <span>•</span>
+
+    <a
+      href="https://wa.me/34645654591"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-fuchsia-300 transition-colors"
+    >
+      WhatsApp
+    </a>
+  </div>
+
+  <p className="text-xs text-white/40">
+    © 2026 Gleam Peak AI. All rights reserved.
+  </p>
+</div>
     </footer>
   );
 }
