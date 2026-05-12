@@ -760,6 +760,41 @@ const pageAnimation = {
   exit: { opacity: 0, y: -14 },
   transition: { duration: 0.32, ease: "easeOut" as const },
 };
+
+const textStyles = {
+  heroTitle:
+    "mt-5 max-w-[11ch] text-[46px] font-semibold leading-[0.92] tracking-[-0.055em] text-white sm:text-[58px] lg:text-[66px] xl:text-[72px]",
+
+  heroSubtitle:
+    "mt-6 max-w-2xl text-[16px] leading-8 text-white/72 sm:text-[17px]",
+
+  sectionTitle:
+    "mt-4 max-w-4xl text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-white sm:text-[42px] lg:text-[48px]",
+
+  sectionIntro:
+    "mt-5 max-w-3xl text-[16px] leading-8 text-white/68 sm:text-[17px]",
+
+  pageTitle:
+    "mt-4 max-w-4xl text-[38px] font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[48px] lg:text-[56px]",
+
+  pageIntro:
+    "mt-5 max-w-3xl text-[16px] leading-8 text-white/68 sm:text-[17px]",
+
+  cardTitle:
+    "text-[22px] font-semibold leading-tight tracking-[-0.025em] text-white sm:text-[24px]",
+
+  cardText:
+    "mt-4 text-[15px] leading-7 text-white/72 sm:text-[16px]",
+
+  compactTitle:
+    "text-[20px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[22px]",
+
+  compactText:
+    "mt-3 text-[15px] leading-7 text-white/72",
+
+  kicker:
+    "text-[12px] uppercase tracking-[0.24em] text-fuchsia-200/75",
+};
 export default function GleamPeakWebsite() {
   const [lang, setLang] = useState<Lang>("es");
   const [page, setPage] = useState<PageKey>("home");
@@ -988,10 +1023,9 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
               {t.home.kicker}
             </p>
 
-            <h1 className="mt-5 max-w-[12ch] text-[48px] font-semibold leading-[0.95] tracking-[-0.04em] text-white sm:text-[56px] lg:text-[60px]">
-              {t.home.title}
-
-            </h1>
+            <h1 className={textStyles.heroTitle}>
+  {t.home.title}
+</h1>
 
             <p className="mt-5 max-w-xl text-[16px] leading-7 text-white/72">
 
@@ -1380,15 +1414,11 @@ function PageShell({ kicker, title, intro, children }: { kicker: string; title: 
   return (
     <section>
       <div className="max-w-4xl">
-        <p className="text-sm uppercase tracking-[0.24em] text-fuchsia-200/75">{kicker}</p>
-       <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-  {title}
-</h1>
-
-<p className="mt-5 text-[16px] leading-7 text-white/68">
-  {intro}
-</p>
+        <p className={textStyles.kicker}>{kicker}</p>
+        <h1 className={textStyles.pageTitle}>{title}</h1>
+        <p className={textStyles.pageIntro}>{intro}</p>
       </div>
+
       <div className="mt-12">{children}</div>
     </section>
   );
@@ -1423,11 +1453,11 @@ function FeatureCard({
         <Icon className="h-5 w-5 text-fuchsia-200" />
       </div>
 
-      <h3 className="text-[28px] font-semibold tracking-[-0.02em] text-white">
+      <h3 className={textStyles.cardTitle}>
         {title}
       </h3>
 
-      <p className="mt-4 text-[16px] leading-7 text-white/80">
+      <p className={textStyles.cardText}>
         {text}
       </p>
 
@@ -1458,8 +1488,13 @@ function CompactCard({
       <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06]">
         <Icon className="h-5 w-5 text-fuchsia-200" />
       </div>
-      <h3 className="text-[22px] font-semibold text-white">{title}</h3>
-      <p className="mt-3 text-[16px] leading-7 text-white/80">{text}</p>
+      <h3 className={textStyles.compactTitle}>
+  {title}
+</h3>
+
+<p className={textStyles.compactText}>
+  {text}
+</p>
     </div>
   );
 }
