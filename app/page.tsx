@@ -763,38 +763,39 @@ const pageAnimation = {
 
 const textStyles = {
   heroTitle:
-    "mt-5 max-w-[11ch] text-[40px] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[52px] lg:text-[58px] xl:text-[64px]",
+    "mt-5 max-w-[10.5ch] text-[38px] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:text-[48px] lg:text-[54px] xl:text-[60px]",
 
   heroSubtitle:
-    "mt-6 max-w-2xl text-[16px] leading-8 text-white/72 sm:text-[17px]",
+    "mt-6 max-w-xl text-[15px] leading-7 text-white/74 sm:text-[16px]",
 
   sectionTitle:
-    "mt-4 max-w-4xl text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-white sm:text-[42px] lg:text-[48px]",
+    "mt-4 max-w-4xl text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[46px]",
 
   sectionIntro:
-    "mt-5 max-w-3xl text-[16px] leading-8 text-white/68 sm:text-[17px]",
+    "mt-5 max-w-3xl text-[15px] leading-7 text-white/68 sm:text-[16px]",
 
   pageTitle:
-    "mt-4 max-w-4xl text-[38px] font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-[48px] lg:text-[56px]",
+    "mt-4 max-w-4xl text-[36px] font-semibold leading-[1.05] tracking-[-0.035em] text-white sm:text-[46px] lg:text-[52px]",
 
   pageIntro:
-    "mt-5 max-w-3xl text-[16px] leading-8 text-white/68 sm:text-[17px]",
+    "mt-5 max-w-3xl text-[15px] leading-7 text-white/68 sm:text-[16px]",
 
   cardTitle:
-    "text-[26px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[28px]",
+    "text-[20px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[22px]",
 
   cardText:
-    "mt-4 text-[17px] leading-8 text-white/72 sm:text-[18px]",
+    "mt-3 text-[14px] leading-6 text-white/74 sm:text-[15px]",
 
   compactTitle:
-    "text-[24px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[26px]",
+    "text-[21px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[23px]",
 
   compactText:
-    "mt-3 text-[16px] leading-8 text-white/72 sm:text-[17px]",
+    "mt-3 text-[15px] leading-7 text-white/74 sm:text-[16px]",
 
   kicker:
-    "text-[12px] uppercase tracking-[0.24em] text-fuchsia-200/75",
+    "text-[11px] uppercase tracking-[0.24em] text-fuchsia-200/75",
 };
+
 export default function GleamPeakWebsite() {
   const [lang, setLang] = useState<Lang>("es");
   const [page, setPage] = useState<PageKey>("home");
