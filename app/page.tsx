@@ -763,8 +763,7 @@ const pageAnimation = {
 
 const textStyles = {
   heroTitle:
-    heroTitle:
-  "mt-5 max-w-[11ch] text-[40px] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[52px] lg:text-[58px] xl:text-[64px]",
+    "mt-5 max-w-[11ch] text-[40px] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[52px] lg:text-[58px] xl:text-[64px]",
 
   heroSubtitle:
     "mt-6 max-w-2xl text-[16px] leading-8 text-white/72 sm:text-[17px]",
@@ -782,16 +781,16 @@ const textStyles = {
     "mt-5 max-w-3xl text-[16px] leading-8 text-white/68 sm:text-[17px]",
 
   cardTitle:
-    "text-[22px] font-semibold leading-tight tracking-[-0.025em] text-white sm:text-[24px]",
+    "text-[26px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[28px]",
 
   cardText:
-    "mt-4 text-[15px] leading-7 text-white/72 sm:text-[16px]",
+    "mt-4 text-[17px] leading-8 text-white/72 sm:text-[18px]",
 
   compactTitle:
-    "text-[20px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[22px]",
+    "text-[24px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[26px]",
 
   compactText:
-    "mt-3 text-[15px] leading-7 text-white/72",
+    "mt-3 text-[16px] leading-8 text-white/72 sm:text-[17px]",
 
   kicker:
     "text-[12px] uppercase tracking-[0.24em] text-fuchsia-200/75",
