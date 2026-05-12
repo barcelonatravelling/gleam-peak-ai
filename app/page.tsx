@@ -807,6 +807,7 @@ export default function GleamPeakWebsite() {
     return () => {
       document.body.style.overflow = "auto";
     };
+
   }, [menuOpen]);
 
   useEffect(() => {
@@ -1106,17 +1107,13 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                         <Icon className="h-5 w-5 text-fuchsia-200"/>
                       </div>
 
-                      <h4 className="text-[16px] font-semibold text-white">
+                      <h4 className="text-[20px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[22px]">
+  {card.title}
+</h4>
 
-                        {card.title}
-
-                      </h4>
-
-                      <p className="mt-2 text-[14px] leading-6 text-white/72">
-
-                        {card.text}
-
-                      </p>
+<p className="mt-3 text-[16px] leading-7 text-white/78 sm:text-[17px]">
+  {card.text}
+</p>
 
                     </div>
 
