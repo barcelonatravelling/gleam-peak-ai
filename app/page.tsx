@@ -763,19 +763,19 @@ const pageAnimation = {
 
 const textStyles = {
  heroTitle:
-  "mt-5 max-w-[10.5ch] text-[38px] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:text-[48px] lg:text-[54px] xl:text-[60px]",
+  "mt-5 max-w-[10.5ch] text-[34px] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:text-[44px] lg:text-[50px] xl:text-[56px]",
 
   heroSubtitle:
     "mt-6 max-w-2xl text-[19px] leading-9 text-white/80 sm:text-[20px]",
 
   sectionTitle:
-  "mt-4 max-w-4xl text-[42px] font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[52px] lg:text-[60px]",
+  "mt-4 max-w-4xl text-[38px] font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[46px] lg:text-[54px]",
 
   sectionIntro:
   "mt-6 max-w-4xl text-[20px] leading-9 text-white/76 sm:text-[21px]",
 
   pageTitle:
-    "mt-4 max-w-5xl text-[38px] font-semibold leading-[1.04] tracking-[-0.04em] text-white sm:text-[48px] lg:text-[56px]",
+    "mt-4 max-w-5xl text-[38px] font-semibold leading-[1.04] tracking-[-0.04em] text-white sm:text-[46px] lg:text-[54px]",
 
   pageIntro:
     "mt-6 max-w-4xl text-[19px] leading-9 text-white/76 sm:text-[20px]",
