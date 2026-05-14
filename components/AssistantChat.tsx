@@ -343,7 +343,7 @@ export default function AssistantChat({
               ))}
 
               {loading && (
-                <div className="max-w-[84%] animate-pulse rounded-2xl bg-white/10 px-3.5 py-2.5 text-sm text-white/60">
+                <div className="max-w-[84%] animate-pulse rounded-2xl bg-white/10 px-3.5 py-2.5 text-[15px] text-white/60">
                   {t.thinking}
                 </div>
               )}
@@ -399,7 +399,7 @@ export default function AssistantChat({
                       ? t.ctaHot
                       : t.ctaDefault
                 }
-                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-[16px] font-medium text-black transition-all duration-500 hover:opacity-90 ${
+                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-black transition-all duration-500 hover:opacity-90 ${
                   ctaPulse
                     ? "translate-y-3 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
                     : ""

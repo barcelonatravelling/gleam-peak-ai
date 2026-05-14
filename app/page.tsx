@@ -762,11 +762,11 @@ const pageAnimation = {
 };
 
 const textStyles = {
-  heroTitle:
-    "mt-5 max-w-[10.5ch] text-[42px] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[54px] lg:text-[62px] xl:text-[68px]",
+ heroTitle:
+  "mt-5 max-w-[10.5ch] text-[38px] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:text-[48px] lg:text-[54px] xl:text-[60px]",
 
   heroSubtitle:
-    "mt-7 max-w-2xl text-[22px] leading-10 text-white/82 sm:text-[24px]",
+    "mt-6 max-w-2xl text-[19px] leading-9 text-white/80 sm:text-[20px]",
 
   sectionTitle:
   "mt-4 max-w-4xl text-[42px] font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[52px] lg:text-[60px]",
@@ -1110,11 +1110,11 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                         <Icon className="h-5 w-5 text-fuchsia-200"/>
                       </div>
 
-                      <h4 className="text-[26px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[28px]">
+                      <h4 className="text-[18px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[20px]">
   {card.title}
 </h4>
 
-<p className="mt-4 text-[19px] leading-8 text-white/82 sm:text-[20px]">
+<p className="mt-3 text-[15px] leading-7 text-white/76 sm:text-[16px]">
   {card.text}
 </p>
 
