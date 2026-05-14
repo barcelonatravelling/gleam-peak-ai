@@ -824,7 +824,7 @@ export default function GleamPeakWebsite() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-const base = content.en as any;
+const base = content.es as any;
 const selected = (content as any)[lang] ?? base;
 
 const t = {
