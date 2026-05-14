@@ -1259,7 +1259,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
           {t.automationPage.items.map((item: any) => (
-            <div key={item} className="rounded-2xl border border-white/8 bg-[#0d0618] px-5 py-4 text-[20px] font-medium leading-8 text-white/84">
+            <div key={item} className="rounded-2xl border border-white/8 bg-[#0d0618] px-5 py-4 text-[17px] font-medium leading-7 text-white/84 sm:text-[18px]">
               {item}
             </div>
           ))}
@@ -1267,15 +1267,15 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
 
         <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03] p-7">
           <div className="rounded-[1.5rem] border border-white/10 bg-[#11071d] p-6">
-            <p className="text-sm text-white/48">{t.automationPage.processTitle}</p>
-            <h3 className="mt-2 text-2xl font-semibold">{t.automationPage.processSubtitle}</h3>
+            <p className="text-[16px] font-medium text-white/58">{t.automationPage.processTitle}</p>
+            <h3 className="mt-3 text-[34px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[38px]">{t.automationPage.processSubtitle}</h3>
             <div className="mt-8 space-y-4">
               {t.automationPage.process.map((item: any) => (
                 <div key={item.step} className="flex gap-4 border-t border-white/8 pt-4 first:border-t-0 first:pt-0">
                   <div className="text-[15px] font-semibold tracking-[0.18em] text-fuchsia-200/80">{item.step}</div>
                   <div>
-                    <h4 className="font-medium text-white">{item.title}</h4>
-                    <p className="mt-1 text-sm leading-6 text-white/62">{item.text}</p>
+                    <h4 className="text-[20px] font-semibold leading-tight text-white">{item.title}</h4>
+                    <p className="mt-2 text-[16px] leading-7 text-white/72">{item.text}</p>
                   </div>
                 </div>
               ))}
