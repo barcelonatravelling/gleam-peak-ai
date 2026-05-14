@@ -858,27 +858,27 @@ const t = {
 
   solutionsPage: {
     ...base.solutionsPage,
-    ...selected.solutionsPage,
+    ...(selected.solutionsPage ?? selected.home?.solutionsPage),
   },
 
   automationPage: {
     ...base.automationPage,
-    ...selected.automationPage,
+    ...(selected.automationPage ?? selected.home?.automationPage),
   },
 
   industriesPage: {
     ...base.industriesPage,
-    ...selected.industriesPage,
+    ...(selected.industriesPage ?? selected.home?.industriesPage),
   },
 
   casesPage: {
     ...base.casesPage,
-    ...selected.casesPage,
+    ...(selected.casesPage ?? selected.home?.casesPage),
   },
 
   callPage: {
     ...base.callPage,
-    ...selected.callPage,
+    ...(selected.callPage ?? selected.home?.callPage),
   },
 } as any;
   const navItems = useMemo(
