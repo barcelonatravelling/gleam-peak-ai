@@ -763,37 +763,40 @@ const pageAnimation = {
 
 const textStyles = {
   heroTitle:
-    "mt-5 max-w-[10.5ch] text-[38px] font-semibold leading-[0.96] tracking-[-0.045em] text-white sm:text-[48px] lg:text-[54px] xl:text-[60px]",
+    "mt-5 max-w-[10.5ch] text-[42px] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-[54px] lg:text-[62px] xl:text-[68px]",
 
   heroSubtitle:
-    "mt-7 max-w-2xl text-[18px] leading-9 text-white/78 sm:text-[20px]",
+    "mt-7 max-w-2xl text-[22px] leading-10 text-white/82 sm:text-[24px]",
 
   sectionTitle:
-    "mt-4 max-w-4xl text-[32px] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[46px]",
+  "mt-4 max-w-4xl text-[42px] font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[52px] lg:text-[60px]",
 
   sectionIntro:
-    "mt-5 max-w-3xl text-[15px] leading-7 text-white/68 sm:text-[16px]",
+  "mt-6 max-w-4xl text-[20px] leading-9 text-white/76 sm:text-[21px]",
 
   pageTitle:
-    "mt-4 max-w-4xl text-[36px] font-semibold leading-[1.05] tracking-[-0.035em] text-white sm:text-[46px] lg:text-[52px]",
+    "mt-4 max-w-5xl text-[42px] font-semibold leading-[1.04] tracking-[-0.04em] text-white sm:text-[54px] lg:text-[62px]",
 
   pageIntro:
-    "mt-5 max-w-3xl text-[15px] leading-7 text-white/68 sm:text-[16px]",
+    "mt-6 max-w-4xl text-[19px] leading-9 text-white/76 sm:text-[20px]",
 
   cardTitle:
-    "text-[20px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[22px]",
+    "text-[26px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[28px]",
 
   cardText:
-    "mt-3 text-[14px] leading-6 text-white/74 sm:text-[15px]",
+    "mt-4 text-[18px] leading-8 text-white/78 sm:text-[19px]",
 
   compactTitle:
-    "text-[24px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[26px]",
+    "text-[26px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[28px]",
 
   compactText:
-    "mt-4 text-[17px] leading-8 text-white/78 sm:text-[18px]",
+    "mt-4 text-[18px] leading-8 text-white/78 sm:text-[18px]",
 
   kicker:
-    "text-[11px] uppercase tracking-[0.24em] text-fuchsia-200/75",
+    "text-[13px] uppercase tracking-[0.24em] text-fuchsia-200/75",
+
+  button:
+    "text-[17px] font-semibold sm:text-[18px]",
 };
 
 export default function GleamPeakWebsite() {
@@ -889,7 +892,7 @@ const t = {
             />
           </button>
 
-          <nav className="hidden md:flex items-center gap-7 text-[14px] font-medium text-white/72">
+          <nav className="hidden md:flex items-center gap-7 text-[17px] font-medium text-white/72">
   {navItems.map((item) => (
     <button
       key={item.key}
@@ -1029,7 +1032,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
   {t.home.title}
 </h1>
 
-            <p className="mt-5 max-w-xl text-[16px] leading-7 text-white/72">
+            <p className="mt-7 max-w-2xl text-[22px] leading-10 text-white/82 sm:text-[24px]">
 
               {t.home.subtitle}
 
@@ -1039,7 +1042,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
               <button
                 onClick={() => changePage("call")}
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-4 text-sm font-semibold text-[#12041e] shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-4 text-[18px] font-semibold text-[#12041e] shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
               >
                 {t.home.ctas.primary}
                 <ArrowRight className="h-4 w-4"/>
@@ -1047,7 +1050,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
               <button
                 onClick={() => changePage("solutions")}
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/20 hover:bg-white/[0.08] hover:shadow-[0_12px_32px_rgba(90,35,160,0.18)]"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-4 text-[18px] font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/20 hover:bg-white/[0.08] hover:shadow-[0_12px_32px_rgba(90,35,160,0.18)]"
               >
                 {t.home.ctas.secondary}
                 <ChevronRight className="h-4 w-4"/>
@@ -1107,11 +1110,11 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                         <Icon className="h-5 w-5 text-fuchsia-200"/>
                       </div>
 
-                      <h4 className="text-[20px] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[22px]">
+                      <h4 className="text-[26px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[28px]">
   {card.title}
 </h4>
 
-<p className="mt-3 text-[16px] leading-7 text-white/78 sm:text-[17px]">
+<p className="mt-4 text-[19px] leading-8 text-white/82 sm:text-[20px]">
   {card.text}
 </p>
 
@@ -1147,7 +1150,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
             <div
               key={item}
-              className="rounded-[20px] border border-white/10 bg-[#0d0618] px-6 py-5 text-[16px] leading-7 text-white/82 shadow-[0_8px_24px_rgba(80,30,140,0.12)]"
+              className="rounded-[20px] border border-white/10 bg-[#0d0618] px-6 py-5 text-[19px] leading-8 text-white/84 shadow-[0_8px_24px_rgba(80,30,140,0.12)]"
             >
               {item}
             </div>
@@ -1235,7 +1238,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
       </div>
 
       <div className="mt-12 rounded-[1.8rem] border border-white/10 bg-[#0d0618] p-8">
-        <h3 className="text-2xl font-semibold">{t.solutionsPage.listTitle}</h3>
+        <h3 className="text-[30px] font-semibold tracking-[-0.03em] text-white sm:text-[34px]">{t.solutionsPage.listTitle}</h3>
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {t.solutionsPage.items.map((item: any) => (
             <div key={item} className="rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 text-white/82">
@@ -1312,8 +1315,8 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
                 {item.result}
               </span>
             </div>
-            <h3 className="mt-7 text-2xl font-semibold">{item.title}</h3>
-            <p className="mt-4 text-sm leading-7 text-white/66">{item.text}</p>
+            <h3 className="mt-7 text-[30px] font-semibold leading-tight tracking-[-0.03em] text-white">{item.title}</h3>
+            <p className="mt-5 text-[18px] leading-8 text-white/74">{item.text}</p>
           </div>
         ))}
       </div>
@@ -1424,10 +1427,10 @@ function PageShell({ kicker, title, intro, children }: { kicker: string; title: 
 
 function SectionHeader({ kicker, title, intro }: { kicker: string; title: string; intro: string }) {
   return (
-    <div className="max-w-3xl">
-      <p className="text-sm uppercase tracking-[0.24em] text-fuchsia-200/75">{kicker}</p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h2>
-      <p className="mt-5 text-base leading-8 text-white/68 sm:text-lg">{intro}</p>
+    <div className="max-w-4xl">
+      <p className={textStyles.kicker}>{kicker}</p>
+      <h2 className={textStyles.sectionTitle}>{title}</h2>
+      <p className={textStyles.sectionIntro}>{intro}</p>
     </div>
   );
 }

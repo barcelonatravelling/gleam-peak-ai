@@ -371,7 +371,7 @@ export default function AssistantChat({
                     void sendMessage();
                   }
                 }}
-                className="min-h-[44px] max-h-[120px] flex-1 resize-none overflow-y-auto rounded-xl bg-white/10 p-3 text-sm text-white outline-none ring-1 ring-white/10 placeholder:text-white/35 focus:ring-white/30"
+                className="min-h-[44px] max-h-[120px] flex-1 resize-none overflow-y-auto rounded-xl bg-white/10 p-3 text-[16px] text-white outline-none ring-1 ring-white/10 placeholder:text-white/35 focus:ring-white/30"
                 placeholder={hasTyped ? "" : t.placeholder}
                 rows={1}
               />
@@ -399,7 +399,7 @@ export default function AssistantChat({
                       ? t.ctaHot
                       : t.ctaDefault
                 }
-                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-black transition-all duration-500 hover:opacity-90 ${
+                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-[16px] font-medium text-black transition-all duration-500 hover:opacity-90 ${
                   ctaPulse
                     ? "translate-y-3 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
                     : ""
