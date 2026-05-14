@@ -830,25 +830,55 @@ const selected = (content as any)[lang] ?? base;
 const t = {
   ...base,
   ...selected,
+
   home: {
     ...base.home,
     ...selected.home,
+
     impact: {
       ...base.home.impact,
       ...selected.home?.impact,
     },
+
     solutionsSection: {
       ...base.home.solutionsSection,
       ...selected.home?.solutionsSection,
     },
+
     industriesSection: {
       ...base.home.industriesSection,
       ...selected.home?.industriesSection,
     },
+
     orchestration: {
       ...base.home.orchestration,
       ...selected.home?.orchestration,
     },
+  },
+
+  solutionsPage: {
+    ...base.solutionsPage,
+    ...selected.solutionsPage,
+  },
+
+  automationPage: {
+    ...base.automationPage,
+    ...selected.automationPage,
+  },
+
+  industriesPage: {
+    ...base.industriesPage,
+    ...selected.industriesPage,
+  },
+
+  casesPage: {
+    ...base.casesPage,
+    ...selected.casesPage,
+  },
+
+  callPage: {
+    ...base.callPage,
+    ...selected.callPage,
   },
 } as any;
   const navItems = useMemo(
