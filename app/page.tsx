@@ -1259,7 +1259,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
           {t.automationPage.items.map((item: any) => (
-            <div key={item} className="rounded-2xl border border-white/8 bg-[#0d0618] px-5 py-4 text-white/84">
+            <div key={item} className="rounded-2xl border border-white/8 bg-[#0d0618] px-5 py-4 text-[20px] font-medium leading-8 text-white/84">
               {item}
             </div>
           ))}
@@ -1349,42 +1349,42 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
           <div className="p-8 lg:p-10">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label className="mb-3 block text-sm text-white/56">
+                <label className="mb-3 block text-[17px] font-medium text-white/72">
                   {t.common.form.name}
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder={t.common.form.name}
                 />
               </div>
 
               <div>
-                <label className="mb-3 block text-sm text-white/56">
+                <label className="mb-3 block text-[17px] font-medium text-white/72">
                   {t.common.form.company}
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder={t.common.form.company}
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <label className="mb-3 block text-sm text-white/56">
+                <label className="mb-3 block text-[17px] font-medium text-white/72">
                   {t.common.form.email}
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder={t.common.form.email}
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <label className="mb-3 block text-sm text-white/56">
+                <label className="mb-3 block text-[17px] font-medium text-white/72">
                   {t.common.form.message}
                 </label>
                 <textarea
                   rows={5}
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
+                 className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder="ZZZ PRUEBA NUEVA PLACEHOLDER"
                 />
               </div>
