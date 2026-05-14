@@ -61,7 +61,7 @@ export default function Footer({ lang }: FooterProps) {
           </a>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 text-white/50">
+        <div className="flex flex-wrap items-center gap-3 text-white/60">
           <a
             href={`/privacy?lang=${lang}`}
             className="transition duration-200 hover:text-white"

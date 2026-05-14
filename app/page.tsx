@@ -775,7 +775,7 @@ const textStyles = {
   "mt-6 max-w-4xl text-[20px] leading-9 text-white/76 sm:text-[21px]",
 
   pageTitle:
-    "mt-4 max-w-5xl text-[42px] font-semibold leading-[1.04] tracking-[-0.04em] text-white sm:text-[54px] lg:text-[62px]",
+    "mt-4 max-w-5xl text-[38px] font-semibold leading-[1.04] tracking-[-0.04em] text-white sm:text-[48px] lg:text-[56px]",
 
   pageIntro:
     "mt-6 max-w-4xl text-[19px] leading-9 text-white/76 sm:text-[20px]",
@@ -1272,7 +1272,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
             <div className="mt-8 space-y-4">
               {t.automationPage.process.map((item: any) => (
                 <div key={item.step} className="flex gap-4 border-t border-white/8 pt-4 first:border-t-0 first:pt-0">
-                  <div className="text-sm font-semibold tracking-[0.18em] text-fuchsia-200/80">{item.step}</div>
+                  <div className="text-[15px] font-semibold tracking-[0.18em] text-fuchsia-200/80">{item.step}</div>
                   <div>
                     <h4 className="font-medium text-white">{item.title}</h4>
                     <p className="mt-1 text-sm leading-6 text-white/62">{item.text}</p>
@@ -1349,48 +1349,48 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
           <div className="p-8 lg:p-10">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm text-white/56">
+                <label className="mb-3 block text-sm text-white/56">
                   {t.common.form.name}
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
                   placeholder={t.common.form.name}
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm text-white/56">
+                <label className="mb-3 block text-sm text-white/56">
                   {t.common.form.company}
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
                   placeholder={t.common.form.company}
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <label className="mb-2 block text-sm text-white/56">
+                <label className="mb-3 block text-sm text-white/56">
                   {t.common.form.email}
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
                   placeholder={t.common.form.email}
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <label className="mb-2 block text-sm text-white/56">
+                <label className="mb-3 block text-sm text-white/56">
                   {t.common.form.message}
                 </label>
                 <textarea
                   rows={5}
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-4 py-3 text-white placeholder:text-white/24 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[15px] text-white placeholder:text-white/24 outline-none"
                   placeholder="ZZZ PRUEBA NUEVA PLACEHOLDER"
                 />
               </div>
             </div>
 
-            <button className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-[#13031d] transition hover:scale-[1.01]">
+            <button className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-semibold text-[#13031d] transition hover:scale-[1.01]">
               {t.common.sendRequest}
               <ArrowRight className="h-4 w-4" />
             </button>
