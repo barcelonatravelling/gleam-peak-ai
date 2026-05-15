@@ -1415,7 +1415,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                 <textarea
                   rows={5}
                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
-                  placeholder="ZZZ PRUEBA NUEVA PLACEHOLDER"
+                  placeholder=""
                 />
               </div>
             </div>
