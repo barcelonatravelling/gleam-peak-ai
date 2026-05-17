@@ -1376,13 +1376,33 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             </div>
           </div>
 
-          <div className="p-8 lg:p-10">
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            className="p-8 lg:p-10"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="12e58551-aa3f-45d1-8cac-508dbd82cc17"
+            />
+
+            <input
+              type="checkbox"
+              name="botcheck"
+              className="hidden"
+              style={{ display: "none" }}
+            />
+
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-3 block text-[17px] font-medium text-white/72">
                   {t.common.form.name}
                 </label>
                 <input
+                  type="text"
+                  name="name"
+                  required
                   className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder={t.common.form.name}
                 />
@@ -1393,6 +1413,8 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                   {t.common.form.company}
                 </label>
                 <input
+                  type="text"
+                  name="company"
                   className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder={t.common.form.company}
                 />
@@ -1403,6 +1425,9 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                   {t.common.form.email}
                 </label>
                 <input
+                  type="email"
+                  name="email"
+                  required
                   className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder={t.common.form.email}
                 />
@@ -1413,18 +1438,23 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                   {t.common.form.message}
                 </label>
                 <textarea
+                  name="message"
+                  required
                   rows={5}
-                 className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
+                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
                   placeholder=""
                 />
               </div>
             </div>
 
-            <button className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-semibold text-[#13031d] transition hover:scale-[1.01]">
+            <button
+              type="submit"
+              className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-semibold text-[#13031d] transition hover:scale-[1.01]"
+            >
               {t.common.sendRequest}
               <ArrowRight className="h-4 w-4" />
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
