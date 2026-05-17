@@ -78,17 +78,17 @@ const content = {
       trustBlocks: [
         {
           title: "Clear business focus",
-          text: "We start with the process, the team and the business goal before designing any AI system.",
+          text: "We start with the process, the team and the business goal — before designing anything.",
           icon: "shield",
         },
         {
           title: "Built for real workflows",
-          text: "We create AI solutions that connect with existing tools, data and daily operations.",
+          text: "We connect AI directly to your existing tools, data and daily operations.",
           icon: "workflow",
         },
         {
           title: "Designed to scale",
-          text: "We focus on reducing manual work, improving response speed and creating measurable operational value.",
+          text: "We reduce manual work, improve response speed and create measurable operational value from day one.",
           icon: "chart",
         },
       ],
@@ -100,25 +100,25 @@ const content = {
       },
     },
     home: {
-      kicker: "AI automation for modern companies",
+      kicker: "AI automation for modern operations",
       title: "We help companies automate processes with AI",
       subtitle:
-        "Gleam Peak AI designs intelligent systems that reduce manual work, improve customer response and help teams operate faster.",
+        "We design AI systems that reduce operational load, accelerate execution and help businesses scale with less friction.",
       ctas: {
         primary: "Book a strategic call",
         secondary: "Explore solutions",
       },
       stats: [
         {
-          value: "Less manual work",
+          value: "Eliminate manual load",
           text: "Automate repetitive tasks across sales, operations, support and internal workflows.",
         },
         {
-          value: "Faster response",
-          text: "Use AI assistants to qualify, route and respond to customers with more consistency.",
+          value: "Respond before competitors do",
+          text: "Use AI assistants to qualify, route and respond to customers with more speed and consistency.",
         },
         {
-          value: "Better decisions",
+          value: "Decisions backed by real data",
           text: "Turn business data and internal knowledge into practical decision support.",
         },
       ],
@@ -230,181 +230,180 @@ const content = {
         },
         {
           title: "Luxury & Wellness",
-          text: "Premium AI support for concierge, customer care, lead nurturing and daily operations.",
+          text: "AI built for premium service — concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
           icon: "sparkles",
         },
       ],
       finalCta: {
-        kicker: "Start with the right process",
-        title: "Let’s identify where AI can create the most value",
+        kicker: "Start where it matters most",
+        title: "Find where AI creates the highest business impact",
         text:
-          "We help you choose the right first use case, design the system and move from idea to implementation.",
+          "We help you identify the right use case, design the system and move from idea to measurable results.",
         button: "Book a strategic call",
       },
     },
     solutionsPage: {
-  kicker: "AI Solutions",
-  title: "Enterprise AI systems built around strategic business value",
-  intro:
-    "We design applied AI infrastructure that becomes part of how the company operates — improving execution speed, intelligence layers and operating leverage at scale.",
-  cards: [
-    {
-      title: "Enterprise AI Strategy",
-      text:
-        "Identify where AI creates the highest leverage, define the right architecture and build a roadmap aligned with measurable business outcomes.",
-      icon: "brain",
+      kicker: "AI Solutions",
+      title: "Enterprise AI systems built around strategic business value",
+      intro:
+        "We design applied AI systems that become part of how your company operates — improving execution speed, operational intelligence and growth capacity at scale.",
+      cards: [
+        {
+          title: "Enterprise AI Strategy",
+          text:
+            "Find where AI creates the fastest measurable return, define the right architecture and build a roadmap aligned with real business outcomes.",
+          icon: "brain",
+        },
+        {
+          title: "Operational AI Systems",
+          text:
+            "Deploy intelligent systems that coordinate workflows, automate execution and create operational capacity across business units.",
+          icon: "cpu",
+        },
+        {
+          title: "Enterprise AI Agents",
+          text:
+            "Private AI agents trained on company workflows, documentation and business logic that assist teams, customers and internal operations.",
+          icon: "bot",
+        },
+        {
+          title: "Decision Intelligence Layers",
+          text:
+            "Transform fragmented data into executive intelligence, predictive signals and systems that support faster, sharper decisions.",
+          icon: "chart",
+        },
+      ],
+      listTitle: "What we build",
+      items: [
+        "Private enterprise AI layers",
+        "AI operating systems for workflows",
+        "Executive intelligence infrastructure",
+        "Autonomous operational coordination",
+        "Knowledge systems connected to company data",
+        "Predictive and decision-support engines",
+      ],
     },
-    {
-      title: "Operational AI Systems",
-      text:
-        "Deploy intelligent systems that coordinate workflows, automate execution and create operational capacity across business units.",
-      icon: "cpu",
+    automationPage: {
+      kicker: "AI Automation",
+      title: "Intelligent infrastructure for next-generation operations",
+      intro:
+        "We design AI systems that coordinate, prioritize and execute complex workflows across teams, tools and business units — without adding operational complexity.",
+      items: [
+        "Multi-system orchestration",
+        "Decision engines",
+        "Private enterprise copilots",
+        "Predictive automation",
+        "AI workflow intelligence",
+        "AI-assisted autonomous operations",
+      ],
+      processTitle: "How we work",
+      processSubtitle: "From manual process to intelligent operating system",
+      process: [
+        {
+          step: "01",
+          title: "Operational mapping",
+          text: "We identify critical workflows, dependencies, bottlenecks and areas where AI can create leverage.",
+        },
+        {
+          step: "02",
+          title: "System architecture",
+          text: "We define the AI logic, integrations, data flows, permissions and automation layers.",
+        },
+        {
+          step: "03",
+          title: "Deployment",
+          text: "We build, test and refine the system with real operational scenarios and measurable outcomes.",
+        },
+        {
+          step: "04",
+          title: "Optimization",
+          text: "We improve performance, expand use cases and turn AI into a scalable operating advantage.",
+        },
+      ],
     },
-    {
-      title: "Enterprise AI Agents",
-      text:
-        "Private AI agents trained on company workflows, documentation and business logic that assist teams, customers and internal operations.",
-      icon: "bot",
+    industriesPage: {
+      kicker: "Industries",
+      title: "Sector-specific AI systems designed for real operational complexity",
+      intro:
+        "Every industry has unique workflows, operational pressure points and strategic priorities. We design AI systems that adapt to sector reality — not generic templates.",
+      cards: [
+        {
+          title: "Financial Services",
+          text: "Risk intelligence, compliance automation, fraud detection and operational decision systems for faster, sharper execution.",
+          icon: "shield",
+        },
+        {
+          title: "Technology & SaaS",
+          text: "AI copilots, internal operating layers and intelligent support systems that accelerate execution across teams.",
+          icon: "brain",
+        },
+        {
+          title: "Logistics & Operations",
+          text: "Predictive coordination, operational orchestration and intelligent resource allocation across complex workflows.",
+          icon: "workflow",
+        },
+        {
+          title: "Retail & Commerce",
+          text: "Demand intelligence, personalized customer systems and commercial automation that improve margin and scale.",
+          icon: "chart",
+        },
+        {
+          title: "Healthcare & Life Sciences",
+          text: "Operational intelligence, knowledge systems and AI-assisted coordination for highly complex environments.",
+          icon: "bot",
+        },
+        {
+          title: "Professional Services",
+          text: "Private knowledge layers, document intelligence and AI systems that amplify execution quality and billable leverage.",
+          icon: "building",
+        },
+        {
+          title: "Hospitality & Travel",
+          text: "Reservation intelligence, multilingual guest systems, concierge automation and revenue optimization layers.",
+          icon: "message",
+        },
+        {
+          title: "Luxury & Wellness",
+          text: "AI built for premium service — concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
+          icon: "sparkles",
+        },
+      ],
     },
-    {
-      title: "Decision Intelligence Layers",
-      text:
-        "Transform fragmented data into executive intelligence, predictive signals and systems that support faster, sharper decisions.",
-      icon: "chart",
+    casesPage: {
+      kicker: "Case Studies",
+      title: "Applied AI in real business environments",
+      intro:
+        "Real-world examples of how AI creates measurable revenue, operational efficiency and strategic visibility across the business.",
+      cards: [
+        {
+          title: "AI Revenue Engine",
+          result: "+42% faster conversion cycle",
+          text:
+            "An AI system qualifies inbound opportunities, routes high-intent leads, personalizes follow-up and helps commercial teams move faster with higher precision.",
+        },
+        {
+          title: "Enterprise Knowledge Layer",
+          result: "Up to 75% faster access to answers",
+          text:
+            "A private AI layer connected to company documentation, SOPs and internal knowledge gives teams instant access to trusted operational intelligence.",
+        },
+        {
+          title: "Operational Intelligence System",
+          result: "300+ hours recovered per quarter",
+          text:
+            "AI-driven coordination, automated execution and operational visibility reduce friction, improve consistency and free teams for higher-value work — at scale.",
+        },
+      ],
     },
-  ],
-  listTitle: "What we build",
-  items: [
-    "Private enterprise AI layers",
-    "AI operating systems for workflows",
-    "Executive intelligence infrastructure",
-    "Autonomous operational coordination",
-    "Knowledge systems connected to company data",
-    "Predictive and decision-support engines",
-  ],
-},
-  automationPage: {
-  kicker: "AI Automation",
-  title: "Intelligent infrastructure for next-generation operations",
-  intro:
-    "We design AI systems that can coordinate, prioritize and execute complex workflows across teams, tools and business units.",
-  items: [
-    "Multi-system orchestration",
-    "Decision engines",
-    "Private enterprise copilots",
-    "Predictive automation",
-    "AI workflow intelligence",
-    "AI-assisted autonomous operations",
-  ],
-  processTitle: "How we work",
-  processSubtitle: "From manual process to intelligent operating system",
-  process: [
-    {
-      step: "01",
-      title: "Operational mapping",
-      text: "We identify critical workflows, dependencies, bottlenecks and areas where AI can create leverage.",
-    },
-    {
-      step: "02",
-      title: "System architecture",
-      text: "We define the AI logic, integrations, data flows, permissions and automation layers.",
-    },
-    {
-      step: "03",
-      title: "Deployment",
-      text: "We build, test and refine the system with real operational scenarios and measurable outcomes.",
-    },
-    {
-      step: "04",
-      title: "Optimization",
-      text: "We improve performance, expand use cases and turn AI into a scalable operating advantage.",
-    },
-  ],
-},
-
-   industriesPage: {
-  kicker: "Industries",
-  title: "Sector-specific AI systems designed for real operational complexity",
-  intro:
-    "Every industry has unique workflows, operational pressure points and strategic priorities. We design AI systems that adapt to sector reality — not generic templates.",
-  cards: [
-    {
-      title: "Financial Services",
-      text: "Risk intelligence, compliance automation, fraud detection and operational decision systems for faster, sharper execution.",
-      icon: "shield",
-    },
-    {
-      title: "Technology & SaaS",
-      text: "AI copilots, internal operating layers and intelligent support systems that accelerate execution across teams.",
-      icon: "brain",
-    },
-    {
-      title: "Logistics & Operations",
-      text: "Predictive coordination, operational orchestration and intelligent resource allocation across complex workflows.",
-      icon: "workflow",
-    },
-    {
-      title: "Retail & Commerce",
-      text: "Demand intelligence, personalized customer systems and commercial automation that improve margin and scale.",
-      icon: "chart",
-    },
-    {
-      title: "Healthcare & Life Sciences",
-      text: "Operational intelligence, knowledge systems and AI-assisted coordination for highly complex environments.",
-      icon: "bot",
-    },
-    {
-      title: "Professional Services",
-      text: "Private knowledge layers, document intelligence and AI systems that amplify execution quality and billable leverage.",
-      icon: "building",
-    },
-    {
-      title: "Hospitality & Travel",
-      text: "Reservation intelligence, multilingual guest systems, concierge automation and revenue optimization layers.",
-      icon: "message",
-    },
-    {
-      title: "Luxury & Wellness",
-      text: "High-touch AI experiences for concierge, premium care journeys, intelligent nurturing and elite customer operations.",
-      icon: "sparkles",
-    },
-  ],
-},
-   casesPage: {
-  kicker: "Case Studies",
-  title: "Illustrative examples of enterprise AI impact",
-  intro:
-    "Examples of how applied AI can unlock revenue, operational efficiency and strategic visibility across the business.",
-  cards: [
-    {
-      title: "AI Revenue Engine",
-      result: "+42% faster conversion cycle",
-      text:
-        "An AI system qualifies inbound opportunities, routes high-intent leads, personalizes follow-up and helps commercial teams move faster with higher precision.",
-    },
-    {
-      title: "Enterprise Knowledge Layer",
-      result: "Up to 75% faster access to answers",
-      text:
-        "A private AI layer connected to company documentation, SOPs and internal knowledge gives teams instant access to trusted operational intelligence.",
-    },
-    {
-      title: "Operational Intelligence System",
-      result: "Hundreds of hours recovered quarterly",
-      text:
-        "AI-driven coordination, automated execution and operational visibility reduce friction, improve consistency and free teams for higher-value work.",
-    },
-  ],
-},
     callPage: {
       kicker: "Book a Call",
-      title: "Let’s identify where AI can help your business most",
+      title: "Let’s find where AI creates the most impact in your business",
       intro:
-        "Tell us what you want to improve, automate or scale, and we will help you define the right next step.",
+        "Tell us what you want to improve, automate or scale. We will help you define the right first step — no pitch, no templates.",
       bullets: [
-        "Business-first conversation",
-        "Clear practical recommendations",
-        "Ideas tailored to your company",
+        "We start with your process, not a pitch",
+        "You leave with a concrete next step",
+        "No templates. Built around your operation",
       ],
     },
   },
@@ -436,17 +435,17 @@ const content = {
       trustBlocks: [
         {
           title: "Enfoque claro de negocio",
-          text: "Primero entendemos el proceso, el equipo y el objetivo antes de diseñar cualquier solución.",
+          text: "Primero entendemos el proceso, el equipo y el objetivo — antes de diseñar nada.",
           icon: "shield",
         },
         {
           title: "Construido para procesos reales",
-          text: "Creamos soluciones conectadas con tus herramientas, tus datos y tu operación diaria.",
+          text: "Conectamos la IA directamente con tus herramientas, tus datos y tu operación diaria.",
           icon: "workflow",
         },
         {
           title: "Pensado para escalar",
-          text: "Buscamos reducir trabajo manual, mejorar velocidad de respuesta y crear valor operativo medible.",
+          text: "Reducimos trabajo manual, mejoramos velocidad de respuesta y creamos valor operativo medible desde el primer día.",
           icon: "chart",
         },
       ],
@@ -458,25 +457,25 @@ const content = {
       },
     },
     home: {
-      kicker: "Automatización empresarial con IA",
+      kicker: "Automatización operativa con IA",
       title: "Ayudamos a empresas a automatizar procesos con IA",
       subtitle:
-        "Diseñamos sistemas inteligentes que reducen trabajo manual, mejoran la atención al cliente y hacen que los equipos operen más rápido.",
+        "Diseñamos sistemas de IA que reducen carga operativa, aceleran la ejecución y ayudan a las empresas a crecer con menos fricción.",
       ctas: {
         primary: "Reservar llamada estratégica",
         secondary: "Explorar soluciones",
       },
       stats: [
         {
-          value: "Menos trabajo manual",
+          value: "Elimina la carga operativa",
           text: "Automatiza tareas repetitivas en ventas, operaciones, soporte y procesos internos.",
         },
         {
-          value: "Respuesta más rápida",
-          text: "Utiliza asistentes de IA para cualificar, dirigir y responder con mayor consistencia.",
+          value: "Responde antes que tu competencia",
+          text: "Utiliza asistentes de IA para cualificar, dirigir y responder con mayor velocidad y consistencia.",
         },
         {
-          value: "Mejores decisiones",
+          value: "Decisiones respaldadas por datos reales",
           text: "Convierte datos y conocimiento interno en apoyo real para la toma de decisiones.",
         },
       ],
@@ -544,173 +543,227 @@ const content = {
           icon: "chart",
         },
       ],
-      industriesPage: {
-  kicker: "Industrias",
-  title: "Sistemas sectoriales de IA diseñados para complejidad operativa real",
-  intro:
-    "Cada industria tiene flujos, presiones operativas y prioridades estratégicas distintas. Diseñamos sistemas de IA adaptados a la realidad de cada sector — no soluciones genéricas.",
-  cards: [
-    {
-      title: "Servicios Financieros",
-      text: "Inteligencia de riesgo, automatización de cumplimiento, detección de fraude y sistemas de decisión para una ejecución más ágil y precisa.",
-      icon: "shield",
+      industriesSection: {
+        kicker: "Industrias",
+        title: "IA adaptada a la forma en que opera cada empresa",
+        intro:
+          "Desde logística y retail hasta hospitality, servicios y wellness, adaptamos la IA a los procesos reales de cada sector.",
+      },
+      industries: [
+        {
+          title: "Servicios Financieros",
+          text: "Automatización para revisión de riesgos, cumplimiento, soporte interno y decisiones más rápidas.",
+          icon: "shield",
+        },
+        {
+          title: "Tecnología y SaaS",
+          text: "Copilotos, automatización de soporte y sistemas internos para acelerar producto y negocio.",
+          icon: "brain",
+        },
+        {
+          title: "Logística y Operaciones",
+          text: "Automatización de flujos, actualizaciones de cliente, planificación de recursos y visibilidad operativa.",
+          icon: "workflow",
+        },
+        {
+          title: "Retail y Comercio",
+          text: "Soporte al cliente, seguimiento comercial, señales de demanda y automatización de ventas.",
+          icon: "chart",
+        },
+        {
+          title: "Salud y Ciencias de la Vida",
+          text: "Flujos de soporte, coordinación operativa y sistemas de conocimiento para entornos complejos.",
+          icon: "bot",
+        },
+        {
+          title: "Servicios Profesionales",
+          text: "Flujos documentales, copilotos internos y sistemas de conocimiento para mejorar velocidad y consistencia.",
+          icon: "building",
+        },
+        {
+          title: "Hospitality y Turismo",
+          text: "IA para consultas, reservas, soporte multilingüe, upselling y coordinación de experiencia.",
+          icon: "message",
+        },
+        {
+          title: "Lujo y Wellness",
+          text: "IA diseñada para servicio premium — concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
+          icon: "sparkles",
+        },
+      ],
+      finalCta: {
+        kicker: "Empieza donde más importa",
+        title: "Descubre dónde la IA genera mayor impacto para tu negocio",
+        text:
+          "Te ayudamos a identificar el caso de uso correcto, diseñar el sistema y convertir ideas en resultados medibles.",
+        button: "Reservar llamada estratégica",
+      },
     },
-    {
-      title: "Tecnología y SaaS",
-      text: "Copilotos, capas operativas inteligentes y sistemas internos de IA que aceleran la ejecución entre equipos.",
-      icon: "brain",
-    },
-    {
-      title: "Logística y Operaciones",
-      text: "Coordinación predictiva, orquestación operativa y asignación inteligente de recursos en flujos complejos.",
-      icon: "workflow",
-    },
-    {
-      title: "Retail y Comercio",
-      text: "Inteligencia de demanda, sistemas personalizados para clientes y automatización comercial que mejora margen y escalabilidad.",
-      icon: "chart",
-    },
-    {
-      title: "Salud y Ciencias de la Vida",
-      text: "Inteligencia operativa, sistemas de conocimiento y coordinación asistida por IA para entornos de alta complejidad.",
-      icon: "bot",
-    },
-    {
-      title: "Servicios Profesionales",
-      text: "Capas privadas de conocimiento, inteligencia documental y sistemas de IA que multiplican calidad de ejecución y eficiencia facturable.",
-      icon: "building",
-    },
-    {
-      title: "Hospitality y Turismo",
-      text: "Inteligencia para reservas, atención multilingüe, concierge automatizado y capas de optimización de ingresos.",
-      icon: "message",
-    },
-    {
-      title: "Lujo y Wellness",
-      text: "Experiencias premium impulsadas por IA para concierge, customer care de alto nivel y operaciones exclusivas.",
-      icon: "sparkles",
-    },
-  ],
-},
     solutionsPage: {
-  kicker: "Soluciones IA",
-  title: "Sistemas empresariales de IA construidos alrededor del valor estratégico",
-  intro:
-    "Diseñamos infraestructura aplicada de IA que pasa a formar parte de cómo opera la empresa — mejorando velocidad de ejecución, inteligencia operativa y capacidad de crecimiento a escala.",
-  cards: [
-    {
-      title: "Estrategia Empresarial de IA",
-      text:
-        "Identificamos dónde la IA crea mayor ventaja, definimos la arquitectura adecuada y trazamos una hoja de ruta alineada con resultados medibles.",
-      icon: "brain",
+      kicker: "Soluciones IA",
+      title: "Sistemas empresariales de IA construidos alrededor del valor estratégico",
+      intro:
+        "Diseñamos sistemas de IA aplicada que pasan a formar parte de cómo opera tu empresa — mejorando velocidad de ejecución, inteligencia operativa y capacidad de crecimiento.",
+      cards: [
+        {
+          title: "Estrategia Empresarial de IA",
+          text:
+            "Identificamos dónde la IA genera retorno medible más rápido, definimos la arquitectura correcta y trazamos una hoja de ruta alineada con resultados reales.",
+          icon: "brain",
+        },
+        {
+          title: "Sistemas Operativos con IA",
+          text:
+            "Desplegamos sistemas inteligentes que coordinan flujos, automatizan ejecución y crean nueva capacidad operativa en toda la empresa.",
+          icon: "cpu",
+        },
+        {
+          title: "Agentes Empresariales de IA",
+          text:
+            "Agentes privados entrenados con procesos, documentación y lógica de negocio para asistir equipos, clientes y operaciones internas.",
+          icon: "bot",
+        },
+        {
+          title: "Capas de Inteligencia para Decisión",
+          text:
+            "Convertimos datos fragmentados en inteligencia ejecutiva, señales predictivas y sistemas que apoyan decisiones más rápidas y precisas.",
+          icon: "chart",
+        },
+      ],
+      listTitle: "Lo que construimos",
+      items: [
+        "Capas privadas empresariales de IA",
+        "Sistemas operativos de IA para flujos",
+        "Infraestructura de inteligencia ejecutiva",
+        "Coordinación operativa autónoma",
+        "Sistemas de conocimiento conectados a datos empresariales",
+        "Motores predictivos y de apoyo a decisiones",
+      ],
     },
-    {
-      title: "Sistemas Operativos con IA",
-      text:
-        "Desplegamos sistemas inteligentes que coordinan flujos, automatizan ejecución y crean nueva capacidad operativa en toda la empresa.",
-      icon: "cpu",
-    },
-    {
-      title: "Agentes Empresariales de IA",
-      text:
-        "Agentes privados entrenados con procesos, documentación y lógica de negocio para asistir equipos, clientes y operaciones internas.",
-      icon: "bot",
-    },
-    {
-      title: "Capas de Inteligencia para Decisión",
-      text:
-        "Convertimos datos fragmentados en inteligencia ejecutiva, señales predictivas y sistemas que apoyan decisiones más rápidas y precisas.",
-      icon: "chart",
-    },
-  ],
-  listTitle: "Lo que construimos",
-  items: [
-    "Capas privadas empresariales de IA",
-    "Sistemas operativos de IA para flujos",
-    "Infraestructura de inteligencia ejecutiva",
-    "Coordinación operativa autónoma",
-    "Sistemas de conocimiento conectados a datos empresariales",
-    "Motores predictivos y de apoyo a decisiones",
-  ],
-},
     automationPage: {
-  kicker: "Automatización IA",
-  title: "Infraestructura inteligente para operaciones de nueva generación",
-  intro:
-    "Diseñamos sistemas de IA capaces de coordinar, priorizar y ejecutar procesos complejos entre equipos, herramientas y áreas de negocio.",
-  items: [
-    "Orquestación multi-sistema",
-    "Motores inteligentes de decisión",
-    "Copilotos empresariales privados",
-    "Automatización predictiva",
-    "Inteligencia de flujos operativos",
-    "Operaciones autónomas asistidas por IA",
-  ],
-  processTitle: "Cómo trabajamos",
-  processSubtitle: "Del proceso manual al sistema operativo inteligente",
-  process: [
-    {
-      step: "01",
-      title: "Mapeo operativo",
-      text: "Identificamos flujos críticos, dependencias, cuellos de botella y áreas donde la IA puede crear ventaja.",
+      kicker: "Automatización IA",
+      title: "Infraestructura inteligente para operaciones de nueva generación",
+      intro:
+        "Diseñamos sistemas de IA que coordinan, priorizan y ejecutan procesos complejos entre equipos, herramientas y áreas de negocio — sin añadir complejidad operativa.",
+      items: [
+        "Orquestación multi-sistema",
+        "Motores inteligentes de decisión",
+        "Copilotos empresariales privados",
+        "Automatización predictiva",
+        "Inteligencia de flujos operativos",
+        "Operaciones autónomas asistidas por IA",
+      ],
+      processTitle: "Cómo trabajamos",
+      processSubtitle: "Del proceso manual al sistema operativo inteligente",
+      process: [
+        {
+          step: "01",
+          title: "Mapeo operativo",
+          text: "Identificamos flujos críticos, dependencias, cuellos de botella y áreas donde la IA puede crear ventaja.",
+        },
+        {
+          step: "02",
+          title: "Arquitectura del sistema",
+          text: "Definimos lógica de IA, integraciones, flujos de datos, permisos y capas de automatización.",
+        },
+        {
+          step: "03",
+          title: "Despliegue",
+          text: "Construimos, probamos y refinamos el sistema con escenarios reales y resultados medibles.",
+        },
+        {
+          step: "04",
+          title: "Optimización",
+          text: "Mejoramos rendimiento, ampliamos casos de uso y convertimos la IA en ventaja operativa escalable.",
+        },
+      ],
     },
-    {
-      step: "02",
-      title: "Arquitectura del sistema",
-      text: "Definimos lógica de IA, integraciones, flujos de datos, permisos y capas de automatización.",
+    industriesPage: {
+      kicker: "Industrias",
+      title: "Sistemas sectoriales de IA diseñados para complejidad operativa real",
+      intro:
+        "Cada industria tiene flujos, presiones operativas y prioridades estratégicas distintas. Diseñamos sistemas de IA adaptados a la realidad de cada sector — no soluciones genéricas.",
+      cards: [
+        {
+          title: "Servicios Financieros",
+          text: "Inteligencia de riesgo, automatización de cumplimiento, detección de fraude y sistemas de decisión para una ejecución más ágil y precisa.",
+          icon: "shield",
+        },
+        {
+          title: "Tecnología y SaaS",
+          text: "Copilotos, capas operativas inteligentes y sistemas internos de IA que aceleran la ejecución entre equipos.",
+          icon: "brain",
+        },
+        {
+          title: "Logística y Operaciones",
+          text: "Coordinación predictiva, orquestación operativa y asignación inteligente de recursos en flujos complejos.",
+          icon: "workflow",
+        },
+        {
+          title: "Retail y Comercio",
+          text: "Inteligencia de demanda, sistemas personalizados para clientes y automatización comercial que mejora margen y escalabilidad.",
+          icon: "chart",
+        },
+        {
+          title: "Salud y Ciencias de la Vida",
+          text: "Inteligencia operativa, sistemas de conocimiento y coordinación asistida por IA para entornos de alta complejidad.",
+          icon: "bot",
+        },
+        {
+          title: "Servicios Profesionales",
+          text: "Capas privadas de conocimiento, inteligencia documental y sistemas de IA que multiplican calidad de ejecución y eficiencia facturable.",
+          icon: "building",
+        },
+        {
+          title: "Hospitality y Turismo",
+          text: "Inteligencia para reservas, atención multilingüe, concierge automatizado y capas de optimización de ingresos.",
+          icon: "message",
+        },
+        {
+          title: "Lujo y Wellness",
+          text: "IA diseñada para servicio premium — concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
+          icon: "sparkles",
+        },
+      ],
     },
-    {
-      step: "03",
-      title: "Despliegue",
-      text: "Construimos, probamos y refinamos el sistema con escenarios reales y resultados medibles.",
+    casesPage: {
+      kicker: "Casos de estudio",
+      title: "IA aplicada en entornos empresariales reales",
+      intro:
+        "Ejemplos reales de cómo la IA genera crecimiento medible, eficiencia operativa y mayor visibilidad estratégica en la empresa.",
+      cards: [
+        {
+          title: "Motor de Ingresos con IA",
+          result: "+42% más rapidez en conversión",
+          text:
+            "Un sistema de IA cualifica oportunidades, prioriza leads de alta intención, personaliza seguimientos y ayuda a los equipos comerciales a cerrar más rápido y con mayor precisión.",
+        },
+        {
+          title: "Capa Empresarial de Conocimiento",
+          result: "Hasta un 75% más rápido en acceso a respuestas",
+          text:
+            "Una capa privada de IA conectada a documentación, SOPs y conocimiento interno da a los equipos acceso instantáneo a inteligencia operativa confiable.",
+        },
+        {
+          title: "Sistema de Inteligencia Operativa",
+          result: "Más de 300 horas recuperadas por trimestre",
+          text:
+            "Coordinación impulsada por IA, ejecución automatizada y mayor visibilidad operativa reducen fricción, mejoran consistencia y liberan equipos para trabajo de mayor valor — a escala.",
+        },
+      ],
     },
-    {
-      step: "04",
-      title: "Optimización",
-      text: "Mejoramos rendimiento, ampliamos casos de uso y convertimos la IA en ventaja operativa escalable.",
-    },
-  ],
-},
-    
-  casesPage: {
-  kicker: "Casos de estudio",
-  title: "Ejemplos ilustrativos de impacto empresarial con IA",
-  intro:
-    "Ejemplos de cómo una IA bien aplicada puede desbloquear crecimiento, eficiencia operativa y mayor visibilidad estratégica en la empresa.",
-  cards: [
-    {
-      title: "Motor de Ingresos con IA",
-      result: "+42% más rapidez en conversión",
-      text:
-        "Un sistema de IA cualifica oportunidades, prioriza leads de alta intención, personaliza seguimientos y ayuda a los equipos comerciales a cerrar más rápido y con mayor precisión.",
-    },
-    {
-      title: "Capa Empresarial de Conocimiento",
-      result: "Hasta un 75% más rápido en acceso a respuestas",
-      text:
-        "Una capa privada de IA conectada a documentación, SOPs y conocimiento interno da a los equipos acceso instantáneo a inteligencia operativa confiable.",
-    },
-    {
-      title: "Sistema de Inteligencia Operativa",
-      result: "Cientos de horas recuperadas por trimestre",
-      text:
-        "Coordinación impulsada por IA, ejecución automatizada y mayor visibilidad operativa reducen fricción, mejoran consistencia y liberan tiempo para trabajo de mayor valor.",
-    },
-  ],
-},
     callPage: {
       kicker: "Reservar llamada",
-      title: "Veamos dónde la IA puede ayudarte más",
+      title: "Veamos dónde la IA puede crear más impacto en tu empresa",
       intro:
-        "Cuéntanos qué quieres mejorar, automatizar o escalar y definiremos el mejor siguiente paso.",
+        "Cuéntanos qué quieres mejorar, automatizar o escalar. Definiremos el mejor siguiente paso — sin pitch, sin plantillas.",
       bullets: [
-        "Conversación enfocada en negocio",
-        "Recomendaciones claras y prácticas",
-        "Ideas adaptadas a tu empresa",
-          ],
+        "Empezamos por tu proceso, no por un pitch",
+        "Sales con un siguiente paso concreto",
+        "Sin plantillas. Diseñado para tu operación",
+      ],
+    },
   },
-},
-},
 };
 
 const pageOrder: PageKey[] = ["home", "solutions", "automation", "industries", "cases", "call"];
