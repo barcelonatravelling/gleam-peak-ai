@@ -1359,25 +1359,36 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setFormStatus("sending");
+  event.preventDefault();
+  setFormStatus("sending");
 
-    const formData = new FormData(event.currentTarget);
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
 
-      if (!response.ok) throw new Error("Form submission failed");
+    const result = await response.json();
 
+    if (result.success) {
       setFormStatus("success");
-      event.currentTarget.reset();
-    } catch {
+      form.reset();
+    } else {
       setFormStatus("error");
     }
-  };
+  } catch {
+    setFormStatus("error");
+  }
+};
 
   return (
     <PageShell
