@@ -1377,15 +1377,32 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
           </div>
 
           <form
-            action="https://api.web3forms.com/submit"
-            method="POST"
-            className="p-8 lg:p-10"
-          >
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  className="p-8 lg:p-10"
+>
+  <input
+    type="hidden"
+    name="redirect"
+    value="https://gleampeak.ai"
+  />
             <input
               type="hidden"
               name="access_key"
               value="12e58551-aa3f-45d1-8cac-508dbd82cc17"
             />
+
+            <input
+  type="hidden"
+  name="subject"
+  value="New lead from Gleam Peak"
+/>
+
+<input
+  type="hidden"
+  name="from_name"
+  value="Gleam Peak Website"
+/>
 
             <input
               type="checkbox"
