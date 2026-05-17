@@ -1,7 +1,7 @@
 
 "use client";
 import AssistantChat from "../components/AssistantChat";
-import type { ReactNode } from "react";
+import type { ReactNode, FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -1356,6 +1356,29 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
 }
 
 function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => void }) {
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormStatus("sending");
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
+
+      setFormStatus("success");
+      event.currentTarget.reset();
+    } catch {
+      setFormStatus("error");
+    }
+  };
+
   return (
     <PageShell
       kicker={t.callPage.kicker}
@@ -1376,16 +1399,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             </div>
           </div>
 
-          <form
-  action="https://api.web3forms.com/submit"
-  method="POST"
-  className="p-8 lg:p-10"
->
-  <input
-    type="hidden"
-    name="redirect"
-    value="https://gleampeak.ai"
-  />
+          <form onSubmit={handleSubmit} className="p-8 lg:p-10">
             <input
               type="hidden"
               name="access_key"
@@ -1393,16 +1407,16 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             />
 
             <input
-  type="hidden"
-  name="subject"
-  value="New lead from Gleam Peak"
-/>
+              type="hidden"
+              name="subject"
+              value="New lead from Gleam Peak"
+            />
 
-<input
-  type="hidden"
-  name="from_name"
-  value="Gleam Peak Website"
-/>
+            <input
+              type="hidden"
+              name="from_name"
+              value="Gleam Peak Website"
+            />
 
             <input
               type="checkbox"
@@ -1411,66 +1425,89 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
               style={{ display: "none" }}
             />
 
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div>
-                <label className="mb-3 block text-[17px] font-medium text-white/72">
-                  {t.common.form.name}
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
-                  placeholder={t.common.form.name}
-                />
+            {formStatus === "success" ? (
+              <div className="rounded-[1.5rem] border border-fuchsia-300/20 bg-white/[0.06] p-8 text-center">
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-fuchsia-300/20 bg-fuchsia-500/15 text-fuchsia-100">
+                  ✓
+                </div>
+                <h3 className="text-[26px] font-semibold text-white">
+                  Solicitud enviada correctamente
+                </h3>
+                <p className="mt-4 text-[17px] leading-8 text-white/70">
+                  Hemos recibido tu mensaje. Te contactaremos pronto para revisar cómo podemos ayudarte.
+                </p>
               </div>
+            ) : (
+              <>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-3 block text-[17px] font-medium text-white/72">
+                      {t.common.form.name}
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
+                      placeholder={t.common.form.name}
+                    />
+                  </div>
 
-              <div>
-                <label className="mb-3 block text-[17px] font-medium text-white/72">
-                  {t.common.form.company}
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
-                  placeholder={t.common.form.company}
-                />
-              </div>
+                  <div>
+                    <label className="mb-3 block text-[17px] font-medium text-white/72">
+                      {t.common.form.company}
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
+                      placeholder={t.common.form.company}
+                    />
+                  </div>
 
-              <div className="sm:col-span-2">
-                <label className="mb-3 block text-[17px] font-medium text-white/72">
-                  {t.common.form.email}
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
-                  placeholder={t.common.form.email}
-                />
-              </div>
+                  <div className="sm:col-span-2">
+                    <label className="mb-3 block text-[17px] font-medium text-white/72">
+                      {t.common.form.email}
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
+                      placeholder={t.common.form.email}
+                    />
+                  </div>
 
-              <div className="sm:col-span-2">
-                <label className="mb-3 block text-[17px] font-medium text-white/72">
-                  {t.common.form.message}
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
-                  placeholder=""
-                />
-              </div>
-            </div>
+                  <div className="sm:col-span-2">
+                    <label className="mb-3 block text-[17px] font-medium text-white/72">
+                      {t.common.form.message}
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      rows={5}
+                      className="w-full rounded-2xl border border-white/10 bg-[#12071d] px-5 py-4 text-[17px] text-white placeholder:text-white/32 outline-none"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
 
-            <button
-              type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-semibold text-[#13031d] transition hover:scale-[1.01]"
-            >
-              {t.common.sendRequest}
-              <ArrowRight className="h-4 w-4" />
-            </button>
+                {formStatus === "error" && (
+                  <p className="mt-4 text-sm text-red-300">
+                    No se pudo enviar el formulario. Inténtalo nuevamente.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={formStatus === "sending"}
+                  className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-semibold text-[#13031d] transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {formStatus === "sending" ? "Enviando..." : t.common.sendRequest}
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </>
+            )}
           </form>
         </div>
       </div>
