@@ -1323,6 +1323,15 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.solutionsPage.kicker} title={t.solutionsPage.title} intro={t.solutionsPage.intro}>
+      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+  <Image
+    src="/enterprise-copilot.png"
+    alt="Enterprise AI"
+    width={1600}
+    height={900}
+    className="w-full h-auto object-cover"
+  />
+</div>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {t.solutionsPage.cards.map((card: any) => {
 
@@ -1350,6 +1359,15 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
 function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
+      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+  <Image
+    src="/integrations.png"
+    alt="AI integrations"
+    width={1600}
+    height={900}
+    className="w-full h-auto object-cover"
+  />
+</div>
       <div className="mb-12">
   <VisualImage
     src="/images/enterprise-copilot.png"
@@ -1392,6 +1410,15 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
 function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.industriesPage.kicker} title={t.industriesPage.title} intro={t.industriesPage.intro}>
+      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+  <Image
+    src="/team-collaboration.png"
+    alt="Team collaboration"
+    width={1600}
+    height={900}
+    className="w-full h-auto object-cover"
+  />
+</div>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {t.industriesPage.cards.map((industry: any) => {
           const Icon = iconMap[industry.icon as IconKey] ?? Building2;
@@ -1406,6 +1433,15 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
 function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.casesPage.kicker} title={t.casesPage.title} intro={t.casesPage.intro}>
+      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+  <Image
+    src="/decision-intelligence.png"
+    alt="Decision intelligence"
+    width={1600}
+    height={900}
+    className="w-full h-auto object-cover"
+  />
+</div>
       <div className="grid gap-6 lg:grid-cols-3">
         {t.casesPage.cards.map((item: any) => (
           <div key={item.title} className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-7">
@@ -1466,6 +1502,16 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
       title={t.callPage.title}
       intro={t.callPage.intro}
     >
+<div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+  <Image
+    src="/business-scaling.png"
+    alt="Business scaling"
+    width={1600}
+    height={900}
+    className="w-full h-auto object-cover"
+  />
+</div>
+
       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/12 via-violet-500/8 to-white/[0.04] shadow-2xl">
         <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="border-b border-white/8 p-8 lg:border-b-0 lg:border-r lg:p-10">
