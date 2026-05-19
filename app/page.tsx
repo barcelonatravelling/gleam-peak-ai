@@ -1368,12 +1368,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
     className="h-auto w-full object-cover"
   />
 </div>
-      <div className="mb-12">
-  <VisualImage
-    src="/images/enterprise-copilot.png"
-    alt="Enterprise AI copilot assistant"
-  />
-</div>
+     
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
           {t.automationPage.items.map((item: any) => (
