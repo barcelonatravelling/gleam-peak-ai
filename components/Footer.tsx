@@ -21,14 +21,14 @@ export default function Footer({ lang }: FooterProps) {
 
   return (
     <footer className="border-t border-white/10 bg-gradient-to-b from-transparent to-white/[0.03] backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-7 text-sm text-white/60 lg:px-8 md:flex-row md:items-center md:justify-between">
-        <p className="tracking-[0.01em]">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-5 px-5 py-8 text-center text-sm text-white/60 md:flex-row md:justify-between md:text-left lg:px-8">
+        <p className="max-w-xs tracking-[0.01em] md:max-w-none">
           © {year}{" "}
           <span className="font-medium text-white/90">Gleam Peak AI</span>.{" "}
           {t.rights}
         </p>
 
-        <div className="flex flex-wrap items-center gap-4 text-white/50">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/50">
           <a
             href="https://linkedin.com/company/gleampeak"
             target="_blank"
@@ -61,7 +61,7 @@ export default function Footer({ lang }: FooterProps) {
           </a>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 text-white/60">
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-white/60">
           <a
             href={`/privacy?lang=${lang}`}
             className="transition duration-200 hover:text-white"
