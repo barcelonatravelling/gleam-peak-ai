@@ -1151,6 +1151,16 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-fuchsia-500/20 via-violet-500/10 to-cyan-400/10 blur-3xl"/>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0c0617]/90 p-8 shadow-[0_20px_80px_rgba(20,6,40,0.45)]">
+            <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-white/10">
+  <Image
+    src="/images/hero-ai-network.png"
+    alt="Gleam Peak AI enterprise intelligence system"
+    width={1600}
+    height={900}
+    className="h-auto w-full object-cover"
+    priority
+  />
+</div>
               <div className="flex items-center justify-between mb-6">
 
                 <div>
@@ -1339,6 +1349,12 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
 function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
+      <div className="mb-12">
+  <VisualImage
+    src="/images/enterprise-copilot.png"
+    alt="Enterprise AI copilot assistant"
+  />
+</div>
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
           {t.automationPage.items.map((item: any) => (
@@ -1674,6 +1690,26 @@ function CompactCard({
 <p className={textStyles.compactText}>
   {text}
 </p>
+    </div>
+  );
+}
+
+function VisualImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_20px_80px_rgba(20,6,40,0.45)]">
+      <Image
+        src={src}
+        alt={alt}
+        width={1600}
+        height={900}
+        className="h-auto w-full object-cover"
+      />
     </div>
   );
 }
