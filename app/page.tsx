@@ -1323,13 +1323,13 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.solutionsPage.kicker} title={t.solutionsPage.title} intro={t.solutionsPage.intro}>
-      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+      <div className="mb-10 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/enterprise-copilot.png"
-    alt="Enterprise AI"
+    alt="Enterprise AI copilot assistant"
     width={1600}
     height={900}
-    className="w-full h-auto object-cover"
+    className="h-auto w-full object-cover"
   />
 </div>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -1359,13 +1359,13 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
 function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
-      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+     <div className="mb-10 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/integrations.png"
-    alt="AI integrations"
+    alt="AI automation and integrations"
     width={1600}
     height={900}
-    className="w-full h-auto object-cover"
+    className="h-auto w-full object-cover"
   />
 </div>
       <div className="mb-12">
