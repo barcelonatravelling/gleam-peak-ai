@@ -1359,16 +1359,16 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
 function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
-     <div className="mb-10 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10"><div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-  <Image
-    src="/integrations.png"
-    alt="AI automation and integrations"
-    width={1600}
-    height={900}
-    className="h-auto w-full object-cover"
-  />
-</div>
-     
+      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
+        <Image
+          src="/integrations.png"
+          alt="AI automation and integrations"
+          width={1600}
+          height={900}
+          className="h-auto w-full object-cover"
+        />
+      </div>
+
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
           {t.automationPage.items.map((item: any) => (
@@ -1406,20 +1406,22 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
   return (
     <PageShell kicker={t.industriesPage.kicker} title={t.industriesPage.title} intro={t.industriesPage.intro}>
       <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-  <Image
-    src="/team-collaboration.png"
-    alt="Team collaboration with AI systems"
-    width={1600}
-    height={900}
-    className="h-auto w-full object-cover"
-  />
-</div>
+        <Image
+          src="/team-collaboration.png"
+          alt="Team collaboration with AI systems"
+          width={1600}
+          height={900}
+          className="h-auto w-full object-cover"
+        />
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {t.industriesPage.cards.map((industry: any) => {
           const Icon = iconMap[industry.icon as IconKey] ?? Building2;
           return <CompactCard key={industry.title} icon={Icon} title={industry.title} text={industry.text} />;
         })}
       </div>
+
       <PageFooterNav t={t} changePage={changePage} nextPage={nextPage} />
     </PageShell>
   );
@@ -1531,7 +1533,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             <input
               type="hidden"
               name="subject"
-              
+
               value="New lead from Gleam Peak"
             />
 
