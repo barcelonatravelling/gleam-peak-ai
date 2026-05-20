@@ -1430,15 +1430,16 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
 function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.casesPage.kicker} title={t.casesPage.title} intro={t.casesPage.intro}>
-      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10"><div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-  <Image
-    src="/decision-intelligence.png"
-    alt="Decision intelligence dashboard"
-    width={1600}
-    height={900}
-    className="h-auto w-full object-cover"
-  />
-</div>
+      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
+        <Image
+          src="/decision-intelligence.png"
+          alt="Decision intelligence dashboard"
+          width={1600}
+          height={900}
+          className="h-auto w-full object-cover"
+        />
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-3">
         {t.casesPage.cards.map((item: any) => (
           <div key={item.title} className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-7">
@@ -1453,6 +1454,7 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
           </div>
         ))}
       </div>
+
       <PageFooterNav t={t} changePage={changePage} nextPage={nextPage} />
     </PageShell>
   );
