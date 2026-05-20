@@ -1323,7 +1323,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.solutionsPage.kicker} title={t.solutionsPage.title} intro={t.solutionsPage.intro}>
-      <div className="mb-10 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
+      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/enterprise-copilot.png"
     alt="Enterprise AI copilot assistant"
@@ -1359,7 +1359,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
 function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
-     <div className="mb-10 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
+     <div className="mb-10 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10"><div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/integrations.png"
     alt="AI automation and integrations"
@@ -1405,13 +1405,13 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
 function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.industriesPage.kicker} title={t.industriesPage.title} intro={t.industriesPage.intro}>
-      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/team-collaboration.png"
-    alt="Team collaboration"
+    alt="Team collaboration with AI systems"
     width={1600}
     height={900}
-    className="w-full h-auto object-cover"
+    className="h-auto w-full object-cover"
   />
 </div>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
@@ -1428,13 +1428,13 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
 function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
     <PageShell kicker={t.casesPage.kicker} title={t.casesPage.title} intro={t.casesPage.intro}>
-      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+      <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10"><div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/decision-intelligence.png"
-    alt="Decision intelligence"
+    alt="Decision intelligence dashboard"
     width={1600}
     height={900}
-    className="w-full h-auto object-cover"
+    className="h-auto w-full object-cover"
   />
 </div>
       <div className="grid gap-6 lg:grid-cols-3">
@@ -1497,13 +1497,13 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
       title={t.callPage.title}
       intro={t.callPage.intro}
     >
-<div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10">
+<div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/business-scaling.png"
-    alt="Business scaling"
+    alt="Business scaling with AI"
     width={1600}
     height={900}
-    className="w-full h-auto object-cover"
+    className="h-auto w-full object-cover"
   />
 </div>
 
@@ -1531,6 +1531,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             <input
               type="hidden"
               name="subject"
+              
               value="New lead from Gleam Peak"
             />
 
