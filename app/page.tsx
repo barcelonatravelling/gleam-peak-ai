@@ -1329,15 +1329,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
   imageSrc="/enterprise-copilot.png"
   imageAlt="Enterprise AI copilot assistant"
 >
-      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-  <Image
-    src="/enterprise-copilot.png"
-    alt="Enterprise AI copilot assistant"
-    width={1600}
-    height={900}
-    className="h-auto w-full object-cover"
-  />
-</div>
+      
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {t.solutionsPage.cards.map((card: any) => {
 
@@ -1371,15 +1363,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
   imageSrc="/integrations.png"
   imageAlt="AI automation and integrations"
 >
-      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-        <Image
-          src="/integrations.png"
-          alt="AI automation and integrations"
-          width={1600}
-          height={900}
-          className="h-auto w-full object-cover"
-        />
-      </div>
+    
 
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
         <div className="grid gap-4 sm:grid-cols-2">
@@ -1423,15 +1407,7 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
   imageSrc="/team-collaboration.png"
   imageAlt="Team collaboration with AI systems"
 >
-      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-        <Image
-          src="/team-collaboration.png"
-          alt="Team collaboration with AI systems"
-          width={1600}
-          height={900}
-          className="h-auto w-full object-cover"
-        />
-      </div>
+      
 
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {t.industriesPage.cards.map((industry: any) => {
@@ -1454,15 +1430,7 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
   imageSrc="/decision-intelligence.png"
   imageAlt="Decision intelligence dashboard"
 >
-      <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-        <Image
-          src="/decision-intelligence.png"
-          alt="Decision intelligence dashboard"
-          width={1600}
-          height={900}
-          className="h-auto w-full object-cover"
-        />
-      </div>
+      
 
       <div className="grid gap-6 lg:grid-cols-3">
         {t.casesPage.cards.map((item: any) => (
@@ -1527,15 +1495,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
   imageSrc="/business-scaling.png"
   imageAlt="Business scaling with AI"
 >
-<div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
-  <Image
-    src="/business-scaling.png"
-    alt="Business scaling with AI"
-    width={1600}
-    height={900}
-    className="h-auto w-full object-cover"
-  />
-</div>
+
 
       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/12 via-violet-500/8 to-white/[0.04] shadow-2xl">
         <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
