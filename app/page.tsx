@@ -1148,7 +1148,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
           <div className="relative">
 
-            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-fuchsia-500/20 via-violet-500/10 to-cyan-400/10 blur-3xl"/>
+            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-fuchsia-500/10 via-violet-500/5 to-transparent blur-3xl"/>
             <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-white/10">
   <Image
     src="/hero-ai-network.png"
