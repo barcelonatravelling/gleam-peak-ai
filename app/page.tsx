@@ -1359,9 +1359,7 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
     <PageShell
   kicker={t.automationPage.kicker}
   title={t.automationPage.title}
-  intro={t.automationPage.intro}
-  imageSrc="/integrations.png"
-  imageAlt="AI automation and integrations"
+  intro={t.automationPage.intro}  
 >
     
 
@@ -1492,8 +1490,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
   kicker={t.callPage.kicker}
   title={t.callPage.title}
   intro={t.callPage.intro}
-  imageSrc="/business-scaling.png"
-  imageAlt="Business scaling with AI"
+  
 >
 
 
