@@ -308,10 +308,16 @@ export default function AssistantChat({
       {open && (
         <div className="fixed inset-0 z-[9999] bg-black/40 backdrop-blur-sm">
           <div className="absolute bottom-24 right-6 w-[390px] max-w-[calc(100vw-24px)] rounded-2xl bg-[#0a0614]/95 p-4 text-white shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="text-sm font-medium text-white/90">
-                Gleam Peak AI
-              </div>
+           <div className="mb-4 flex items-center justify-between">
+  <div>
+    <div className="text-[15px] font-semibold text-white">
+      Gleam Peak AI Assistant
+    </div>
+
+    <div className="text-[11px] text-white/50">
+      Intelligent business assistant
+    </div>
+  </div>
 
               <button
                 type="button"
@@ -353,6 +359,7 @@ export default function AssistantChat({
                   {error}
                 </div>
               )}
+              
 
               <div ref={messagesEndRef} />
             </div>
