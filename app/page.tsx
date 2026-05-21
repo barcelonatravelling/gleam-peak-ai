@@ -1650,20 +1650,28 @@ function PageShell({
   imageAlt?: string;
   children: ReactNode;
 }) {
+  const hasImage = Boolean(imageSrc && imageAlt);
+
   return (
     <section>
-      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div
+        className={
+          hasImage
+            ? "grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center"
+            : "max-w-5xl"
+        }
+      >
         <div className="max-w-4xl">
           <p className={textStyles.kicker}>{kicker}</p>
           <h1 className={textStyles.pageTitle}>{title}</h1>
           <p className={textStyles.pageIntro}>{intro}</p>
         </div>
 
-        {imageSrc && imageAlt ? (
+        {hasImage ? (
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_20px_80px_rgba(20,6,40,0.35)]">
             <Image
-              src={imageSrc}
-              alt={imageAlt}
+              src={imageSrc!}
+              alt={imageAlt!}
               width={1600}
               height={900}
               className="h-auto w-full object-cover"
