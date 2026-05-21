@@ -314,9 +314,7 @@ export default function AssistantChat({
       Gleam Peak AI Assistant
     </div>
 
-    <div className="text-[11px] text-white/50">
-      Intelligent business assistant
-    </div>
+    
   </div>
 
               <button
