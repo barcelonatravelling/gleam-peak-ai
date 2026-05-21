@@ -10,11 +10,9 @@ export default function FloatingButton({ lang }: FloatingButtonProps) {
   return (
     <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">
 
-      <div className="rounded-full border border-white/10 bg-[#0a0614]/90 px-4 py-2 text-xs font-medium text-white/80 shadow-lg backdrop-blur-xl">
-        {lang === "es"
-          ? "Habla con nuestro asistente IA"
-          : "Talk to our AI Assistant"}
-      </div>
+     <div className="mb-1 rounded-md bg-black/70 px-2 py-1 text-[10px] uppercase tracking-[0.15em] text-white/60 backdrop-blur-md">
+  {lang === "es" ? "AI Assistant" : "AI Assistant"}
+</div>
 
       <button
         onClick={() => {
