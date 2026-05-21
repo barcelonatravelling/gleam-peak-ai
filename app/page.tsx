@@ -1322,7 +1322,13 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
 function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
-    <PageShell kicker={t.solutionsPage.kicker} title={t.solutionsPage.title} intro={t.solutionsPage.intro}>
+    <PageShell
+  kicker={t.solutionsPage.kicker}
+  title={t.solutionsPage.title}
+  intro={t.solutionsPage.intro}
+  imageSrc="/enterprise-copilot.png"
+  imageAlt="Enterprise AI copilot assistant"
+>
       <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/enterprise-copilot.png"
@@ -1358,7 +1364,13 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
 
 function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
-    <PageShell kicker={t.automationPage.kicker} title={t.automationPage.title} intro={t.automationPage.intro}>
+    <PageShell
+  kicker={t.automationPage.kicker}
+  title={t.automationPage.title}
+  intro={t.automationPage.intro}
+  imageSrc="/integrations.png"
+  imageAlt="AI automation and integrations"
+>
       <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
         <Image
           src="/integrations.png"
@@ -1404,7 +1416,13 @@ function AutomationPage({ t, changePage, nextPage }: { t: any; changePage: (page
 
 function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
-    <PageShell kicker={t.industriesPage.kicker} title={t.industriesPage.title} intro={t.industriesPage.intro}>
+    <PageShell
+  kicker={t.industriesPage.kicker}
+  title={t.industriesPage.title}
+  intro={t.industriesPage.intro}
+  imageSrc="/team-collaboration.png"
+  imageAlt="Team collaboration with AI systems"
+>
       <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
         <Image
           src="/team-collaboration.png"
@@ -1429,7 +1447,13 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
 
 function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: PageKey) => void; nextPage: PageKey | null }) {
   return (
-    <PageShell kicker={t.casesPage.kicker} title={t.casesPage.title} intro={t.casesPage.intro}>
+    <PageShell
+  kicker={t.casesPage.kicker}
+  title={t.casesPage.title}
+  intro={t.casesPage.intro}
+  imageSrc="/decision-intelligence.png"
+  imageAlt="Decision intelligence dashboard"
+>
       <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
         <Image
           src="/decision-intelligence.png"
@@ -1497,10 +1521,12 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
   return (
     <PageShell
-      kicker={t.callPage.kicker}
-      title={t.callPage.title}
-      intro={t.callPage.intro}
-    >
+  kicker={t.callPage.kicker}
+  title={t.callPage.title}
+  intro={t.callPage.intro}
+  imageSrc="/business-scaling.png"
+  imageAlt="Business scaling with AI"
+>
 <div className="mt-10 mb-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10">
   <Image
     src="/business-scaling.png"
@@ -1652,13 +1678,42 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
   );
 }
 
-function PageShell({ kicker, title, intro, children }: { kicker: string; title: string; intro: string; children: ReactNode }) {
+function PageShell({
+  kicker,
+  title,
+  intro,
+  imageSrc,
+  imageAlt,
+  children,
+}: {
+  kicker: string;
+  title: string;
+  intro: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  children: ReactNode;
+}) {
   return (
     <section>
-      <div className="max-w-4xl">
-        <p className={textStyles.kicker}>{kicker}</p>
-        <h1 className={textStyles.pageTitle}>{title}</h1>
-        <p className={textStyles.pageIntro}>{intro}</p>
+      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div className="max-w-4xl">
+          <p className={textStyles.kicker}>{kicker}</p>
+          <h1 className={textStyles.pageTitle}>{title}</h1>
+          <p className={textStyles.pageIntro}>{intro}</p>
+        </div>
+
+        {imageSrc && imageAlt ? (
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_20px_80px_rgba(20,6,40,0.35)]">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              width={1600}
+              height={900}
+              className="h-auto w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 680px"
+            />
+          </div>
+        ) : null}
       </div>
 
       <div className="mt-12">{children}</div>
