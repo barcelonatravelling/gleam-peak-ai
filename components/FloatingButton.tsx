@@ -26,7 +26,7 @@ export default function FloatingButton({ lang }: FloatingButtonProps) {
           <div className="absolute inset-0 rounded-full bg-fuchsia-500/40 blur-xl transition duration-300 group-hover:bg-fuchsia-500/60" />
 
           <Image
-            src="/assistant-icon.png"
+            src="/assistant-icon.webp"
             alt={lang === "es" ? "Asistente IA" : "AI Assistant"}
             fill
             className="relative object-contain"

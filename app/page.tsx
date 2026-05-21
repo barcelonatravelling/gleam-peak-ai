@@ -1151,7 +1151,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-fuchsia-500/10 via-violet-500/5 to-transparent blur-3xl"/>
             <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-white/10">
   <Image
-    src="/hero-ai-network.png"
+    src="/hero-ai-network.webp"
     alt="Gleam Peak AI enterprise intelligence system"
     width={1600}
     height={900}
@@ -1326,7 +1326,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
   kicker={t.solutionsPage.kicker}
   title={t.solutionsPage.title}
   intro={t.solutionsPage.intro}
-  imageSrc="/enterprise-copilot.png"
+  imageSrc="/enterprise-copilot.webp"
   imageAlt="Enterprise AI copilot assistant"
 >
       
@@ -1402,7 +1402,7 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
   kicker={t.industriesPage.kicker}
   title={t.industriesPage.title}
   intro={t.industriesPage.intro}
-  imageSrc="/team-collaboration.png"
+  imageSrc="/team-collaboration.webp"
   imageAlt="Team collaboration with AI systems"
 >
       
@@ -1425,7 +1425,7 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
   kicker={t.casesPage.kicker}
   title={t.casesPage.title}
   intro={t.casesPage.intro}
-  imageSrc="/decision-intelligence.png"
+  imageSrc="/decision-intelligence.webp"
   imageAlt="Decision intelligence dashboard"
 >
       
