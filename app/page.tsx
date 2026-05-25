@@ -78,7 +78,7 @@ const content = {
       trustBlocks: [
         {
           title: "Clear business focus",
-          text: "We start with the process, the team and the business goal — before designing anything.",
+          text: "We start with the process, the team and the business goal, before designing anything.",
           icon: "shield",
         },
         {
@@ -230,7 +230,7 @@ const content = {
         },
         {
           title: "Luxury & Wellness",
-          text: "AI built for premium service — concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
+          text: "AI built for premium service: concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
           icon: "sparkles",
         },
       ],
@@ -246,7 +246,7 @@ const content = {
       kicker: "AI Solutions",
       title: "Enterprise AI systems built around strategic business value",
       intro:
-        "We design applied AI systems that become part of how your company operates — improving execution speed, operational intelligence and growth capacity at scale.",
+        "We design applied AI systems that become part of how your company operates, improving execution speed, operational intelligence and growth capacity at scale.",
       cards: [
         {
           title: "Enterprise AI Strategy",
@@ -287,7 +287,7 @@ const content = {
       kicker: "AI Automation",
       title: "Intelligent infrastructure for next-generation operations",
       intro:
-        "We design AI systems that coordinate, prioritize and execute complex workflows across teams, tools and business units — without adding operational complexity.",
+        "We design AI systems that coordinate, prioritize and execute complex workflows across teams, tools and business units, without adding operational complexity.",
       items: [
         "Multi-system orchestration",
         "Decision engines",
@@ -325,7 +325,7 @@ const content = {
       kicker: "Industries",
       title: "Sector-specific AI systems designed for real operational complexity",
       intro:
-        "Every industry has unique workflows, operational pressure points and strategic priorities. We design AI systems that adapt to sector reality — not generic templates.",
+        "Every industry has unique workflows, operational pressure points and strategic priorities. We design AI systems that adapt to sector reality, not generic templates.",
       cards: [
         {
           title: "Financial Services",
@@ -364,7 +364,7 @@ const content = {
         },
         {
           title: "Luxury & Wellness",
-          text: "AI built for premium service — concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
+          text: "AI built for premium service: concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
           icon: "sparkles",
         },
       ],
@@ -391,7 +391,7 @@ const content = {
           title: "Operational Intelligence System",
           result: "300+ hours recovered per quarter",
           text:
-            "AI-driven coordination, automated execution and operational visibility reduce friction, improve consistency and free teams for higher-value work — at scale.",
+            "AI-driven coordination, automated execution and operational visibility reduce friction, improve consistency and free teams for higher-value work, at scale.",
         },
       ],
     },
@@ -399,7 +399,7 @@ const content = {
       kicker: "Book a Call",
       title: "Let’s find where AI creates the most impact in your business",
       intro:
-        "Tell us what you want to improve, automate or scale. We will help you define the right first step — no pitch, no templates.",
+        "Tell us what you want to improve, automate or scale. We will help you define the right first step: no pitch, no templates.",
       bullets: [
         "We start with your process, not a pitch",
         "You leave with a concrete next step",
@@ -435,7 +435,7 @@ const content = {
       trustBlocks: [
         {
           title: "Enfoque claro de negocio",
-          text: "Primero entendemos el proceso, el equipo y el objetivo — antes de diseñar nada.",
+          text: "Primero entendemos el proceso, el equipo y el objetivo, antes de diseñar nada.",
           icon: "shield",
         },
         {
@@ -587,7 +587,7 @@ const content = {
         },
         {
           title: "Lujo y Wellness",
-          text: "IA diseñada para servicio premium — concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
+          text: "IA diseñada para servicio premium: concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
           icon: "sparkles",
         },
       ],
@@ -603,7 +603,7 @@ const content = {
       kicker: "Soluciones IA",
       title: "Sistemas empresariales de IA construidos alrededor del valor estratégico",
       intro:
-        "Diseñamos sistemas de IA aplicada que pasan a formar parte de cómo opera tu empresa — mejorando velocidad de ejecución, inteligencia operativa y capacidad de crecimiento.",
+        "Diseñamos sistemas de IA aplicada que pasan a formar parte de cómo opera tu empresa, mejorando velocidad de ejecución, inteligencia operativa y capacidad de crecimiento.",
       cards: [
         {
           title: "Estrategia Empresarial de IA",
@@ -644,7 +644,7 @@ const content = {
       kicker: "Automatización IA",
       title: "Infraestructura inteligente para operaciones de nueva generación",
       intro:
-        "Diseñamos sistemas de IA que coordinan, priorizan y ejecutan procesos complejos entre equipos, herramientas y áreas de negocio — sin añadir complejidad operativa.",
+        "Diseñamos sistemas de IA que coordinan, priorizan y ejecutan procesos complejos entre equipos, herramientas y áreas de negocio, sin añadir complejidad operativa.",
       items: [
         "Orquestación multi-sistema",
         "Motores inteligentes de decisión",
@@ -682,7 +682,7 @@ const content = {
       kicker: "Industrias",
       title: "Sistemas sectoriales de IA diseñados para complejidad operativa real",
       intro:
-        "Cada industria tiene flujos, presiones operativas y prioridades estratégicas distintas. Diseñamos sistemas de IA adaptados a la realidad de cada sector — no soluciones genéricas.",
+        "Cada industria tiene flujos, presiones operativas y prioridades estratégicas distintas. Diseñamos sistemas de IA adaptados a la realidad de cada sector, no soluciones genéricas.",
       cards: [
         {
           title: "Servicios Financieros",
@@ -721,7 +721,7 @@ const content = {
         },
         {
           title: "Lujo y Wellness",
-          text: "IA diseñada para servicio premium — concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
+          text: "IA diseñada para servicio premium: concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
           icon: "sparkles",
         },
       ],
@@ -748,7 +748,7 @@ const content = {
           title: "Sistema de Inteligencia Operativa",
           result: "Más de 300 horas recuperadas por trimestre",
           text:
-            "Coordinación impulsada por IA, ejecución automatizada y mayor visibilidad operativa reducen fricción, mejoran consistencia y liberan equipos para trabajo de mayor valor — a escala.",
+            "Coordinación impulsada por IA, ejecución automatizada y mayor visibilidad operativa reducen fricción, mejoran consistencia y liberan equipos para trabajo de mayor valor, a escala.",
         },
       ],
     },
@@ -756,7 +756,7 @@ const content = {
       kicker: "Reservar llamada",
       title: "Veamos dónde la IA puede crear más impacto en tu empresa",
       intro:
-        "Cuéntanos qué quieres mejorar, automatizar o escalar. Definiremos el mejor siguiente paso — sin pitch, sin plantillas.",
+        "Cuéntanos qué quieres mejorar, automatizar o escalar. Definiremos el mejor siguiente paso: sin pitch, sin plantillas.",
       bullets: [
         "Empezamos por tu proceso, no por un pitch",
         "Sales con un siguiente paso concreto",
