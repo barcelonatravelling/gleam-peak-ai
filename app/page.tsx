@@ -101,9 +101,9 @@ const content = {
     },
     home: {
       kicker: "AI automation for modern operations",
-      title: "We help companies automate processes with AI",
+      title: "AI systems that reduce manual work and help companies scale",
       subtitle:
-        "We design AI systems that reduce operational load, accelerate execution and help businesses scale with less friction.",
+"We build practical AI solutions that automate repetitive work, improve response times and support day to day operations.",
       ctas: {
         primary: "Book a strategic call",
         secondary: "Explore solutions",
@@ -230,7 +230,8 @@ const content = {
         },
         {
           title: "Luxury & Wellness",
-          text: "AI built for premium service: concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
+          text:
+"AI designed for premium experiences, personalized service and operational consistency.",
           icon: "sparkles",
         },
       ],
@@ -244,9 +245,9 @@ const content = {
     },
     solutionsPage: {
       kicker: "AI Solutions",
-      title: "Enterprise AI systems built around strategic business value",
+      title: "AI systems designed around real business operations",
       intro:
-        "We design applied AI systems that become part of how your company operates, improving execution speed, operational intelligence and growth capacity at scale.",
+"We build AI systems that integrate into day to day operations, helping teams move faster, reduce manual work and improve execution.",
       cards: [
         {
           title: "Enterprise AI Strategy",
@@ -285,9 +286,9 @@ const content = {
     },
     automationPage: {
       kicker: "AI Automation",
-      title: "Intelligent infrastructure for next-generation operations",
+      title: "Smarter systems for modern business operations",
       intro:
-        "We design AI systems that coordinate, prioritize and execute complex workflows across teams, tools and business units, without adding operational complexity.",
+"We build AI systems that help teams automate workflows, improve coordination and reduce repetitive operational work.",
       items: [
         "Multi-system orchestration",
         "Decision engines",
@@ -323,9 +324,9 @@ const content = {
     },
     industriesPage: {
       kicker: "Industries",
-      title: "Sector-specific AI systems designed for real operational complexity",
+      title: "AI solutions adapted to how each industry works",
       intro:
-        "Every industry has unique workflows, operational pressure points and strategic priorities. We design AI systems that adapt to sector reality, not generic templates.",
+"Every industry works differently. We adapt AI systems to the real processes, needs and priorities of each business.",
       cards: [
         {
           title: "Financial Services",
@@ -371,9 +372,9 @@ const content = {
     },
     casesPage: {
       kicker: "Case Studies",
-      title: "Applied AI in real business environments",
+      title: "How companies are using AI in practice",
       intro:
-        "Real-world examples of how AI creates measurable revenue, operational efficiency and strategic visibility across the business.",
+"Examples of how AI can improve efficiency, support growth and simplify day to day operations.",
       cards: [
         {
           title: "AI Revenue Engine",
@@ -399,7 +400,7 @@ const content = {
       kicker: "Book a Call",
       title: "Let’s find where AI creates the most impact in your business",
       intro:
-        "Tell us what you want to improve, automate or scale. We will help you define the right first step: no pitch, no templates.",
+"Tell us what you want to improve, automate or scale. We will help you identify practical opportunities and define a clear next step.",
       bullets: [
         "We start with your process, not a pitch",
         "You leave with a concrete next step",
