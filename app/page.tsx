@@ -459,9 +459,9 @@ const content = {
     },
     home: {
       kicker: "Automatización operativa con IA",
-      title: "Ayudamos a empresas a automatizar procesos con IA",
+      title: "Sistemas de IA que reducen trabajo manual y ayudan a las empresas a crecer",
       subtitle:
-        "Diseñamos sistemas de IA que reducen carga operativa, aceleran la ejecución y ayudan a las empresas a crecer con menos fricción.",
+"Construimos soluciones prácticas de IA que automatizan tareas repetitivas, mejoran tiempos de respuesta y apoyan las operaciones del día a día.",
       ctas: {
         primary: "Agendar llamada",
         secondary: "Ver soluciones",
@@ -588,7 +588,8 @@ const content = {
         },
         {
           title: "Lujo y Wellness",
-          text: "IA diseñada para servicio premium: concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
+          text:
+"IA diseñada para experiencias premium, atención personalizada y consistencia operativa.",
           icon: "sparkles",
         },
       ],
@@ -602,9 +603,9 @@ const content = {
     },
     solutionsPage: {
       kicker: "Soluciones IA",
-      title: "Sistemas empresariales de IA construidos alrededor del valor estratégico",
+      title: "Sistemas de IA diseñados para operaciones reales de negocio",
       intro:
-        "Diseñamos sistemas de IA aplicada que pasan a formar parte de cómo opera tu empresa, mejorando velocidad de ejecución, inteligencia operativa y capacidad de crecimiento.",
+"Construimos sistemas de IA que se integran en las operaciones del día a día, ayudando a los equipos a trabajar más rápido, reducir trabajo manual y mejorar la ejecución.",
       cards: [
         {
           title: "Estrategia Empresarial de IA",
@@ -643,9 +644,9 @@ const content = {
     },
     automationPage: {
       kicker: "Automatización IA",
-      title: "Infraestructura inteligente para operaciones de nueva generación",
+      title: "Sistemas más inteligentes para operaciones empresariales modernas",
       intro:
-        "Diseñamos sistemas de IA que coordinan, priorizan y ejecutan procesos complejos entre equipos, herramientas y áreas de negocio, sin añadir complejidad operativa.",
+"Construimos sistemas de IA que ayudan a los equipos a automatizar flujos de trabajo, mejorar la coordinación y reducir tareas operativas repetitivas.",
       items: [
         "Orquestación multi-sistema",
         "Motores inteligentes de decisión",
@@ -681,9 +682,9 @@ const content = {
     },
     industriesPage: {
       kicker: "Industrias",
-      title: "Sistemas sectoriales de IA diseñados para complejidad operativa real",
+      title: "Soluciones de IA adaptadas a la forma en que trabaja cada industria",
       intro:
-        "Cada industria tiene flujos, presiones operativas y prioridades estratégicas distintas. Diseñamos sistemas de IA adaptados a la realidad de cada sector, no soluciones genéricas.",
+"Cada industria funciona de forma distinta. Adaptamos sistemas de IA a los procesos, necesidades y prioridades reales de cada empresa.",
       cards: [
         {
           title: "Servicios Financieros",
@@ -729,9 +730,9 @@ const content = {
     },
     casesPage: {
       kicker: "Casos de estudio",
-      title: "IA aplicada en entornos empresariales reales",
+      title: "Cómo las empresas están utilizando IA en la práctica",
       intro:
-        "Ejemplos reales de cómo la IA genera crecimiento medible, eficiencia operativa y mayor visibilidad estratégica en la empresa.",
+"Ejemplos de cómo la IA puede mejorar la eficiencia, apoyar el crecimiento y simplificar las operaciones del día a día.",
       cards: [
         {
           title: "Motor de Ingresos con IA",
@@ -757,7 +758,7 @@ const content = {
       kicker: "Reservar llamada",
       title: "Veamos dónde la IA puede crear más impacto en tu empresa",
       intro:
-        "Cuéntanos qué quieres mejorar, automatizar o escalar. Definiremos el mejor siguiente paso: sin pitch, sin plantillas.",
+"Cuéntanos qué quieres mejorar, automatizar o escalar. Te ayudaremos a identificar oportunidades reales y definir un siguiente paso claro.",
       bullets: [
         "Empezamos por tu proceso, no por un pitch",
         "Sales con un siguiente paso concreto",
