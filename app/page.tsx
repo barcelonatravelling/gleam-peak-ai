@@ -65,8 +65,8 @@ const content = {
       switchLanguage: "ES",
       backHome: "Back to Home",
       nextStep: "Next step",
-      discuss: "Discuss this solution",
-      sendRequest: "Send request",
+      discuss: "Learn more",
+      sendRequest: "Send message",
       trustedTitle: "Built for ambitious companies",
       trustedHeadline: "AI systems designed to work inside real operations",
       trustedItems: [
@@ -105,8 +105,8 @@ const content = {
       subtitle:
 "We build practical AI solutions that automate repetitive work, improve response times and support day to day operations.",
       ctas: {
-        primary: "Book a strategic call",
-        secondary: "Explore solutions",
+        primary: "Schedule a call",
+        secondary: "See solutions",
       },
       stats: [
         {
@@ -240,7 +240,7 @@ const content = {
         title: "Find where AI creates the highest business impact",
         text:
           "We help you identify the right use case, design the system and move from idea to measurable results.",
-        button: "Book a strategic call",
+        button: "Schedule a call",
       },
     },
     solutionsPage: {
@@ -397,7 +397,7 @@ const content = {
       ],
     },
     callPage: {
-      kicker: "Book a Call",
+      kicker: "Contact",
       title: "Let’s find where AI creates the most impact in your business",
       intro:
 "Tell us what you want to improve, automate or scale. We will help you identify practical opportunities and define a clear next step.",
@@ -423,8 +423,8 @@ const content = {
       switchLanguage: "EN",
       backHome: "Volver al inicio",
       nextStep: "Siguiente paso",
-      discuss: "Hablar sobre esta solución",
-      sendRequest: "Enviar solicitud",
+      discuss: "Más información",
+      sendRequest: "Enviar mensaje",
       trustedTitle: "Pensado para empresas ambiciosas",
       trustedHeadline: "Sistemas de IA diseñados para operaciones reales",
       trustedItems: [
@@ -463,8 +463,8 @@ const content = {
       subtitle:
         "Diseñamos sistemas de IA que reducen carga operativa, aceleran la ejecución y ayudan a las empresas a crecer con menos fricción.",
       ctas: {
-        primary: "Reservar llamada estratégica",
-        secondary: "Explorar soluciones",
+        primary: "Agendar llamada",
+        secondary: "Ver soluciones",
       },
       stats: [
         {
@@ -597,7 +597,7 @@ const content = {
         title: "Descubre dónde la IA genera mayor impacto para tu negocio",
         text:
           "Te ayudamos a identificar el caso de uso correcto, diseñar el sistema y convertir ideas en resultados medibles.",
-        button: "Reservar llamada estratégica",
+        button: "Agendar llamada",
       },
     },
     solutionsPage: {
