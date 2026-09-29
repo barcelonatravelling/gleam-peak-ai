@@ -52,7 +52,7 @@ export default function Footer({ lang }: FooterProps) {
           <span className="text-white/20">•</span>
 
           <a
-            href="https://wa.me/34627964660?text=Hello%20Gleam%20Peak%20AI,%20I'd%20like%20to%20learn%20more%20about%20your%20AI%20solutions."
+            href="https://wa.me/34627964660?text=Hello%20Gleam%20Peak%20AI,%20I'd%20like%20to%20learn%20more%20about%20your%20work."
             target="_blank"
             rel="noopener noreferrer"
             className="transition duration-200 hover:text-fuchsia-300"

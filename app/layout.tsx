@@ -17,28 +17,30 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://gleampeak.ai"),
   title: {
-    default: "Gleam Peak AI | Sistemas de IA empresarial y automatización inteligente",
+    default: "Gleam Peak AI | Infraestructura de confianza para una IA de impacto público",
     template: "%s | Gleam Peak AI",
   },
   description:
-    "Diseñamos sistemas de IA empresarial que eliminan carga operativa, automatizan procesos y ayudan a las empresas a escalar sin añadir complejidad.",
+    "Desarrollamos infraestructura de IA responsable y ciberseguridad para que organizaciones y administraciones evalúen riesgos, gobiernen sus sistemas de IA y demuestren confianza digital con evidencias verificables.",
   keywords: [
-    "IA empresarial",
-    "automatización inteligente",
-    "sistemas de inteligencia artificial",
-    "AI automation",
-    "enterprise AI",
-    "AI agents",
-    "business automation",
+    "IA responsable",
+    "ciberseguridad con IA",
+    "confianza digital",
+    "gobernanza de agentes de IA",
+    "Cyber Trust Passport",
+    "conocimiento cero",
+    "trusted AI",
+    "AI governance",
+    "zero-knowledge proofs",
     "Gleam Peak AI",
   ],
   authors: [{ name: "Gleam Peak AI" }],
   creator: "Gleam Peak AI",
   publisher: "Gleam Peak AI",
   openGraph: {
-    title: "Gleam Peak AI | Enterprise AI Systems",
+    title: "Gleam Peak AI | Trusted AI infrastructure for public impact",
     description:
-      "Enterprise-grade AI systems and intelligent automation designed to reduce operational load, accelerate execution and scale business capacity.",
+      "Responsible AI and cybersecurity infrastructure that helps organisations assess risk, govern AI systems and demonstrate digital trust through verifiable evidence.",
     url: "https://gleampeak.ai",
     siteName: "Gleam Peak AI",
     type: "website",
@@ -46,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gleam Peak AI | Enterprise AI Systems",
+    title: "Gleam Peak AI | Trusted AI infrastructure for public impact",
     description:
-      "Enterprise-grade AI systems and intelligent automation for modern businesses.",
+      "Responsible AI and cybersecurity infrastructure for verifiable digital trust.",
   },
   robots: {
     index: true,

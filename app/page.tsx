@@ -55,356 +55,361 @@ const content = {
     brand: "Gleam Peak AI",
     nav: {
       home: "Home",
-      solutions: "AI Solutions",
-      automation: "AI Automation",
-      industries: "Industries",
-      cases: "Case Studies",
-      call: "Book a Call",
+      solutions: "Cyber Trust Passport",
+      automation: "Platform",
+      industries: "Sectors",
+      cases: "Values",
+      call: "Collaborate",
     },
     common: {
       switchLanguage: "ES",
       backHome: "Back to Home",
-      nextStep: "Next step",
-      discuss: "Learn more",
+      nextStep: "Next",
+      discuss: "Let's talk",
       sendRequest: "Send message",
-      trustedTitle: "Built for ambitious companies",
-      trustedHeadline: "AI systems designed to work inside real operations",
+      trustedTitle: "Flagship project · Cyber Trust Passport",
+      trustedHeadline: "Trusted AI and digital trust infrastructure",
       trustedItems: [
-        "AI strategy",
-        "Workflow automation",
-        "Customer assistants",
-        "Internal knowledge systems",
+        "AI-powered cybersecurity",
+        "Verifiable digital trust",
+        "AI agent governance",
+        "Privacy-preserving technologies",
       ],
       trustBlocks: [
         {
-          title: "Clear business focus",
-          text: "We start with the process, the team and the business goal, before designing anything.",
+          title: "Evidence, not promises",
+          text: "Security and governance proven with evidence drawn from real systems.",
           icon: "shield",
         },
         {
-          title: "Built for real workflows",
-          text: "We connect AI directly to your existing tools, data and daily operations.",
+          title: "Privacy by design",
+          text: "We prove that a control is met without exposing the data behind it.",
           icon: "workflow",
         },
         {
-          title: "Designed to scale",
-          text: "We reduce manual work, improve response speed and create measurable operational value from day one.",
+          title: "Built for ecosystems",
+          text: "One institutional deployment raises the security of an entire region or supply chain.",
           icon: "chart",
         },
       ],
       form: {
         name: "Name",
-        company: "Company",
+        company: "Organisation",
         email: "Work email",
-        message: "Tell us what you want to improve, automate or scale",
+        message: "Tell us what interests you: a pilot, a consortium, research or the investor dossier",
       },
+      statusBadge: "In development",
+      formSending: "Sending...",
+      formSuccessTitle: "Message sent",
+      formSuccessText: "We have received your message and will get back to you as soon as possible.",
+      formError: "The form could not be sent. Please try again.",
     },
     home: {
-      kicker: "AI automation for modern operations",
-      title: "AI systems that reduce manual work and help companies scale",
+      kicker: "Trusted AI and digital trust infrastructure",
+      title: "Trusted AI infrastructure for public impact",
       subtitle:
-"We build practical AI solutions that automate repetitive work, improve response times and support day to day operations.",
+        "We develop responsible AI and cybersecurity infrastructure that helps organisations and public administrations assess risk, govern AI systems and demonstrate digital trust through verifiable evidence.",
       ctas: {
-        primary: "Schedule a call",
-        secondary: "See solutions",
+        primary: "Collaborate with us",
+        secondary: "Discover the passport",
       },
       stats: [
         {
-          value: "Eliminate manual load",
-          text: "Automate repetitive tasks across sales, operations, support and internal workflows.",
+          value: "Assess risk",
+          text: "Automated assessment of cybersecurity and AI risks in real systems.",
         },
         {
-          value: "Respond before competitors do",
-          text: "Use AI assistants to qualify, route and respond to customers with more speed and consistency.",
+          value: "Govern AI",
+          text: "Control what each AI agent can do, with human oversight and auditable logs.",
         },
         {
-          value: "Decisions backed by real data",
-          text: "Turn business data and internal knowledge into practical decision support.",
+          value: "Prove trust",
+          text: "Verifiable evidence that can be shared without revealing sensitive information.",
         },
       ],
       impact: {
-        kicker: "Business impact",
-        title: "What AI can improve in your company",
+        kicker: "The problem",
+        title: "AI is moving faster than our ability to oversee it",
         intro:
-          "The right AI system should make the business faster, clearer and easier to scale.",
+          "Organisations are adopting artificial intelligence faster than they can control it. Today's oversight mechanisms are fragmented, manual and hard to verify.",
         items: [
-          "Automate repetitive operational tasks",
-          "Respond faster to customers and leads",
-          "Reduce manual follow-up and internal coordination",
-          "Improve visibility across teams and processes",
-          "Turn company knowledge into useful answers",
-          "Create systems that support growth without adding complexity",
+          "No visibility: many organisations do not know which AI systems they use or what data those systems access",
+          "Static compliance: an audit captures one moment, and days later everything has changed",
+          "Transparency versus privacy: proving you are secure should not mean exposing your data",
+          "AI agents with no clear record of who authorised them, what they did or how to stop them",
+          "Unequal access: SMEs and local bodies cannot afford large security teams",
+          "Evidence scattered across documents, questionnaires and screenshots that nobody can verify",
         ],
       },
       orchestration: {
-        title: "What we can automate",
+        title: "Prove you comply without revealing what you protect",
         text:
-          "We identify the workflows where AI can reduce manual load and improve speed, consistency and execution.",
+          "The Cyber Trust Passport lets an organisation demonstrate its security and AI governance to clients, auditors and public authorities.",
         cards: [
           {
-            title: "Customer response",
-            text: "Automate replies, lead qualification, follow-up and routing so opportunities are handled faster.",
+            title: "Evidence from real systems",
+            text: "Security controls, backups, updates and access rights collected automatically, not from forms.",
             icon: "message",
           },
           {
-            title: "Internal operations",
-            text: "Reduce repetitive tasks, manual coordination and process bottlenecks across the business.",
+            title: "Continuous trust",
+            text: "The security status is updated all the time, not once a year.",
             icon: "workflow",
           },
           {
-            title: "Business intelligence",
-            text: "Transform documents, data and internal knowledge into answers, reports and decision support.",
+            title: "Privacy by design",
+            text: "Selective disclosure and zero-knowledge proofs: prove without exposing internal data.",
             icon: "chart",
           },
         ],
       },
       solutionsSection: {
-        kicker: "AI solutions",
-        title: "Practical AI systems for real business processes",
+        kicker: "Capabilities",
+        title: "One platform to assess, control and prove",
         intro:
-          "We do not build generic AI tools. We design systems around your workflows, your team and the outcomes you want to improve.",
+          "Cybersecurity, AI governance and privacy technologies share the same architecture, intellectual property and team. Each module adds value to the others.",
       },
       solutions: [
         {
-          title: "AI Automation",
-          text: "Automate repetitive tasks, internal workflows and operational processes that slow the business down.",
+          title: "AI-powered cybersecurity",
+          text: "Risk assessment, configuration analysis, vulnerability prioritisation and incident response support.",
           icon: "cpu",
         },
         {
-          title: "AI Assistants",
-          text: "Deploy assistants for customer support, lead qualification, reservations, internal requests or knowledge access.",
+          title: "AI agent governance",
+          text: "Agent inventory, permissions, human approval for sensitive decisions and an auditable log of every action.",
           icon: "bot",
         },
         {
-          title: "AI Knowledge Systems",
-          text: "Convert company documents, procedures and internal knowledge into searchable, useful and secure AI systems.",
+          title: "Verifiable digital trust",
+          text: "Automatic, current and traceable evidence, with selective disclosure and zero-knowledge proofs, that auditors and authorities can check.",
           icon: "brain",
         },
         {
-          title: "Decision Support",
-          text: "Use AI to summarize data, generate reports and give teams clearer visibility to make better decisions.",
+          title: "Cyber resilience and simulation",
+          text: "Simulated attacks, supplier failures and agents acting beyond their permissions, to prepare the response. Future line.",
           icon: "chart",
         },
       ],
       industriesSection: {
-        kicker: "Industries",
-        title: "AI adapted to the way each business operates",
+        kicker: "Sectors",
+        title: "One institutional deployment, a safer ecosystem",
         intro:
-          "From logistics and retail to hospitality, services and wellness, we adapt AI to the real workflows of each sector.",
+          "A public authority, a Cyber Hub or a large company can deploy the platform for every organisation in a region or supply chain.",
       },
       industries: [
         {
-          title: "Financial Services",
-          text: "Automation for risk review, compliance workflows, internal support and faster decision processes.",
+          title: "Public administrations",
+          text: "Oversight of algorithmic systems, control of AI agents and assessment of technology suppliers.",
           icon: "shield",
         },
         {
-          title: "Technology & SaaS",
-          text: "AI copilots, support automation and internal systems for faster product and business execution.",
+          title: "Cyber Hubs and European bodies",
+          text: "Raise the cybersecurity of an entire region with shared infrastructure.",
           icon: "brain",
         },
         {
-          title: "Logistics & Operations",
-          text: "Workflow automation, customer updates, resource planning and operational visibility.",
+          title: "Critical infrastructure",
+          text: "Water, energy, mobility, health and emergencies: verify the security of the whole supply chain.",
           icon: "workflow",
         },
         {
-          title: "Retail & Commerce",
-          text: "Customer support, lead follow-up, demand signals and commercial automation.",
+          title: "Large companies",
+          text: "Monitor the security of hundreds of suppliers from a single dashboard.",
           icon: "chart",
         },
         {
-          title: "Healthcare & Life Sciences",
-          text: "Support workflows, operational coordination and knowledge systems for complex environments.",
+          title: "Cyber insurers",
+          text: "Assess risk with continuous, verifiable information instead of questionnaires.",
           icon: "bot",
         },
         {
-          title: "Professional Services",
-          text: "Document workflows, internal copilots and knowledge systems that improve speed and consistency.",
+          title: "Chambers and business associations",
+          text: "Give members an affordable way to improve and prove their security.",
           icon: "building",
         },
         {
-          title: "Hospitality & Travel",
-          text: "AI for inquiries, bookings, multilingual support, upselling and guest coordination.",
+          title: "SMEs and public suppliers",
+          text: "Understand their risks, fix them and prove their security to clients and authorities.",
           icon: "message",
         },
         {
-          title: "Luxury & Wellness",
-          text:
-"AI designed for premium experiences, personalized service and operational consistency.",
+          title: "European digital ecosystems",
+          text: "Interoperable trust between companies, auditors and authorities.",
           icon: "sparkles",
         },
       ],
       finalCta: {
-        kicker: "Start where it matters most",
-        title: "Find where AI creates the highest business impact",
+        kicker: "Let's collaborate",
+        title: "Build the digital trust that AI needs, together",
         text:
-          "We help you identify the right use case, design the system and move from idea to measurable results.",
-        button: "Schedule a call",
+          "We are open to institutional co-development, European consortia, research partnerships and controlled pilot environments.",
+        button: "Collaborate with us",
       },
     },
     solutionsPage: {
-      kicker: "AI Solutions",
-      title: "AI systems designed around real business operations",
+      kicker: "Flagship project · Cyber Trust Passport",
+      title: "Prove you comply. Without revealing what you protect.",
       intro:
-"We build AI systems that integrate into day to day operations, helping teams move faster, reduce manual work and improve execution.",
+        "The Cyber Trust Passport lets an organisation demonstrate its cybersecurity level and the governance of its AI systems continuously and verifiably, without handing over its infrastructure, internal data or vulnerabilities.",
       cards: [
         {
-          title: "Enterprise AI Strategy",
+          title: "Connect",
           text:
-            "Find where AI creates the fastest measurable return, define the right architecture and build a roadmap aligned with real business outcomes.",
+            "The organisation securely connects its workplace tools, cloud and devices through connectors and a signed software agent.",
           icon: "brain",
         },
         {
-          title: "Operational AI Systems",
+          title: "Analyse",
           text:
-            "Deploy intelligent systems that coordinate workflows, automate execution and create operational capacity across business units.",
+            "AI assesses risk, prioritises vulnerabilities and recommends fixes against NIS2, DORA, the Cyber Resilience Act, the GDPR and the AI Act.",
           icon: "cpu",
         },
         {
-          title: "Enterprise AI Agents",
+          title: "Prove",
           text:
-            "Private AI agents trained on company workflows, documentation and business logic that assist teams, customers and internal operations.",
+            "A verifiable credential is issued and shared by link, QR code, API or the client’s supplier portal.",
           icon: "bot",
         },
         {
-          title: "Decision Intelligence Layers",
+          title: "Zero knowledge",
           text:
-            "Transform fragmented data into executive intelligence, predictive signals and systems that support faster, sharper decisions.",
+            "A cryptographic proof confirms that a condition holds, such as “more than 95% of devices are up to date”, without showing the data behind it.",
           icon: "chart",
         },
       ],
-      listTitle: "What we build",
+      listTitle: "What an organisation can prove",
       items: [
-        "Private enterprise AI layers",
-        "AI operating systems for workflows",
-        "Executive intelligence infrastructure",
-        "Autonomous operational coordination",
-        "Knowledge systems connected to company data",
-        "Predictive and decision-support engines",
+        "Which cybersecurity controls are in place",
+        "Which AI agents and systems it uses",
+        "Who can access sensitive information",
+        "Whether backups are verified and systems are up to date",
+        "Whether technology suppliers have been assessed",
+        "How incidents have been handled",
       ],
     },
     automationPage: {
-      kicker: "AI Automation",
-      title: "Smarter systems for modern business operations",
+      kicker: "Platform · in development",
+      title: "One core infrastructure that adapts to each institutional context",
       intro:
-"We build AI systems that help teams automate workflows, improve coordination and reduce repetitive operational work.",
+        "The platform analyses, protects and collects evidence. The passport demonstrates the organisation’s trust status. They are two sides of the same technology.",
       items: [
-        "Multi-system orchestration",
-        "Decision engines",
-        "Private enterprise copilots",
-        "Predictive automation",
-        "AI workflow intelligence",
-        "AI-assisted autonomous operations",
+        "Automated risk assessment",
+        "Vulnerability prioritisation",
+        "Incident response assistant",
+        "AI agent permission control",
+        "Human approval for sensitive decisions",
+        "Auditable log of decisions and actions",
       ],
-      processTitle: "How we work",
-      processSubtitle: "From manual process to intelligent operating system",
+      processTitle: "Development phases",
+      processSubtitle: "From the passport to public trust infrastructure",
       process: [
         {
           step: "01",
-          title: "Operational mapping",
-          text: "We identify critical workflows, dependencies, bottlenecks and areas where AI can create leverage.",
+          title: "Passport and risk assessment",
+          text: "Organisation registration, initial assessment, evidence repository, controls dashboard, first credential and a zero-knowledge demonstration.",
         },
         {
           step: "02",
-          title: "System architecture",
-          text: "We define the AI logic, integrations, data flows, permissions and automation layers.",
+          title: "Assistance and response",
+          text: "Alerts, AI recommendations, incident assistant, recovery plans and notifications.",
         },
         {
           step: "03",
-          title: "Deployment",
-          text: "We build, test and refine the system with real operational scenarios and measurable outcomes.",
+          title: "Agent governance",
+          text: "Inventory, permissions, human oversight, action logs and stopping anomalous behaviour.",
         },
         {
           step: "04",
-          title: "Optimization",
-          text: "We improve performance, expand use cases and turn AI into a scalable operating advantage.",
+          title: "Public sector and critical infrastructure",
+          text: "Adaptation to public environments, cities, health, water, energy, mobility and emergencies.",
         },
       ],
     },
     industriesPage: {
-      kicker: "Industries",
-      title: "AI solutions adapted to how each industry works",
+      kicker: "Sectors",
+      title: "Where digital trust has the greatest public impact",
       intro:
-"Every industry works differently. We adapt AI systems to the real processes, needs and priorities of each business.",
+        "A shared infrastructure raises the security of an entire ecosystem, not only of those who can afford the most expensive solutions.",
       cards: [
         {
-          title: "Financial Services",
-          text: "Risk intelligence, compliance automation, fraud detection and operational decision systems for faster, sharper execution.",
+          title: "Public administrations",
+          text: "Supplier assessment, oversight of algorithmic systems, a register of automated decisions and audits of AI bought from third parties. Always with human oversight.",
           icon: "shield",
         },
         {
-          title: "Technology & SaaS",
-          text: "AI copilots, internal operating layers and intelligent support systems that accelerate execution across teams.",
+          title: "Cyber Hubs and European bodies",
+          text: "Regional deployment of the passport and a future connection with CSIRTs and authorities for incident reporting.",
           icon: "brain",
         },
         {
-          title: "Logistics & Operations",
-          text: "Predictive coordination, operational orchestration and intelligent resource allocation across complex workflows.",
+          title: "Critical infrastructure",
+          text: "Water, energy, mobility, health and emergency services depend on many suppliers. The platform helps verify the security of the whole chain.",
           icon: "workflow",
         },
         {
-          title: "Retail & Commerce",
-          text: "Demand intelligence, personalized customer systems and commercial automation that improve margin and scale.",
+          title: "Large companies",
+          text: "A dashboard to see which suppliers comply, get alerts when one stops complying and verify cryptographic proofs.",
           icon: "chart",
         },
         {
-          title: "Healthcare & Life Sciences",
-          text: "Operational intelligence, knowledge systems and AI-assisted coordination for highly complex environments.",
+          title: "Cyber insurers",
+          text: "Continuous, verifiable risk information to assess and support policyholders.",
           icon: "bot",
         },
         {
-          title: "Professional Services",
-          text: "Private knowledge layers, document intelligence and AI systems that amplify execution quality and billable leverage.",
+          title: "Chambers and business associations",
+          text: "A service for members that raises the security of a region’s business community.",
           icon: "building",
         },
         {
-          title: "Hospitality & Travel",
-          text: "Reservation intelligence, multilingual guest systems, concierge automation and revenue optimization layers.",
+          title: "SMEs and public suppliers",
+          text: "An affordable way to understand risks, fix them and prove security without large technical teams.",
           icon: "message",
         },
         {
-          title: "Luxury & Wellness",
-          text: "AI built for premium service: concierge, client care and elite operations that demand consistency, discretion and high-touch execution.",
+          title: "European digital ecosystems",
+          text: "Evidence that is interoperable with European digital identity and credential frameworks.",
           icon: "sparkles",
         },
       ],
     },
     casesPage: {
-      kicker: "Case Studies",
-      title: "How companies are using AI in practice",
+      kicker: "Values",
+      title: "AI that extends human capabilities without reducing rights",
       intro:
-"Examples of how AI can improve efficiency, support growth and simplify day to day operations.",
+        "We design systems that can be supervised, challenged and audited. Our goal is not to accelerate AI at any cost, but to build the trust needed to use it responsibly.",
       cards: [
         {
-          title: "AI Revenue Engine",
-          result: "+42% faster conversion cycle",
+          title: "Dignity and autonomy",
+          result: "Human oversight",
           text:
-            "An AI system qualifies inbound opportunities, routes high-intent leads, personalizes follow-up and helps commercial teams move faster with higher precision.",
+            "Mandatory human approval for sensitive decisions. AI recommends; people decide and remain accountable.",
         },
         {
-          title: "Enterprise Knowledge Layer",
-          result: "Up to 75% faster access to answers",
+          title: "Data protection",
+          result: "Privacy by design",
           text:
-            "A private AI layer connected to company documentation, SOPs and internal knowledge gives teams instant access to trusted operational intelligence.",
+            "Selective disclosure and zero-knowledge proofs to prove without exposing more information than necessary.",
         },
         {
-          title: "Operational Intelligence System",
-          result: "300+ hours recovered per quarter",
+          title: "Accountability",
+          result: "Full traceability",
           text:
-            "AI-driven coordination, automated execution and operational visibility reduce friction, improve consistency and free teams for higher-value work, at scale.",
+            "A record of who authorised each agent, what it did, why, and who answers for the consequences.",
         },
       ],
     },
     callPage: {
-      kicker: "Contact",
-      title: "Let’s find where AI creates the most impact in your business",
+      kicker: "Collaborate",
+      title: "Let’s build the digital trust that AI needs, together",
       intro:
-"Tell us what you want to improve, automate or scale. We will help you identify practical opportunities and define a clear next step.",
+        "We are open to institutional co-development, European consortia, research partnerships, controlled pilots and conversations with investors.",
       bullets: [
-        "We start with your process, not a pitch",
-        "You leave with a concrete next step",
-        "No templates. Built around your operation",
+        "Institutions: co-development and pilots",
+        "Research: European consortia",
+        "Companies: join a pilot",
+        "Investors: request the dossier",
       ],
     },
   },
@@ -413,356 +418,361 @@ const content = {
     brand: "Gleam Peak AI",
     nav: {
       home: "Inicio",
-      solutions: "Soluciones IA",
-      automation: "Automatización IA",
-      industries: "Industrias",
-      cases: "Casos de estudio",
-      call: "Reservar llamada",
+      solutions: "Cyber Trust Passport",
+      automation: "Plataforma",
+      industries: "Ámbitos",
+      cases: "Valores",
+      call: "Colabora",
     },
     common: {
       switchLanguage: "EN",
       backHome: "Volver al inicio",
-      nextStep: "Siguiente paso",
-      discuss: "Más información",
+      nextStep: "Siguiente",
+      discuss: "Hablemos",
       sendRequest: "Enviar mensaje",
-      trustedTitle: "Pensado para empresas ambiciosas",
-      trustedHeadline: "Sistemas de IA diseñados para operaciones reales",
+      trustedTitle: "Proyecto insignia · Cyber Trust Passport",
+      trustedHeadline: "Infraestructura de confianza digital e IA responsable",
       trustedItems: [
-        "Estrategia de IA",
-        "Automatización",
-        "Asistentes inteligentes",
-        "Sistemas de conocimiento",
+        "Ciberseguridad con IA",
+        "Confianza digital verificable",
+        "Gobernanza de agentes de IA",
+        "Tecnologías de privacidad",
       ],
       trustBlocks: [
         {
-          title: "Enfoque claro de negocio",
-          text: "Primero entendemos el proceso, el equipo y el objetivo, antes de diseñar nada.",
+          title: "Evidencias, no promesas",
+          text: "Seguridad y gobernanza demostradas con evidencias obtenidas de sistemas reales.",
           icon: "shield",
         },
         {
-          title: "Construido para procesos reales",
-          text: "Conectamos la IA directamente con tus herramientas, tus datos y tu operación diaria.",
+          title: "Privacidad por diseño",
+          text: "Demostramos que se cumple un control sin exponer los datos que lo sostienen.",
           icon: "workflow",
         },
         {
-          title: "Pensado para escalar",
-          text: "Reducimos trabajo manual, mejoramos velocidad de respuesta y creamos valor operativo medible desde el primer día.",
+          title: "Pensado para ecosistemas",
+          text: "Un despliegue institucional eleva la seguridad de todo un territorio o cadena de suministro.",
           icon: "chart",
         },
       ],
       form: {
         name: "Nombre",
-        company: "Empresa",
-        email: "Correo corporativo",
-        message: "Cuéntanos qué quieres mejorar, automatizar o escalar",
+        company: "Organización",
+        email: "Correo profesional",
+        message: "Cuéntanos qué te interesa: un piloto, un consorcio, investigación o el dossier para inversores",
       },
+      statusBadge: "En desarrollo",
+      formSending: "Enviando...",
+      formSuccessTitle: "Mensaje enviado",
+      formSuccessText: "Hemos recibido tu mensaje. Te responderemos lo antes posible.",
+      formError: "No se pudo enviar el formulario. Inténtalo de nuevo.",
     },
     home: {
-      kicker: "Automatización operativa con IA",
-      title: "Sistemas de IA que reducen trabajo manual y ayudan a las empresas a crecer",
+      kicker: "Infraestructura de confianza digital e IA responsable",
+      title: "Infraestructura de confianza para una IA de impacto público",
       subtitle:
-"Construimos soluciones prácticas de IA que automatizan tareas repetitivas, mejoran tiempos de respuesta y apoyan las operaciones del día a día.",
+        "Desarrollamos infraestructura de inteligencia artificial responsable y ciberseguridad para que organizaciones y administraciones evalúen riesgos, gobiernen sus sistemas de IA y demuestren confianza digital con evidencias verificables.",
       ctas: {
-        primary: "Agendar llamada",
-        secondary: "Ver soluciones",
+        primary: "Colaborar con nosotros",
+        secondary: "Conocer el pasaporte",
       },
       stats: [
         {
-          value: "Elimina la carga operativa",
-          text: "Automatiza tareas repetitivas en ventas, operaciones, soporte y procesos internos.",
+          value: "Evaluar riesgos",
+          text: "Evaluación automatizada de riesgos de ciberseguridad e IA en sistemas reales.",
         },
         {
-          value: "Responde antes que tu competencia",
-          text: "Utiliza asistentes de IA para cualificar, dirigir y responder con mayor velocidad y consistencia.",
+          value: "Gobernar la IA",
+          text: "Controlar qué puede hacer cada agente de IA, con supervisión humana y registros auditables.",
         },
         {
-          value: "Decisiones respaldadas por datos reales",
-          text: "Convierte datos y conocimiento interno en apoyo real para la toma de decisiones.",
+          value: "Demostrar confianza",
+          text: "Evidencias verificables que se comparten sin revelar información sensible.",
         },
       ],
       impact: {
-        kicker: "Impacto de negocio",
-        title: "Lo que la IA puede mejorar en tu empresa",
+        kicker: "El problema",
+        title: "La IA avanza más rápido que la capacidad de supervisarla",
         intro:
-          "La IA correcta debe hacer tu empresa más ágil, más clara y más fácil de escalar.",
+          "Las organizaciones adoptan inteligencia artificial más rápido de lo que pueden controlarla. Los mecanismos actuales de supervisión son fragmentados, manuales y difíciles de verificar.",
         items: [
-          "Automatizar tareas operativas repetitivas",
-          "Responder más rápido a clientes y oportunidades",
-          "Reducir seguimiento manual y coordinación interna",
-          "Mejorar visibilidad entre equipos y procesos",
-          "Convertir conocimiento interno en respuestas útiles",
-          "Crear sistemas que soporten crecimiento sin añadir complejidad",
+          "Falta de visibilidad: muchas organizaciones no saben qué sistemas de IA usan ni qué datos consultan",
+          "Cumplimiento estático: una auditoría refleja un momento y, días después, todo ha cambiado",
+          "Transparencia frente a privacidad: demostrar que eres seguro no debería obligarte a exponer tus datos",
+          "Agentes de IA sin registro claro de quién los autorizó, qué hicieron ni cómo detenerlos",
+          "Desigualdad de acceso: pymes y organismos locales no pueden pagar grandes equipos de seguridad",
+          "Evidencias dispersas en documentos, cuestionarios y capturas que nadie puede verificar",
         ],
       },
       orchestration: {
-        title: "Qué podemos automatizar",
+        title: "Demuestra que cumples sin revelar lo que proteges",
         text:
-          "Identificamos procesos donde la IA puede reducir carga manual y mejorar velocidad, consistencia y ejecución.",
+          "El Cyber Trust Passport permite a una organización demostrar su seguridad y la gobernanza de su IA ante clientes, auditores y administraciones.",
         cards: [
           {
-            title: "Atención al cliente",
-            text: "Automatiza respuestas, cualificación de leads, seguimiento y distribución de oportunidades.",
+            title: "Evidencias de sistemas reales",
+            text: "Controles de seguridad, copias, actualizaciones y accesos recogidos automáticamente, no en formularios.",
             icon: "message",
           },
           {
-            title: "Operaciones internas",
-            text: "Reduce tareas repetitivas, coordinación manual y cuellos de botella en la operación.",
+            title: "Confianza continua",
+            text: "El estado de seguridad se actualiza todo el tiempo, no una vez al año.",
             icon: "workflow",
           },
           {
-            title: "Inteligencia de negocio",
-            text: "Transforma documentos, datos y conocimiento interno en respuestas, reportes y apoyo a decisiones.",
+            title: "Privacidad por diseño",
+            text: "Divulgación selectiva y pruebas de conocimiento cero: se demuestra sin exponer datos internos.",
             icon: "chart",
           },
         ],
       },
       solutionsSection: {
-        kicker: "Soluciones IA",
-        title: "Sistemas prácticos de IA para procesos reales",
+        kicker: "Capacidades",
+        title: "Una sola plataforma para evaluar, controlar y demostrar",
         intro:
-          "No construimos herramientas genéricas. Diseñamos soluciones alrededor de tus procesos, tu equipo y tus objetivos.",
+          "Ciberseguridad, gobernanza de IA y tecnologías de privacidad comparten arquitectura, propiedad intelectual y equipo. Cada módulo aumenta el valor de los demás.",
       },
       solutions: [
         {
-          title: "Automatización con IA",
-          text: "Automatiza tareas repetitivas, flujos internos y procesos operativos que frenan la empresa.",
+          title: "Ciberseguridad con IA",
+          text: "Evaluación de riesgos, análisis de configuraciones, priorización de vulnerabilidades y asistencia ante incidentes.",
           icon: "cpu",
         },
         {
-          title: "Asistentes de IA",
-          text: "Despliega asistentes para soporte, ventas, reservas, solicitudes internas o acceso al conocimiento.",
+          title: "Gobernanza de agentes de IA",
+          text: "Inventario de agentes, permisos, autorización humana en decisiones sensibles y registro auditable de cada actuación.",
           icon: "bot",
         },
         {
-          title: "Sistemas de conocimiento",
-          text: "Convierte documentos y conocimiento interno en sistemas inteligentes útiles y seguros.",
+          title: "Confianza digital verificable",
+          text: "Evidencias automáticas, actualizadas y trazables, con divulgación selectiva y pruebas de conocimiento cero, que auditores y administraciones pueden comprobar.",
           icon: "brain",
         },
         {
-          title: "Apoyo a decisiones",
-          text: "Usa IA para resumir datos, generar reportes y dar mayor claridad a la dirección.",
+          title: "Ciberresiliencia y simulación",
+          text: "Simulación de ataques, fallos de proveedores y agentes fuera de sus permisos para preparar la respuesta. Línea futura.",
           icon: "chart",
         },
       ],
       industriesSection: {
-        kicker: "Industrias",
-        title: "IA adaptada a la forma en que opera cada empresa",
+        kicker: "Ámbitos",
+        title: "Un despliegue institucional, un ecosistema más seguro",
         intro:
-          "Desde logística y retail hasta hospitality, servicios y wellness, adaptamos la IA a los procesos reales de cada sector.",
+          "Una administración, un Cyber Hub o una gran empresa puede desplegar la plataforma para todas las organizaciones de un territorio o de una cadena de suministro.",
       },
       industries: [
         {
-          title: "Servicios Financieros",
-          text: "Automatización para revisión de riesgos, cumplimiento, soporte interno y decisiones más rápidas.",
+          title: "Administraciones públicas",
+          text: "Supervisión de sistemas algorítmicos, control de agentes de IA y evaluación de proveedores tecnológicos.",
           icon: "shield",
         },
         {
-          title: "Tecnología y SaaS",
-          text: "Copilotos, automatización de soporte y sistemas internos para acelerar producto y negocio.",
+          title: "Cyber Hubs y organismos europeos",
+          text: "Elevar la ciberseguridad de todo un territorio con una infraestructura compartida.",
           icon: "brain",
         },
         {
-          title: "Logística y Operaciones",
-          text: "Automatización de flujos, actualizaciones de cliente, planificación de recursos y visibilidad operativa.",
+          title: "Infraestructuras críticas",
+          text: "Agua, energía, movilidad, salud y emergencias: verificar la seguridad de toda la cadena de proveedores.",
           icon: "workflow",
         },
         {
-          title: "Retail y Comercio",
-          text: "Soporte al cliente, seguimiento comercial, señales de demanda y automatización de ventas.",
+          title: "Grandes empresas",
+          text: "Controlar la seguridad de cientos de proveedores desde un solo panel.",
           icon: "chart",
         },
         {
-          title: "Salud y Ciencias de la Vida",
-          text: "Flujos de soporte, coordinación operativa y sistemas de conocimiento para entornos complejos.",
+          title: "Aseguradoras de ciberriesgo",
+          text: "Evaluar el riesgo con información continua y verificable, no con cuestionarios.",
           icon: "bot",
         },
         {
-          title: "Servicios Profesionales",
-          text: "Flujos documentales, copilotos internos y sistemas de conocimiento para mejorar velocidad y consistencia.",
+          title: "Cámaras y asociaciones empresariales",
+          text: "Ofrecer a sus miembros una forma asequible de mejorar y demostrar su seguridad.",
           icon: "building",
         },
         {
-          title: "Hospitality y Turismo",
-          text: "IA para consultas, reservas, soporte multilingüe, upselling y coordinación de experiencia.",
+          title: "Pymes y proveedores públicos",
+          text: "Conocer sus riesgos, corregirlos y demostrar su seguridad ante clientes y administraciones.",
           icon: "message",
         },
         {
-          title: "Lujo y Wellness",
-          text:
-"IA diseñada para experiencias premium, atención personalizada y consistencia operativa.",
+          title: "Ecosistemas digitales europeos",
+          text: "Confianza interoperable entre empresas, auditores y autoridades.",
           icon: "sparkles",
         },
       ],
       finalCta: {
-        kicker: "Empieza donde más importa",
-        title: "Descubre dónde la IA genera mayor impacto para tu negocio",
+        kicker: "Colaboremos",
+        title: "Construyamos juntos la confianza digital que necesita la IA",
         text:
-          "Te ayudamos a identificar el caso de uso correcto, diseñar el sistema y convertir ideas en resultados medibles.",
-        button: "Agendar llamada",
+          "Estamos abiertos al co-desarrollo institucional, a consorcios europeos, a colaboraciones de investigación y a entornos piloto controlados.",
+        button: "Colaborar con nosotros",
       },
     },
     solutionsPage: {
-      kicker: "Soluciones IA",
-      title: "Sistemas de IA diseñados para operaciones reales de negocio",
+      kicker: "Proyecto insignia · Cyber Trust Passport",
+      title: "Demuestra que cumples. Sin revelar lo que proteges.",
       intro:
-"Construimos sistemas de IA que se integran en las operaciones del día a día, ayudando a los equipos a trabajar más rápido, reducir trabajo manual y mejorar la ejecución.",
+        "El Cyber Trust Passport permite a una organización demostrar de forma continua y verificable su nivel de ciberseguridad y la gobernanza de sus sistemas de IA, sin entregar su infraestructura, sus datos internos ni sus vulnerabilidades.",
       cards: [
         {
-          title: "Estrategia Empresarial de IA",
+          title: "Conectar",
           text:
-            "Identificamos dónde la IA genera retorno medible más rápido, definimos la arquitectura correcta y trazamos una hoja de ruta alineada con resultados reales.",
+            "La organización conecta de forma segura sus herramientas de trabajo, su nube y sus equipos mediante conectores y un agente de software firmado.",
           icon: "brain",
         },
         {
-          title: "Sistemas Operativos con IA",
+          title: "Analizar",
           text:
-            "Desplegamos sistemas inteligentes que coordinan flujos, automatizan ejecución y crean nueva capacidad operativa en toda la empresa.",
+            "La IA evalúa riesgos, prioriza vulnerabilidades y recomienda cómo corregirlas según NIS2, DORA, el Cyber Resilience Act, el RGPD y el Reglamento de IA.",
           icon: "cpu",
         },
         {
-          title: "Agentes Empresariales de IA",
+          title: "Demostrar",
           text:
-            "Agentes privados entrenados con procesos, documentación y lógica de negocio para asistir equipos, clientes y operaciones internas.",
+            "Se genera una credencial verificable que se comparte por enlace, código QR, API o el portal de proveedores del cliente.",
           icon: "bot",
         },
         {
-          title: "Capas de Inteligencia para Decisión",
+          title: "Conocimiento cero",
           text:
-            "Convertimos datos fragmentados en inteligencia ejecutiva, señales predictivas y sistemas que apoyan decisiones más rápidas y precisas.",
+            "Una prueba criptográfica confirma que se cumple una condición, como «más del 95 % de los equipos actualizados», sin mostrar los datos que la sostienen.",
           icon: "chart",
         },
       ],
-      listTitle: "Lo que construimos",
+      listTitle: "Qué puede demostrar una organización",
       items: [
-        "Capas privadas empresariales de IA",
-        "Sistemas operativos de IA para flujos",
-        "Infraestructura de inteligencia ejecutiva",
-        "Coordinación operativa autónoma",
-        "Sistemas de conocimiento conectados a datos empresariales",
-        "Motores predictivos y de apoyo a decisiones",
+        "Qué controles de ciberseguridad tiene implantados",
+        "Qué agentes y sistemas de IA utiliza",
+        "Quién puede acceder a información sensible",
+        "Si tiene copias verificadas y sistemas actualizados",
+        "Si ha evaluado a sus proveedores tecnológicos",
+        "Cómo ha gestionado sus incidentes",
       ],
     },
     automationPage: {
-      kicker: "Automatización IA",
-      title: "Sistemas más inteligentes para operaciones empresariales modernas",
+      kicker: "Plataforma · en desarrollo",
+      title: "Una infraestructura central que se adapta a cada contexto institucional",
       intro:
-"Construimos sistemas de IA que ayudan a los equipos a automatizar flujos de trabajo, mejorar la coordinación y reducir tareas operativas repetitivas.",
+        "La plataforma analiza, protege y recopila evidencias. El pasaporte demuestra la situación de confianza de la organización. Son dos caras de la misma tecnología.",
       items: [
-        "Orquestación multi-sistema",
-        "Motores inteligentes de decisión",
-        "Copilotos empresariales privados",
-        "Automatización predictiva",
-        "Inteligencia de flujos operativos",
-        "Operaciones autónomas asistidas por IA",
+        "Evaluación automatizada de riesgos",
+        "Priorización de vulnerabilidades",
+        "Asistente de respuesta ante incidentes",
+        "Control de permisos de agentes de IA",
+        "Autorización humana en decisiones sensibles",
+        "Registro auditable de decisiones y acciones",
       ],
-      processTitle: "Cómo trabajamos",
-      processSubtitle: "Del proceso manual al sistema operativo inteligente",
+      processTitle: "Fases de desarrollo",
+      processSubtitle: "Del pasaporte a la infraestructura pública de confianza",
       process: [
         {
           step: "01",
-          title: "Mapeo operativo",
-          text: "Identificamos flujos críticos, dependencias, cuellos de botella y áreas donde la IA puede crear ventaja.",
+          title: "Pasaporte y evaluación de riesgos",
+          text: "Registro de la organización, evaluación inicial, repositorio de evidencias, panel de controles, primera credencial y demostración de conocimiento cero.",
         },
         {
           step: "02",
-          title: "Arquitectura del sistema",
-          text: "Definimos lógica de IA, integraciones, flujos de datos, permisos y capas de automatización.",
+          title: "Asistencia y respuesta",
+          text: "Alertas, recomendaciones con IA, asistente de incidentes, planes de recuperación y notificaciones.",
         },
         {
           step: "03",
-          title: "Despliegue",
-          text: "Construimos, probamos y refinamos el sistema con escenarios reales y resultados medibles.",
+          title: "Gobernanza de agentes",
+          text: "Inventario, permisos, supervisión humana, registro de actuaciones e interrupción de comportamientos anómalos.",
         },
         {
           step: "04",
-          title: "Optimización",
-          text: "Mejoramos rendimiento, ampliamos casos de uso y convertimos la IA en ventaja operativa escalable.",
+          title: "Administraciones e infraestructuras críticas",
+          text: "Adaptación a entornos públicos, ciudades, salud, agua, energía, movilidad y emergencias.",
         },
       ],
     },
     industriesPage: {
-      kicker: "Industrias",
-      title: "Soluciones de IA adaptadas a la forma en que trabaja cada industria",
+      kicker: "Ámbitos de aplicación",
+      title: "Donde la confianza digital tiene mayor impacto público",
       intro:
-"Cada industria funciona de forma distinta. Adaptamos sistemas de IA a los procesos, necesidades y prioridades reales de cada empresa.",
+        "Una infraestructura compartida eleva la seguridad de todo un ecosistema, no solo la de quien puede pagar las soluciones más caras.",
       cards: [
         {
-          title: "Servicios Financieros",
-          text: "Inteligencia de riesgo, automatización de cumplimiento, detección de fraude y sistemas de decisión para una ejecución más ágil y precisa.",
+          title: "Administraciones públicas",
+          text: "Evaluación de proveedores, supervisión de sistemas algorítmicos, registro de decisiones automatizadas y auditoría de IA adquirida a terceros. Siempre con supervisión humana.",
           icon: "shield",
         },
         {
-          title: "Tecnología y SaaS",
-          text: "Copilotos, capas operativas inteligentes y sistemas internos de IA que aceleran la ejecución entre equipos.",
+          title: "Cyber Hubs y organismos europeos",
+          text: "Despliegue territorial del pasaporte y conexión futura con CSIRT y autoridades para la notificación de incidentes.",
           icon: "brain",
         },
         {
-          title: "Logística y Operaciones",
-          text: "Coordinación predictiva, orquestación operativa y asignación inteligente de recursos en flujos complejos.",
+          title: "Infraestructuras críticas",
+          text: "Agua, energía, movilidad, salud y emergencias dependen de muchos proveedores. La plataforma ayuda a verificar la seguridad de toda la cadena.",
           icon: "workflow",
         },
         {
-          title: "Retail y Comercio",
-          text: "Inteligencia de demanda, sistemas personalizados para clientes y automatización comercial que mejora margen y escalabilidad.",
+          title: "Grandes empresas",
+          text: "Un panel para ver qué proveedores cumplen, recibir alertas cuando uno deja de cumplir y verificar pruebas criptográficas.",
           icon: "chart",
         },
         {
-          title: "Salud y Ciencias de la Vida",
-          text: "Inteligencia operativa, sistemas de conocimiento y coordinación asistida por IA para entornos de alta complejidad.",
+          title: "Aseguradoras de ciberriesgo",
+          text: "Información de riesgo continua y verificable para evaluar y acompañar a sus asegurados.",
           icon: "bot",
         },
         {
-          title: "Servicios Profesionales",
-          text: "Capas privadas de conocimiento, inteligencia documental y sistemas de IA que multiplican calidad de ejecución y eficiencia facturable.",
+          title: "Cámaras y asociaciones empresariales",
+          text: "Un servicio para sus miembros que eleva la seguridad del tejido empresarial de un territorio.",
           icon: "building",
         },
         {
-          title: "Hospitality y Turismo",
-          text: "Inteligencia para reservas, atención multilingüe, concierge automatizado y capas de optimización de ingresos.",
+          title: "Pymes y proveedores públicos",
+          text: "Una forma asequible de conocer sus riesgos, corregirlos y demostrar su seguridad sin grandes equipos técnicos.",
           icon: "message",
         },
         {
-          title: "Lujo y Wellness",
-          text: "IA diseñada para servicio premium: concierge, atención al cliente de alto nivel y operaciones exclusivas que exigen consistencia y ejecución impecable.",
+          title: "Ecosistemas digitales europeos",
+          text: "Evidencias interoperables con los marcos europeos de identidad y credenciales digitales.",
           icon: "sparkles",
         },
       ],
     },
     casesPage: {
-      kicker: "Casos de estudio",
-      title: "Cómo las empresas están utilizando IA en la práctica",
+      kicker: "Valores",
+      title: "IA que amplía las capacidades humanas sin reducir derechos",
       intro:
-"Ejemplos de cómo la IA puede mejorar la eficiencia, apoyar el crecimiento y simplificar las operaciones del día a día.",
+        "Diseñamos sistemas que puedan ser supervisados, cuestionados y auditados. Nuestro objetivo no es acelerar la IA a cualquier coste, sino construir la confianza necesaria para usarla de forma responsable.",
       cards: [
         {
-          title: "Motor de Ingresos con IA",
-          result: "+42% más rapidez en conversión",
+          title: "Dignidad y autonomía",
+          result: "Supervisión humana",
           text:
-            "Un sistema de IA cualifica oportunidades, prioriza leads de alta intención, personaliza seguimientos y ayuda a los equipos comerciales a cerrar más rápido y con mayor precisión.",
+            "Autorización humana obligatoria en decisiones sensibles. La IA recomienda; las personas deciden y responden.",
         },
         {
-          title: "Capa Empresarial de Conocimiento",
-          result: "Hasta un 75% más rápido en acceso a respuestas",
+          title: "Protección de datos",
+          result: "Privacidad por diseño",
           text:
-            "Una capa privada de IA conectada a documentación, SOPs y conocimiento interno da a los equipos acceso instantáneo a inteligencia operativa confiable.",
+            "Divulgación selectiva y pruebas de conocimiento cero para demostrar sin exponer más información de la necesaria.",
         },
         {
-          title: "Sistema de Inteligencia Operativa",
-          result: "Más de 300 horas recuperadas por trimestre",
+          title: "Responsabilidad",
+          result: "Trazabilidad completa",
           text:
-            "Coordinación impulsada por IA, ejecución automatizada y mayor visibilidad operativa reducen fricción, mejoran consistencia y liberan equipos para trabajo de mayor valor, a escala.",
+            "Registro de quién autorizó cada agente, qué hizo, por qué y quién responde de sus consecuencias.",
         },
       ],
     },
     callPage: {
-      kicker: "Reservar llamada",
-      title: "Veamos dónde la IA puede crear más impacto en tu empresa",
+      kicker: "Colabora",
+      title: "Construyamos juntos la confianza digital que necesita la IA",
       intro:
-"Cuéntanos qué quieres mejorar, automatizar o escalar. Te ayudaremos a identificar oportunidades reales y definir un siguiente paso claro.",
+        "Estamos abiertos al co-desarrollo institucional, a consorcios europeos, a colaboraciones de investigación, a pilotos controlados y a conversaciones con inversores.",
       bullets: [
-        "Empezamos por tu proceso, no por un pitch",
-        "Sales con un siguiente paso concreto",
-        "Sin plantillas. Diseñado para tu operación",
+        "Instituciones: co-desarrollo y pilotos",
+        "Investigación: consorcios europeos",
+        "Empresas: participar en un piloto",
+        "Inversores: solicitar el dossier",
       ],
     },
   },
@@ -801,6 +811,11 @@ type LocaleContent = {
       email: string;
       message: string;
     };
+    statusBadge: string;
+    formSending: string;
+    formSuccessTitle: string;
+    formSuccessText: string;
+    formError: string;
   };
   home: any;
   solutionsPage: any;
@@ -1154,7 +1169,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
             <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-white/10">
   <Image
     src="/hero-ai-network.webp"
-    alt="Gleam Peak AI enterprise intelligence system"
+    alt="Gleam Peak AI trusted AI infrastructure"
     width={1600}
     height={900}
     className="h-auto w-full object-cover"
@@ -1184,7 +1199,7 @@ function HomePage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
                 <div className="flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs text-green-300">
                   <span className="h-2 w-2 rounded-full bg-green-400"/>
-                  Live
+                  {t.common.statusBadge}
                 </div>
 
               </div>
@@ -1329,7 +1344,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
   title={t.solutionsPage.title}
   intro={t.solutionsPage.intro}
   imageSrc="/enterprise-copilot.webp"
-  imageAlt="Enterprise AI copilot assistant"
+  imageAlt="Cyber Trust Passport"
 >
       
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -1405,7 +1420,7 @@ function IndustriesPage({ t, changePage, nextPage }: { t: any; changePage: (page
   title={t.industriesPage.title}
   intro={t.industriesPage.intro}
   imageSrc="/team-collaboration.webp"
-  imageAlt="Team collaboration with AI systems"
+  imageAlt="Gleam Peak AI sectors"
 >
       
 
@@ -1428,7 +1443,7 @@ function CasesPage({ t, changePage, nextPage }: { t: any; changePage: (page: Pag
   title={t.casesPage.title}
   intro={t.casesPage.intro}
   imageSrc="/decision-intelligence.webp"
-  imageAlt="Decision intelligence dashboard"
+  imageAlt="Gleam Peak AI values"
 >
       
 
@@ -1543,10 +1558,10 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                   ✓
                 </div>
                 <h3 className="text-[26px] font-semibold text-white">
-                  Solicitud enviada correctamente
+                  {t.common.formSuccessTitle}
                 </h3>
                 <p className="mt-4 text-[17px] leading-8 text-white/70">
-                  Hemos recibido tu mensaje. Te contactaremos pronto para revisar cómo podemos ayudarte.
+                  {t.common.formSuccessText}
                 </p>
               </div>
             ) : (
@@ -1606,7 +1621,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
 
                 {formStatus === "error" && (
                   <p className="mt-4 text-sm text-red-300">
-                    No se pudo enviar el formulario. Inténtalo nuevamente.
+                    {t.common.formError}
                   </p>
                 )}
 
@@ -1615,7 +1630,7 @@ function CallPage({ t, changePage }: { t: any; changePage: (page: PageKey) => vo
                   disabled={formStatus === "sending"}
                   className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-[15px] font-semibold text-[#13031d] transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {formStatus === "sending" ? "Enviando..." : t.common.sendRequest}
+                  {formStatus === "sending" ? t.common.formSending : t.common.sendRequest}
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </>
