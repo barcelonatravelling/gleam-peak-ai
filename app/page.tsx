@@ -1343,8 +1343,7 @@ function SolutionsPage({ t, changePage, nextPage }: { t: any; changePage: (page:
   kicker={t.solutionsPage.kicker}
   title={t.solutionsPage.title}
   intro={t.solutionsPage.intro}
-  imageSrc="/enterprise-copilot.webp"
-  imageAlt="Cyber Trust Passport"
+  
 >
       
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
