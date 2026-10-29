@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Send, X } from "lucide-react";
 
 type ChatMessage = {
@@ -15,28 +15,26 @@ type AssistantChatProps = {
 
 const translations = {
   es: {
-    welcome: "Hola 👋 ¿A qué se dedica tu empresa?",
+    welcome: "Hola, soy el asistente de Gleam Peak. ¿Quieres saber cómo funciona Trust Gateway o tienes un caso concreto en mente?",
     placeholder: "Escribe tu mensaje...",
     thinking: "Analizando...",
     error:
-      "Hubo un problema al procesar la respuesta. Puedes intentarlo de nuevo o reservar una llamada directamente.",
-    ctaDefault: "Hablar con un experto",
-    ctaHot: "Reservar llamada estratégica",
-    ctaNextStep: "Analizar mi caso",
+      "No he podido responder ahora mismo. Inténtalo de nuevo o escríbenos a hello@gleampeak.ai.",
+    ctaDefault: "Hablar con el equipo",
     closeLabel: "Cerrar asistente",
     sendLabel: "Enviar mensaje",
+    notice: "Asistente automático. Los mensajes se procesan con OpenAI; no compartas datos sensibles.",
   },
   en: {
-    welcome: "Hi 👋 What does your company do?",
+    welcome: "Hi, I'm the Gleam Peak assistant. Would you like to know how Trust Gateway works, or do you have a specific use case in mind?",
     placeholder: "Write your message...",
     thinking: "Analyzing...",
     error:
-      "There was a problem processing the response. You can try again or book a call directly.",
-    ctaDefault: "Talk to an expert",
-    ctaHot: "Book a strategic call",
-    ctaNextStep: "Analyze my case",
+      "I couldn't answer right now. Please try again or write to hello@gleampeak.ai.",
+    ctaDefault: "Talk to the team",
     closeLabel: "Close assistant",
     sendLabel: "Send message",
+    notice: "Automated assistant. Messages are processed with OpenAI; do not share sensitive data.",
   },
 } as const;
 
@@ -55,10 +53,6 @@ export default function AssistantChat({
   ]);
   const [error, setError] = useState("");
 
-  const [hotLead, setHotLead] = useState(false);
-  const [ctaPulse, setCtaPulse] = useState(false);
-  const [needsNextStep, setNeedsNextStep] = useState(false);
-  const [leadStage, setLeadStage] = useState<"cold" | "warm" | "hot">("cold");
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -115,135 +109,11 @@ export default function AssistantChat({
     return () => window.clearTimeout(timeout);
   }, [open]);
 
-  useEffect(() => {
-    if (!hotLead && !needsNextStep) return;
 
-    setCtaPulse(true);
-
-    const timeout = window.setTimeout(() => {
-      setCtaPulse(false);
-    }, 3000);
-
-    return () => window.clearTimeout(timeout);
-  }, [hotLead, needsNextStep]);
-
-  function normalizeText(text: string) {
-    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
-
-  function detectNextStepIntent(text: string) {
-    const normalized = normalizeText(text);
-
-    return (
-      normalized.includes("que hago") ||
-      normalized.includes("que hago entonces") ||
-      normalized.includes("como lo corrijo") ||
-      normalized.includes("como puedo mejorarlo") ||
-      normalized.includes("y ahora") ||
-      normalized.includes("siguiente paso") ||
-      normalized.includes("what do i do") ||
-      normalized.includes("what now") ||
-      normalized.includes("how do i fix it") ||
-      normalized.includes("how can i improve it") ||
-      normalized.includes("next step")
-    );
-  }
-
-  function detectHotLead(text: string) {
-    const normalized = normalizeText(text);
-
-    return (
-      normalized.includes("me interesa") ||
-      normalized.includes("quiero verlo") ||
-      normalized.includes("quiero mejorar") ||
-      normalized.includes("quiero automatizar") ||
-      normalized.includes("como lo hariamos") ||
-      normalized.includes("reservar") ||
-      normalized.includes("agendar") ||
-      normalized.includes("lo hacemos manual") ||
-      normalized.includes("tenemos todo manual") ||
-      normalized.includes("perdemos mucho tiempo") ||
-      normalized.includes("por whatsapp") ||
-      normalized.includes("por redes sociales") ||
-      normalized.includes("interested") ||
-      normalized.includes("i want to see") ||
-      normalized.includes("i want to improve") ||
-      normalized.includes("i want to automate") ||
-      normalized.includes("how would we") ||
-      normalized.includes("book") ||
-      normalized.includes("reserve") ||
-      normalized.includes("schedule") ||
-      normalized.includes("manual")
-    );
-  }
-
-  function detectWarmLead(text: string) {
-    const normalized = normalizeText(text);
-
-    return (
-      normalized.includes("no se") ||
-      normalized.includes("no tengo claro") ||
-      normalized.includes("me gustaria") ||
-      normalized.includes("quiero analizar") ||
-      normalized.includes("quiero mejorar") ||
-      normalized.includes("want to improve") ||
-      normalized.includes("i don't know") ||
-      normalized.includes("not sure") ||
-      normalized.includes("i would like") ||
-      normalized.includes("i'd like")
-    );
-  }
-
-  function detectLeadStage(text: string): "cold" | "warm" | "hot" {
-    if (detectHotLead(text) || detectNextStepIntent(text)) return "hot";
-    if (detectWarmLead(text)) return "warm";
-    return "cold";
-  }
-
-  function shouldAssistantTriggerCTA(text: string) {
-    const normalized = normalizeText(text);
-
-    return (
-      normalized.includes("boton de abajo") ||
-      normalized.includes("button below") ||
-      normalized.includes("reservar la llamada") ||
-      normalized.includes("book the call") ||
-      normalized.includes("verlo aplicado") ||
-      normalized.includes("applied to your case") ||
-      normalized.includes("margen claro") ||
-      normalized.includes("clear room for optimization") ||
-      normalized.includes("impacto rapido") ||
-      normalized.includes("fast impact")
-    );
-  }
-
-  useEffect(() => {
-    if (leadStage === "cold") return;
-
-    console.log("[Lead Stage]:", leadStage);
-  }, [leadStage]);
-
-  const shouldShowBookingButton = useMemo(() => {
-    return hotLead || needsNextStep;
-  }, [hotLead, needsNextStep]);
 
   async function sendMessage() {
     const text = input.trim();
     if (!text || loading) return;
-
-    const stage = detectLeadStage(text);
-    const nextStepIntent = detectNextStepIntent(text);
-
-    if (nextStepIntent) {
-      setNeedsNextStep(true);
-      setHotLead(true);
-      setLeadStage("hot");
-    } else if (stage === "hot") {
-      setHotLead(true);
-      setLeadStage("hot");
-    } else if (stage === "warm") {
-      setLeadStage((prev) => (prev === "hot" ? prev : "warm"));
-    }
 
     const nextMessages: ChatMessage[] = [
       ...messages,
@@ -279,13 +149,8 @@ export default function AssistantChat({
         { role: "assistant", content: assistantReply },
       ]);
 
-      if (shouldAssistantTriggerCTA(assistantReply)) {
-        setHotLead(true);
-        setLeadStage("hot");
-      }
     } catch {
       setError(t.error);
-      setHotLead(true);
     } finally {
       setLoading(false);
     }
@@ -298,20 +163,16 @@ export default function AssistantChat({
     setLoading(false);
     setMessages([{ role: "assistant", content: t.welcome }]);
     setError("");
-    setHotLead(false);
-    setCtaPulse(false);
-    setNeedsNextStep(false);
-    setLeadStage("cold");
   }
     return (
     <>
       {open && (
         <div className="fixed inset-0 z-[9999] bg-black/40 backdrop-blur-sm">
-          <div className="absolute bottom-24 right-6 w-[390px] max-w-[calc(100vw-24px)] rounded-2xl bg-[#0a0614]/95 p-4 text-white shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
+          <div className="absolute bottom-20 right-3 w-[390px] max-w-[calc(100vw-24px)] sm:bottom-24 sm:right-6 rounded-2xl bg-[#0a0614]/95 p-4 text-white shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
            <div className="mb-4 flex items-center justify-between">
   <div>
     <div className="text-[15px] font-semibold text-white">
-      Gleam Peak AI Assistant
+      {lang === "es" ? "Asistente de Gleam Peak AI" : "Gleam Peak AI Assistant"}
     </div>
 
     
@@ -392,29 +253,16 @@ export default function AssistantChat({
               </button>
             </div>
 
-            {shouldShowBookingButton && bookingUrl && bookingUrl !== "#" && (
+            <p className="mt-2 text-[11px] leading-snug text-white/45">{t.notice}</p>
+
+            {messages.length > 2 && (
               <a
-                href={bookingUrl}
-                target="_blank"
+                href={bookingUrl && bookingUrl !== "#" ? bookingUrl : "/hablemos"}
+                target={bookingUrl && bookingUrl !== "#" ? "_blank" : undefined}
                 rel="noreferrer"
-                aria-label={
-                  needsNextStep
-                    ? t.ctaNextStep
-                    : hotLead
-                      ? t.ctaHot
-                      : t.ctaDefault
-                }
-                className={`mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-black transition-all duration-500 hover:opacity-90 ${
-                  ctaPulse
-                    ? "translate-y-3 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]"
-                    : ""
-                } ${hotLead || needsNextStep ? "shadow-lg ring-1 ring-white/20" : ""}`}
+                className="mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-black transition hover:opacity-90"
               >
-                {needsNextStep
-                  ? t.ctaNextStep
-                  : hotLead
-                    ? t.ctaHot
-                    : t.ctaDefault}
+                {t.ctaDefault}
               </a>
             )}
           </div>
