@@ -257,7 +257,7 @@ export default function AssistantChat({
 
             {messages.length > 2 && (
               <a
-                href={bookingUrl && bookingUrl !== "#" ? bookingUrl : "/hablemos"}
+                href={bookingUrl && bookingUrl !== "#" ? bookingUrl : lang === "en" ? "/en/contact" : "/hablemos"}
                 target={bookingUrl && bookingUrl !== "#" ? "_blank" : undefined}
                 rel="noreferrer"
                 className="mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-black transition hover:opacity-90"
