@@ -17,10 +17,10 @@ export default function Effects() {
   useEffect(() => {
     const prefetchAll = () => Object.values(routes[lang]).forEach((href) => router.prefetch(href));
     if ("requestIdleCallback" in window) {
-      const id = window.requestIdleCallback(prefetchAll, { timeout: 2500 });
+      const id = window.requestIdleCallback(prefetchAll, { timeout: 800 });
       return () => window.cancelIdleCallback(id);
     }
-    const id = setTimeout(prefetchAll, 1200);
+    const id = setTimeout(prefetchAll, 300);
     return () => clearTimeout(id);
   }, [lang, router]);
 
