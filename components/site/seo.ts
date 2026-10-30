@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Lang } from "./content";
 import { routes, type RouteKey } from "./routes";
 
-export const SITE_URL = "https://gleampeak.ai";
+export const SITE_URL = "https://www.gleampeak.ai";
 
 type PageMeta = { title: string; description: string };
 
