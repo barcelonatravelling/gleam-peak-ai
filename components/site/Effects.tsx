@@ -1,11 +1,28 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useLang } from "./LangContext";
+import { routes } from "./routes";
 
-// Scroll reveal for `.reveal` blocks, the pointer glow on cards and the header's scrolled state.
+// Scroll reveal for `.reveal` blocks, the pointer glow on cards, the header's scrolled state
+// and prefetching of every page in the current language.
 export default function Effects() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { lang } = useLang();
+
+  // Links inside the closed mobile menu are never on screen, so Next does not prefetch them.
+  // Fetch every page of this language once the browser is idle, so a tap opens it at once.
+  useEffect(() => {
+    const prefetchAll = () => Object.values(routes[lang]).forEach((href) => router.prefetch(href));
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(prefetchAll, { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = setTimeout(prefetchAll, 1200);
+    return () => clearTimeout(id);
+  }, [lang, router]);
 
   useEffect(() => {
     document.documentElement.classList.add("js");
