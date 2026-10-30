@@ -66,6 +66,18 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+// A browser always sends Origin on a cross-site POST; "null" or a different host means another site.
+function isSameOrigin(req: Request): boolean {
+  const origin = req.headers.get("origin");
+  const host = req.headers.get("host");
+  if (!origin || !host) return true;
+  try {
+    return new URL(origin).host === host;
+  } catch {
+    return false;
+  }
+}
+
 function extractOutputText(data: { choices?: { message?: { content?: string } }[] }): string {
   return (
     data?.choices?.[0]?.message?.content?.trim() ||
@@ -86,10 +98,16 @@ export async function POST(req: Request) {
       );
     }
 
-    const { messages, lang } = (await req.json()) as {
+    // Reject cross-site use so the endpoint is only useful from the site's own chat.
+    if (!isSameOrigin(req)) {
+      return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+    }
+
+    const body = (await req.json().catch(() => null)) as {
       messages?: ChatMessage[];
       lang?: "en" | "es";
-    };
+    } | null;
+    const { messages, lang } = body ?? {};
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json(
@@ -110,13 +128,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // Reject cross-site use and oversized payloads so the endpoint is only useful from the site's own chat.
-    const origin = req.headers.get("origin");
-    const host = req.headers.get("host");
-    if (origin && host && new URL(origin).host !== host) {
-      return NextResponse.json({ error: "Forbidden." }, { status: 403 });
-    }
-
+    // Only the last messages are sent on, each cut to a reasonable length.
     const trimmedMessages: ChatMessage[] = messages
       .slice(-10)
       .filter(

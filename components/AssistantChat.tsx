@@ -58,16 +58,6 @@ export default function AssistantChat({
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
-    setMessages((prev) => {
-      if (prev.length === 1 && prev[0].role === "assistant") {
-        return [{ role: "assistant", content: t.welcome }];
-      }
-
-      return prev;
-    });
-  }, [lang, t.welcome]);
-
-  useEffect(() => {
     function handleOpen() {
       setOpen(true);
     }
