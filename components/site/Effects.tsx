@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Scroll reveal for `.reveal` blocks and the pointer glow on cards.
+// Scroll reveal for `.reveal` blocks, the pointer glow on cards and the header's scrolled state.
 export default function Effects() {
   const pathname = usePathname();
 
@@ -17,8 +17,15 @@ export default function Effects() {
       card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
       card.style.setProperty("--my", `${event.clientY - rect.top}px`);
     };
+    // The header gets a firmer background once the page has scrolled a little.
+    const onScroll = () => document.documentElement.classList.toggle("scrolled", window.scrollY > 12);
+    onScroll();
     window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {

@@ -8,7 +8,7 @@ type FlowRow = readonly [string, string, string, "pass" | "hold"];
 
 const es = {
   nav: { home: "Inicio", gateway: "Trust Gateway", how: "Cómo funciona", applications: "Aplicaciones", principles: "Principios", security: "Seguridad", resources: "Recursos", talk: "Hablemos", privacy: "Privacidad", terms: "Términos" },
-  a11y: { skip: "Saltar al contenido", switchLang: "Cambiar idioma", openMenu: "Abrir menú", mainNav: "Navegación principal", mobileNav: "Navegación móvil", homeLink: "Gleam Peak, inicio" },
+  a11y: { skip: "Saltar al contenido", switchLang: "Cambiar idioma", openMenu: "Abrir menú", closeMenu: "Cerrar menú", mainNav: "Navegación principal", mobileNav: "Navegación móvil", homeLink: "Gleam Peak, inicio" },
   footer: { line: "Infraestructura de control y evidencia para agentes de IA.", privacy: "Privacidad", terms: "Términos", product: "Producto", company: "Compañía", legal: "Legal" },
   common: { development: "Prototipo en desarrollo", discover: "Conocer Trust Gateway", collaborate: "Explorar una colaboración", back: "Volver al inicio" },
   visual: {
@@ -203,7 +203,7 @@ type Content = typeof es;
 
 const en: Content = {
   nav: { home: "Home", gateway: "Trust Gateway", how: "How it works", applications: "Applications", principles: "Principles", security: "Security", resources: "Resources", talk: "Let's talk", privacy: "Privacy", terms: "Terms" },
-  a11y: { skip: "Skip to content", switchLang: "Change language", openMenu: "Open menu", mainNav: "Main navigation", mobileNav: "Mobile navigation", homeLink: "Gleam Peak, home" },
+  a11y: { skip: "Skip to content", switchLang: "Change language", openMenu: "Open menu", closeMenu: "Close menu", mainNav: "Main navigation", mobileNav: "Mobile navigation", homeLink: "Gleam Peak, home" },
   footer: { line: "Control and evidence infrastructure for AI agents.", privacy: "Privacy", terms: "Terms", product: "Product", company: "Company", legal: "Legal" },
   common: { development: "Prototype in development", discover: "Discover Trust Gateway", collaborate: "Explore a collaboration", back: "Back to home" },
   visual: {
