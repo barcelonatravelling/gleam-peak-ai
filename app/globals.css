@@ -120,9 +120,9 @@ main { min-height: 70vh; }
 .shell { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
 
 h1, h2, h3 { font-family: var(--display); letter-spacing: -.035em; line-height: 1.1; margin: 0; font-weight: 600; text-wrap: balance; }
-h1 { font-size: clamp(2.125rem, 3.6vw, 3.25rem); max-width: 16ch; letter-spacing: -.045em; }
-h2 { font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.15; max-width: 24ch; }
-h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
+h1 { font-size: clamp(2.3rem, 3.95vw, 3.5625rem); max-width: 16ch; letter-spacing: -.045em; }
+h2 { font-size: clamp(1.625rem, 2.45vw, 2.1875rem); line-height: 1.15; max-width: 24ch; }
+h3 { font-size: 1.25rem; letter-spacing: -.02em; line-height: 1.3; }
 .gradient { background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { margin: 1rem 0 0; max-width: 60ch; color: #c9c1d6; font-size: 1.125rem; line-height: 1.6; }
 
@@ -221,7 +221,7 @@ h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
 .statement { position: relative; overflow: hidden; padding: clamp(1.5rem, 4vw, 3.5rem); border-radius: 28px; background: radial-gradient(ellipse at 85% 0%, rgba(140,90,214,.32), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(196,56,159,.16), transparent 50%), #0c0818; box-shadow: inset 0 0 0 1px rgba(140,90,214,.22); }
 .statement::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent 30%, black); -webkit-mask-image: linear-gradient(90deg, transparent 30%, black); pointer-events: none; }
 .statement > * { position: relative; z-index: 1; }
-.statement blockquote { margin: 0; max-width: 26ch; font: 600 clamp(1.5rem, 2.2vw, 1.875rem)/1.2 var(--display); letter-spacing: -.03em; text-wrap: balance; }
+.statement blockquote { margin: 0; max-width: 26ch; font: 600 clamp(1.625rem, 2.4vw, 2.0625rem)/1.2 var(--display); letter-spacing: -.03em; text-wrap: balance; }
 .statement p { margin: 1rem 0 0; max-width: 60ch; color: #c2b9d1; font-size: 1rem; }
 
 /* Comparison */
@@ -237,7 +237,7 @@ h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
 
 /* Subpages */
 .subhero { padding: clamp(3rem, 5.5vw, 4.5rem) 0 2rem; }
-.subhero h1 { font-size: clamp(1.875rem, 3vw, 2.75rem); max-width: 24ch; }
+.subhero h1 { font-size: clamp(2.05rem, 3.35vw, 3rem); max-width: 24ch; }
 .subhero .lead { max-width: 68ch; }
 
 /* Process timeline */
@@ -293,7 +293,7 @@ h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
 /* CTA band */
 .cta-band { padding: 0 0 clamp(4.5rem, 8vw, 7rem); }
 .cta-card { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.3fr auto; gap: 2rem; align-items: center; padding: clamp(2rem, 5vw, 3.5rem); border-radius: 28px; background: radial-gradient(ellipse at 100% 0%, rgba(47,79,184,.3), transparent 50%), radial-gradient(ellipse at 0% 100%, rgba(196,56,159,.25), transparent 55%), #0c0818; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
-.cta-card h2 { font-size: 1.375rem; line-height: 1.25; max-width: 30ch; }
+.cta-card h2 { font-size: 1.5rem; line-height: 1.25; max-width: 30ch; }
 .cta-card p { margin: 1rem 0 0; max-width: 58ch; color: #c2b9d1; }
 
 /* Contact */
@@ -318,7 +318,7 @@ h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
 /* Legal */
 /* Same left edge as every other page; only the reading width is limited */
 .legal > * { max-width: 800px; }
-.legal h2 { margin-top: 2.5rem; font-size: 1.375rem; line-height: 1.25; max-width: none; }
+.legal h2 { margin-top: 2.5rem; font-size: 1.5rem; line-height: 1.25; max-width: none; }
 .legal p, .legal li { color: var(--muted); }
 .legal .lead { color: #c9c1d6; }
 .legal-pending { margin: 2rem 0 0; padding: 1rem 1.2rem; border: 1px solid rgba(255,210,122,.3); border-radius: 14px; background: rgba(255,210,122,.06); color: var(--amber) !important; font-size: .92rem; }
@@ -373,7 +373,7 @@ h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
 
 /* Three short prose blocks side by side */
 .prose-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 3rem); }
-.prose-grid h2 { font-size: 1.375rem; line-height: 1.25; max-width: none; }
+.prose-grid h2 { font-size: 1.5rem; line-height: 1.25; max-width: none; }
 .prose-grid p { margin: 1rem 0 0; color: var(--muted); }
 
 /* Glossary and FAQ */
@@ -464,11 +464,11 @@ h3 { font-size: 1.1875rem; letter-spacing: -.02em; line-height: 1.3; }
   .shell { width: min(calc(100% - 32px), var(--max)); }
   .site-header { padding: .6rem 16px; }
   .brand-logo { height: 38px; }
-  h1 { font-size: 2.125rem; }
-  .subhero h1 { font-size: 1.875rem; }
-  h2 { font-size: 1.5rem; }
-  .cta-card h2, .prose-grid h2, .legal h2 { font-size: 1.25rem; }
-  .statement blockquote { font-size: 1.5rem; }
+  h1 { font-size: 2.3125rem; }
+  .subhero h1 { font-size: 2.0625rem; }
+  h2 { font-size: 1.625rem; }
+  .cta-card h2, .prose-grid h2, .legal h2 { font-size: 1.375rem; }
+  .statement blockquote { font-size: 1.625rem; }
   .statement { padding: 1.5rem; }
   .lead { font-size: 1.0625rem; }
   .section { padding: 3rem 0; }
