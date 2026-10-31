@@ -9,6 +9,7 @@ type SecurityContent = {
   threatsKicker: string;
   threatsTitle: string;
   threats: Pair[];
+  scopeKicker: string;
   scopeTitle: string;
   doesTag: string;
   does: string[];
@@ -26,8 +27,10 @@ type ResourcesContent = {
   eyebrow: string;
   title: string;
   lead: string;
+  glossaryKicker: string;
   glossaryTitle: string;
   glossary: Pair[];
+  faqKicker: string;
   faqTitle: string;
   faq: Pair[];
 };
@@ -47,6 +50,7 @@ export const security: Record<Lang, SecurityContent> = {
       ["Suplantación de agentes", "Un sistema se hace pasar por un agente autorizado. Cada solicitud debe presentar una identidad verificable del agente y de quien lo opera."],
       ["Evidencia alterable", "Un registro que se puede editar no prueba nada. Los recibos estarán firmados y enlazarán solicitud, política, decisión y resultado."],
     ],
+    scopeKicker: "Alcance",
     scopeTitle: "Qué hará y qué no hará el primer prototipo",
     doesTag: "Hará",
     does: [
@@ -83,6 +87,7 @@ export const security: Record<Lang, SecurityContent> = {
       ["Agent impersonation", "A system pretends to be an authorised agent. Every request must present a verifiable identity for the agent and for whoever operates it."],
       ["Alterable evidence", "A record that can be edited proves nothing. Receipts will be signed and will link request, policy, decision and outcome."],
     ],
+    scopeKicker: "Scope",
     scopeTitle: "What the first prototype will and will not do",
     doesTag: "Will do",
     does: [
@@ -112,6 +117,7 @@ export const resources: Record<Lang, ResourcesContent> = {
     eyebrow: "Recursos",
     title: "Conceptos clave y preguntas frecuentes",
     lead: "Lo esencial para entender la autoridad verificable en agentes de IA y cómo encaja Trust Gateway en una organización.",
+    glossaryKicker: "Conceptos",
     glossaryTitle: "Glosario",
     glossary: [
       ["Mandato", "La autorización con la que actúa un agente: en nombre de quién, para qué, con qué límites y hasta cuándo."],
@@ -122,6 +128,7 @@ export const resources: Record<Lang, ResourcesContent> = {
       ["Revocación", "Retirar o limitar un mandato antes de que caduque. La autoridad no se presume indefinida."],
       ["Servidor MCP", "Un servidor que expone herramientas a los agentes de IA mediante el Model Context Protocol."],
     ],
+    faqKicker: "Dudas habituales",
     faqTitle: "Preguntas frecuentes",
     faq: [
       ["¿Sustituye a nuestro sistema de identidad y permisos?", "No. Ese sistema decide quién puede conectarse y a qué recursos. Trust Gateway añade una decisión por operación: si esta acción concreta está autorizada ahora, para esta finalidad y bajo estas condiciones."],
@@ -137,6 +144,7 @@ export const resources: Record<Lang, ResourcesContent> = {
     eyebrow: "Resources",
     title: "Key concepts and frequently asked questions",
     lead: "The essentials for understanding verifiable authority for AI agents and how Trust Gateway fits into an organisation.",
+    glossaryKicker: "Concepts",
     glossaryTitle: "Glossary",
     glossary: [
       ["Mandate", "The authorisation under which an agent acts: on whose behalf, for what, within which limits and until when."],
@@ -147,6 +155,7 @@ export const resources: Record<Lang, ResourcesContent> = {
       ["Revocation", "Withdrawing or restricting a mandate before it expires. Authority is not presumed indefinite."],
       ["MCP server", "A server that exposes tools to AI agents through the Model Context Protocol."],
     ],
+    faqKicker: "Common questions",
     faqTitle: "Frequently asked questions",
     faq: [
       ["Does it replace our identity and access management?", "No. That system decides who can connect and to which resources. Trust Gateway adds a decision per operation: whether this specific action is authorised now, for this purpose and under these conditions."],

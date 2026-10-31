@@ -88,6 +88,7 @@ const es = {
     receiptLabel: "Recibo de evidencia",
     exactTitle: "Una aprobación vinculada a la operación exacta",
     exactCopy: "Si cambia el destinatario, el importe, el documento, los datos o la versión de la política, la aprobación deja de ser válida. El silencio nunca cuenta como autorización.",
+    statusKicker: "Estado del prototipo",
     statusTitle: "Qué estamos construyendo ahora",
     nowTag: "Ahora",
     nextTag: "Después",
@@ -105,6 +106,7 @@ const es = {
       ["Decisión", "La operación se permite, se bloquea o queda retenida para que una persona competente la apruebe."],
       ["Evidencia", "El sistema registra qué se pidió, qué regla se aplicó, quién decidió y cuál fue el resultado."],
     ] as Pair[],
+    architectureKicker: "Integración",
     architectureTitle: "Integración con la infraestructura existente",
     architectureCopy: "Trust Gateway no sustituye a los agentes ni a los sistemas de identidad. Añade la capa de autoridad, decisión y evidencia que falta entre ambos.",
     nodes: [["Agente de IA", "Propone"], ["Trust Gateway", "Verifica y decide"], ["Aprobación humana", "Cuando corresponde"], ["API o MCP", "Ejecuta"], ["Evidencia", "Registra"]] as Pair[],
@@ -128,6 +130,7 @@ const es = {
     eyebrow: "Aplicaciones",
     title: "Donde la autoridad de un agente tiene que poder demostrarse",
     lead: "El producto se orienta a operaciones que afectan derechos, dinero, datos sensibles o servicios esenciales, y a quienes deben supervisarlas o auditarlas.",
+    whoKicker: "Destinatarios",
     whoTitle: "Quién puede utilizarlo",
     who: [
       ["Administraciones públicas", "Control de agentes que clasifican, preparan o ejecutan tareas dentro de procedimientos administrativos."],
@@ -137,6 +140,7 @@ const es = {
       ["Auditores y responsables de cumplimiento", "Registros comprensibles que conectan la acción técnica con la autoridad y la política aplicable."],
       ["Personas responsables", "Contexto suficiente para aprobar una acción concreta sin depender de una aceptación genérica."],
     ] as Pair[],
+    whereKicker: "Sectores",
     whereTitle: "Dónde se aplica",
     where: [
       ["Decisiones y expedientes públicos", "La IA puede leer, clasificar y preparar. Una persona autorizada conserva la decisión cuando existe impacto jurídico o material."],
@@ -283,6 +287,7 @@ const en: Content = {
     receiptLabel: "Evidence receipt",
     exactTitle: "Approval bound to the exact operation",
     exactCopy: "If the recipient, amount, document, data or policy version changes, the approval is no longer valid. Silence never counts as authorisation.",
+    statusKicker: "Prototype status",
     statusTitle: "What we are building now",
     nowTag: "Now",
     nextTag: "Next",
@@ -300,6 +305,7 @@ const en: Content = {
       ["Decision", "The operation is allowed, blocked or held for approval by a competent person."],
       ["Evidence", "The system records what was requested, which rule was applied, who decided and the result."],
     ],
+    architectureKicker: "Integration",
     architectureTitle: "Integration with existing infrastructure",
     architectureCopy: "Trust Gateway does not replace agents or identity systems. It adds the missing authority, decision and evidence layer between them.",
     nodes: [["AI agent", "Proposes"], ["Trust Gateway", "Verifies and decides"], ["Human approval", "When required"], ["API or MCP", "Executes"], ["Evidence", "Records"]],
@@ -323,6 +329,7 @@ const en: Content = {
     eyebrow: "Applications",
     title: "Where an agent's authority must be provable",
     lead: "The product targets operations affecting rights, money, sensitive data or essential services, and those responsible for supervising or auditing them.",
+    whoKicker: "Who it is for",
     whoTitle: "Who can use it",
     who: [
       ["Public authorities", "Control over agents that classify, prepare or perform tasks within administrative procedures."],
@@ -332,6 +339,7 @@ const en: Content = {
       ["Auditors and compliance teams", "Understandable records connecting technical action to authority and policy."],
       ["Authorised decision-makers", "Enough context to approve a specific action without relying on generic consent."],
     ],
+    whereKicker: "Sectors",
     whereTitle: "Where it applies",
     where: [
       ["Public decisions and case files", "AI can read, classify and prepare. An authorised person retains the decision where legal or material impact exists."],

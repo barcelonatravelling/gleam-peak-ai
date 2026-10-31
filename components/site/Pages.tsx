@@ -358,7 +358,10 @@ export function GatewayPage() {
       <section className="section">
         <div className="shell">
           <div className="section-heading reveal">
-            <h2>{c.statusTitle}</h2>
+            <div>
+              <span className="kicker">{c.statusKicker}</span>
+              <h2>{c.statusTitle}</h2>
+            </div>
           </div>
           <div className="now-next reveal">
             <article className="phase">
@@ -416,7 +419,10 @@ export function HowPage() {
       <section className="section">
         <div className="shell">
           <div className="section-heading reveal">
-            <h2>{c.architectureTitle}</h2>
+            <div>
+              <span className="kicker">{c.architectureKicker}</span>
+              <h2>{c.architectureTitle}</h2>
+            </div>
             <p className="section-copy">{c.architectureCopy}</p>
           </div>
           <div className="architecture reveal">
@@ -451,8 +457,13 @@ export function ApplicationsPage() {
       <section className="section">
         <div className="shell">
           <div className="audience-block">
-            <h2>{c.whoTitle}</h2>
-            <div className="grid-3 reveal">
+            <div className="section-heading reveal">
+              <div>
+                <span className="kicker">{c.whoKicker}</span>
+                <h2>{c.whoTitle}</h2>
+              </div>
+            </div>
+            <div className="grid-3 scroller reveal">
               {c.who.map(([title, text], i) => (
                 <Card
                   key={title}
@@ -465,8 +476,13 @@ export function ApplicationsPage() {
             </div>
           </div>
           <div className="audience-block">
-            <h2>{c.whereTitle}</h2>
-            <div className="grid-3 reveal">
+            <div className="section-heading reveal">
+              <div>
+                <span className="kicker">{c.whereKicker}</span>
+                <h2>{c.whereTitle}</h2>
+              </div>
+            </div>
+            <div className="grid-3 scroller reveal">
               {c.where.map(([title, text], i) => (
                 <Card
                   key={title}
@@ -625,7 +641,10 @@ export function SecurityPage() {
       <section className="section">
         <div className="shell">
           <div className="section-heading reveal">
-            <h2>{c.scopeTitle}</h2>
+            <div>
+              <span className="kicker">{c.scopeKicker}</span>
+              <h2>{c.scopeTitle}</h2>
+            </div>
           </div>
           <div className="now-next reveal">
             <article className="phase">
@@ -677,7 +696,10 @@ export function ResourcesPage() {
       <section className="section">
         <div className="shell">
           <div className="section-heading reveal">
-            <h2>{c.glossaryTitle}</h2>
+            <div>
+              <span className="kicker">{c.glossaryKicker}</span>
+              <h2>{c.glossaryTitle}</h2>
+            </div>
           </div>
           <dl className="glossary reveal">
             {c.glossary.map(([term, definition]) => (
@@ -692,7 +714,10 @@ export function ResourcesPage() {
       <section className="section">
         <div className="shell">
           <div className="section-heading reveal">
-            <h2>{c.faqTitle}</h2>
+            <div>
+              <span className="kicker">{c.faqKicker}</span>
+              <h2>{c.faqTitle}</h2>
+            </div>
           </div>
           <div className="faq reveal">
             {c.faq.map(([question, answer]) => (
