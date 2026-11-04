@@ -64,7 +64,6 @@ const es = {
     receiptLabel: "Recibo firmado",
     modulesKicker: "Qué incluye",
     modulesTitle: "Todo lo que hace Control.",
-    modulesNote: "Todo está en desarrollo. La primera versión demostrable está prevista para marzo de 2027, según el plan sujeto a equipo y financiación.",
     modulesText: [
       ["Conocer y autorizar", "Un registro de los agentes y de quién responde de cada uno. Mandatos que dicen en nombre de quién actúa cada agente, para qué y hasta cuándo. Y reglas que deciden qué se permite, qué se bloquea y qué espera a una persona."],
       ["Controlar y decidir", "Un punto de control por el que pasa toda acción antes de ejecutarse. Privacidad para usar solo los datos necesarios, seguridad para detectar manipulaciones con un botón de parada, y aprobaciones en las que una persona firma la acción exacta."],
@@ -275,7 +274,6 @@ const en: PagesContent = {
     receiptLabel: "Signed receipt",
     modulesKicker: "What it includes",
     modulesTitle: "Everything Control does.",
-    modulesNote: "Everything is in development. The first demonstrable version is planned for March 2027, in a plan subject to team and funding.",
     modulesText: [
       ["Know and authorise", "A registry of agents and who is accountable for each. Mandates that say on whose behalf each agent acts, what for and until when. And rules that decide what is allowed, what is blocked and what waits for a person."],
       ["Control and decide", "A checkpoint every action passes through before it runs. Privacy to use only the data needed, security to detect tampering with a stop button, and approvals where a person signs the exact action."],

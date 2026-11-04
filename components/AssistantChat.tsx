@@ -15,7 +15,7 @@ type AssistantChatProps = {
 
 const translations = {
   es: {
-    welcome: "Hola, soy el asistente de Gleam Peak. ¿Quieres saber cómo funcionan Control y Passport, o tienes un caso concreto en mente?",
+    welcome: "Hola, soy el asistente de Gleam Peak AI. ¿Quieres saber cómo funcionan Control y Passport, o tienes un caso concreto en mente?",
     placeholder: "Escribe tu mensaje...",
     thinking: "Analizando...",
     error:
@@ -26,7 +26,7 @@ const translations = {
     notice: "Asistente automático. Los mensajes se procesan con OpenAI; no compartas datos sensibles.",
   },
   en: {
-    welcome: "Hi, I'm the Gleam Peak assistant. Would you like to know how Control and Passport work, or do you have a specific use case in mind?",
+    welcome: "Hi, I'm the Gleam Peak AI assistant. Would you like to know how Control and Passport work, or do you have a specific use case in mind?",
     placeholder: "Write your message...",
     thinking: "Analyzing...",
     error:

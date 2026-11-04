@@ -505,7 +505,7 @@ export function GatewayPage() {
       </section>
       <section className="section">
         <div className="shell">
-          <Heading kicker={c.modulesKicker} title={c.modulesTitle} copy={c.modulesNote} />
+          <Heading kicker={c.modulesKicker} title={c.modulesTitle} />
           <div className="text-cols reveal">
             {c.modulesText.map(([title, text]) => (
               <div key={title}>

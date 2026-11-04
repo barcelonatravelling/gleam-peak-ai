@@ -792,3 +792,39 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
   .compact-card { padding: 1.1rem 1rem; }
   .compact-card p { font-size: .95rem; }
 }
+
+/* Texto bajo los títulos más grande (pedido de Laura 04-11) */
+.lead { font-size: 1.25rem; }
+.section-copy { font-size: 1.125rem; line-height: 1.6; }
+.card p, .side p, .layer-list p, .verdict-row, .faq details p { font-size: 1.0625rem; }
+.solve p, .stage p { font-size: 1rem; }
+.architecture-node span { font-size: .95rem; }
+.prose-cols p, .prose p, .text-cols p { font-size: 1.125rem; }
+.sector-steps li { font-size: 1rem; }
+@media (max-width: 650px) {
+  .lead { font-size: 1.125rem; }
+  .section-copy, .prose-cols p, .prose p, .text-cols p { font-size: 1.0625rem; }
+}
+.statement p { font-size: 1.125rem; line-height: 1.6; }
+
+/* Todo el texto que no es título, un poco más grande (Laura 04-11) */
+body { font-size: 1.0625rem; }
+.desktop-nav { font-size: 1rem; }
+.eyebrow { font-size: .85rem; }
+.kicker, .solve-area, .check-area, .card-number, .text-num, .sector-case, .matrix thead th { font-size: .95rem; }
+.footer-brand p { font-size: 1.05rem; }
+.footer-col a { font-size: 1rem; }
+.footer-title { font-size: .95rem; }
+.footer-bottom { font-size: .95rem; }
+.phase li, .contact-option, .faq details p { font-size: 1.0625rem; }
+.field label { font-size: 1rem; }
+.consent, .form-note { font-size: .95rem; }
+.case-steps p, .seq { font-size: .95rem; }
+.verify-rows div, .verify-conditions li { font-size: .98rem; }
+.layer-list .layer-source, .text-cols .text-note { font-size: .98rem; }
+.stage-when { font-size: .95rem; }
+.solution-tabs a { font-size: 1rem; }
+.matrix { font-size: 1.0625rem; }
+.check span { font-size: .95rem; }
+.legal-updated { font-size: .95rem; }
+.solve-area { font-size: 1.0625rem; line-height: 1.3; } .solve p { font-size: 1.0625rem; line-height: 1.55; } .solve h3 { font-size: 1.3125rem; }
