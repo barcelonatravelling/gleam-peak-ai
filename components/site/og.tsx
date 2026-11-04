@@ -8,11 +8,11 @@ export const ogSize = { width: 1200, height: 630 };
 const copy: Record<Lang, { title: string; line: string }> = {
   es: {
     title: "Control verificable para agentes de IA",
-    line: "Trust Gateway · Identidad, mandato, finalidad, riesgo y evidencia",
+    line: "Control y Passport · Controla tus agentes de IA y demuéstralo sin revelar datos",
   },
   en: {
     title: "Verifiable control for AI agents",
-    line: "Trust Gateway · Identity, mandate, purpose, risk and evidence",
+    line: "Control and Passport · Control your AI agents and prove it without revealing data",
   },
 };
 

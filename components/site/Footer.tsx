@@ -24,7 +24,7 @@ export default function Footer() {
                 <Link href={href("gateway")}>{t.nav.gateway}</Link>
               </li>
               <li>
-                <Link href={href("how")}>{t.nav.how}</Link>
+                <Link href={href("passport")}>{t.nav.passport}</Link>
               </li>
               <li>
                 <Link href={href("applications")}>{t.nav.applications}</Link>
@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Gleam Peak AI</span>
-          <span>{t.common.development} · Trust Gateway</span>
+          <span>{t.common.development}</span>
         </div>
       </div>
     </footer>

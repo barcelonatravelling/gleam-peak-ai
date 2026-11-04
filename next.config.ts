@@ -30,6 +30,14 @@ const nextConfig: NextConfig = {
         destination: "/en",
         permanent: true,
       },
+      // Product renamed: Trust Gateway is now Control; Applications are now Solutions.
+      { source: "/trust-gateway", destination: "/control", permanent: true },
+      { source: "/en/trust-gateway", destination: "/en/control", permanent: true },
+      { source: "/aplicaciones", destination: "/soluciones", permanent: true },
+      { source: "/en/applications", destination: "/en/solutions", permanent: true },
+      // How it works now lives on the Control page.
+      { source: "/como-funciona", destination: "/control", permanent: false },
+      { source: "/en/how-it-works", destination: "/en/control", permanent: false },
     ];
   },
 };

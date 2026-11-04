@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Figtree, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import Assistant from "./Assistant";
 import type { Lang } from "./content";
 import Effects from "./Effects";
@@ -9,13 +9,18 @@ import Header from "./Header";
 import { LangProvider } from "./LangContext";
 import { SITE_URL, siteDefaults } from "./seo";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"],
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
@@ -28,8 +33,8 @@ export function rootMetadata(lang: Lang): Metadata {
     applicationName: "Gleam Peak AI",
     keywords:
       lang === "es"
-        ? ["gobernanza de agentes de IA", "ciberseguridad para agentes de IA", "seguridad de IA", "privacidad", "supervisión humana", "trazabilidad", "AI Act", "MCP", "Trust Gateway"]
-        : ["AI agent governance", "AI agent cybersecurity", "AI security", "privacy", "human oversight", "traceability", "AI Act", "MCP", "Trust Gateway"],
+        ? ["gobernanza de agentes de IA", "ciberseguridad para agentes de IA", "seguridad de IA", "privacidad", "supervisión humana", "trazabilidad", "AI Act", "MCP", "zero knowledge", "credencial verificable"]
+        : ["AI agent governance", "AI agent cybersecurity", "AI security", "privacy", "human oversight", "traceability", "AI Act", "MCP", "zero knowledge", "verifiable credential"],
     authors: [{ name: "Gleam Peak AI" }],
     creator: "Gleam Peak AI",
     publisher: "Gleam Peak AI",
@@ -49,7 +54,7 @@ const organization = {
 export default function SiteShell({ lang, children }: { lang: Lang; children: React.ReactNode }) {
   return (
     <html lang={lang}>
-      <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
+      <body className={`${instrument.variable} ${figtree.variable} ${jetbrains.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}

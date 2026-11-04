@@ -5,7 +5,7 @@ import { SITE_URL } from "@/components/site/seo";
 const priority: Partial<Record<RouteKey, number>> = { home: 1, privacy: 0.3, terms: 0.3 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const keys = Object.keys(routes.es) as RouteKey[];
+  const keys = (Object.keys(routes.es) as RouteKey[]).filter((key) => key !== "how");
   return (["es", "en"] as const).flatMap((lang) =>
     keys.map((key) => ({
       url: `${SITE_URL}${routes[lang][key] === "/" ? "" : routes[lang][key]}`,

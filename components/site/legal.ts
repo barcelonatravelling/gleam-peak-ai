@@ -141,7 +141,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         title: "4. Carácter informativo",
         body: [
-          "Los productos descritos, incluido Trust Gateway, son prototipos en desarrollo. La información del sitio tiene carácter general, no constituye una oferta comercial y no implica que su uso baste para cumplir ninguna normativa.",
+          "Los productos descritos, incluidos Control y Passport, son prototipos en desarrollo. La información del sitio tiene carácter general, no constituye una oferta comercial y no implica que su uso baste para cumplir ninguna normativa.",
         ],
       },
       {
@@ -192,7 +192,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         title: "4. Informational nature",
         body: [
-          "The products described, including Trust Gateway, are prototypes in development. The information on this website is general, is not a commercial offer and does not imply that using them is enough to comply with any regulation.",
+          "The products described, including Control and Passport, are prototypes in development. The information on this website is general, is not a commercial offer and does not imply that using them is enough to comply with any regulation.",
         ],
       },
       {

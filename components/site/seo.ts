@@ -9,24 +9,29 @@ type PageMeta = { title: string; description: string };
 const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
   es: {
     home: {
-      title: "Gleam Peak AI | Autoridad verificable para agentes de IA",
+      title: "Gleam Peak AI | Controla tus agentes de IA y demuéstralo sin revelar datos",
       description:
-        "Gobernanza, seguridad y privacidad para agentes de IA. Trust Gateway se sitúa entre tus agentes y tus APIs o servidores MCP: verifica cada operación sensible, pide aprobación humana cuando hace falta y deja un recibo verificable.",
+        "Gleam Peak AI decide qué puede hacer cada agente de IA, deja un registro firmado de cada acción y lo convierte en una credencial verificable con pruebas zero knowledge. Prototipo en desarrollo.",
     },
     gateway: {
-      title: "Trust Gateway",
+      title: "Control",
       description:
-        "Trust Gateway, primer producto de Gleam Peak AI (prototipo en desarrollo): verifica identidad, mandato, finalidad y riesgo antes de que un agente de IA ejecute una operación, y deja evidencia verificable.",
+        "Control, de Gleam Peak AI (prototipo en desarrollo): comprueba identidad, mandato, finalidad, datos y riesgo antes de que un agente de IA actúe; permite, bloquea o pide la firma de una persona, y deja un recibo firmado.",
+    },
+    passport: {
+      title: "Passport",
+      description:
+        "Passport, de Gleam Peak AI (en desarrollo): una credencial verificable con pruebas zero knowledge para demostrar a bancos, clientes y auditores que usas la IA con control, sin enseñar tus datos.",
     },
     how: {
       title: "Cómo funciona",
       description:
-        "Propuesta, mandato, política, decisión y evidencia: cómo Trust Gateway controla cada operación de un agente de IA antes de que se ejecute.",
+        "Propuesta, mandato, política, decisión y evidencia: cómo Gleam Peak AI controla cada operación de un agente de IA antes de que se ejecute.",
     },
     applications: {
-      title: "Aplicaciones",
+      title: "Soluciones",
       description:
-        "Administraciones públicas, entidades reguladas, integradores y proveedores de agentes: dónde la autoridad de un agente de IA tiene que poder demostrarse.",
+        "Banca y seguros, administración pública, gran empresa y proveedores de IA: cómo Gleam Peak AI controla agentes y lo demuestra en cada sector, con casos de uso.",
     },
     principles: {
       title: "Principios",
@@ -36,7 +41,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     security: {
       title: "Ciberseguridad y confianza",
       description:
-        "Ciberseguridad para agentes de IA: qué riesgos aborda Trust Gateway, qué hará y qué no hará el primer prototipo, cómo se tratará la evidencia y cómo comunicarnos un problema de seguridad.",
+        "Ciberseguridad para agentes de IA: qué riesgos aborda Gleam Peak AI, qué hará y qué no hará el primer prototipo, cómo se tratará la evidencia y cómo comunicarnos un problema de seguridad.",
     },
     resources: {
       title: "Recursos",
@@ -56,24 +61,29 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
   },
   en: {
     home: {
-      title: "Gleam Peak AI | Verifiable authority for AI agents",
+      title: "Gleam Peak AI | Control your AI agents and prove it without revealing data",
       description:
-        "Governance, security and privacy for AI agents. Trust Gateway sits between your agents and your APIs or MCP servers: it verifies every sensitive operation, asks for human approval when needed and leaves a verifiable receipt.",
+        "Gleam Peak AI decides what each AI agent may do, keeps a signed record of every action and turns it into a verifiable credential with zero knowledge proofs. Prototype in development.",
     },
     gateway: {
-      title: "Trust Gateway",
+      title: "Control",
       description:
-        "Trust Gateway, Gleam Peak AI's first product (prototype in development): verifies identity, mandate, purpose and risk before an AI agent executes an operation, and leaves verifiable evidence.",
+        "Control, by Gleam Peak AI (prototype in development): checks identity, mandate, purpose, data and risk before an AI agent acts; allows, blocks or asks a person to sign, and leaves a signed receipt.",
+    },
+    passport: {
+      title: "Passport",
+      description:
+        "Passport, by Gleam Peak AI (in development): a verifiable credential with zero knowledge proofs to show banks, clients and auditors that you use AI with control, without showing your data.",
     },
     how: {
       title: "How it works",
       description:
-        "Proposal, mandate, policy, decision and evidence: how Trust Gateway controls every AI agent operation before it is executed.",
+        "Proposal, mandate, policy, decision and evidence: how Gleam Peak AI controls every AI agent operation before it is executed.",
     },
     applications: {
-      title: "Applications",
+      title: "Solutions",
       description:
-        "Public administrations, regulated entities, integrators and agent providers: where an AI agent's authority has to be provable.",
+        "Banking and insurance, public administration, large companies and AI vendors: how Gleam Peak AI controls agents and proves it in each sector, with use cases.",
     },
     principles: {
       title: "Principles",
@@ -83,7 +93,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     security: {
       title: "Cybersecurity and trust",
       description:
-        "Cybersecurity for AI agents: which risks Trust Gateway addresses, what the first prototype will and will not do, how evidence will be handled and how to report a security issue.",
+        "Cybersecurity for AI agents: which risks Gleam Peak AI addresses, what the first prototype will and will not do, how evidence will be handled and how to report a security issue.",
     },
     resources: {
       title: "Resources",

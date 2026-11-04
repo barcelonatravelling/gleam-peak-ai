@@ -3,6 +3,7 @@ import type { Lang } from "./content";
 export type RouteKey =
   | "home"
   | "gateway"
+  | "passport"
   | "how"
   | "applications"
   | "principles"
@@ -15,9 +16,10 @@ export type RouteKey =
 export const routes: Record<Lang, Record<RouteKey, string>> = {
   es: {
     home: "/",
-    gateway: "/trust-gateway",
+    gateway: "/control",
+    passport: "/passport",
     how: "/como-funciona",
-    applications: "/aplicaciones",
+    applications: "/soluciones",
     principles: "/principios",
     security: "/seguridad",
     resources: "/recursos",
@@ -27,9 +29,10 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
   },
   en: {
     home: "/en",
-    gateway: "/en/trust-gateway",
+    gateway: "/en/control",
+    passport: "/en/passport",
     how: "/en/how-it-works",
-    applications: "/en/applications",
+    applications: "/en/solutions",
     principles: "/en/principles",
     security: "/en/security",
     resources: "/en/resources",
@@ -40,7 +43,7 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
 };
 
 // Principles and Resources stay reachable from the footer.
-export const navOrder = ["gateway", "how", "applications", "security"] as const;
+export const navOrder = ["gateway", "passport", "applications", "security"] as const;
 
 export function routeKeyFor(pathname: string, lang: Lang): RouteKey {
   const clean = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;

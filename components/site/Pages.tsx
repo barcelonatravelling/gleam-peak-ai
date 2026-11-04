@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { security, resources } from "./content-extra";
+import { pagesContent } from "./content-pages";
 import { useLang } from "./LangContext";
 
 const PRINCIPLE_ICONS: Record<string, LucideIcon> = {
@@ -24,28 +25,6 @@ const PRINCIPLE_ICONS: Record<string, LucideIcon> = {
 
 const num = (i: number) => String(i + 1).padStart(2, "0");
 
-// Illustrative only: fictitious names and values, shown as such on the page.
-const POLICY_EXAMPLE = `policy: pagos-tesoreria
-version: 3
-when:
-  action: transfer.create
-  amount_eur: "> 10000"
-require:
-  mandate: [tesoreria, proveedores]
-  purpose: pago-de-factura
-  approval: responsable-finanzas
-otherwise: block`;
-
-const RECEIPT_EXAMPLE = `{
-  "operation": "transfer.create",
-  "agent": "agent:cuentas-a-pagar",
-  "on_behalf_of": "org:ejemplo/finanzas",
-  "policy": "pagos-tesoreria@v3",
-  "decision": "approved",
-  "approved_by": "persona:responsable-finanzas",
-  "payload_hash": "sha256:7f3a…c21e",
-  "signature": "ed25519:9b1d…04fa"
-}`;
 
 function Subhero({
   eyebrow,
@@ -149,30 +128,14 @@ function ProductVisual() {
           </div>
         </div>
       </div>
-      <figcaption className="visual-caption">{v.example}</figcaption>
     </figure>
   );
 }
 
-// The home page closes with the full panel; inner pages use a lighter band so they do not all end the same way.
-function CtaBand({ compact = false }: { compact?: boolean }) {
-  const { t, href } = useLang();
-  return (
-    <section className={`cta-band${compact ? " compact" : ""}`}>
-      <div className="shell cta-card reveal">
-        <div>
-          <h2>{t.collaborate.title}</h2>
-          {!compact && <p>{t.collaborate.lead}</p>}
-        </div>
-        <Link
-          className="button button-primary button-arrow"
-          href={href("talk")}
-        >
-          {t.common.collaborate}
-        </Link>
-      </div>
-    </section>
-  );
+// Inner pages close with the same neon line and title as Control, Passport and Soluciones.
+function CtaBand() {
+  const { t } = useLang();
+  return <PageClosing title={t.collaborate.title} />;
 }
 
 export function HomePage() {
@@ -186,204 +149,465 @@ export function HomePage() {
             <span className="eyebrow">{c.eyebrow}</span>
             <h1>
               {c.title[0]}
-              <span className="gradient">{c.title[1]}</span>
+              {c.title[1]}
             </h1>
             <p className="lead">{c.lead}</p>
             <div className="hero-actions">
-              <Link
-                className="button button-primary button-arrow"
-                href={href("gateway")}
-              >
-                {t.common.discover}
+              <Link className="button button-primary button-arrow" href={href("talk")}>
+                {c.ctaPrimary}
               </Link>
-              <Link
-                className="button button-secondary button-arrow"
-                href={href("talk")}
-              >
-                {t.common.collaborate}
+              <Link className="button button-secondary button-arrow" href={href("gateway")}>
+                {c.ctaSecondary}
               </Link>
             </div>
           </div>
-          <ProductVisual />
+          <div className="hero-visual">
+            <ProductVisual />
+            <div className="passport-card" aria-hidden="true">
+              <div className="passport-head">
+                <span>{c.passport.title}</span>
+                <span className="passport-state">{c.passport.state}</span>
+              </div>
+              <ul>
+                {c.passport.rows.map((row) => (
+                  <li key={row}>{row}</li>
+                ))}
+              </ul>
+              <code>{c.passport.proof}</code>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="checks">
-        <div className="shell reveal">
-          <p className="checks-title">{c.checksTitle}</p>
-          <div className="checks-grid">
-            {c.checks.map(([title, text]) => (
-              <div className="check" key={title}>
+      <section className="section">
+        <div className="shell statement problem reveal">
+          <span className="kicker">{c.problemKicker}</span>
+          <blockquote>{c.problemTitle}</blockquote>
+          <p>{c.problemCopy}</p>
+        </div>
+      </section>
+
+      <section className="section" id="que-resuelve">
+        <div className="shell">
+          <div className="section-heading reveal">
+            <div>
+              <span className="kicker">{c.solvesKicker}</span>
+              <h2>{c.solvesTitle}</h2>
+            </div>
+          </div>
+          <div className="solves reveal">
+            {c.solves.map(([area, title, text], i) => (
+              <article className="solve" key={area}>
+                <span className="solve-area">
+                  {num(i)} · {area}
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="shell">
+          <div className="section-heading reveal">
+            <div>
+              <span className="kicker">{c.sidesKicker}</span>
+              <h2>{c.sidesTitle}</h2>
+            </div>
+          </div>
+          <div className="sides reveal">
+            {c.sides.map(([name, where, text], i) => (
+              <article className={`side${i === 0 ? " side-control" : " side-passport"}`} key={name}>
+                <span className="side-where">{where}</span>
+                <h3>{name}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+            <div className="sides-link" aria-hidden="true">
+              <span />
+            </div>
+          </div>
+          <p className="sides-line reveal">{c.sidesLine}</p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="shell">
+          <div className="section-heading reveal">
+            <div>
+              <span className="kicker">{c.flowKicker}</span>
+              <h2>{c.flowTitle}</h2>
+            </div>
+            <p className="section-copy">{c.flowCopy}</p>
+          </div>
+          <Sequence lanes={c.flowLanes} messages={c.flow} />
+        </div>
+      </section>
+
+      <section className="section" id="passport">
+        <div className="shell">
+          <div className="section-heading reveal">
+            <div>
+              <span className="kicker">{c.caseKicker}</span>
+              <h2>{c.caseTitle}</h2>
+            </div>
+            <p className="section-copy">{c.caseCopy}</p>
+          </div>
+          <Sequence lanes={c.caseLanes} messages={c.case} />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="shell">
+          <div className="section-heading reveal">
+            <div>
+              <span className="kicker">{c.integrationKicker}</span>
+              <h2>{c.integrationTitle}</h2>
+            </div>
+            <p className="section-copy">{c.integrationCopy}</p>
+          </div>
+          <div className="architecture reveal">
+            {c.nodes.map(([title, role], i) => (
+              <div className={`architecture-node${i === 1 || i === 4 ? " gateway" : ""}`} key={title}>
                 <strong>{title}</strong>
-                <span>{text}</span>
+                <span>{role}</span>
               </div>
             ))}
+          </div>
+          <div className="stack reveal">
+            <span className="stack-label">{c.stackLabel}</span>
+            <ul>
+              {c.stack.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.problemKicker}</span>
-              <h2>{c.problemTitle}</h2>
-            </div>
-            <p className="section-copy">{c.problemCopy}</p>
+        <div className="shell norms reveal">
+          <div>
+            <span className="kicker">{c.normsKicker}</span>
+            <h2>{c.normsTitle}</h2>
+            <p className="section-copy">{c.normsNote}</p>
           </div>
-          <div className="grid-3 scroller reveal">
-            {c.pains.map(([title, text], i) => (
-              <Card key={title} number={num(i)} title={title} text={text} />
+          <ul className="norms-list">
+            {c.norms.map((norm) => (
+              <li key={norm}>{norm}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      <section className="section">
-        <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.propositionKicker}</span>
-              <h2>{c.propositionTitle}</h2>
-            </div>
-            <p className="section-copy">{c.propositionCopy}</p>
-          </div>
-          <div className="comparison reveal" role="table">
-            <div className="comparison-row" role="row">
-              <div className="comparison-label" role="columnheader">
-                {c.comparisonHead[0]}
-              </div>
-              <div className="comparison-label" role="columnheader">
-                {c.comparisonHead[1]}
-              </div>
-            </div>
-            {c.comparison.map(([layer, question], i) => (
-              <div
-                className={`comparison-row${i === c.comparison.length - 1 ? " highlight" : ""}`}
-                role="row"
-                key={layer}
-              >
-                <div role="cell">{layer}</div>
-                <div role="cell">{question}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
+      <section className="section" id="hoja-de-ruta">
         <div className="shell">
           <div className="section-heading reveal">
             <div>
               <span className="kicker">{c.roadmapKicker}</span>
               <h2>{c.roadmapTitle}</h2>
             </div>
-            <p className="section-copy">{c.roadmapCopy}</p>
+            <p className="section-copy">{c.roadmapNote}</p>
           </div>
-          <div className="roadmap reveal">
-            {c.roadmap.map(([stage, title, text, target, cta], i) => (
-              <article
-                className={`card roadmap-card${i === 0 ? " current" : ""}`}
-                key={title}
-              >
-                <span className="card-tag">{stage}</span>
+          <ol className="stages reveal">
+            {c.roadmap.map(([when, title, text], i) => (
+              <li className={`stage${i === 0 ? " current" : ""}`} key={title}>
+                <span className="stage-when">{when}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <Link className="roadmap-link" href={href(target)}>
-                  {cta} →
-                </Link>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
-      <Statement quote={c.visionQuote} copy={c.visionCopy} />
-      <CtaBand />
+
+      <section className="closing">
+        <div className="shell closing-inner reveal">
+          <h2>{c.closingTitle}</h2>
+          <Link className="button button-primary button-arrow" href={href("talk")}>
+            {c.closingCta}
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
 
+function Heading({ kicker, title, copy }: { kicker: string; title: string; copy?: string }) {
+  return (
+    <div className="section-heading reveal">
+      <div>
+        <span className="kicker">{kicker}</span>
+        <h2>{title}</h2>
+      </div>
+      {copy && <p className="section-copy">{copy}</p>}
+    </div>
+  );
+}
+
+// Illustrative only: fictitious names and values, matching the blocked export shown in the Control hero.
+const POLICY_EXPORT = `policy: datos-clientes
+version: 2
+when:
+  action: customers.export
+  records: "> 50"
+require:
+  mandate: [atencion-cliente]
+  purpose: consulta-individual
+  data: personal → minimo-necesario
+otherwise: block + alert(seguridad)`;
+
+const RECEIPT_EXPORT = `{
+  "operation": "customers.export",
+  "agent": "agent:atencion-cliente",
+  "on_behalf_of": "org:ejemplo/atencion",
+  "policy": "datos-clientes@v2",
+  "decision": "blocked",
+  "reason": "mandate.scope",
+  "payload_hash": "sha256:4c9e…a71b",
+  "signature": "ed25519:2f8a…d3c0"
+}`;
+
+function ControlConsole() {
+  const { lang, t } = useLang();
+  const v = pagesContent[lang].control.console;
+  return (
+    <figure className="console-wrap control-console" aria-label={v.label}>
+      <div className="console">
+        <div className="console-inner">
+          <div className="console-bar">
+            <span className="dots" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+            <span className="console-title">{v.window}</span>
+            <span className="status">{t.common.development}</span>
+          </div>
+          <div className="console-body">
+            <span className="operation-label">{v.operation}</span>
+            <strong className="operation-amount">{v.detail}</strong>
+            <div className="flow-list">
+              {v.rows.map(([icon, label, state, kind]) => (
+                <div className="flow-row" key={icon}>
+                  <span className="flow-icon">{icon}</span>
+                  <span>{label}</span>
+                  <span className={kind === "pass" ? "flow-pass" : "flow-fail"}>{state}</span>
+                </div>
+              ))}
+            </div>
+            <div className="decision decision-blocked">
+              <span>{v.decision}</span>
+              <span className="stop-button">{v.stop}</span>
+            </div>
+          </div>
+          <div className="receipt">
+            <span>
+              {v.receipt} · <code>sha256:4c9e…a71b</code>
+            </span>
+            <span className="receipt-signed">{v.signed}</span>
+          </div>
+        </div>
+      </div>
+    </figure>
+  );
+}
+
+function SplitHero({
+  eyebrow,
+  title,
+  lead,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="subhero split-hero">
+      <div className="shell split-hero-grid">
+        <div>
+          <span className="eyebrow">{eyebrow}</span>
+          <h1>{title}</h1>
+          <p className="lead">{lead}</p>
+        </div>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function PageClosing({ title }: { title: string }) {
+  const { t, href } = useLang();
+  return (
+    <section className="page-closing">
+      <div className="shell page-closing-inner reveal">
+        <h2>{title}</h2>
+        <Link className="button button-primary button-arrow" href={href("talk")}>
+          {t.home.closingCta}
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+
 export function GatewayPage() {
-  const { t } = useLang();
-  const c = t.gateway;
+  const { lang } = useLang();
+  const c = pagesContent[lang].control;
   return (
     <div className="page">
-      <Subhero
-        eyebrow={c.eyebrow}
-        title={
-          <>
-            {c.title[0]}
-            <span className="gradient">{c.title[1]}</span>
-          </>
-        }
-        lead={c.lead}
-      />
+      <SplitHero eyebrow={c.eyebrow} title={c.title} lead={c.lead}>
+        <ControlConsole />
+      </SplitHero>
       <section className="section">
         <div className="shell">
-          <div className="grid-3 reveal">
-            {c.features.map(([number, title, text]) => (
-              <Card key={number} number={number} title={title} text={text} />
+          <Heading kicker={c.decideKicker} title={c.decideTitle} />
+          <div className="prose-cols reveal">
+            {c.decideCopy.map((para) => (
+              <p key={para}>{para}</p>
             ))}
           </div>
+          <div className="verdict-strip reveal">
+            {c.verdicts.map(([title, when, kind]) => (
+              <div className={`verdict-row verdict-${kind}`} key={title}>
+                <span className="verdict-pill">{title}</span>
+                <span>{when}</span>
+              </div>
+            ))}
+          </div>
+          <p className="rule-line reveal">{c.ruleLine}</p>
         </div>
       </section>
       <section className="section">
         <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.exampleKicker}</span>
-              <h2>{c.exampleTitle}</h2>
-            </div>
-            <p className="section-copy">{c.exampleCopy}</p>
-          </div>
+          <Heading kicker={c.codeKicker} title={c.codeTitle} copy={c.codeCopy} />
           <div className="code-pair reveal">
             <figure className="code-panel">
               <figcaption>
                 <span>{c.policyLabel}</span>
-                <code>pagos-tesoreria.yaml</code>
+                <code>datos-clientes.yaml</code>
               </figcaption>
-              <pre>{POLICY_EXAMPLE}</pre>
+              <pre>{POLICY_EXPORT}</pre>
             </figure>
             <figure className="code-panel">
               <figcaption>
                 <span>{c.receiptLabel}</span>
                 <code>receipt.json</code>
               </figcaption>
-              <pre>{RECEIPT_EXAMPLE}</pre>
+              <pre>{RECEIPT_EXPORT}</pre>
             </figure>
           </div>
         </div>
       </section>
-      <Statement quote={c.exactTitle} copy={c.exactCopy} />
       <section className="section">
         <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.statusKicker}</span>
-              <h2>{c.statusTitle}</h2>
-            </div>
-          </div>
-          <div className="now-next reveal">
-            <article className="phase">
-              <span className="card-tag">{c.nowTag}</span>
-              <ul>
-                {c.now.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-            <article className="phase phase-next">
-              <span className="card-tag">{c.nextTag}</span>
-              <ul>
-                {c.next.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
+          <Heading kicker={c.modulesKicker} title={c.modulesTitle} copy={c.modulesNote} />
+          <div className="text-cols reveal">
+            {c.modulesText.map(([title, text]) => (
+              <div key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <CtaBand compact />
+      <PageClosing title={c.closingTitle} />
+    </div>
+  );
+}
+
+export function PassportPage() {
+  const { lang } = useLang();
+  const c = pagesContent[lang].passport;
+  return (
+    <div className="page">
+      <SplitHero eyebrow={c.eyebrow} title={c.title} lead={c.lead}>
+        <figure className="passport-hero">
+          <div className="verify-card">
+            <div className="passport-head">
+              <span>{c.result.title}</span>
+              <span className="passport-state">{c.result.state}</span>
+            </div>
+            <dl className="verify-rows">
+              {c.result.rows.map(([k, v]) => (
+                <div key={k}>
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <ul className="verify-conditions">
+              {c.result.conditions.map(([cond, source]) => (
+                <li key={cond}>
+                  <span>{cond}</span>
+                  <em>{source}</em>
+                </li>
+              ))}
+            </ul>
+            <code>{c.result.exposed}</code>
+          </div>
+          <figcaption className="proof-flow">
+            <span className="proof-steps">
+              {c.flow.map((f, i) => (
+                <span key={f}>
+                  {i > 0 && <i aria-hidden="true">→</i>}
+                  {f}
+                </span>
+              ))}
+            </span>
+            <strong>{c.flowNote}</strong>
+          </figcaption>
+        </figure>
+      </SplitHero>
+      <section className="section">
+        <div className="shell">
+          <Heading kicker={c.layersKicker} title={c.layersTitle} />
+          <ol className="layer-list reveal">
+            {c.layers.map(([n, title, text, source, state]) => (
+              <li key={n} className={`layer-${state}`}>
+                <span className="layer-num">{n}</span>
+                <div>
+                  <strong>
+                    {title}
+                    {state === "next" && <em className="layer-badge">{c.layersNext}</em>}
+                  </strong>
+                  <p>{text}</p>
+                </div>
+                <span className="layer-source">{source}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+      <section className="section">
+        <div className="shell">
+          <Heading kicker={c.caseKicker} title={c.caseTitle} />
+          <div className="prose-cols reveal">
+            {c.caseCopy.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="shell faq-grid">
+          <Heading kicker={c.faqKicker} title={c.faqTitle} />
+          <div className="faq reveal">
+            {c.faq.map(([q, a]) => (
+              <details key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+      <PageClosing title={c.closingTitle} />
     </div>
   );
 }
@@ -443,91 +667,70 @@ export function HowPage() {
         quote={c.networkTitle}
         copy={c.networkCopy}
       />
-      <CtaBand compact />
+      <CtaBand />
     </div>
   );
 }
 
 export function ApplicationsPage() {
-  const { t } = useLang();
-  const c = t.applications;
+  const { lang } = useLang();
+  const c = pagesContent[lang].solutions;
   return (
     <div className="page">
       <Subhero eyebrow={c.eyebrow} title={c.title} lead={c.lead} />
+      <nav className="solution-tabs shell" aria-label={c.eyebrow}>
+        {c.items.map((item) => (
+          <a key={item.id} href={`#${item.id}`}>
+            {item.tag}
+          </a>
+        ))}
+      </nav>
       <section className="section">
         <div className="shell">
-          <div className="audience-block">
-            <div className="section-heading reveal">
-              <div>
-                <span className="kicker">{c.whoKicker}</span>
-                <h2>{c.whoTitle}</h2>
-              </div>
-            </div>
-            <div className="grid-3 scroller reveal">
-              {c.who.map(([title, text], i) => (
-                <Card
-                  key={title}
-                  number={num(i)}
-                  title={title}
-                  text={text}
-                  className="compact-card"
-                />
-              ))}
-            </div>
-          </div>
-          <div className="audience-block">
-            <div className="section-heading reveal">
-              <div>
-                <span className="kicker">{c.whereKicker}</span>
-                <h2>{c.whereTitle}</h2>
-              </div>
-            </div>
-            <div className="grid-3 scroller reveal">
-              {c.where.map(([title, text], i) => (
-                <Card
-                  key={title}
-                  number={num(i)}
-                  title={title}
-                  text={text}
-                  className="compact-card"
-                />
-              ))}
-            </div>
+          <Heading kicker={c.matrixKicker} title={c.matrixTitle} />
+          <div className="matrix-wrap reveal">
+            <table className="matrix">
+              <thead>
+                <tr>
+                  {c.matrixHead.map((h) => (
+                    <th key={h} scope="col">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {c.matrix.map(([sector, norm, signer, audience]) => (
+                  <tr key={sector}>
+                    <th scope="row">{sector}</th>
+                    <td data-label={c.matrixHead[1]}>{norm}</td>
+                    <td data-label={c.matrixHead[2]}>{signer}</td>
+                    <td data-label={c.matrixHead[3]}>{audience}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="shell">
-          <div className="section-heading reveal">
+      {c.items.map((item) => (
+        <section className="section sector-section" id={item.id} key={item.id}>
+          <div className="shell prose-split reveal">
             <div>
-              <span className="kicker">{c.caseKicker}</span>
-              <h2>{c.caseTitle}</h2>
+              <span className="kicker">
+                {item.tag} · <span className="kicker-norm">{item.norm}</span>
+              </span>
+              <h2>{item.title}</h2>
             </div>
-            <p className="section-copy">{c.caseCopy}</p>
+            <div className="prose">
+              {item.body.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </div>
           </div>
-          <ol className="case-steps reveal">
-            {c.caseSteps.map(([actor, title, text], i) => (
-              <li
-                key={title}
-                className={
-                  actor === "Trust Gateway" ? "case-gateway" : undefined
-                }
-              >
-                <span className="case-index">{num(i)}</span>
-                <span className="case-actor">{actor}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-      <Statement
-        kicker="Public Decisions Gateway"
-        quote={c.demoTitle}
-        copy={c.demoCopy}
-      />
-      <CtaBand compact />
+        </section>
+      ))}
+      <PageClosing title={c.closingTitle} />
     </div>
   );
 }
@@ -557,7 +760,7 @@ export function PrinciplesPage() {
         </div>
       </section>
       <Statement quote={c.rightsTitle} copy={c.rightsCopy} />
-      <CtaBand compact />
+      <CtaBand />
     </div>
   );
 }
@@ -600,7 +803,7 @@ function Sequence({
             >
               <span className="seq-index">{num(i)}</span>
               <span className="seq-route">
-                {lanes[from]} → {lanes[to]}
+                {self ? lanes[from] : `${lanes[from]} → ${lanes[to]}`}
               </span>
               <span className="seq-label">{label}</span>
             </li>
@@ -682,7 +885,7 @@ export function SecurityPage() {
           </article>
         </div>
       </section>
-      <CtaBand compact />
+      <CtaBand />
     </div>
   );
 }
@@ -729,7 +932,7 @@ export function ResourcesPage() {
           </div>
         </div>
       </section>
-      <CtaBand compact />
+      <CtaBand />
     </div>
   );
 }
