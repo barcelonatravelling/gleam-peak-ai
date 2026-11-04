@@ -46,11 +46,6 @@ export default function Footer() {
               <li>
                 <Link href={href("talk")}>{t.nav.talk}</Link>
               </li>
-              <li>
-                <a href="https://linkedin.com/company/gleampeak" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-              </li>
             </ul>
           </nav>
           <nav className="footer-col" aria-label={t.footer.legal}>
