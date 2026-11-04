@@ -4,7 +4,6 @@ export type RouteKey =
   | "home"
   | "gateway"
   | "passport"
-  | "how"
   | "applications"
   | "principles"
   | "security"
@@ -18,7 +17,6 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     home: "/",
     gateway: "/control",
     passport: "/passport",
-    how: "/como-funciona",
     applications: "/soluciones",
     principles: "/principios",
     security: "/seguridad",
@@ -31,7 +29,6 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     home: "/en",
     gateway: "/en/control",
     passport: "/en/passport",
-    how: "/en/how-it-works",
     applications: "/en/solutions",
     principles: "/en/principles",
     security: "/en/security",

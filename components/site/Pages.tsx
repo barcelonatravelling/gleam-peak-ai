@@ -61,7 +61,7 @@ function Statement({
     <section className="section">
       <div className="shell statement reveal">
         {kicker && <span className="kicker">{kicker}</span>}
-        <blockquote>{quote}</blockquote>
+        <p className="statement-quote">{quote}</p>
         <p>{copy}</p>
       </div>
     </section>
@@ -157,13 +157,17 @@ export function HomePage() {
                 {c.ctaPrimary}
               </Link>
               <Link className="button button-secondary button-arrow" href={href("gateway")}>
-                {c.ctaSecondary}
+                {t.common.discover}
               </Link>
             </div>
           </div>
           <div className="hero-visual">
             <ProductVisual />
-            <div className="passport-card" aria-hidden="true">
+            <div
+              className="passport-card"
+              role="img"
+              aria-label={`${c.passport.title}: ${c.passport.state}. ${c.passport.rows.join(", ")}. ${c.passport.proof}`}
+            >
               <div className="passport-head">
                 <span>{c.passport.title}</span>
                 <span className="passport-state">{c.passport.state}</span>
@@ -182,7 +186,7 @@ export function HomePage() {
       <section className="section">
         <div className="shell statement problem reveal">
           <span className="kicker">{c.problemKicker}</span>
-          <blockquote>{c.problemTitle}</blockquote>
+          <p className="statement-quote">{c.problemTitle}</p>
           <p>{c.problemCopy}</p>
         </div>
       </section>
@@ -335,12 +339,12 @@ export function HomePage() {
   );
 }
 
-function Heading({ kicker, title, copy }: { kicker: string; title: string; copy?: string }) {
+function Heading({ kicker, title, copy, id }: { kicker: string; title: string; copy?: string; id?: string }) {
   return (
     <div className="section-heading reveal">
       <div>
         <span className="kicker">{kicker}</span>
-        <h2>{title}</h2>
+        <h2 id={id}>{title}</h2>
       </div>
       {copy && <p className="section-copy">{copy}</p>}
     </div>
@@ -491,14 +495,19 @@ export function GatewayPage() {
                 <span>{c.policyLabel}</span>
                 <code>datos-clientes.yaml</code>
               </figcaption>
-              <pre>{POLICY_EXPORT}</pre>
+              {/* Focusable so keyboard users can scroll it when it overflows on small screens */}
+              <pre tabIndex={0} aria-label={`${c.policyLabel}: datos-clientes.yaml`}>
+                {POLICY_EXPORT}
+              </pre>
             </figure>
             <figure className="code-panel">
               <figcaption>
                 <span>{c.receiptLabel}</span>
                 <code>receipt.json</code>
               </figcaption>
-              <pre>{RECEIPT_EXPORT}</pre>
+              <pre tabIndex={0} aria-label={`${c.receiptLabel}: receipt.json`}>
+                {RECEIPT_EXPORT}
+              </pre>
             </figure>
           </div>
         </div>
@@ -612,66 +621,6 @@ export function PassportPage() {
   );
 }
 
-export function HowPage() {
-  const { t } = useLang();
-  const c = t.how;
-  return (
-    <div className="page">
-      <Subhero eyebrow={c.eyebrow} title={c.title} lead={c.lead} />
-      <section className="section">
-        <div className="shell process reveal">
-          {c.steps.map(([title, text]) => (
-            <article className="process-step" key={title}>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="section">
-        <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.sequenceKicker}</span>
-              <h2>{c.sequenceTitle}</h2>
-            </div>
-            <p className="section-copy">{c.sequenceCopy}</p>
-          </div>
-          <Sequence lanes={c.lanes} messages={c.sequence} />
-        </div>
-      </section>
-      <section className="section">
-        <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.architectureKicker}</span>
-              <h2>{c.architectureTitle}</h2>
-            </div>
-            <p className="section-copy">{c.architectureCopy}</p>
-          </div>
-          <div className="architecture reveal">
-            {c.nodes.map(([title, role], i) => (
-              <div
-                className={`architecture-node${i === 1 ? " gateway" : ""}`}
-                key={title}
-              >
-                <strong>{title}</strong>
-                <span>{role}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <Statement
-        kicker="AI Mandate Network"
-        quote={c.networkTitle}
-        copy={c.networkCopy}
-      />
-      <CtaBand />
-    </div>
-  );
-}
-
 export function ApplicationsPage() {
   const { lang } = useLang();
   const c = pagesContent[lang].solutions;
@@ -687,25 +636,34 @@ export function ApplicationsPage() {
       </nav>
       <section className="section">
         <div className="shell">
-          <Heading kicker={c.matrixKicker} title={c.matrixTitle} />
+          <Heading kicker={c.matrixKicker} title={c.matrixTitle} id="matrix-title" />
           <div className="matrix-wrap reveal">
-            <table className="matrix">
-              <thead>
-                <tr>
+            <table className="matrix" role="table" aria-labelledby="matrix-title">
+              {/* Explicit roles keep the table semantics when it is restyled as blocks on small screens */}
+              <thead role="rowgroup">
+                <tr role="row">
                   {c.matrixHead.map((h) => (
-                    <th key={h} scope="col">
+                    <th key={h} scope="col" role="columnheader">
                       {h}
                     </th>
                   ))}
                 </tr>
               </thead>
-              <tbody>
+              <tbody role="rowgroup">
                 {c.matrix.map(([sector, norm, signer, audience]) => (
-                  <tr key={sector}>
-                    <th scope="row">{sector}</th>
-                    <td data-label={c.matrixHead[1]}>{norm}</td>
-                    <td data-label={c.matrixHead[2]}>{signer}</td>
-                    <td data-label={c.matrixHead[3]}>{audience}</td>
+                  <tr key={sector} role="row">
+                    <th scope="row" role="rowheader">
+                      {sector}
+                    </th>
+                    <td role="cell" data-label={c.matrixHead[1]}>
+                      {norm}
+                    </td>
+                    <td role="cell" data-label={c.matrixHead[2]}>
+                      {signer}
+                    </td>
+                    <td role="cell" data-label={c.matrixHead[3]}>
+                      {audience}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -741,8 +699,12 @@ export function PrinciplesPage() {
   return (
     <div className="page">
       <Subhero eyebrow={c.eyebrow} title={c.title} lead={c.lead} long />
-      <section className="section">
+      <section className="section" aria-labelledby="principles-title">
         <div className="shell">
+          {/* Heading for screen readers so the cards' h3 follow an h2 */}
+          <h2 id="principles-title" className="visually-hidden">
+            {c.cardsTitle}
+          </h2>
           <div className="grid-3 reveal">
             {c.cards.map(([icon, title, text]) => {
               const Icon = PRINCIPLE_ICONS[icon] ?? UserCheck;

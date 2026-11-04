@@ -55,8 +55,8 @@ export function ContactPage() {
 
           <form className="form-card" onSubmit={handleSubmit}>
             <input type="hidden" name="access_key" value="12e58551-aa3f-45d1-8cac-508dbd82cc17" />
-            <input type="hidden" name="subject" value="New lead from Gleam Peak" />
-            <input type="hidden" name="from_name" value="Gleam Peak Website" />
+            <input type="hidden" name="subject" value="New lead from Gleam Peak AI" />
+            <input type="hidden" name="from_name" value="Gleam Peak AI website" />
             <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
             <div className="grid-2">

@@ -19,9 +19,11 @@ const figtree = Figtree({
   subsets: ["latin"],
 });
 
+// Only used in small technical labels, so it is not worth preloading on every page.
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
+  preload: false,
 });
 
 export const viewport = { themeColor: "#07040f" };
@@ -33,8 +35,8 @@ export function rootMetadata(lang: Lang): Metadata {
     applicationName: "Gleam Peak AI",
     keywords:
       lang === "es"
-        ? ["gobernanza de agentes de IA", "ciberseguridad para agentes de IA", "seguridad de IA", "privacidad", "supervisión humana", "trazabilidad", "AI Act", "MCP", "zero knowledge", "credencial verificable"]
-        : ["AI agent governance", "AI agent cybersecurity", "AI security", "privacy", "human oversight", "traceability", "AI Act", "MCP", "zero knowledge", "verifiable credential"],
+        ? ["gobernanza de agentes de IA", "ciberseguridad para agentes de IA", "seguridad de IA", "privacidad", "supervisión humana", "trazabilidad", "Reglamento de IA", "AI Act", "MCP", "zero knowledge", "credencial verificable"]
+        : ["AI agent governance", "AI agent cybersecurity", "AI security", "privacy", "human oversight", "traceability", "EU AI Act", "MCP", "zero knowledge", "verifiable credential"],
     authors: [{ name: "Gleam Peak AI" }],
     creator: "Gleam Peak AI",
     publisher: "Gleam Peak AI",

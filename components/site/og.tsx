@@ -2,8 +2,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import type { Lang } from "./content";
+import { ogSize } from "./seo";
 
-export const ogSize = { width: 1200, height: 630 };
+export { ogAlt, ogSize } from "./seo";
 
 const copy: Record<Lang, { title: string; line: string }> = {
   es: {
@@ -16,10 +17,6 @@ const copy: Record<Lang, { title: string; line: string }> = {
   },
 };
 
-export const ogAlt: Record<Lang, string> = {
-  es: "Gleam Peak AI · Control verificable para agentes de IA",
-  en: "Gleam Peak AI · Verifiable control for AI agents",
-};
 
 export async function ogImage(lang: Lang) {
   const logo = await readFile(join(process.cwd(), "public/logo-gleampeak.svg"));

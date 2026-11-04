@@ -36,8 +36,8 @@ const nextConfig: NextConfig = {
       { source: "/aplicaciones", destination: "/soluciones", permanent: true },
       { source: "/en/applications", destination: "/en/solutions", permanent: true },
       // How it works now lives on the Control page.
-      { source: "/como-funciona", destination: "/control", permanent: false },
-      { source: "/en/how-it-works", destination: "/en/control", permanent: false },
+      { source: "/como-funciona", destination: "/control", permanent: true },
+      { source: "/en/how-it-works", destination: "/en/control", permanent: true },
     ];
   },
 };

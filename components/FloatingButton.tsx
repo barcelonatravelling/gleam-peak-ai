@@ -10,8 +10,8 @@ export default function FloatingButton({ lang }: FloatingButtonProps) {
   return (
     <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end gap-2 sm:bottom-6 sm:right-6">
 
-      <div className="mb-1 hidden rounded-md bg-black/70 px-2 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#aea5bf] backdrop-blur-md sm:block">
-        {lang === "es" ? "Asistente IA" : "AI Assistant"}
+      <div className="mb-1 hidden rounded-md bg-black/70 px-2 py-1 text-[12px] font-semibold text-[#aea5bf] backdrop-blur-md sm:block">
+        {lang === "es" ? "Asistente IA" : "AI assistant"}
       </div>
 
       <button
@@ -27,7 +27,7 @@ export default function FloatingButton({ lang }: FloatingButtonProps) {
 
           <Image
             src="/assistant-icon.webp"
-            alt={lang === "es" ? "Asistente IA" : "AI Assistant"}
+            alt={lang === "es" ? "Asistente IA" : "AI assistant"}
             fill
             sizes="64px"
             className="relative object-contain"

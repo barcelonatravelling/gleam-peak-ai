@@ -14,7 +14,7 @@ export const privacy: Record<Lang, LegalDoc> = {
     eyebrow: "Gleam Peak AI",
     title: "Política de privacidad",
     intro: "Esta política explica cómo tratamos los datos personales que nos facilitas a través de este sitio web.",
-    updated: "Última actualización: octubre de 2026",
+    updated: "Última actualización: noviembre de 2026",
     sections: [
       {
         title: "1. Responsable del tratamiento",
@@ -49,6 +49,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         body: [
           "No cedemos tus datos a terceros salvo obligación legal.",
           "Para operar el sitio utilizamos proveedores que actúan como encargados del tratamiento: Web3Forms, que recibe el formulario y lo reenvía a nuestro correo; OpenAI, que genera las respuestas del asistente, y Vercel, que aloja el sitio y ofrece la analítica sin cookies.",
+          "Estos tres proveedores pueden tratar datos en Estados Unidos, fuera del Espacio Económico Europeo. Esas transferencias internacionales se amparan en las garantías que cada proveedor ofrece conforme al RGPD, como las cláusulas contractuales tipo aprobadas por la Comisión Europea.",
         ],
       },
       {
@@ -64,7 +65,7 @@ export const privacy: Record<Lang, LegalDoc> = {
     eyebrow: "Gleam Peak AI",
     title: "Privacy policy",
     intro: "This policy explains how we process the personal data you share with us through this website.",
-    updated: "Last updated: October 2026",
+    updated: "Last updated: November 2026",
     sections: [
       {
         title: "1. Data controller",
@@ -99,6 +100,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         body: [
           "We do not share your data with third parties unless required by law.",
           "To run the website we use providers acting as data processors: Web3Forms, which receives the form and forwards it to our inbox; OpenAI, which generates the assistant's replies; and Vercel, which hosts the site and provides the cookieless analytics.",
+          "These three providers may process data in the United States, outside the European Economic Area. Those international transfers rely on the safeguards each provider offers under the GDPR, such as the standard contractual clauses approved by the European Commission.",
         ],
       },
       {
@@ -117,7 +119,7 @@ export const terms: Record<Lang, LegalDoc> = {
     eyebrow: "Gleam Peak AI",
     title: "Términos de uso",
     intro: "Estos términos regulan el uso del sitio web de Gleam Peak AI.",
-    updated: "Última actualización: octubre de 2026",
+    updated: "Última actualización: noviembre de 2026",
     sections: [
       {
         title: "1. Titular del sitio",
@@ -141,7 +143,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         title: "4. Carácter informativo",
         body: [
-          "Los productos descritos, incluidos Control y Passport, son prototipos en desarrollo. La información del sitio tiene carácter general, no constituye una oferta comercial y no implica que su uso baste para cumplir ninguna normativa.",
+          "Gleam Peak AI y sus dos partes, Control y Passport, son un prototipo en desarrollo; todavía no se comercializan. La información del sitio tiene carácter general, no constituye una oferta comercial y no implica que su uso baste para cumplir ninguna normativa.",
         ],
       },
       {
@@ -168,7 +170,7 @@ export const terms: Record<Lang, LegalDoc> = {
     eyebrow: "Gleam Peak AI",
     title: "Terms of use",
     intro: "These terms govern the use of the Gleam Peak AI website.",
-    updated: "Last updated: October 2026",
+    updated: "Last updated: November 2026",
     sections: [
       {
         title: "1. Website owner",
@@ -192,7 +194,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         title: "4. Informational nature",
         body: [
-          "The products described, including Control and Passport, are prototypes in development. The information on this website is general, is not a commercial offer and does not imply that using them is enough to comply with any regulation.",
+          "Gleam Peak AI and its two parts, Control and Passport, are a prototype in development; they are not yet on sale. The information on this website is general, is not a commercial offer and does not imply that using them is enough to comply with any regulation.",
         ],
       },
       {
