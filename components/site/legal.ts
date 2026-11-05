@@ -28,7 +28,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         body: [
           "Los datos que introduces en el formulario de contacto: nombre, organización, correo profesional, tipo de colaboración y mensaje.",
           "Los mensajes que escribes en el asistente de la web. No los guardamos. Se envían a OpenAI para generar la respuesta, y OpenAI puede conservarlos temporalmente según sus condiciones.",
-          "Este sitio no utiliza cookies de analítica ni de publicidad. Para saber qué páginas se visitan usamos Vercel Web Analytics, que no instala cookies ni identifica a las personas: solo registra datos agregados como la página vista, el país, el tipo de dispositivo y la web de procedencia. El idioma se elige con la dirección de la página (/en para inglés), sin guardar nada en tu navegador.",
+          "Este sitio no utiliza cookies de analítica ni de publicidad. Para saber qué páginas se visitan usamos Vercel Web Analytics y Cloudflare Web Analytics, que no instalan cookies ni identifican a las personas: solo registran datos agregados como la página vista, el país, el tipo de dispositivo y la web de procedencia. El idioma se elige con la dirección de la página (/en para inglés), sin guardar nada en tu navegador.",
         ],
       },
       {
@@ -48,7 +48,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         title: "5. Destinatarios y proveedores",
         body: [
           "No cedemos tus datos a terceros salvo obligación legal.",
-          "Para operar el sitio utilizamos proveedores que actúan como encargados del tratamiento: Web3Forms, que recibe el formulario y lo reenvía a nuestro correo; OpenAI, que genera las respuestas del asistente, y Vercel, que aloja el sitio y ofrece la analítica sin cookies.",
+          "Para operar el sitio utilizamos proveedores que actúan como encargados del tratamiento: Web3Forms, que recibe el formulario y lo reenvía a nuestro correo; OpenAI, que genera las respuestas del asistente; Vercel, que aloja el sitio y ofrece la analítica sin cookies, y Cloudflare, que protege el sitio frente a tráfico malicioso y ofrece también analítica sin cookies.",
           "Estos tres proveedores pueden tratar datos en Estados Unidos, fuera del Espacio Económico Europeo. Esas transferencias internacionales se amparan en las garantías que cada proveedor ofrece conforme al RGPD, como las cláusulas contractuales tipo aprobadas por la Comisión Europea.",
         ],
       },
@@ -79,7 +79,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         body: [
           "The data you enter in the contact form: name, organisation, work email, type of collaboration and message.",
           "The messages you write in the website assistant. We do not store them. They are sent to OpenAI to generate the reply, and OpenAI may retain them temporarily under its terms.",
-          "This website does not use analytics or advertising cookies. To learn which pages are visited we use Vercel Web Analytics, which sets no cookies and does not identify individuals: it only records aggregated data such as the page viewed, country, device type and referring site. The language is chosen through the page address (/en for English), with nothing stored in your browser.",
+          "This website does not use analytics or advertising cookies. To learn which pages are visited we use Vercel Web Analytics and Cloudflare Web Analytics, which set no cookies and do not identify individuals: they only record aggregated data such as the page viewed, country, device type and referring site. The language is chosen through the page address (/en for English), with nothing stored in your browser.",
         ],
       },
       {
@@ -99,7 +99,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         title: "5. Recipients and providers",
         body: [
           "We do not share your data with third parties unless required by law.",
-          "To run the website we use providers acting as data processors: Web3Forms, which receives the form and forwards it to our inbox; OpenAI, which generates the assistant's replies; and Vercel, which hosts the site and provides the cookieless analytics.",
+          "To run the website we use providers acting as data processors: Web3Forms, which receives the form and forwards it to our inbox; OpenAI, which generates the assistant's replies; Vercel, which hosts the site and provides the cookieless analytics; and Cloudflare, which protects the site against malicious traffic and also provides cookieless analytics.",
           "These three providers may process data in the United States, outside the European Economic Area. Those international transfers rely on the safeguards each provider offers under the GDPR, such as the standard contractual clauses approved by the European Commission.",
         ],
       },
