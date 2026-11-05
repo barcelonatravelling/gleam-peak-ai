@@ -44,6 +44,19 @@ export function ContactPage() {
             <span className="eyebrow">{c.eyebrow}</span>
             <h1>{c.title}</h1>
             <p className="lead">{c.lead}</p>
+            <article className="card side-control pilot-card" aria-labelledby="pilot-title">
+              <span className="card-tag">{c.pilot.when}</span>
+              <h2 id="pilot-title">{c.pilot.title}</h2>
+              <ol className="questions">
+                {c.pilot.rows.map(([label, text]) => (
+                  <li key={label}>
+                    <strong>{label}</strong> <span>{text}</span>
+                  </li>
+                ))}
+              </ol>
+              <p>{c.pilot.note}</p>
+            </article>
+            <h2 className="kicker contact-others">{c.otherTitle}</h2>
             <div className="contact-options">
               {c.options.map((option) => (
                 <div className="contact-option" key={option}>
@@ -86,7 +99,10 @@ export function ContactPage() {
             </div>
             <div className="field">
               <label htmlFor="message">{f.message}</label>
-              <textarea id="message" name="message" required />
+              <textarea id="message" name="message" required aria-describedby="message-note" />
+              <p className="form-note" id="message-note">
+                {f.confidential}
+              </p>
             </div>
             <label className="consent">
               <input type="checkbox" name="privacy_consent" value="yes" required />
@@ -101,6 +117,7 @@ export function ContactPage() {
             <button className="button button-primary button-arrow" type="submit" disabled={status === "sending"}>
               {status === "sending" ? f.sending : f.send}
             </button>
+            <p className="form-note">{f.next}</p>
             <p className="form-note">
               {f.direct} <a className="text-link" href="mailto:hello@gleampeak.ai">hello@gleampeak.ai</a>
             </p>

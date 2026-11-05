@@ -18,22 +18,22 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     home: {
       title: "Gleam Peak AI | Controla tus agentes de IA sin revelar datos",
       description:
-        "Gleam Peak AI decide qué puede hacer cada agente de IA, deja un registro firmado de cada acción y lo convierte en una credencial verificable con pruebas zero knowledge. Prototipo en desarrollo.",
+        "Gleam Peak AI aplicará las reglas y autorizaciones que define tu organización a cada agente de IA, dejará un registro firmado de cada operación y lo convertirá en una credencial verificable con pruebas zero knowledge. Prototipo en desarrollo.",
     },
     gateway: {
-      title: "Control: gobierna lo que hacen tus agentes de IA",
+      title: "Control: pasarela de autorización para agentes de IA",
       description:
-        "Control, de Gleam Peak AI (prototipo en desarrollo): comprobará identidad, mandato, finalidad, datos y riesgo antes de que un agente de IA actúe; permitirá, bloqueará o pedirá la firma de una persona, y dejará un recibo firmado.",
+        "Control, de Gleam Peak AI, es una pasarela de autorización para agentes de IA (prototipo en desarrollo): comprobará identidad, mandato, finalidad, datos y riesgo antes de que un agente actúe; permitirá, bloqueará o pedirá la firma de una persona, y dejará un recibo firmado.",
     },
     passport: {
-      title: "Passport: credencial verificable con zero knowledge",
+      title: "Passport: credencial verificable de controles con zero knowledge",
       description:
-        "Passport, de Gleam Peak AI (prototipo en desarrollo): una credencial verificable con pruebas zero knowledge que ayuda a demostrar a bancos, clientes y auditores que usas la IA con control, sin mostrar tus datos.",
+        "Passport, de Gleam Peak AI, es una credencial verificable de controles (prototipo en desarrollo): con pruebas zero knowledge ayudará a demostrar a bancos, clientes y auditores que usas la IA con control, sin mostrar tus datos.",
     },
     applications: {
       title: "Soluciones",
       description:
-        "Banca y seguros, administración pública, gran empresa y proveedores de IA: cómo Gleam Peak AI controla agentes y lo demuestra en cada sector, con casos de uso.",
+        "Integradores y proveedores de agentes, banca y seguros, administración pública y gran empresa: cómo está pensado Gleam Peak AI para controlar agentes y demostrarlo en cada sector.",
     },
     principles: {
       title: "Principios",
@@ -53,7 +53,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     talk: {
       title: "Hablemos",
       description:
-        "Pilotos, colaboración institucional, investigación e inversión: exploremos Control y Passport en un caso real. Prototipo en desarrollo.",
+        "Explora un piloto de Control y Passport en un caso real: cómo será, quién puede participar y qué se medirá. También colaboración institucional, investigación e inversión. Prototipo en desarrollo.",
     },
     privacy: {
       title: "Política de privacidad",
@@ -65,22 +65,22 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     home: {
       title: "Gleam Peak AI | Control your AI agents without revealing data",
       description:
-        "Gleam Peak AI decides what each AI agent may do, keeps a signed record of every action and turns it into a verifiable credential with zero knowledge proofs. Prototype in development.",
+        "Gleam Peak AI will apply the rules and authorisations your organisation sets for each AI agent, keep a signed record of every operation and turn it into a verifiable credential with zero knowledge proofs. Prototype in development.",
     },
     gateway: {
-      title: "Control: govern what your AI agents do",
+      title: "Control: an authorisation gateway for AI agents",
       description:
-        "Control, by Gleam Peak AI (prototype in development): it will check identity, mandate, purpose, data and risk before an AI agent acts; allow, block or ask a person to sign, and leave a signed receipt.",
+        "Control, by Gleam Peak AI, is an authorisation gateway for AI agents (prototype in development): it will check identity, mandate, purpose, data and risk before an agent acts; allow the action, block it or ask a person to sign it off, and leave a signed receipt.",
     },
     passport: {
-      title: "Passport: a verifiable credential with zero knowledge",
+      title: "Passport: a verifiable controls credential with zero knowledge",
       description:
-        "Passport, by Gleam Peak AI (prototype in development): a verifiable credential with zero knowledge proofs that helps show banks, clients and auditors that you use AI with control, without showing your data.",
+        "Passport, by Gleam Peak AI, is a verifiable controls credential (prototype in development): with zero knowledge proofs it will help you show banks, clients and auditors that your AI is under control, without showing your data.",
     },
     applications: {
       title: "Solutions",
       description:
-        "Banking and insurance, public administration, large companies and AI vendors: how Gleam Peak AI controls agents and proves it in each sector, with use cases.",
+        "Integrators and agent providers, banking and insurance, public administration and large companies: how Gleam Peak AI is designed to control agents and prove it in each sector.",
     },
     principles: {
       title: "Principles",
@@ -100,7 +100,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     talk: {
       title: "Let's talk",
       description:
-        "Pilots, institutional collaboration, research and investment: let's explore Control and Passport in a real case. Prototype in development.",
+        "Explore a Control and Passport pilot on a real use case: what it will involve, who can take part and what will be measured. Also institutional collaboration, research and investment. Prototype in development.",
     },
     privacy: {
       title: "Privacy policy",

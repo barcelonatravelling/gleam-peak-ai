@@ -197,6 +197,7 @@ export function HomePage() {
               <span className="kicker">{c.solvesKicker}</span>
               <h2>{c.solvesTitle}</h2>
             </div>
+            <p className="section-copy">{c.solvesCopy}</p>
           </div>
           <div className="solves reveal">
             {c.solves.map(([area, title, text], i) => (
@@ -219,6 +220,7 @@ export function HomePage() {
               <span className="kicker">{c.sidesKicker}</span>
               <h2>{c.sidesTitle}</h2>
             </div>
+            <p className="section-copy">{c.sidesCopy}</p>
           </div>
           <div className="sides reveal">
             {c.sides.map(([name, where, text], i) => (
@@ -315,6 +317,20 @@ export function HomePage() {
       </section>
 
       <section className="section">
+        <div className="shell">
+          <Heading kicker={c.diffKicker} title={c.diffTitle} />
+          <div className="text-cols reveal">
+            {c.diff.map(([title, text]) => (
+              <div key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="shell norms reveal">
           <div>
             <span className="kicker">{c.normsKicker}</span>
@@ -336,7 +352,9 @@ export function HomePage() {
               <span className="kicker">{c.roadmapKicker}</span>
               <h2>{c.roadmapTitle}</h2>
             </div>
-            <p className="section-copy">{c.roadmapNote}</p>
+            <p className="section-copy">
+              {c.roadmapNote} <strong>{c.roadmapNext}</strong>
+            </p>
           </div>
           <ol className="stages reveal">
             {c.roadmap.map(([when, title, text], i) => (
@@ -487,7 +505,8 @@ function PageClosing({ title }: { title: string }) {
 
 export function GatewayPage() {
   const { lang } = useLang();
-  const c = pagesContent[lang].control;
+  const p = pagesContent[lang];
+  const c = p.control;
   return (
     <div className="page">
       <SplitHero eyebrow={c.eyebrow} title={c.title} lead={c.lead}>
@@ -545,9 +564,12 @@ export function GatewayPage() {
         <div className="shell">
           <Heading kicker={c.modulesKicker} title={c.modulesTitle} />
           <div className="text-cols reveal">
-            {c.modulesText.map(([title, text]) => (
+            {c.modulesText.map(([title, text, status]) => (
               <div key={title}>
-                <h3>{title}</h3>
+                <h3>
+                  {title}
+                  <span className="status">{p.status[status]}</span>
+                </h3>
                 <p>{text}</p>
               </div>
             ))}
@@ -561,7 +583,8 @@ export function GatewayPage() {
 
 export function PassportPage() {
   const { lang } = useLang();
-  const c = pagesContent[lang].passport;
+  const p = pagesContent[lang];
+  const c = p.passport;
   return (
     <div className="page">
       <SplitHero eyebrow={c.eyebrow} title={c.title} lead={c.lead}>
@@ -587,7 +610,11 @@ export function PassportPage() {
                 </li>
               ))}
             </ul>
-            <code>{c.result.exposed}</code>
+            <code>
+              {c.result.exposed[0]}
+              <br />
+              {c.result.exposed[1]}
+            </code>
           </div>
           <figcaption className="proof-flow">
             <span className="proof-steps">
@@ -607,13 +634,13 @@ export function PassportPage() {
         <div className="shell">
           <Heading kicker={c.layersKicker} title={c.layersTitle} />
           <ol className="layer-list reveal">
-            {c.layers.map(([n, title, text, source, state]) => (
-              <li key={n} className={`card layer-${state}`}>
+            {c.layers.map(([n, title, text, source, status]) => (
+              <li key={n} className={`card layer-${status === "planned" ? "next" : "now"}`}>
                 <span className="layer-num">{n}</span>
                 <div>
                   <strong>
                     {title}
-                    {state === "next" && <em className="layer-badge">{c.layersNext}</em>}
+                    <span className="status">{p.status[status]}</span>
                   </strong>
                   <p>{text}</p>
                 </div>
@@ -621,6 +648,7 @@ export function PassportPage() {
               </li>
             ))}
           </ol>
+          <p className="rule-line reveal">{c.falseData}</p>
         </div>
       </section>
       <section className="section">
@@ -701,11 +729,17 @@ export function ApplicationsPage() {
           </div>
         </div>
       </section>
-      {c.items.map((item) => (
+      {c.items.map((item, i) => (
         <section className="section sector-section" id={item.id} key={item.id}>
+          {i === 1 && (
+            <div className="shell">
+              <Heading kicker={c.othersKicker} title={c.othersTitle} />
+            </div>
+          )}
           <div className="shell prose-split reveal">
             <div>
               <span className="kicker">
+                {i === 0 && `${c.firstLabel} · `}
                 {item.tag} · <span className="kicker-norm">{item.norm}</span>
               </span>
               <h2>{item.title}</h2>
@@ -714,6 +748,12 @@ export function ApplicationsPage() {
               {item.body.map((para) => (
                 <p key={para}>{para}</p>
               ))}
+              <p>
+                <strong>{c.checkLabel}:</strong> {item.check}
+              </p>
+              <p>
+                <strong>{c.privateLabel}:</strong> {item.private}
+              </p>
             </div>
           </div>
         </section>
@@ -858,6 +898,19 @@ export function SecurityPage() {
                 ))}
               </ul>
             </article>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="shell faq-grid">
+          <Heading kicker={c.techKicker} title={c.techTitle} copy={c.techCopy} />
+          <div className="faq reveal">
+            {c.techFaq.map(([q, a]) => (
+              <details key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
