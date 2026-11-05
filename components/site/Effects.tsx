@@ -46,8 +46,12 @@ export default function Effects() {
   }, []);
 
   useEffect(() => {
+    const root = document.documentElement;
+    // Tells the fallback timer in SiteShell that the observer started, so it does not reveal everything.
+    root.classList.add("reveal-ready");
     const items = document.querySelectorAll<HTMLElement>(".reveal:not(.in)");
-    if (!("IntersectionObserver" in window)) {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || !("IntersectionObserver" in window)) {
       items.forEach((item) => item.classList.add("in"));
       return;
     }
@@ -60,10 +64,19 @@ export default function Effects() {
           }
         });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
     );
     items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
+    // Safety net: anything already on screen or above it after 1.5 s is shown even if the observer missed it.
+    const fallback = window.setTimeout(() => {
+      document.querySelectorAll<HTMLElement>(".reveal:not(.in)").forEach((item) => {
+        if (item.getBoundingClientRect().top < window.innerHeight) item.classList.add("in");
+      });
+    }, 1500);
+    return () => {
+      window.clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return null;

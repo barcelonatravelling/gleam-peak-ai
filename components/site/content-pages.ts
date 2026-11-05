@@ -3,7 +3,7 @@ import type { Lang } from "./content";
 type Pair = readonly [string, string];
 type Quad = readonly [string, string, string, string];
 type ConsoleRow = readonly [string, string, string, "pass" | "fail"];
-type Verdict = readonly [string, string, "ok" | "danger" | "hold"];
+type Verdict = readonly [string, string, string, "ok" | "danger" | "hold"];
 type Layer = readonly [string, string, string, string, "now" | "next"];
 type Solution = {
   id: string;
@@ -35,14 +35,18 @@ const es = {
     },
     decideKicker: "Cómo decide",
     decideTitle: "Cinco preguntas, tres respuestas.",
-    decideCopy: [
-      "Antes de que un agente actúe, Control se hará cinco preguntas: quién lo pide, en nombre de quién, para qué, con qué datos y con qué impacto. Para responderlas comprobará la identidad del agente y quién es su responsable, que el mandato cubre la acción, que la finalidad es la autorizada, que solo usa los datos necesarios y cuánto pesa la acción por importe, destinatario, datos sensibles o efectos sobre personas.",
-      "Con eso responderá de tres formas. Si la acción es de bajo riesgo y está dentro del mandato, la permitirá. Si es crítica o pasa de un límite, esperará a que una persona competente la revise y la firme. Si está fuera de mandato o es sospechosa, la bloqueará, explicará el motivo al agente y avisará al responsable del agente.",
-    ],
+    decideIntro: "Antes de que un agente actúe, Control comprobará cinco cosas:",
+    questions: [
+      ["¿Quién lo pide?", "La identidad del agente y quién es su responsable."],
+      ["¿En nombre de quién?", "Que el mandato cubra esa acción."],
+      ["¿Para qué?", "Que la finalidad sea la autorizada."],
+      ["¿Con qué datos?", "Solo los necesarios."],
+      ["¿Con qué impacto?", "Importe, destinatario, datos sensibles, efectos sobre personas o irreversibles."],
+    ] as Pair[],
     verdicts: [
-      ["Permitir", "Bajo riesgo y dentro del mandato", "ok"],
-      ["Esperar a una persona", "Crítica o fuera de límite", "hold"],
-      ["Bloquear", "Fuera de mandato o sospechosa", "danger"],
+      ["Permitir", "Bajo riesgo y dentro del mandato", "La acción se ejecutará y quedará su recibo firmado.", "ok"],
+      ["Esperar a una persona", "Crítica o por encima de un límite", "Control la retendrá hasta que una persona competente la revise y la firme.", "hold"],
+      ["Bloquear", "Fuera de mandato o sospechosa", "Control la bloqueará, explicará el motivo al agente y avisará a su responsable.", "danger"],
     ] as Verdict[],
     ruleLine: "Solo las reglas y la firma de una persona dan luz verde. Los módulos automáticos de privacidad y seguridad nunca aprueban nada: solo pueden añadir restricciones, como ocultar datos, subir el nivel de riesgo o parar al agente.",
     codeKicker: "Por dentro",
@@ -63,7 +67,7 @@ const es = {
     eyebrow: "Passport · Prototipo en desarrollo",
     title: "Demuestra que usas la IA con control, sin mostrar tus datos.",
     lead: "Una credencial verificable, basada en estándares abiertos, que presentas a un banco, un cliente o un auditor. Con pruebas zero knowledge comprueban que cumples sin ver tus datos. Caduca y se puede revocar.",
-    flow: ["Datos firmados", "Pruebas zero knowledge", "Verificación", "Válido, caducado o revocado"],
+    flow: ["Datos firmados", "Pruebas zero knowledge", "Verificación", "Resultado"],
     flowNote: "Los datos no salen de tu organización. Solo viaja la prueba.",
     result: {
       title: "Resultado de la verificación",
@@ -100,14 +104,15 @@ const es = {
     faqTitle: "Qué es y qué no es.",
     faq: [
       ["¿Qué es?", "Una credencial verificable, basada en estándares abiertos. No es un sello oficial."],
-      ["¿Sustituye una auditoría?", "No. Hace que demostrar la confianza sea más rápido y continuo entre auditorías."],
+      ["¿Sustituye una auditoría?", "No. Hace que demostrar la confianza sea más rápido y continuo entre auditorías. Tampoco basta por sí solo para cumplir el Reglamento de IA: el cumplimiento depende de cada organización y de su evaluación jurídica."],
       ["¿Y si un dato es falso?", "Una prueba no convierte en verdadero un dato falso. Por eso cada condición indica su fuente."],
       ["¿Cómo se verifica?", "Se podrá verificar desde una página o con una llamada a la API. Quien verifica verá el estado y las condiciones, nunca las evidencias."],
     ] as Pair[],
     closingTitle: "¿Te piden pruebas de cómo controlas tus agentes?",
   },
   solutions: {
-    eyebrow: "Soluciones",
+    eyebrow: "Banca, seguros, administración y proveedores",
+    tabsLabel: "Sectores",
     title: "El mismo núcleo, adaptado a cada sector.",
     lead: "Control y Passport son iguales para todos. Cambian las reglas, quién firma y a quién hay que demostrarlo.",
     matrixKicker: "Qué cambia",
@@ -127,7 +132,7 @@ const es = {
         title: "Pagos y siniestros con firma humana donde importa.",
         body: [
           "Cada vez más agentes de IA preparan pagos y gestionan siniestros, y DORA exige controlar la tecnología y a los proveedores. Control fijará límites por importe y riesgo y pedirá la firma de una persona en lo crítico. Passport lo demostrará ante supervisores y socios.",
-          "Por ejemplo, un agente propone pagar un siniestro de 8.400 € cuando su límite es de 5.000 €. Control lo retiene y pide la firma del perito con el expediente completo. El perito firma, se paga y queda el recibo.",
+          "Por ejemplo, un agente propone pagar un siniestro de 8.400 € cuando su límite es de 5.000 €. Control lo retiene y pide la firma del perito con el expediente completo. El perito firma, se paga y queda el recibo.",
         ],
       },
       {
@@ -189,14 +194,18 @@ const en: PagesContent = {
     },
     decideKicker: "How it decides",
     decideTitle: "Five questions, three answers.",
-    decideCopy: [
-      "Before an agent acts, Control will ask five questions: who is asking, on whose behalf, what for, with which data and with what impact. To answer them it will check the agent's identity and who owns it, that the mandate covers the action, that the purpose is the authorised one, that it only uses the data it needs and how much the action weighs in amount, recipient, sensitive data or effects on people.",
-      "It will then answer in one of three ways. If the action is low risk and within the mandate, it will allow it. If it is critical or over a limit, it will wait for an approver to review and sign it. If it is outside the mandate or suspicious, it will block it, tell the agent why and alert the agent's owner.",
+    decideIntro: "Before an agent acts, Control will check five things:",
+    questions: [
+      ["Who is asking?", "The agent's identity and who owns it."],
+      ["On whose behalf?", "That the mandate covers the action."],
+      ["What for?", "That the purpose is the authorised one."],
+      ["With which data?", "Only the data it needs."],
+      ["With what impact?", "Amount, recipient, sensitive data, effects on people or irreversible effects."],
     ],
     verdicts: [
-      ["Allow", "Low risk and within the mandate", "ok"],
-      ["Wait for a person", "Critical or over the limit", "hold"],
-      ["Block", "Outside the mandate or suspicious", "danger"],
+      ["Allow", "Low risk and within the mandate", "The action will run and leave a signed receipt.", "ok"],
+      ["Wait for a person", "Critical or over a limit", "Control will hold it until an approver reviews and signs it.", "hold"],
+      ["Block", "Outside the mandate or suspicious", "Control will block it, tell the agent why and alert its owner.", "danger"],
     ],
     ruleLine: "Only rules and a person's signature can give the green light. The automated privacy and security modules never approve anything: they can only add restrictions, such as masking data, raising the risk level or stopping the agent.",
     codeKicker: "Under the hood",
@@ -217,7 +226,7 @@ const en: PagesContent = {
     eyebrow: "Passport · Prototype in development",
     title: "Prove you use AI with control, without showing your data.",
     lead: "A verifiable credential, built on open standards, that you present to a bank, a client or an auditor. With zero knowledge proofs they check that you comply without seeing your data. It expires and can be revoked.",
-    flow: ["Signed data", "Zero knowledge proofs", "Verification", "Valid, expired or revoked"],
+    flow: ["Signed data", "Zero knowledge proofs", "Verification", "Result"],
     flowNote: "Your data never leaves your organisation. Only the proof travels.",
     result: {
       title: "Verification result",
@@ -254,14 +263,15 @@ const en: PagesContent = {
     faqTitle: "What it is and what it is not.",
     faq: [
       ["What is it?", "A verifiable credential, built on open standards. It is not an official seal."],
-      ["Does it replace an audit?", "No. It makes demonstrating trust faster and continuous between audits."],
+      ["Does it replace an audit?", "No. It makes demonstrating trust faster and continuous between audits. Nor is it enough on its own to comply with the EU AI Act: compliance depends on each organisation and its legal assessment."],
       ["What if some data is false?", "A proof cannot make false data true. That is why each condition shows its source."],
       ["How is it verified?", "It will be verifiable from a page or with an API call. The verifier will see the status and the conditions, never the evidence."],
     ],
     closingTitle: "Are you asked to prove how you control your agents?",
   },
   solutions: {
-    eyebrow: "Solutions",
+    eyebrow: "Banking, insurance, public sector and suppliers",
+    tabsLabel: "Sectors",
     title: "The same core, adapted to each sector.",
     lead: "Control and Passport are the same for everyone. What changes are the rules, who signs and who you need to prove it to.",
     matrixKicker: "What changes",

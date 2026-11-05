@@ -116,7 +116,7 @@ export const security: Record<Lang, SecurityContent> = {
 
 export const resources: Record<Lang, ResourcesContent> = {
   es: {
-    eyebrow: "Recursos",
+    eyebrow: "Glosario y preguntas frecuentes",
     title: "Conceptos clave y preguntas frecuentes",
     lead: "Lo esencial para entender el control de agentes de IA y cómo encaja Gleam Peak AI en una organización.",
     glossaryKicker: "Conceptos",
@@ -140,13 +140,12 @@ export const resources: Record<Lang, ResourcesContent> = {
       ["¿Servirá para agentes que usan MCP?", "Está previsto. El primer prototipo se diseña para interceptar operaciones MCP y llamadas HTTP a API."],
       ["¿Hay que reescribir los agentes?", "El objetivo es que no: Control está pensado para situarse delante de las herramientas. Cada agente sí tendrá que presentar su identidad y el mandato con el que actúa."],
       ["¿Dónde se guardan los datos y la evidencia?", "El diseño prevé que la evidencia la conserve la organización que usa Control. Los detalles de despliegue se acordarán en cada piloto."],
-      ["¿Basta para cumplir el Reglamento de IA?", "No. Aporta controles técnicos y evidencia que ayudan a ejercer y demostrar la supervisión humana y la trazabilidad. El cumplimiento depende de cada organización y de su evaluación jurídica."],
       ["¿Qué diferencia hay entre Control y Passport?", "Control trabajará dentro de tu organización: decidirá qué puede hacer cada agente y dejará un recibo firmado de cada acción. Passport mira hacia fuera: es una credencial verificable que ayuda a demostrar a un banco, un cliente o un auditor que cumples, sin mostrar tus datos."],
       ["¿Cuándo se podrá probar?", "Gleam Peak AI es un prototipo en desarrollo. Según nuestro plan, sujeto a equipo y financiación, la versión demostrable llegará entre noviembre de 2026 y marzo de 2027, y los pilotos con clientes reales, entre abril y septiembre de 2027. Si te interesa participar, escríbenos desde Hablemos."],
     ],
   },
   en: {
-    eyebrow: "Resources",
+    eyebrow: "Glossary and FAQ",
     title: "Key concepts and frequently asked questions",
     lead: "The essentials for understanding control of AI agents and how Gleam Peak AI fits into an organisation.",
     glossaryKicker: "Concepts",
@@ -170,7 +169,6 @@ export const resources: Record<Lang, ResourcesContent> = {
       ["Will it work with agents that use MCP?", "That is the plan. The first prototype is being designed to intercept MCP operations and HTTP calls to APIs."],
       ["Do agents need to be rewritten?", "The aim is that they do not: Control is designed to sit in front of the tools. Each agent will need to present its identity and the mandate it acts under."],
       ["Where are data and evidence stored?", "The design provides for the evidence to be kept by the organisation that runs Control. Deployment details will be agreed for each pilot."],
-      ["Is it enough to comply with the EU AI Act?", "No. It provides technical controls and evidence that help exercise and demonstrate human oversight and traceability. Compliance depends on each organisation and its legal assessment."],
       ["What is the difference between Control and Passport?", "Control will work inside your organisation: it will decide what each agent can do and leave a signed receipt for every action. Passport faces outwards: it is a verifiable credential that helps demonstrate to a bank, a client or an auditor that you comply, without showing your data."],
       ["When can we try it?", "Gleam Peak AI is a prototype in development. Under our plan, subject to team and funding, the demonstrable version will arrive between November 2026 and March 2027, and pilots with real clients between April and September 2027. If you would like to take part, write to us from Let's talk."],
     ],

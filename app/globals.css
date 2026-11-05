@@ -49,9 +49,12 @@
   --neon-glow-pink: 0 0 10px rgba(255,63,210,.55);
   --neon-glow-blue: 0 0 10px rgba(111,140,255,.55);
   --prose: #cfc8dd;
-  /* Card surface with a pink-to-indigo hairline, shared by every card on the site */
-  --card-fill: linear-gradient(180deg, rgba(30,20,48,.96), rgba(12,9,22,.96)) padding-box, linear-gradient(135deg, rgba(255,63,210,.75), rgba(180,77,255,.6) 50%, rgba(79,123,255,.75)) border-box;
+  /* One card on the whole site: dark surface, thin border. The glow is only for hover on interactive cards */
+  --card-bg: var(--surface);
+  --card-line: var(--line-strong);
   --card-glow: 0 0 30px -16px rgba(255,63,210,.55), 0 0 30px -16px rgba(79,123,255,.5);
+  --tone-control: rgba(163,22,138,.6);
+  --tone-passport: rgba(47,79,184,.75);
   --radius: 20px;
   --max: 1200px;
   --lift: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
@@ -174,9 +177,10 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .button:disabled { opacity: .6; cursor: wait; }
 
 /* Hero */
-.hero { position: relative; padding: clamp(3rem, 5.5vw, 5rem) 0 clamp(2.5rem, 4vw, 3.5rem); overflow-x: clip; }
-.hero:has(.passport-card) { padding-bottom: clamp(5rem, 9vw, 8rem); }
-.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(3rem, 5vw, 5rem); }
+/* Same top padding as .subhero and top-aligned grids, so the eyebrow and the h1 start at the same height on every page */
+.hero { position: relative; padding: clamp(3rem, 5.5vw, 4.5rem) 0 clamp(2.5rem, 4vw, 3.5rem); overflow-x: clip; }
+.hero:has(.passport-card) { padding-bottom: clamp(6rem, 11vw, 10rem); }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: start; gap: clamp(3rem, 5vw, 5rem); }
 /* The text arrives line by line and the panel settles in */
 @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .hero-grid > div:first-child > * { animation: rise .5s cubic-bezier(.2,.7,.2,1) both; }
@@ -218,13 +222,19 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .receipt-signed { color: var(--ok); font-weight: 600; white-space: nowrap; }
 
 /* Passport card next to the console on the home */
-.passport-card { position: absolute; right: -28px; bottom: -96px; width: min(300px, 70%); padding: 1rem 1.1rem; border: 1px solid var(--line-strong); border-radius: 18px; background: rgba(18,13,30,.92); backdrop-filter: blur(10px); box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+/* It starts below the console's receipt line, over the plum frame only, so the two never touch */
+.passport-card { position: absolute; right: -28px; top: calc(100% - 1.25rem); width: min(300px, 70%); padding: 1rem 1.1rem; border: 1px solid var(--card-line); border-radius: 18px; background: rgba(18,13,30,.92); backdrop-filter: blur(10px); box-shadow: 0 24px 60px rgba(0,0,0,.45); }
 .passport-head { display: flex; justify-content: space-between; align-items: center; font: 600 .95rem/1 var(--display); color: var(--ink); }
 .passport-state { font: 500 .78rem/1 var(--display); color: var(--ok); padding: .3rem .55rem; border-radius: 999px; background: var(--ok-bg); }
 .passport-card ul { list-style: none; margin: .8rem 0; padding: 0; display: grid; gap: .4rem; }
 .passport-card li { position: relative; padding-left: 1.2rem; color: var(--muted); font-size: .84rem; }
 .passport-card li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); }
 .passport-card code { display: block; padding-top: .7rem; border-top: 1px solid var(--line); font: .72rem/1.3 var(--mono); color: var(--accent-2); }
+/* The same card, in the page flow: what the bank sees in the home use case */
+.passport-card.passport-card-static { position: relative; right: auto; top: auto; width: auto; padding: 1.4rem 1.5rem; border-radius: var(--radius); background: var(--card-bg); backdrop-filter: none; box-shadow: none; }
+.passport-card-static ul { margin: 1.1rem 0; gap: .55rem; }
+.passport-card-static li { font-size: .98rem; }
+.passport-card .passport-hidden { margin: 0 0 1rem; padding: .6rem .8rem; border-radius: 10px; background: var(--mist); color: var(--ink); font: 500 .92rem/1.4 var(--display); }
 
 /* Sections */
 .section { position: relative; padding: clamp(3.25rem, 5.5vw, 4.5rem) 0; }
@@ -234,13 +244,17 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .section-heading { display: grid; gap: .9rem; max-width: 760px; margin-bottom: 2.2rem; }
 .section-copy { color: var(--muted); max-width: 58ch; margin: 0; font-size: 1.125rem; line-height: 1.6; }
 
-/* Cards: one neon card style on every page */
+/* Cards: one card style on every page (dark surface, thin border). Only interactive cards
+   (links or .card-link) glow, and only on hover. Coloured tones: .side-control/.node-control, .side-passport/.node-passport */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem; }
-.card, .compact-card, .form-card { border: 1.5px solid transparent; background: var(--card-fill); box-shadow: var(--card-glow); }
-.card { position: relative; padding: 1.5rem; border-radius: var(--radius); overflow: hidden; }
-.card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(360px circle at var(--mx, 50%) var(--my, -20%), rgba(144,14,117,.06), transparent 45%); opacity: 0; transition: opacity .3s; pointer-events: none; }
-.card:hover::before { opacity: 1; }
+.card, .form-card { border: 1px solid var(--card-line); background: var(--card-bg); box-shadow: none; }
+.card { position: relative; padding: 1.5rem; border-radius: var(--radius); overflow: hidden; transition: border-color .25s, box-shadow .25s; }
+a.card::before, .card-link::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(360px circle at var(--mx, 50%) var(--my, -20%), rgba(144,14,117,.08), transparent 45%); opacity: 0; transition: opacity .3s; pointer-events: none; }
+a.card:hover, .card-link:hover { border-color: rgba(255,63,210,.55); box-shadow: var(--card-glow); }
+a.card:hover::before, .card-link:hover::before { opacity: 1; }
+.side-control, .node-control { border-color: var(--tone-control); }
+.side-passport, .node-passport { border-color: var(--tone-passport); }
 .card-number { display: inline-block; margin-bottom: 1.3rem; color: var(--neon-pink-text); font: 500 .95rem var(--display); letter-spacing: -.005em; text-shadow: var(--neon-glow-pink); }
 .card p { color: var(--muted); margin: .65rem 0 0; font-size: 1.0625rem; }
 .card-tag { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.1rem; padding: .2rem .65rem; border: 1px solid rgba(111,140,255,.5); border-radius: 999px; background: linear-gradient(180deg, rgba(47,79,184,.45), rgba(47,79,184,.1)); color: var(--neon-blue); font-size: .76rem; font-weight: 600; }
@@ -263,19 +277,19 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .subhero h1.h1-long { max-width: 24ch; }
 .subhero .lead { max-width: 66ch; }
 .split-hero { padding-bottom: clamp(2.5rem, 5vw, 4rem); }
-.split-hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2.5rem, 5vw, 4.5rem); }
+.split-hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(2.5rem, 5vw, 4.5rem); }
 .split-hero h1 { max-width: 20ch; }
 
 /* Architecture */
 .architecture { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.4rem; align-items: stretch; }
-.architecture-node { position: relative; min-height: 132px; display: grid; place-content: center; text-align: center; padding: 1.1rem; border: 1.5px solid #4a3f60; border-radius: var(--radius); background: var(--surface); }
+.architecture-node { position: relative; min-height: 132px; display: grid; place-content: center; text-align: center; padding: 1.1rem; overflow: visible; }
 /* Fine dashed connectors between the nodes (Laura likes these thin route lines) */
 .architecture-node:not(:last-child)::after { content: ""; position: absolute; right: -1.4rem; top: 50%; width: 1.4rem; height: 2px; background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 8px); }
 .architecture-node strong { display: block; font: 600 1.02rem/1.25 var(--display); color: var(--ink); }
 .architecture-node span { color: var(--muted); font-size: .95rem; margin-top: .4rem; }
-.architecture-node.gateway { border-color: #900e75; background: linear-gradient(180deg, rgba(144,14,117,.75), rgba(144,14,117,.18)); box-shadow: 0 0 40px -12px rgba(144,14,117,.6); }
-.architecture-node.gateway strong { color: var(--ink); }
-.architecture-node.gateway span { color: #f0c9e6; }
+/* Control and Passport like the "Two sides" cards: dark, coloured border, name in colour (light tints for contrast at this size) */
+.node-control strong { color: var(--accent); }
+.node-passport strong { color: var(--accent-2); }
 
 /* Now / next and "does not" lists: running text, no boxes */
 .now-next { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
@@ -308,7 +322,13 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 /* Mark fields only once the person has interacted with them */
 .field input:user-invalid, .field textarea:user-invalid, .field select:user-invalid { border-color: var(--danger); box-shadow: 0 0 0 4px rgba(143,18,56,.1); }
 .consent { display: flex; gap: .65rem; align-items: flex-start; color: var(--muted); font-size: .95rem; margin: 1rem 0 1.3rem; }
-.consent input { margin-top: .3rem; accent-color: var(--accent); }
+/* Custom checkbox and select with the same edge, radius and colours as the text fields; native controls underneath */
+.field select { appearance: none; -webkit-appearance: none; padding-right: 2.8rem; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239db1f2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+.field select option { background: var(--surface); color: var(--ink); }
+.consent input { appearance: none; -webkit-appearance: none; flex: none; width: 20px; height: 20px; margin: .2rem 0 0; border: 1px solid var(--field-line); border-radius: 6px; background: var(--surface) center / 12px no-repeat; cursor: pointer; transition: border-color .2s, background-color .2s, box-shadow .2s; }
+.consent input:checked { border-color: var(--plum); background-color: var(--plum); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='0 0 12 10'%3E%3Cpath d='M1 5.2l3.4 3.3L11 1.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.consent input:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-color: var(--accent); }
+.consent input:user-invalid { border-color: var(--danger); box-shadow: 0 0 0 4px rgba(143,18,56,.1); }
 .consent input:user-invalid + span { color: var(--danger); }
 .form-note { margin: 1rem 0 0; color: var(--muted-2); font-size: .95rem; }
 .text-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -381,21 +401,36 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .faq-grid .faq { border-top-color: var(--line-strong); }
 .faq-grid .faq details { border-bottom-color: var(--line-strong); }
 
-/* Scroll reveal (only when JS is running). Each block fades in once, as a whole, with a short gentle rise */
+/* Scroll reveal. Content is visible by default: it is only hidden once the `js` class is on <html>,
+   and `reveal-all` (set by the fallback timer if the observer never starts) shows everything again */
 .js .reveal { opacity: 0; transform: translateY(8px); transition: opacity .4s ease-out, transform .4s ease-out; }
-.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal.in, .reveal-all .reveal { opacity: 1; transform: none; }
+
+/* Vertical timeline: a thin line with one dot per step (home use case, and the sequence diagrams on mobile) */
+.timeline { list-style: none; margin: 1.6rem 0 0; padding: 0; }
+.timeline li { position: relative; padding: .45rem 0 .45rem 1.9rem; color: var(--prose); font-size: 1.0625rem; line-height: 1.5; }
+.timeline li::before { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: var(--line-strong); }
+.timeline li:first-child::before { top: 1.1rem; }
+.timeline li:last-child::before { bottom: auto; height: 1.1rem; }
+.timeline li::after { content: ""; position: absolute; left: 0; top: .82rem; width: 12px; height: 12px; border: 2px solid var(--neon-pink); border-radius: 50%; background: var(--paper); box-shadow: 0 0 8px rgba(255,63,210,.6); }
+
+/* Home use case: the explanation on the left, what the bank sees on the right */
+.case-split { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.case-split h2 { margin-bottom: .9rem; }
+.case-view { margin: 0; display: grid; gap: .8rem; }
+.case-view figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; color: var(--muted-2); font: 500 .9rem/1.3 var(--display); }
+.example-tag { padding: .25rem .6rem; border: 1px dashed var(--muted-2); border-radius: 999px; color: var(--muted); font: 500 .78rem/1 var(--display); }
 
 /* Home (Gleam Peak AI: Control + Passport) */
 .solves { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .solve { padding: 1.6rem 1.3rem 1.8rem; border-left: 1px solid var(--line); }
 .solve:first-child { border-left: 0; padding-left: 0; }
 .solve-area { font: 500 1.0625rem/1.3 var(--display); letter-spacing: -.005em; text-transform: none; color: var(--accent); }
-.solve h3 { margin: 1rem 0 .55rem; font: 600 1.3125rem/1.25 var(--display); color: var(--ink); }
+/* Two lines reserved for every title, so all the texts start at the same height */
+.solve h3 { min-height: 2.5em; margin: 1rem 0 .55rem; font: 600 1.3125rem/1.25 var(--display); color: var(--ink); }
 .solve p { margin: 0; color: var(--muted); font-size: 1.0625rem; line-height: 1.55; }
 .sides { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-.side { position: relative; z-index: 1; padding: clamp(1.6rem, 3vw, 2.4rem); border: 1.5px solid var(--line-strong); border-radius: 24px; background: var(--surface); }
-.side-control { border-color: rgba(163,22,138,.55); }
-.side-passport { border-color: rgba(47,79,184,.7); }
+.side { position: relative; z-index: 1; padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: 24px; overflow: visible; }
 .side-where { font: 500 .875rem/1 var(--display); letter-spacing: -.005em; text-transform: none; color: var(--muted-2); }
 .side h3 { margin: .9rem 0 .6rem; font: 600 clamp(1.625rem, 2.45vw, 2.1875rem)/1.05 var(--display); color: var(--ink); letter-spacing: -.02em; }
 .side-control h3 { color: #900e75; }
@@ -403,21 +438,28 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .side p { margin: 0; max-width: 38ch; color: var(--muted); font-size: 1.0625rem; }
 .sides-link { position: absolute; left: 50%; top: 50%; width: 4rem; transform: translate(-50%, -50%); }
 .sides-link span { display: block; height: 2px; background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 8px); }
-.sides-line { margin: 1.6rem 0 0; text-align: center; font: 500 1.05rem/1.4 var(--display); color: var(--ink); }
+.sides-line { margin: 1.8rem 0 0; }
 .stack { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .stack-label { font: 500 .875rem/1 var(--display); letter-spacing: -.005em; text-transform: none; color: var(--muted-2); }
 .stack ul, .norms-list { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; }
 .stack li { font: 500 .84rem/1 var(--font-figtree); color: var(--muted); padding: .5rem .75rem; border: 1px solid var(--line-strong); border-radius: 999px; }
 .norms { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .norms h2 { margin-bottom: .9rem; }
-.norms-list li { font: 600 1rem/1 var(--display); color: var(--ink); padding: .8rem 1.1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface); }
+/* Norms as plain text with thin separators: they are not buttons. The list is shifted left and
+   clipped so the separator in front of the first item of each line is never seen */
+.norms-list { gap: .6rem 0; margin-left: -1rem; overflow: hidden; }
+.norms-list li { margin-left: -1px; padding: 0 1rem; border-left: 1px solid var(--line-strong); color: var(--ink); font: 500 1.05rem/1.3 var(--display); cursor: default; }
 .stages { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
-.stages::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, var(--neon-pink), var(--neon-violet) 45%, var(--neon-indigo) 80%, rgba(79,123,255,.25)); box-shadow: 0 0 14px rgba(255,63,210,.55), 0 0 28px rgba(79,123,255,.35); }
+/* One line segment per stage, from its dot to the next one: the line stops at the last stage */
+.stage:not(:last-child)::after { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 3px; background: linear-gradient(90deg, var(--seg-from), var(--seg-to)); box-shadow: 0 0 14px rgba(255,63,210,.4), 0 0 24px rgba(79,123,255,.3); }
+.stage:nth-child(1) { --seg-from: var(--neon-pink); --seg-to: #d946ef; }
+.stage:nth-child(2) { --seg-from: #d946ef; --seg-to: var(--neon-violet); }
+.stage:nth-child(3) { --seg-from: var(--neon-violet); --seg-to: var(--neon-indigo); }
 .stage { position: relative; padding: 2.2rem 1.4rem 0 0; }
-.stage::before { content: ""; position: absolute; left: 0; top: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--paper); border: 2px solid var(--neon-blue-line); box-shadow: 0 0 12px rgba(111,140,255,.7); }
+.stage::before { content: ""; position: absolute; z-index: 1; left: 0; top: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--paper); border: 2px solid var(--neon-blue-line); box-shadow: 0 0 12px rgba(111,140,255,.7); }
 .stage.current::before { background: var(--neon-pink); border-color: var(--neon-pink); box-shadow: 0 0 0 5px rgba(255,63,210,.18), 0 0 22px rgba(255,63,210,.9); }
 .stage-when { font: 500 .95rem/1 var(--display); color: var(--muted-2); }
-.stage h3 { margin: .7rem 0 .4rem; font: 600 1.25rem/1.25 var(--display); color: var(--ink); }
+.stage h3 { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; margin: .7rem 0 .4rem; font: 600 1.25rem/1.25 var(--display); color: var(--ink); }
 .stage p { margin: 0; color: var(--muted); font-size: 1rem; max-width: 26ch; }
 .closing { padding: clamp(4rem, 8vw, 7rem) 0; }
 .closing-inner { position: relative; display: grid; justify-items: center; gap: 1.8rem; padding-top: clamp(3rem, 6vw, 5rem); text-align: center; }
@@ -426,16 +468,25 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 
 /* Control: verdicts and the rule line */
 .verdict-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.2rem; }
-.verdict-row { display: grid; gap: .55rem; padding: 1rem 1.2rem; border: 1.5px solid var(--line-strong); border-radius: 16px; background: linear-gradient(180deg, rgba(30,20,48,.7), rgba(12,9,22,.4)); color: var(--muted); font-size: 1.0625rem; }
+/* The five questions as a short numbered list */
+.questions { list-style: none; counter-reset: q; max-width: 920px; margin: 0; padding: 0; border-top: 1px solid var(--line-strong); }
+.questions li { counter-increment: q; display: grid; grid-template-columns: 2.6rem minmax(12rem, 15rem) 1fr; gap: .2rem 1rem; align-items: baseline; padding: .85rem 0; border-bottom: 1px solid var(--line-strong); }
+.questions li::before { content: counter(q, decimal-leading-zero); color: var(--neon-pink-text); font: 500 .95rem/1.4 var(--display); }
+.questions strong { color: var(--ink); font: 600 1.125rem/1.4 var(--display); }
+.questions span { color: var(--prose); font-size: 1.0625rem; }
+.verdict-row { display: grid; align-content: start; gap: .55rem; padding: 1.2rem 1.3rem; border-radius: 16px; color: var(--muted); font-size: 1.0625rem; }
 .verdict-row .verdict-pill { justify-self: start; }
+.verdict-when { color: var(--ink); font: 600 1.0625rem/1.35 var(--display); }
 .verdict-pill { display: inline-block; padding: .35rem .8rem; border-radius: 999px; font: 600 .85rem/1 var(--display); }
-.verdict-ok { border-color: rgba(111,220,174,.6); box-shadow: 0 0 22px -12px rgba(111,220,174,.8); }
-.verdict-hold { border-color: rgba(255,210,122,.6); box-shadow: 0 0 22px -12px rgba(255,210,122,.8); }
-.verdict-danger { border-color: rgba(255,138,168,.6); box-shadow: 0 0 22px -12px rgba(255,138,168,.8); }
+.verdict-ok { border-color: rgba(111,220,174,.45); }
+.verdict-hold { border-color: rgba(255,210,122,.45); }
+.verdict-danger { border-color: rgba(255,138,168,.45); }
 .verdict-ok .verdict-pill { color: var(--ok); background: var(--ok-bg); box-shadow: 0 0 18px -6px rgba(111,220,174,.7); }
 .verdict-hold .verdict-pill { color: var(--hold); background: var(--hold-bg); box-shadow: 0 0 18px -6px rgba(255,210,122,.7); }
 .verdict-danger .verdict-pill { color: var(--danger); background: var(--danger-bg); box-shadow: 0 0 18px -6px rgba(255,138,168,.7); }
-.rule-line { margin: 2.4rem 0 0; padding-left: 1rem; border-left: 2px solid var(--neon-pink); box-shadow: -6px 0 14px -10px var(--neon-pink); color: var(--ink); font: 500 1.125rem/1.5 var(--display); max-width: 60ch; }
+/* Highlighted sentence with a neon rule on the left (Control rule, home "Two sides" line) */
+.rule-line { margin: 2.4rem 0 0; }
+.rule-line, .sides-line { padding-left: 1rem; text-align: left; border-left: 2px solid var(--neon-pink); box-shadow: -6px 0 14px -10px var(--neon-pink); color: var(--ink); font: 500 1.125rem/1.5 var(--display); max-width: 60ch; }
 
 /* Running text instead of boxes (prose blocks and text columns) */
 .prose { display: grid; gap: 1.1rem; }
@@ -451,7 +502,7 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 
 /* Passport */
 .passport-hero { margin: 0; display: grid; gap: 1.1rem; }
-.verify-card { padding: 1.5rem 1.6rem; border: 1.5px solid var(--line-strong); border-radius: 22px; background: rgba(18,13,30,.92); box-shadow: 0 0 60px -20px rgba(111,220,174,.35), 0 24px 60px rgba(0,0,0,.45); }
+.verify-card { padding: 1.5rem 1.6rem; border: 1px solid var(--card-line); border-radius: 22px; background: rgba(18,13,30,.92); box-shadow: 0 0 60px -20px rgba(111,220,174,.35), 0 24px 60px rgba(0,0,0,.45); }
 .verify-rows { display: grid; gap: .5rem; margin: 1.2rem 0; }
 .verify-rows div { display: flex; justify-content: space-between; gap: 1rem; font-size: .98rem; }
 .verify-rows dt { color: var(--muted-2); }
@@ -463,10 +514,11 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .verify-card code { display: block; padding-top: .8rem; border-top: 1px solid var(--line); font: .78rem/1.3 var(--mono); color: var(--ok); }
 .proof-flow { display: grid; gap: .4rem; color: var(--muted); font-size: .92rem; }
 .proof-steps { display: flex; flex-wrap: wrap; gap: .35rem .5rem; }
-.proof-steps i { margin-right: .5rem; font-style: normal; color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink); }
+.proof-step { white-space: nowrap; }
+.proof-steps i { margin-left: .5rem; font-style: normal; color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink); }
 .proof-flow strong { color: var(--ink); font: 500 1rem/1.4 var(--display); }
 .layer-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
-.layer-list li { display: grid; grid-template-columns: 3rem 1.4fr 1fr; gap: 1.2rem; align-items: center; padding: 1.2rem 1.4rem; border: 1.5px solid #4a3f60; border-radius: 18px; background: linear-gradient(90deg, rgba(144,14,117,.18), rgba(144,14,117,.02)); }
+.layer-list li { display: grid; grid-template-columns: 3rem 1.4fr 1fr; gap: 1.2rem; align-items: center; padding: 1.2rem 1.4rem; border-radius: 18px; }
 .layer-list li.layer-next { border-style: dashed; background: transparent; }
 .layer-num { color: var(--neon-pink-text); font: 600 1.25rem/1 var(--display); text-shadow: var(--neon-glow-pink); }
 .layer-list strong { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; color: var(--ink); font: 600 1.1rem/1.3 var(--display); }
@@ -487,7 +539,8 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
 .matrix tbody th { color: var(--ink); font: 600 1rem/1.35 var(--display); }
 .matrix tbody tr:hover { background: linear-gradient(90deg, rgba(255,63,210,.08), rgba(79,123,255,.06)); }
 .matrix td { color: var(--muted); }
-.matrix td:nth-child(2) { color: var(--neon-blue); text-shadow: var(--neon-glow-blue); }
+/* Norm names are not links, so they take the text colour */
+.matrix td:nth-child(2) { color: var(--ink); }
 
 /* Closing line at the end of inner pages */
 .page-closing { padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(4rem, 8vw, 6rem); }
@@ -507,13 +560,14 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
   .header-cta { padding: .55rem .9rem; font-size: .84rem; }
   .solves { grid-template-columns: repeat(2, 1fr); }
   .solve, .solve:first-child { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .questions li { grid-template-columns: 2.6rem minmax(10rem, 13rem) 1fr; }
 }
 
 @media (max-width: 980px) {
   .desktop-nav, .header-cta { display: none; }
   .site-header { grid-template-columns: 1fr auto; padding-inline: 20px; }
   .menu-button { display: block; }
-  .hero-grid, .contact-grid, .split-hero-grid, .faq-grid, .code-pair, .prose-grid, .prose-cols, .text-cols, .prose-split, .verdict-strip { grid-template-columns: 1fr; }
+  .hero-grid, .contact-grid, .split-hero-grid, .faq-grid, .code-pair, .prose-grid, .prose-cols, .text-cols, .prose-split, .verdict-strip, .case-split { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .architecture { grid-template-columns: 1fr; gap: 1.6rem; }
   .architecture-node { min-height: 92px; }
@@ -521,11 +575,12 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .lane { font-size: .8rem; padding: .5rem .6rem; }
-  .passport-card { position: relative; right: auto; bottom: auto; width: auto; margin-top: 1rem; }
+  .passport-card { position: relative; right: auto; top: auto; width: auto; margin-top: 1rem; }
+  .hero:has(.passport-card) { padding-bottom: clamp(2.5rem, 4vw, 3.5rem); }
   .sides, .norms { grid-template-columns: 1fr; gap: 1.6rem; }
   .sides-link { display: none; }
   .stages { grid-template-columns: 1fr; row-gap: 2rem; }
-  .stages::before { left: 6px; right: auto; top: 4px; bottom: 0; width: 3px; height: auto; background: linear-gradient(180deg, var(--neon-pink), var(--neon-violet) 45%, var(--neon-indigo) 80%, rgba(79,123,255,.25)); }
+  .stage:not(:last-child)::after { left: 6px; right: auto; top: 4px; bottom: -2rem; width: 3px; height: auto; background: linear-gradient(180deg, var(--seg-from), var(--seg-to)); }
   .stage { padding: 0 0 0 2.4rem; }
   .stage::before { top: 2px; }
   .layer-list li { grid-template-columns: 2.5rem 1fr; }
@@ -557,23 +612,31 @@ h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.3; }
   .receipt { flex-direction: column; align-items: flex-start; gap: .3rem; }
   .grid-3, .grid-2, .now-next, .glossary, .solves { grid-template-columns: 1fr; }
   .faq details p { padding-right: 0; }
+  /* The sequence becomes a compact vertical timeline (same look as .timeline); the "X → Y" route stays for screen readers only */
   .sequence { padding: 0; background: none; }
   .sequence-lanes { display: none; }
-  .sequence-steps { grid-template-columns: 1fr; background: none; padding: 0; row-gap: .5rem; }
-  .seq, .seq.self { grid-column: 1; margin: 0; padding: .8rem .9rem; border: 0; border-radius: 14px; background: var(--mist); text-align: left; }
-  .seq.self { border: 1px dashed var(--accent); background: var(--surface); }
-  .seq::before, .seq::after { display: none; }
-  .seq { box-shadow: inset 3px 0 0 var(--neon-pink), -4px 0 14px -6px rgba(255,63,210,.8); }
-  .seq.back { box-shadow: inset 3px 0 0 var(--neon-blue-line), -4px 0 14px -6px rgba(111,140,255,.8); }
-  .seq.self { box-shadow: none; }
-  .seq-route { position: static; display: block; width: auto; height: auto; clip-path: none; margin: .1rem 0 .25rem; color: var(--accent); font: 500 .875rem/1.4 var(--display); letter-spacing: -.005em; text-transform: none; white-space: normal; }
-  .seq-label { display: block; }
+  .sequence-steps { grid-template-columns: 1fr; background: none; padding: 0; row-gap: 0; }
+  .seq, .seq.self { grid-column: 1; margin: 0; padding: .45rem 0 .45rem 1.9rem; border: 0; border-radius: 0; background: none; box-shadow: none; text-align: left; font-size: 1rem; line-height: 1.5; }
+  .seq::before, .seq.self::before { display: block; left: 5px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; border-radius: 0; background: var(--line-strong); box-shadow: none; }
+  .seq:first-child::before { top: 1.1rem; }
+  .seq:last-child::before { bottom: auto; height: 1.1rem; }
+  .seq::after, .seq.self::after, .seq.back::after { display: block; left: 0; right: auto; top: .82rem; bottom: auto; width: 12px; height: 12px; border: 2px solid var(--neon-pink); border-radius: 50%; background: var(--paper); filter: none; box-shadow: 0 0 8px rgba(255,63,210,.6); }
+  .seq.back::after { border-color: var(--neon-blue-line); box-shadow: 0 0 8px rgba(111,140,255,.6); }
+  .seq.self::after { border-style: dashed; }
   .card { min-height: auto; padding: 1.25rem; }
   .card-number, .principle-icon { margin-bottom: .9rem; }
   .compact-card { padding: 1.1rem 1rem; }
-  .verdict-strip { display: flex; flex-wrap: wrap; gap: .5rem; }
-  .verdict-strip .verdict-row { padding: 0; border: 0; background: none; box-shadow: none; }
-  .verdict-strip .verdict-row > span:last-child { display: none; }
+  .verdict-strip { gap: .7rem; }
+  .verdict-row { padding: 1rem 1.1rem; }
+  .questions li { grid-template-columns: 2.2rem 1fr; padding: .7rem 0; }
+  .questions span { grid-column: 2; }
+  .solve h3 { min-height: 0; margin-top: .6rem; }
+  .solve, .solve:first-child { padding: 1.1rem 0 1.2rem; }
+  /* Integration nodes as compact rows: name on the left, role on the right */
+  .architecture { gap: 1rem; }
+  .architecture-node { min-height: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .85rem 1.1rem; text-align: left; border-radius: 14px; }
+  .architecture-node span { margin-top: 0; text-align: right; }
+  .architecture-node:not(:last-child)::after { left: 1.6rem; right: auto; bottom: -1rem; height: 1rem; }
   .footer-inner { grid-template-columns: 1fr; padding-top: 3rem; }
   .footer-bottom { flex-direction: column; }
 }

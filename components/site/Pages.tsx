@@ -102,7 +102,6 @@ function ProductVisual() {
               <i />
             </span>
             <span className="console-title">{v.window}</span>
-            <span className="status">{t.common.development}</span>
           </div>
           <div className="console-body">
             <span className="operation-label">{v.operation}</span>
@@ -223,7 +222,7 @@ export function HomePage() {
           </div>
           <div className="sides reveal">
             {c.sides.map(([name, where, text], i) => (
-              <article className={`side${i === 0 ? " side-control" : " side-passport"}`} key={name}>
+              <article className={`card side${i === 0 ? " side-control" : " side-passport"}`} key={name}>
                 <span className="side-where">{where}</span>
                 <h3>{name}</h3>
                 <p>{text}</p>
@@ -251,15 +250,36 @@ export function HomePage() {
       </section>
 
       <section className="section" id="passport">
-        <div className="shell">
-          <div className="section-heading reveal">
-            <div>
-              <span className="kicker">{c.caseKicker}</span>
-              <h2>{c.caseTitle}</h2>
-            </div>
+        <div className="shell case-split reveal">
+          <div>
+            <span className="kicker">{c.caseKicker}</span>
+            <h2>{c.caseTitle}</h2>
             <p className="section-copy">{c.caseCopy}</p>
+            <ol className="timeline case-steps">
+              {c.caseSteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
           </div>
-          <Sequence lanes={c.caseLanes} messages={c.case} />
+          <figure className="case-view">
+            <figcaption>
+              <span>{c.caseCard.view}</span>
+              <span className="example-tag">{c.caseCard.label}</span>
+            </figcaption>
+            <div className="card passport-card passport-card-static">
+              <div className="passport-head">
+                <span>{c.caseCard.title}</span>
+                <span className="passport-state">{c.caseCard.state}</span>
+              </div>
+              <ul>
+                {c.caseCard.conditions.map((row) => (
+                  <li key={row}>{row}</li>
+                ))}
+              </ul>
+              <p className="passport-hidden">{c.caseCard.hidden}</p>
+              <code>{c.caseCard.proof}</code>
+            </div>
+          </figure>
         </div>
       </section>
 
@@ -274,7 +294,10 @@ export function HomePage() {
           </div>
           <div className="architecture reveal">
             {c.nodes.map(([title, role], i) => (
-              <div className={`architecture-node${i === 1 || i === 4 ? " gateway" : ""}`} key={title}>
+              <div
+                className={`card architecture-node${i === 1 ? " node-control" : i === 4 ? " node-passport" : ""}`}
+                key={title}
+              >
                 <strong>{title}</strong>
                 <span>{role}</span>
               </div>
@@ -319,7 +342,10 @@ export function HomePage() {
             {c.roadmap.map(([when, title, text], i) => (
               <li className={`stage${i === 0 ? " current" : ""}`} key={title}>
                 <span className="stage-when">{when}</span>
-                <h3>{title}</h3>
+                <h3>
+                  {title}
+                  {i === 0 && <span className="status">{c.roadmapNow}</span>}
+                </h3>
                 <p>{text}</p>
               </li>
             ))}
@@ -469,17 +495,20 @@ export function GatewayPage() {
       </SplitHero>
       <section className="section">
         <div className="shell">
-          <Heading kicker={c.decideKicker} title={c.decideTitle} />
-          <div className="prose-cols reveal">
-            {c.decideCopy.map((para) => (
-              <p key={para}>{para}</p>
+          <Heading kicker={c.decideKicker} title={c.decideTitle} copy={c.decideIntro} />
+          <ol className="questions reveal">
+            {c.questions.map(([q, check]) => (
+              <li key={q}>
+                <strong>{q}</strong> <span>{check}</span>
+              </li>
             ))}
-          </div>
+          </ol>
           <div className="verdict-strip reveal">
-            {c.verdicts.map(([title, when, kind]) => (
-              <div className={`verdict-row verdict-${kind}`} key={title}>
+            {c.verdicts.map(([title, when, result, kind]) => (
+              <div className={`card verdict-row verdict-${kind}`} key={title}>
                 <span className="verdict-pill">{title}</span>
-                <span>{when}</span>
+                <strong className="verdict-when">{when}</strong>
+                <span>{result}</span>
               </div>
             ))}
           </div>
@@ -563,9 +592,10 @@ export function PassportPage() {
           <figcaption className="proof-flow">
             <span className="proof-steps">
               {c.flow.map((f, i) => (
-                <span key={f}>
-                  {i > 0 && <i aria-hidden="true">→</i>}
+                // The arrow stays on the same line as the step before it, so no line starts with an arrow
+                <span key={f} className="proof-step">
                   {f}
+                  {i < c.flow.length - 1 && <i aria-hidden="true">→</i>}
                 </span>
               ))}
             </span>
@@ -578,7 +608,7 @@ export function PassportPage() {
           <Heading kicker={c.layersKicker} title={c.layersTitle} />
           <ol className="layer-list reveal">
             {c.layers.map(([n, title, text, source, state]) => (
-              <li key={n} className={`layer-${state}`}>
+              <li key={n} className={`card layer-${state}`}>
                 <span className="layer-num">{n}</span>
                 <div>
                   <strong>
@@ -627,7 +657,7 @@ export function ApplicationsPage() {
   return (
     <div className="page">
       <Subhero eyebrow={c.eyebrow} title={c.title} lead={c.lead} />
-      <nav className="solution-tabs shell" aria-label={c.eyebrow}>
+      <nav className="solution-tabs shell" aria-label={c.tabsLabel}>
         {c.items.map((item) => (
           <a key={item.id} href={`#${item.id}`}>
             {item.tag}

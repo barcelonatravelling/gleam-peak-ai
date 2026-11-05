@@ -53,10 +53,16 @@ const organization = {
   email: "hello@gleampeak.ai",
 };
 
+// Scroll reveal only hides content once this runs (no JS: everything visible). If the reveal observer in
+// Effects has not started 1.5 s later (a script failed), `reveal-all` shows every block.
+const REVEAL_SCRIPT = `(function(){var d=document.documentElement;d.classList.add("js");setTimeout(function(){if(!d.classList.contains("reveal-ready"))d.classList.add("reveal-all")},1500)})();`;
+
 export default function SiteShell({ lang, children }: { lang: Lang; children: React.ReactNode }) {
   return (
-    <html lang={lang}>
+    // The inline script adds classes to <html> before React hydrates, hence suppressHydrationWarning.
+    <html lang={lang} suppressHydrationWarning>
       <body className={`${instrument.variable} ${figtree.variable} ${jetbrains.variable}`}>
+        <script dangerouslySetInnerHTML={{ __html: REVEAL_SCRIPT }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
