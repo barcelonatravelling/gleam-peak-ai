@@ -104,6 +104,10 @@ const es = {
     roadmapNote: "Plan sujeto a equipo y financiación.",
     roadmapNext: "Próximo hito: versión demostrable, prevista para marzo de 2027, con Control y sus recibos firmados, un verificador y un Passport v0 con una sola condición demostrada con zero knowledge.",
     roadmapNow: "En curso",
+    // Avances: se muestra solo cuando hay al menos un hecho real. Formato: [fecha, avance en una frase].
+    progressTitle: "Avances",
+    progressCopy: "Lo que ya está hecho, con fecha. Lo actualizamos cuando hay algo nuevo.",
+    progress: [] as Pair[],
     roadmap: [
       ["Nov. 2026 – mar. 2027", "Demostrable", "Control con recibos firmados, un verificador y un Passport v0 con una condición demostrada con zero knowledge."],
       ["Abr. – sep. 2027", "Piloto", "Con clientes reales."],
@@ -145,8 +149,13 @@ const es = {
         ["Con quién hablaremos", "En el integrador, con la persona responsable de producto o técnica. En su cliente, con la persona responsable de seguridad y con quienes aprueban las operaciones."],
         ["Qué trabajo supondrá para tu equipo", "Conectar una o dos operaciones a Control, definir las reglas y quién firma, adaptar el sistema protegido para que solo acepte operaciones autorizadas por Control (o dejar que Control guarde las credenciales) y participar en la medición. El esfuerzo lo estimaremos juntos en la primera llamada."],
         ["Qué se medirá", "Operaciones retenidas y bloqueadas, tiempo de aprobación y verificación de los recibos por un tercero."],
+        ["Precios", "Los definiremos con los primeros clientes del piloto."],
       ] as Pair[],
       note: "Fechas según la hoja de ruta, sujetas a equipo y financiación. El piloto será con pocas organizaciones: si escribes ahora, tu caso podrá orientar el diseño.",
+    },
+    who: {
+      title: "Quién está detrás",
+      text: "Gleam Peak AI es hoy un proyecto en fase de prototipo, impulsado por su fundadora. La sociedad se está constituyendo. Hasta entonces no firmamos contratos ni tratamos datos de clientes. Si quieres saber quién está detrás antes de una reunión, escríbenos y te lo contamos.",
     },
     otherTitle: "Otras formas de colaborar",
     options: ["Codiseño de un caso seguro con una administración pública", "Proyecto de investigación o consorcio europeo", "Colaboración tecnológica, académica o criptográfica", "Conversación con inversores especializados en infraestructura de IA"],
@@ -273,6 +282,9 @@ const en: Content = {
     roadmapNote: "Plan subject to team and funding.",
     roadmapNext: "Next milestone: a demonstrable version, expected in March 2027, with Control and its signed receipts, a verifier and a Passport v0 with a single condition proved with zero knowledge.",
     roadmapNow: "In progress",
+    progressTitle: "Progress",
+    progressCopy: "What is already done, with dates. We update it when there is something new.",
+    progress: [],
     roadmap: [
       ["Nov 2026 – Mar 2027", "Demonstrable", "Control with signed receipts, a verifier and a Passport v0 with one condition proved with zero knowledge."],
       ["Apr – Sep 2027", "Pilot", "With real clients."],
@@ -314,8 +326,13 @@ const en: Content = {
         ["Who we will talk to", "At the integrator, the product or technical lead. At their client, the security lead and the people who approve the operations."],
         ["What it will involve for your team", "Connecting one or two operations to Control, defining the rules and who signs, adapting the protected system so that it only accepts operations authorised by Control (or letting Control hold the credentials) and taking part in the measurement. We will estimate the effort together on the first call."],
         ["What will be measured", "Operations held and blocked, approval times and third-party verification of the receipts."],
+        ["Pricing", "We will set it with the first pilot clients."],
       ],
       note: "Dates follow the roadmap and depend on team and funding. The pilot will involve only a few organisations: if you write now, your use case can help shape the design.",
+    },
+    who: {
+      title: "Who is behind it",
+      text: "Gleam Peak AI is currently a prototype-stage project led by its founder. The company is being incorporated. Until then, we do not sign contracts or process client data. If you would like to know who is behind it before a meeting, write to us and we will tell you.",
     },
     otherTitle: "Other ways to work with us",
     options: ["Co-designing a safe use case with a public authority", "A research project or European consortium", "Technology, academic or cryptographic collaboration", "A conversation with investors focused on AI infrastructure"],

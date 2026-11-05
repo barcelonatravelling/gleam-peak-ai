@@ -66,68 +66,74 @@ export function ContactPage() {
             </div>
           </div>
 
-          <form className="form-card" onSubmit={handleSubmit}>
-            <input type="hidden" name="access_key" value="12e58551-aa3f-45d1-8cac-508dbd82cc17" />
-            <input type="hidden" name="subject" value="New lead from Gleam Peak AI" />
-            <input type="hidden" name="from_name" value="Gleam Peak AI website" />
-            <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+          <div className="contact-side">
+            <form className="form-card" onSubmit={handleSubmit}>
+              <input type="hidden" name="access_key" value="12e58551-aa3f-45d1-8cac-508dbd82cc17" />
+              <input type="hidden" name="subject" value="New lead from Gleam Peak AI" />
+              <input type="hidden" name="from_name" value="Gleam Peak AI website" />
+              <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
-            <div className="grid-2">
-              <div className="field">
-                <label htmlFor="name">{f.name}</label>
-                <input id="name" name="name" autoComplete="name" required />
+              <div className="grid-2">
+                <div className="field">
+                  <label htmlFor="name">{f.name}</label>
+                  <input id="name" name="name" autoComplete="name" required />
+                </div>
+                <div className="field">
+                  <label htmlFor="org">{f.org}</label>
+                  <input id="org" name="organisation" autoComplete="organization" required />
+                </div>
               </div>
               <div className="field">
-                <label htmlFor="org">{f.org}</label>
-                <input id="org" name="organisation" autoComplete="organization" required />
+                <label htmlFor="email">{f.email}</label>
+                <input id="email" type="email" name="email" autoComplete="email" required />
               </div>
-            </div>
-            <div className="field">
-              <label htmlFor="email">{f.email}</label>
-              <input id="email" type="email" name="email" autoComplete="email" required />
-            </div>
-            <div className="field">
-              <label htmlFor="interest">{f.interest}</label>
-              <select id="interest" name="interest" required defaultValue="">
-                <option value="" disabled>
-                  {f.choose}
-                </option>
-                {f.interests.map((option) => (
-                  <option key={option}>{option}</option>
-                ))}
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="message">{f.message}</label>
-              <textarea id="message" name="message" required aria-describedby="message-note" />
-              <p className="form-note" id="message-note">
-                {f.confidential}
+              <div className="field">
+                <label htmlFor="interest">{f.interest}</label>
+                <select id="interest" name="interest" required defaultValue="">
+                  <option value="" disabled>
+                    {f.choose}
+                  </option>
+                  {f.interests.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="field">
+                <label htmlFor="message">{f.message}</label>
+                <textarea id="message" name="message" required aria-describedby="message-note" />
+                <p className="form-note" id="message-note">
+                  {f.confidential}
+                </p>
+              </div>
+              <label className="consent">
+                <input type="checkbox" name="privacy_consent" value="yes" required />
+                <span>
+                  {f.consentBefore}
+                  <Link href={href("privacy")} className="text-link">
+                    {f.consentLink}
+                  </Link>
+                  {f.consentAfter}
+                </span>
+              </label>
+              <button className="button button-primary button-arrow" type="submit" disabled={status === "sending"}>
+                {status === "sending" ? f.sending : f.send}
+              </button>
+              <p className="form-note">{f.next}</p>
+              <p className="form-note">
+                {f.direct} <a className="text-link" href="mailto:hello@gleampeak.ai">hello@gleampeak.ai</a>
               </p>
-            </div>
-            <label className="consent">
-              <input type="checkbox" name="privacy_consent" value="yes" required />
-              <span>
-                {f.consentBefore}
-                <Link href={href("privacy")} className="text-link">
-                  {f.consentLink}
-                </Link>
-                {f.consentAfter}
-              </span>
-            </label>
-            <button className="button button-primary button-arrow" type="submit" disabled={status === "sending"}>
-              {status === "sending" ? f.sending : f.send}
-            </button>
-            <p className="form-note">{f.next}</p>
-            <p className="form-note">
-              {f.direct} <a className="text-link" href="mailto:hello@gleampeak.ai">hello@gleampeak.ai</a>
-            </p>
-            <p className={`notice${status === "success" ? " show" : ""}`} role="status">
-              {status === "success" ? f.success : ""}
-            </p>
-            <p className={`notice notice-error${status === "error" ? " show" : ""}`} role="alert">
-              {status === "error" ? f.error : ""}
-            </p>
-          </form>
+              <p className={`notice${status === "success" ? " show" : ""}`} role="status">
+                {status === "success" ? f.success : ""}
+              </p>
+              <p className={`notice notice-error${status === "error" ? " show" : ""}`} role="alert">
+                {status === "error" ? f.error : ""}
+              </p>
+            </form>
+            <aside className="card who-card" aria-labelledby="who-title">
+              <h2 id="who-title">{c.who.title}</h2>
+              <p>{c.who.text}</p>
+            </aside>
+          </div>
         </div>
       </section>
     </div>

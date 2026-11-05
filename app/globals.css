@@ -315,6 +315,14 @@ a.card:hover::before, .card-link:hover::before { opacity: 1; }
 .contact-option { display: flex; gap: .8rem; color: var(--ink); font-size: 1.0625rem; }
 .contact-option::before { content: "✓"; flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: .15rem; border-radius: 50%; background: linear-gradient(180deg, rgba(144,14,117,.5), rgba(144,14,117,.12)); color: var(--neon-pink-text); font-size: .72rem; font-weight: 700; box-shadow: 0 0 10px -2px rgba(255,63,210,.6); }
 .form-card { padding: clamp(1.5rem, 4vw, 2.4rem); border-radius: 28px; }
+.contact-side { display: grid; gap: 1.25rem; }
+.who-card { padding: clamp(1.25rem, 3vw, 1.8rem); border-radius: 22px; }
+.who-card h2 { font-size: 1.05rem; margin: 0 0 .5rem; }
+.who-card p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+.progress-card { padding: clamp(1.25rem, 3vw, 1.8rem); border-radius: 22px; margin-bottom: 1.5rem; }
+.progress-card h3 { margin: 0 0 .35rem; }
+.progress-card > p { margin: 0 0 .9rem; color: var(--muted); }
+.progress-list { margin: 0; padding-left: 1.1rem; display: grid; gap: .45rem; }
 .field { display: grid; gap: .5rem; margin-bottom: 1rem; }
 .field label { color: var(--ink); font-size: 1rem; font-weight: 600; }
 .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--field-line); border-radius: 12px; background: var(--surface); color: var(--ink); padding: .85rem 1rem; outline: none; transition: border-color .2s, box-shadow .2s; }

@@ -364,6 +364,19 @@ export function HomePage() {
               {c.roadmapNote} <strong>{c.roadmapNext}</strong>
             </p>
           </div>
+          {c.progress.length > 0 && (
+            <div className="card progress-card reveal">
+              <h3>{c.progressTitle}</h3>
+              <p>{c.progressCopy}</p>
+              <ul className="progress-list">
+                {c.progress.map(([when, text]) => (
+                  <li key={when + text}>
+                    <span className="stage-when">{when}</span> {text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <ol className="stages reveal">
             {c.roadmap.map(([when, title, text], i) => (
               <li className={`stage${i === 0 ? " current" : ""}`} key={title}>
