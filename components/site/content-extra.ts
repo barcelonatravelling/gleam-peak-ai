@@ -47,7 +47,7 @@ export const security: Record<Lang, SecurityContent> = {
     threatsKicker: "Modelo de amenazas",
     threatsTitle: "Qué riesgos abordará",
     threats: [
-      ["Instrucciones ocultas", "Un documento o una web intenta que el agente haga algo que nadie pidió. Control comparará la operación resultante con el mandato y la política, no con la conversación. La finalidad vendrá del mandato o de la tarea asignada, no de lo que diga el agente."],
+      ["Instrucciones ocultas", "Un documento o una web intenta que el agente haga algo que nadie pidió. Gleam Peak Control comparará la operación resultante con el mandato y la política, no con la conversación. La finalidad vendrá del mandato o de la tarea asignada, no de lo que diga el agente."],
       ["Escalada de mandato", "El agente intenta actuar más allá de lo autorizado: otro destinatario, más importe u otros datos. Lo que quede fuera de límites se bloqueará o se retendrá."],
       ["Aprobaciones manipuladas", "Una aprobación genérica se usa para cubrir otra operación. Cada aprobación quedará vinculada a la operación exacta y a la versión de la política."],
       ["Autorizaciones reutilizadas", "Un permiso antiguo se reaprovecha. Los mandatos tendrán vigencia y podrán revocarse; si algo cambia, se pedirá de nuevo."],
@@ -62,7 +62,7 @@ export const security: Record<Lang, SecurityContent> = {
       "Evaluará mandato, finalidad, límites y riesgo con un motor básico de políticas",
       "Retendrá operaciones hasta que decida una persona competente",
       "Emitirá un recibo firmado por cada decisión",
-      "Emitirá un Passport v0 con una condición demostrada con zero knowledge, que un tercero podrá verificar",
+      "Emitirá un Gleam Peak Passport v0 con una condición demostrada con zero knowledge, que un tercero podrá verificar",
     ],
     doesNotTag: "No hará",
     doesNot: [
@@ -103,7 +103,7 @@ export const security: Record<Lang, SecurityContent> = {
     threatsKicker: "Threat model",
     threatsTitle: "Which risks it will address",
     threats: [
-      ["Hidden instructions", "A document or web page tries to make the agent do something nobody asked for. Control will assess the resulting operation against the mandate and the policy, not against the conversation. The purpose will come from the mandate or the assigned task, not from what the agent says."],
+      ["Hidden instructions", "A document or web page tries to make the agent do something nobody asked for. Gleam Peak Control will assess the resulting operation against the mandate and the policy, not against the conversation. The purpose will come from the mandate or the assigned task, not from what the agent says."],
       ["Mandate escalation", "The agent tries to act beyond what was authorised: another recipient, a larger amount or other data. Anything out of bounds will be blocked or held."],
       ["Manipulated approvals", "A generic approval is used to cover a different operation. Each approval will be bound to the exact operation and policy version."],
       ["Reused authorisations", "An old permission is reused. Mandates will expire and can be revoked; if anything changes, approval will be requested again."],
@@ -118,7 +118,7 @@ export const security: Record<Lang, SecurityContent> = {
       "It will evaluate mandate, purpose, limits and risk with a basic policy engine",
       "It will hold operations until a competent person decides",
       "It will issue a signed receipt for every decision",
-      "It will issue a Passport v0 with one condition proved with zero knowledge, which a third party can verify",
+      "It will issue a Gleam Peak Passport v0 with one condition proved with zero knowledge, which a third party can verify",
     ],
     doesNotTag: "Will not do",
     doesNot: [
@@ -162,8 +162,8 @@ export const resources: Record<Lang, ResourcesContent> = {
     glossaryKicker: "Conceptos",
     glossaryTitle: "Glosario",
     glossary: [
-      ["Control", "La parte de Gleam Peak AI que trabajará dentro de tu organización: una pasarela de autorización que comprobará cada operación conectada antes de que se ejecute."],
-      ["Passport", "La parte que mira hacia fuera: una credencial verificable de controles que ayudará a demostrar que cumples sus condiciones, sin mostrar tus datos."],
+      ["Gleam Peak Control", "La parte de Gleam Peak AI que trabajará dentro de tu organización: una pasarela de autorización que comprobará cada operación conectada antes de que se ejecute."],
+      ["Gleam Peak Passport", "La parte que mira hacia fuera: una credencial verificable de controles que ayudará a demostrar que cumples sus condiciones, sin mostrar tus datos."],
       ["Zero knowledge", "Un tipo de prueba criptográfica que permite comprobar que algo se cumple sin ver los datos que hay detrás."],
       ["Mandato", "La autorización con la que actúa un agente: en nombre de quién, para qué, con qué límites y hasta cuándo."],
       ["Finalidad", "El propósito de una operación, que vendrá del mandato o de la tarea asignada, no de lo que diga el agente. Una misma acción puede estar permitida para una finalidad y no para otra."],
@@ -193,8 +193,8 @@ export const resources: Record<Lang, ResourcesContent> = {
     glossaryKicker: "Concepts",
     glossaryTitle: "Glossary",
     glossary: [
-      ["Control", "The part of Gleam Peak AI that will work inside your organisation: an authorisation gateway that will check every connected operation before it runs."],
-      ["Passport", "The part that faces outwards: a verifiable controls credential that will help you show you meet its conditions, without showing your data."],
+      ["Gleam Peak Control", "The part of Gleam Peak AI that will work inside your organisation: an authorisation gateway that will check every connected operation before it runs."],
+      ["Gleam Peak Passport", "The part that faces outwards: a verifiable controls credential that will help you show you meet its conditions, without showing your data."],
       ["Zero knowledge", "A kind of cryptographic proof that lets someone check that something holds without seeing the data behind it."],
       ["Mandate", "The authorisation under which an agent acts: on whose behalf, for what, within which limits and until when."],
       ["Purpose", "The aim of an operation, which will come from the mandate or the assigned task, not from what the agent says. The same action may be allowed for one purpose and not for another."],

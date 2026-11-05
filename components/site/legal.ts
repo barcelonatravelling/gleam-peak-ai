@@ -143,7 +143,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         title: "4. Carácter informativo",
         body: [
-          "Gleam Peak AI y sus dos partes, Control y Passport, son un prototipo en desarrollo; todavía no se comercializan. La información del sitio tiene carácter general, no constituye una oferta comercial y no implica que su uso baste para cumplir ninguna normativa.",
+          "Gleam Peak AI y sus dos partes, Gleam Peak Control y Gleam Peak Passport, son un prototipo en desarrollo; todavía no se comercializan. La información del sitio tiene carácter general, no constituye una oferta comercial y no implica que su uso baste para cumplir ninguna normativa.",
         ],
       },
       {
@@ -194,7 +194,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         title: "4. Informational nature",
         body: [
-          "Gleam Peak AI and its two parts, Control and Passport, are a prototype in development; they are not yet on sale. The information on this website is general, is not a commercial offer and does not imply that using them is enough to comply with any regulation.",
+          "Gleam Peak AI and its two parts, Gleam Peak Control and Gleam Peak Passport, are a prototype in development; they are not yet on sale. The information on this website is general, is not a commercial offer and does not imply that using them is enough to comply with any regulation.",
         ],
       },
       {

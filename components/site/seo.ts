@@ -21,14 +21,14 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
         "Gleam Peak AI aplicará las reglas y autorizaciones que define tu organización a cada agente de IA, dejará un registro firmado de cada operación y lo convertirá en una credencial verificable con pruebas zero knowledge. Prototipo en desarrollo.",
     },
     gateway: {
-      title: "Control: pasarela de autorización para agentes de IA",
+      title: "Gleam Peak Control: pasarela de autorización para agentes de IA",
       description:
-        "Control, de Gleam Peak AI, es una pasarela de autorización para agentes de IA (prototipo en desarrollo): comprobará identidad, mandato, finalidad, datos y riesgo antes de que un agente actúe; permitirá, bloqueará o pedirá la firma de una persona, y dejará un recibo firmado.",
+        "Gleam Peak Control es una pasarela de autorización para agentes de IA (prototipo en desarrollo): comprobará identidad, mandato, finalidad, datos y riesgo antes de que un agente actúe; permitirá, bloqueará o pedirá la firma de una persona, y dejará un recibo firmado.",
     },
     passport: {
-      title: "Passport: credencial verificable de controles con zero knowledge",
+      title: "Gleam Peak Passport: credencial verificable de controles con zero knowledge",
       description:
-        "Passport, de Gleam Peak AI, es una credencial verificable de controles (prototipo en desarrollo): con pruebas zero knowledge ayudará a demostrar a bancos, clientes y auditores que usas la IA con control, sin mostrar tus datos.",
+        "Gleam Peak Passport es una credencial verificable de controles (prototipo en desarrollo): con pruebas zero knowledge ayudará a demostrar a bancos, clientes y auditores que usas la IA con control, sin mostrar tus datos.",
     },
     applications: {
       title: "Soluciones",
@@ -48,12 +48,12 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     resources: {
       title: "Recursos",
       description:
-        "Glosario y preguntas frecuentes sobre Gleam Peak AI: Control, Passport, zero knowledge, mandato, finalidad, aprobación vinculada y recibo firmado.",
+        "Glosario y preguntas frecuentes sobre Gleam Peak AI: Gleam Peak Control, Gleam Peak Passport, zero knowledge, mandato, finalidad, aprobación vinculada y recibo firmado.",
     },
     talk: {
       title: "Hablemos",
       description:
-        "Explora un piloto de Control y Passport en un caso real: cómo será, quién puede participar y qué se medirá. También colaboración institucional, investigación e inversión. Prototipo en desarrollo.",
+        "Explora un piloto de Gleam Peak Control y Gleam Peak Passport en un caso real: cómo será, quién puede participar y qué se medirá. También colaboración institucional, investigación e inversión. Prototipo en desarrollo.",
     },
     privacy: {
       title: "Política de privacidad",
@@ -68,14 +68,14 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
         "Gleam Peak AI will apply the rules and authorisations your organisation sets for each AI agent, keep a signed record of every operation and turn it into a verifiable credential with zero knowledge proofs. Prototype in development.",
     },
     gateway: {
-      title: "Control: an authorisation gateway for AI agents",
+      title: "Gleam Peak Control: an authorisation gateway for AI agents",
       description:
-        "Control, by Gleam Peak AI, is an authorisation gateway for AI agents (prototype in development): it will check identity, mandate, purpose, data and risk before an agent acts; allow the action, block it or ask a person to sign it off, and leave a signed receipt.",
+        "Gleam Peak Control is an authorisation gateway for AI agents (prototype in development): it will check identity, mandate, purpose, data and risk before an agent acts; allow the action, block it or ask a person to sign it off, and leave a signed receipt.",
     },
     passport: {
-      title: "Passport: a verifiable controls credential with zero knowledge",
+      title: "Gleam Peak Passport: a verifiable controls credential with zero knowledge",
       description:
-        "Passport, by Gleam Peak AI, is a verifiable controls credential (prototype in development): with zero knowledge proofs it will help you show banks, clients and auditors that your AI is under control, without showing your data.",
+        "Gleam Peak Passport is a verifiable controls credential (prototype in development): with zero knowledge proofs it will help you show banks, clients and auditors that your AI is under control, without showing your data.",
     },
     applications: {
       title: "Solutions",
@@ -95,12 +95,12 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     resources: {
       title: "Resources",
       description:
-        "Glossary and FAQ on Gleam Peak AI: Control, Passport, zero knowledge, mandate, purpose, bound approval and signed receipt.",
+        "Glossary and FAQ on Gleam Peak AI: Gleam Peak Control, Gleam Peak Passport, zero knowledge, mandate, purpose, bound approval and signed receipt.",
     },
     talk: {
       title: "Let's talk",
       description:
-        "Explore a Control and Passport pilot on a real use case: what it will involve, who can take part and what will be measured. Also institutional collaboration, research and investment. Prototype in development.",
+        "Explore a Gleam Peak Control and Gleam Peak Passport pilot on a real use case: what it will involve, who can take part and what will be measured. Also institutional collaboration, research and investment. Prototype in development.",
     },
     privacy: {
       title: "Privacy policy",

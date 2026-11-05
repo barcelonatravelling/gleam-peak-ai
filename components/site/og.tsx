@@ -9,11 +9,11 @@ export { ogAlt, ogSize } from "./seo";
 const copy: Record<Lang, { title: string; line: string }> = {
   es: {
     title: "Control verificable para agentes de IA",
-    line: "Control y Passport · Controla tus agentes de IA y demuéstralo sin revelar datos",
+    line: "Gleam Peak Control y Gleam Peak Passport · Controla tus agentes de IA y demuéstralo sin revelar datos",
   },
   en: {
     title: "Verifiable control for AI agents",
-    line: "Control and Passport · Control your AI agents and prove it without revealing data",
+    line: "Gleam Peak Control and Gleam Peak Passport · Control your AI agents and prove it without revealing data",
   },
 };
 
