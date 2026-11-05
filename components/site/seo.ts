@@ -43,7 +43,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     security: {
       title: "Ciberseguridad y confianza",
       description:
-        "Ciberseguridad para agentes de IA: qué riesgos aborda Gleam Peak AI, qué hará y qué no hará el primer prototipo, cómo se tratará la evidencia y cómo comunicarnos un problema de seguridad.",
+        "Ciberseguridad para agentes de IA: qué riesgos abordará Gleam Peak AI, qué hará y qué no hará el primer prototipo, cómo se tratará la evidencia y cómo comunicarnos un problema de seguridad.",
     },
     resources: {
       title: "Recursos",
@@ -80,7 +80,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     applications: {
       title: "Solutions",
       description:
-        "Integrators and agent providers, banking and insurance, public administration and large companies: how Gleam Peak AI is designed to control agents and prove it in each sector.",
+        "Integrators and agent providers, banking and insurance, the public sector and large companies: how Gleam Peak AI is designed to control agents and prove it in each sector.",
     },
     principles: {
       title: "Principles",
@@ -90,7 +90,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     security: {
       title: "Cybersecurity and trust",
       description:
-        "Cybersecurity for AI agents: which risks Gleam Peak AI addresses, what the first prototype will and will not do, how evidence will be handled and how to report a security issue.",
+        "Cybersecurity for AI agents: which risks Gleam Peak AI will address, what the first prototype will and will not do, how evidence will be handled and how to report a security issue.",
     },
     resources: {
       title: "Resources",

@@ -374,6 +374,7 @@ export function HomePage() {
       <section className="closing">
         <div className="shell closing-inner reveal">
           <h2>{c.closingTitle}</h2>
+          <p className="section-copy">{c.closingCopy}</p>
           <Link className="button button-primary button-arrow" href={href("talk")}>
             {c.closingCta}
           </Link>
@@ -415,6 +416,9 @@ const RECEIPT_EXPORT = `{
   "decision": "blocked",
   "reason": "mandate.scope",
   "payload_hash": "sha256:4c9e…a71b",
+  "issued_at": "2026-11-05T10:42:17Z",
+  "key_id": "control-receipts-2026-11",
+  "prev": "sha256:91b2…e04d",
   "signature": "ed25519:2f8a…d3c0"
 }`;
 
@@ -627,6 +631,7 @@ export function PassportPage() {
               ))}
             </span>
             <strong>{c.flowNote}</strong>
+            <span>{c.flowDetail}</span>
           </figcaption>
         </figure>
       </SplitHero>
@@ -922,7 +927,9 @@ export function SecurityPage() {
           </article>
           <article>
             <h2>{c.regulationTitle}</h2>
-            <p>{c.regulationCopy}</p>
+            {c.regulationCopy.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
           </article>
           <article>
             <h2>{c.reportTitle}</h2>
