@@ -10,7 +10,11 @@ export type RouteKey =
   | "resources"
   | "talk"
   | "privacy"
-  | "terms";
+  | "terms"
+  | "techDesign"
+  | "articleAuthorise"
+  | "articleAiAct"
+  | "articleMcp";
 
 export const routes: Record<Lang, Record<RouteKey, string>> = {
   es: {
@@ -24,6 +28,10 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     talk: "/hablemos",
     privacy: "/privacy",
     terms: "/terms",
+    techDesign: "/diseno-tecnico",
+    articleAuthorise: "/recursos/autorizar-operaciones-agentes-ia",
+    articleAiAct: "/recursos/supervision-humana-registros-reglamento-ia",
+    articleMcp: "/recursos/seguridad-mcp-herramientas-agentes",
   },
   en: {
     home: "/en",
@@ -36,6 +44,10 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     talk: "/en/contact",
     privacy: "/en/privacy",
     terms: "/en/terms",
+    techDesign: "/en/technical-design",
+    articleAuthorise: "/en/resources/authorising-ai-agent-operations",
+    articleAiAct: "/en/resources/human-oversight-logs-ai-act",
+    articleMcp: "/en/resources/mcp-security-agent-tools",
   },
 };
 

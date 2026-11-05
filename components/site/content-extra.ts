@@ -25,6 +25,8 @@ type SecurityContent = {
   regulationCopy: string[];
   reportTitle: string;
   reportCopy: string;
+  designBefore: string;
+  designLink: string;
 };
 
 type ResourcesContent = {
@@ -37,6 +39,11 @@ type ResourcesContent = {
   faqKicker: string;
   faqTitle: string;
   faq: Pair[];
+  articlesKicker: string;
+  articlesTitle: string;
+  articlesCopy: string;
+  designBefore: string;
+  designLink: string;
 };
 
 export const security: Record<Lang, SecurityContent> = {
@@ -95,6 +102,8 @@ export const security: Record<Lang, SecurityContent> = {
     ],
     reportTitle: "Comunicar un problema de seguridad",
     reportCopy: "Si encuentras una vulnerabilidad en esta web o en nuestros materiales, escríbenos a hello@gleampeak.ai con el asunto «Seguridad». Te pedimos que no la hagas pública hasta que hayamos podido revisarla.",
+    designBefore: "El diseño completo, con los estados de una operación, el formato del recibo, el modelo de amenazas y las decisiones abiertas, está en",
+    designLink: "Diseño técnico",
   },
   en: {
     eyebrow: "Cybersecurity and trust",
@@ -151,14 +160,16 @@ export const security: Record<Lang, SecurityContent> = {
     ],
     reportTitle: "Reporting a security issue",
     reportCopy: "If you find a vulnerability in this website or our materials, write to hello@gleampeak.ai with the subject “Security”. Please do not disclose it publicly until we have been able to review it.",
+    designBefore: "The full design, with the states of an operation, the receipt format, the threat model and the open decisions, is on",
+    designLink: "Technical design",
   },
 };
 
 export const resources: Record<Lang, ResourcesContent> = {
   es: {
-    eyebrow: "Glosario y preguntas frecuentes",
-    title: "Conceptos clave y preguntas frecuentes",
-    lead: "Lo esencial para entender el control de agentes de IA y cómo encaja Gleam Peak AI en una organización.",
+    eyebrow: "Guías, glosario y preguntas frecuentes",
+    title: "Guías, conceptos clave y preguntas frecuentes",
+    lead: "Lo esencial para entender el control de agentes de IA y cómo encaja Gleam Peak AI en una organización: guías prácticas, un glosario y las dudas más habituales.",
     glossaryKicker: "Conceptos",
     glossaryTitle: "Glosario",
     glossary: [
@@ -173,6 +184,11 @@ export const resources: Record<Lang, ResourcesContent> = {
       ["Revocación", "Retirar o limitar un mandato antes de que caduque. La autoridad no se presume indefinida."],
       ["Servidor MCP", "Un servidor que expone herramientas a los agentes de IA mediante el Model Context Protocol."],
     ],
+    articlesKicker: "Artículos",
+    articlesTitle: "Guías prácticas",
+    articlesCopy: "Textos breves sobre cómo controlar lo que hacen los agentes de IA. No sustituyen una evaluación jurídica.",
+    designBefore: "Para equipos técnicos: el resumen público del diseño está en",
+    designLink: "Diseño técnico",
     faqKicker: "Dudas habituales",
     faqTitle: "Preguntas frecuentes",
     faq: [
@@ -187,9 +203,9 @@ export const resources: Record<Lang, ResourcesContent> = {
     ],
   },
   en: {
-    eyebrow: "Glossary and FAQ",
-    title: "Key concepts and frequently asked questions",
-    lead: "The essentials for understanding control of AI agents and how Gleam Peak AI fits into an organisation.",
+    eyebrow: "Guides, glossary and FAQ",
+    title: "Guides, key concepts and frequently asked questions",
+    lead: "The essentials for understanding control of AI agents and how Gleam Peak AI fits into an organisation: practical guides, a glossary and the most common questions.",
     glossaryKicker: "Concepts",
     glossaryTitle: "Glossary",
     glossary: [
@@ -204,6 +220,11 @@ export const resources: Record<Lang, ResourcesContent> = {
       ["Revocation", "Withdrawing or restricting a mandate before it expires. Authority is not presumed to last indefinitely."],
       ["MCP server", "A server that exposes tools to AI agents through the Model Context Protocol."],
     ],
+    articlesKicker: "Articles",
+    articlesTitle: "Practical guides",
+    articlesCopy: "Short pieces on how to control what AI agents do. They do not replace a legal assessment.",
+    designBefore: "For technical teams: the public summary of the design is on",
+    designLink: "Technical design",
     faqKicker: "Common questions",
     faqTitle: "Frequently asked questions",
     faq: [

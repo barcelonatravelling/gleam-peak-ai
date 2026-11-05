@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import type { Lang } from "./content";
+import { ARTICLE_DATE, articleKeys, articles, type ArticleKey } from "./content-articles";
 import { routes, type RouteKey } from "./routes";
 
 export const SITE_URL = "https://www.gleampeak.ai";
 
 type PageMeta = { title: string; description: string };
+
+const articleMetaFor = (lang: Lang) =>
+  Object.fromEntries(
+    articleKeys.map((key) => [key, { title: articles[lang][key].title, description: articles[lang][key].description }]),
+  ) as Record<ArticleKey, PageMeta>;
 
 export const ogSize = { width: 1200, height: 630 };
 
@@ -48,7 +54,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     resources: {
       title: "Recursos",
       description:
-        "Glosario y preguntas frecuentes sobre Gleam Peak AI: Gleam Peak Control, Gleam Peak Passport, zero knowledge, mandato, finalidad, aprobación vinculada y recibo firmado.",
+        "Guías prácticas sobre autorización de agentes de IA, supervisión humana en el Reglamento de IA y seguridad en MCP, glosario y preguntas frecuentes sobre Gleam Peak Control y Gleam Peak Passport.",
     },
     talk: {
       title: "Hablemos",
@@ -60,6 +66,12 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
       description: "Cómo trata Gleam Peak AI los datos del formulario de contacto y del asistente de la web.",
     },
     terms: { title: "Términos de uso", description: "Condiciones de uso del sitio web de Gleam Peak AI." },
+    techDesign: {
+      title: "Diseño técnico de Gleam Peak Control y Gleam Peak Passport",
+      description:
+        "Borrador de diseño (versión 0.1) de Gleam Peak Control y Gleam Peak Passport: componentes y dónde se ejecutarán, estados de una operación, formato del recibo firmado, claves, qué demostrará Passport v0, modelo de amenazas, decisiones abiertas y cómo se medirá en el piloto. Prototipo en desarrollo.",
+    },
+    ...articleMetaFor("es"),
   },
   en: {
     home: {
@@ -95,7 +107,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     resources: {
       title: "Resources",
       description:
-        "Glossary and FAQ on Gleam Peak AI: Gleam Peak Control, Gleam Peak Passport, zero knowledge, mandate, purpose, bound approval and signed receipt.",
+        "Practical guides on authorising AI agents, human oversight under the EU AI Act and MCP security, plus a glossary and FAQ on Gleam Peak Control and Gleam Peak Passport.",
     },
     talk: {
       title: "Let's talk",
@@ -107,6 +119,12 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
       description: "How Gleam Peak AI handles data from the contact form and the website assistant.",
     },
     terms: { title: "Terms of use", description: "Terms of use of the Gleam Peak AI website." },
+    techDesign: {
+      title: "Technical design of Gleam Peak Control and Gleam Peak Passport",
+      description:
+        "Design draft (version 0.1) of Gleam Peak Control and Gleam Peak Passport: components and where they will run, the states of an operation, the signed receipt format, keys, what Passport v0 will prove, the threat model, open decisions and how it will be measured in the pilot. Prototype in development.",
+    },
+    ...articleMetaFor("en"),
   },
 };
 
@@ -122,6 +140,7 @@ const ogImages = (lang: Lang) => [{ url: `/og/${lang}`, ...ogSize, alt: ogAlt[la
 export function pageMetadata(lang: Lang, key: RouteKey): Metadata {
   const { title, description } = pages[lang][key];
   const path = routes[lang][key];
+  const isArticle = (articleKeys as RouteKey[]).includes(key);
   return {
     title: key === "home" ? { absolute: title } : title,
     description,
@@ -134,7 +153,9 @@ export function pageMetadata(lang: Lang, key: RouteKey): Metadata {
       description,
       url: path,
       siteName: "Gleam Peak AI",
-      type: "website",
+      ...(isArticle
+        ? { type: "article" as const, publishedTime: ARTICLE_DATE, authors: ["Gleam Peak AI"] }
+        : { type: "website" as const }),
       locale: siteDefaults[lang].locale,
       alternateLocale: [siteDefaults[lang].altLocale],
       images: ogImages(lang),
@@ -145,5 +166,25 @@ export function pageMetadata(lang: Lang, key: RouteKey): Metadata {
       description,
       images: ogImages(lang),
     },
+  };
+}
+
+// Article structured data (schema.org), rendered by each article page next to the site's Organization JSON-LD.
+export function articleJsonLd(lang: Lang, key: ArticleKey) {
+  const a = articles[lang][key];
+  const url = `${SITE_URL}${routes[lang][key]}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: a.title,
+    description: a.description,
+    inLanguage: lang === "es" ? "es-ES" : "en-GB",
+    datePublished: ARTICLE_DATE,
+    dateModified: ARTICLE_DATE,
+    author: { "@type": "Organization", name: "Gleam Peak AI", url: SITE_URL },
+    publisher: { "@type": "Organization", name: "Gleam Peak AI", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-gleampeak.png` } },
+    mainEntityOfPage: url,
+    url,
+    image: `${SITE_URL}/og/${lang}`,
   };
 }

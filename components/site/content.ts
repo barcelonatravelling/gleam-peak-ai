@@ -6,7 +6,7 @@ type Message = readonly [number, number, string];
 type FlowRow = readonly [string, string, string, "pass" | "hold"];
 
 const es = {
-  nav: { home: "Inicio", gateway: "Control", passport: "Passport", applications: "Soluciones", principles: "Principios", security: "Seguridad", resources: "Recursos", talk: "Hablemos", privacy: "Privacidad", terms: "Términos" },
+  nav: { home: "Inicio", gateway: "Control", passport: "Passport", applications: "Soluciones", principles: "Principios", security: "Seguridad", resources: "Recursos", talk: "Hablemos", privacy: "Privacidad", terms: "Términos", techDesign: "Diseño técnico" },
   a11y: { skip: "Saltar al contenido", switchLang: "Cambiar idioma", openMenu: "Abrir menú", closeMenu: "Cerrar menú", mainNav: "Navegación principal", mobileNav: "Navegación móvil", homeLink: "Gleam Peak AI, inicio" },
   footer: { line: "Controla lo que hacen tus agentes de IA y demuéstralo sin revelar datos.", privacy: "Privacidad", terms: "Términos", product: "Producto", company: "Proyecto", legal: "Legal" },
   common: { development: "Prototipo en desarrollo", discover: "Conocer Control" },
@@ -93,6 +93,8 @@ const es = {
       ["Una credencial que se reutiliza", "Passport convertirá esos recibos en una credencial que podrás presentar a varias organizaciones, para repetir menos cuestionarios y documentos con cada una. Cuánto se ahorre dependerá de que esas organizaciones acepten la credencial y de los requisitos que cubra."],
       ["Las dos piezas, unidas", "Ya existen herramientas de identidad, de reglas y de aprobación para agentes, y Gleam Peak AI está pensado para integrarse con ellas. Su aportación será unir el control de cada operación con su demostración hacia fuera."],
     ] as Pair[],
+    diffMeasure: "Cómo se demostrará la ventaja práctica: en el piloto la mediremos frente a combinar las herramientas que ya existen, y no daremos resultados hasta tenerlos medidos.",
+    diffMeasureLink: "Ver qué se medirá",
     normsKicker: "Normas",
     normsTitle: "Normas cuyo cumplimiento ayudará a demostrar",
     norms: ["Reglamento de IA", "NIS2", "DORA", "RGPD", "ENS"],
@@ -140,6 +142,8 @@ const es = {
         ["Quién puede participar", "Integradores y proveedores de agentes que ejecutan operaciones sensibles para banca, seguros o administración, y las organizaciones para las que trabajan."],
         ["Alcance", "Uno o dos agentes y unas pocas operaciones protegidas."],
         ["Qué aporta cada parte", "Tu organización aporta el caso, las reglas y las personas que aprueban. Gleam Peak AI aporta Control, Passport y el acompañamiento técnico."],
+        ["Con quién hablaremos", "En el integrador, con la persona responsable de producto o técnica. En su cliente, con la persona responsable de seguridad y con quienes aprueban las operaciones."],
+        ["Qué trabajo supondrá para tu equipo", "Conectar una o dos operaciones a Control, definir las reglas y quién firma, adaptar el sistema protegido para que solo acepte operaciones autorizadas por Control (o dejar que Control guarde las credenciales) y participar en la medición. El esfuerzo lo estimaremos juntos en la primera llamada."],
         ["Qué se medirá", "Operaciones retenidas y bloqueadas, tiempo de aprobación y verificación de los recibos por un tercero."],
       ] as Pair[],
       note: "Fechas según la hoja de ruta, sujetas a equipo y financiación. El piloto será con pocas organizaciones: si escribes ahora, tu caso podrá orientar el diseño.",
@@ -171,7 +175,7 @@ const es = {
 type Content = typeof es;
 
 const en: Content = {
-  nav: { home: "Home", gateway: "Control", passport: "Passport", applications: "Solutions", principles: "Principles", security: "Security", resources: "Resources", talk: "Let's talk", privacy: "Privacy", terms: "Terms" },
+  nav: { home: "Home", gateway: "Control", passport: "Passport", applications: "Solutions", principles: "Principles", security: "Security", resources: "Resources", talk: "Let's talk", privacy: "Privacy", terms: "Terms", techDesign: "Technical design" },
   a11y: { skip: "Skip to content", switchLang: "Change language", openMenu: "Open menu", closeMenu: "Close menu", mainNav: "Main navigation", mobileNav: "Mobile navigation", homeLink: "Gleam Peak AI, home" },
   footer: { line: "Control what your AI agents do and prove it without revealing data.", privacy: "Privacy", terms: "Terms", product: "Product", company: "Project", legal: "Legal" },
   common: { development: "Prototype in development", discover: "Discover Control" },
@@ -258,6 +262,8 @@ const en: Content = {
       ["A credential you can reuse", "Passport will turn those receipts into a credential you can present to several organisations, so you repeat fewer questionnaires and documents for each one. How much you save will depend on those organisations accepting the credential and on the requirements it covers."],
       ["Both pieces, joined up", "Identity, policy and approval tools for agents already exist, and Gleam Peak AI is designed to work with them. What it will add is linking the control of each operation with proof of it to the outside world."],
     ],
+    diffMeasure: "How the practical advantage will be shown: in the pilot we will measure it against combining existing tools, and we will not give results until they are measured.",
+    diffMeasureLink: "See what will be measured",
     normsKicker: "Regulation",
     normsTitle: "Regulations it will help you demonstrate compliance with",
     norms: ["EU AI Act", "NIS2", "DORA", "GDPR", "ENS (Spain)"],
@@ -305,6 +311,8 @@ const en: Content = {
         ["Who can take part", "Integrators and agent providers that run sensitive operations for banking, insurance or the public sector, and the organisations they work for."],
         ["Scope", "One or two agents and a handful of protected operations."],
         ["What each side brings", "Your organisation brings the use case, the rules and the people who approve. Gleam Peak AI brings Control, Passport and technical support."],
+        ["Who we will talk to", "At the integrator, the product or technical lead. At their client, the security lead and the people who approve the operations."],
+        ["What it will involve for your team", "Connecting one or two operations to Control, defining the rules and who signs, adapting the protected system so that it only accepts operations authorised by Control (or letting Control hold the credentials) and taking part in the measurement. We will estimate the effort together on the first call."],
         ["What will be measured", "Operations held and blocked, approval times and third-party verification of the receipts."],
       ],
       note: "Dates follow the roadmap and depend on team and funding. The pilot will involve only a few organisations: if you write now, your use case can help shape the design.",

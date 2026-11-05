@@ -10,8 +10,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { articleKeys, articleMeta, articles, ARTICLE_DATE, type ArticleKey } from "./content-articles";
 import { security, resources } from "./content-extra";
 import { pagesContent } from "./content-pages";
+import { tech } from "./content-tech";
 import { useLang } from "./LangContext";
 
 const PRINCIPLE_ICONS: Record<string, LucideIcon> = {
@@ -138,7 +140,7 @@ function CtaBand() {
 }
 
 export function HomePage() {
-  const { t, href } = useLang();
+  const { lang, t, href } = useLang();
   const c = t.home;
   return (
     <div className="page">
@@ -327,6 +329,12 @@ export function HomePage() {
               </div>
             ))}
           </div>
+          <p className="rule-line reveal">
+            {c.diffMeasure}{" "}
+            <Link className="text-link" href={`${href("techDesign")}#${tech[lang].measure.id}`}>
+              {c.diffMeasureLink}
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -763,6 +771,16 @@ export function ApplicationsPage() {
               <p>
                 <strong>{c.privateLabel}:</strong> {item.private}
               </p>
+              {item.talk && (
+                <p>
+                  <strong>{c.talkLabel}:</strong> {item.talk}
+                </p>
+              )}
+              {item.effort && (
+                <p>
+                  <strong>{c.effortLabel}:</strong> {item.effort}
+                </p>
+              )}
             </div>
           </div>
         </section>
@@ -856,7 +874,7 @@ function Sequence({
 }
 
 export function SecurityPage() {
-  const { lang } = useLang();
+  const { lang, href } = useLang();
   const c = security[lang];
   return (
     <div className="page">
@@ -920,6 +938,13 @@ export function SecurityPage() {
                 <p>{a}</p>
               </details>
             ))}
+            <p className="design-link">
+              {c.designBefore}{" "}
+              <Link className="text-link" href={href("techDesign")}>
+                {c.designLink}
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -947,11 +972,41 @@ export function SecurityPage() {
 }
 
 export function ResourcesPage() {
-  const { lang } = useLang();
+  const { lang, href } = useLang();
   const c = resources[lang];
+  const meta = articleMeta[lang];
   return (
     <div className="page">
       <Subhero eyebrow={c.eyebrow} title={c.title} lead={c.lead} />
+      <section className="section" aria-labelledby="articles-title">
+        <div className="shell">
+          <Heading kicker={c.articlesKicker} title={c.articlesTitle} copy={c.articlesCopy} id="articles-title" />
+          <div className="grid-3 reveal">
+            {articleKeys.map((key) => {
+              const a = articles[lang][key];
+              return (
+                <Link className="card article-card" href={href(key)} key={key}>
+                  <span className="card-tag">
+                    <time dateTime={ARTICLE_DATE}>{meta.date}</time>
+                  </span>
+                  <h3>{a.title}</h3>
+                  <p>{a.description}</p>
+                  <span className="article-more" aria-hidden="true">
+                    {meta.read}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+          <p className="rule-line reveal">
+            {c.designBefore}{" "}
+            <Link className="text-link" href={href("techDesign")}>
+              {c.designLink}
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
       <section className="section">
         <div className="shell">
           <div className="section-heading reveal">
@@ -988,6 +1043,239 @@ export function ResourcesPage() {
           </div>
         </div>
       </section>
+      <CtaBand />
+    </div>
+  );
+}
+
+export function TechDesignPage() {
+  const { lang } = useLang();
+  const c = tech[lang];
+  const sections = [c.components, c.lifecycle, c.receipt, c.keys, c.passport, c.threats, c.open, c.measure];
+  return (
+    <div className="page">
+      <Subhero eyebrow={c.eyebrow} title={c.title} lead={c.lead} long />
+      <nav className="solution-tabs shell" aria-label={c.tocLabel}>
+        {sections.map((s) => (
+          <a key={s.id} href={`#${s.id}`}>
+            {s.title}
+          </a>
+        ))}
+      </nav>
+      <section className="section sector-section" id={c.components.id} aria-labelledby={`${c.components.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.components.kicker} title={c.components.title} copy={c.components.copy} id={`${c.components.id}-title`} />
+          <div className="grid-3 reveal">
+            {c.components.items.map(([name, where, text]) => (
+              <article className="card compact-card" key={name}>
+                <span className="card-tag">{where}</span>
+                <h3>{name}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.lifecycle.id} aria-labelledby={`${c.lifecycle.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.lifecycle.kicker} title={c.lifecycle.title} copy={c.lifecycle.copy} id={`${c.lifecycle.id}-title`} />
+          <ol className="questions reveal">
+            {c.lifecycle.states.map(([state, text]) => (
+              <li key={state}>
+                <strong>{state}</strong> <span>{text}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="rule-line reveal">{c.lifecycle.rules}</p>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.receipt.id} aria-labelledby={`${c.receipt.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.receipt.kicker} title={c.receipt.title} copy={c.receipt.copy} id={`${c.receipt.id}-title`} />
+          <div className="code-pair reveal">
+            <figure className="code-panel">
+              <figcaption>
+                <span>{c.receipt.label}</span>
+                <code>receipt.json</code>
+              </figcaption>
+              <pre tabIndex={0} aria-label={`${c.receipt.label}: receipt.json`}>
+                {RECEIPT_EXPORT}
+              </pre>
+            </figure>
+            <dl className="field-list">
+              {c.receipt.fields.map(([field, text]) => (
+                <div key={field}>
+                  <dt>
+                    <code>{field}</code>
+                  </dt>
+                  <dd>{text}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <p className="rule-line reveal">{c.receipt.note}</p>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.keys.id} aria-labelledby={`${c.keys.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.keys.kicker} title={c.keys.title} id={`${c.keys.id}-title`} />
+          <dl className="glossary reveal">
+            {c.keys.items.map(([term, text]) => (
+              <div key={term}>
+                <dt>{term}</dt>
+                <dd>{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.passport.id} aria-labelledby={`${c.passport.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.passport.kicker} title={c.passport.title} copy={c.passport.copy} id={`${c.passport.id}-title`} />
+          <div className="now-next reveal">
+            <article className="phase">
+              <span className="card-tag">{c.passport.willTag}</span>
+              <ul>
+                {c.passport.will.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="phase phase-next phase-not">
+              <span className="card-tag">{c.passport.wontTag}</span>
+              <ul>
+                {c.passport.wont.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.threats.id} aria-labelledby={`${c.threats.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.threats.kicker} title={c.threats.title} copy={c.threats.copy} id={`${c.threats.id}-title`} />
+          <div className="matrix-wrap reveal">
+            <table className="matrix" role="table" aria-labelledby={`${c.threats.id}-title`}>
+              <thead role="rowgroup">
+                <tr role="row">
+                  {c.threats.head.map((h) => (
+                    <th key={h} scope="col" role="columnheader">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                {c.threats.rows.map(([threat, defence]) => (
+                  <tr key={threat} role="row">
+                    <th scope="row" role="rowheader">
+                      {threat}
+                    </th>
+                    <td role="cell" data-label={c.threats.head[1]}>
+                      {defence}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="rule-line reveal">{c.threats.outOfScope}</p>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.open.id} aria-labelledby={`${c.open.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.open.kicker} title={c.open.title} copy={c.open.copy} id={`${c.open.id}-title`} />
+          <dl className="glossary reveal">
+            {c.open.items.map(([term, text]) => (
+              <div key={term}>
+                <dt>{term}</dt>
+                <dd>{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+      <section className="section sector-section" id={c.measure.id} aria-labelledby={`${c.measure.id}-title`}>
+        <div className="shell">
+          <Heading kicker={c.measure.kicker} title={c.measure.title} copy={c.measure.copy} id={`${c.measure.id}-title`} />
+          <ol className="questions reveal">
+            {c.measure.items.map(([what, how]) => (
+              <li key={what}>
+                <strong>{what}</strong> <span>{how}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="rule-line reveal">{c.measure.note}</p>
+        </div>
+      </section>
+      <PageClosing title={c.closingTitle} />
+    </div>
+  );
+}
+
+export function ArticlePage({ id }: { id: ArticleKey }) {
+  const { lang, href } = useLang();
+  const a = articles[lang][id];
+  const meta = articleMeta[lang];
+  return (
+    <div className="page">
+      <article className="subhero">
+        <div className="shell legal article">
+          <span className="eyebrow">{meta.tag}</span>
+          <h1>{a.title}</h1>
+          <p className="article-meta">
+            <time dateTime={ARTICLE_DATE}>{meta.date}</time> · {meta.author}
+          </p>
+          <p className="lead">{a.lead}</p>
+          {a.sections.map((section) => (
+            <section key={section.h}>
+              <h2>{section.h}</h2>
+              {section.p?.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+              {section.list && (
+                <ul>
+                  {section.list.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {section.after?.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </section>
+          ))}
+          <section>
+            <h2>{a.closingTitle}</h2>
+            {a.closing.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+            <p>
+              <Link className="text-link" href={href("techDesign")}>
+                {meta.techLink}
+              </Link>
+            </p>
+          </section>
+          <section>
+            <h2>{meta.sources}</h2>
+            <ul>
+              {a.sources.map(([label, url]) => (
+                <li key={url}>
+                  <a className="text-link" href={url} rel="noopener">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <p className="legal-updated">
+            <Link className="text-link" href={href("resources")}>
+              {meta.back}
+            </Link>
+          </p>
+        </div>
+      </article>
       <CtaBand />
     </div>
   );

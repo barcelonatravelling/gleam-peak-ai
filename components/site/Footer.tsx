@@ -32,6 +32,9 @@ export default function Footer() {
               <li>
                 <Link href={href("security")}>{t.nav.security}</Link>
               </li>
+              <li>
+                <Link href={href("techDesign")}>{t.nav.techDesign}</Link>
+              </li>
             </ul>
           </nav>
           <nav className="footer-col" aria-label={t.footer.company}>

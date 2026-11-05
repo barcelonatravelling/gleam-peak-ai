@@ -21,8 +21,8 @@
   --sky: #141a33;
   --ink: #f4f1fa;
   --text: var(--ink);
-  --muted: #b3abc4;
-  --muted-2: #9b92af; /* small labels and meta text, a little lighter for contrast */
+  --muted: #bcb5cc;
+  --muted-2: #b0a8c3; /* small labels and meta text: at least 7:1 on every dark surface (5.8:1 before) */
   --line: #221b31;
   --line-strong: #30273f;
   --field-line: #6b6280; /* form field edges, 3:1 against the field background */
@@ -44,6 +44,7 @@
   --neon-violet: #b44dff;
   --neon-indigo: #4f7bff;
   --neon-blue: #8aa2ff;
+  --neon-blue-text: #a5b8ff; /* small text on the blue pill gradient (6.9:1) */
   --neon-blue-line: #6f8cff;
   --neon-gradient: linear-gradient(90deg, var(--neon-pink), var(--neon-violet) 50%, var(--neon-indigo));
   --neon-glow-pink: 0 0 10px rgba(255,63,210,.55);
@@ -257,7 +258,7 @@ a.card:hover::before, .card-link:hover::before { opacity: 1; }
 .side-passport, .node-passport { border-color: var(--tone-passport); }
 .card-number { display: inline-block; margin-bottom: 1.3rem; color: var(--neon-pink-text); font: 500 .95rem var(--display); letter-spacing: -.005em; text-shadow: var(--neon-glow-pink); }
 .card p { color: var(--muted); margin: .65rem 0 0; font-size: 1.0625rem; }
-.card-tag { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.1rem; padding: .2rem .65rem; border: 1px solid rgba(111,140,255,.5); border-radius: 999px; background: linear-gradient(180deg, rgba(47,79,184,.45), rgba(47,79,184,.1)); color: var(--neon-blue); font-size: .76rem; font-weight: 600; }
+.card-tag { display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1.1rem; padding: .2rem .65rem; border: 1px solid rgba(111,140,255,.5); border-radius: 999px; background: linear-gradient(180deg, rgba(47,79,184,.45), rgba(47,79,184,.1)); color: var(--neon-blue-text); font-size: .76rem; font-weight: 600; }
 .compact-card { padding: 1.4rem 1.3rem; border-radius: 18px; }
 .principle-card { min-height: 260px; }
 .principle-icon { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 1.8rem; border-radius: 50%; background: linear-gradient(180deg, rgba(144,14,117,.5), rgba(144,14,117,.12)); color: var(--neon-pink-text); font-size: 1.2rem; box-shadow: 0 0 16px -4px rgba(255,63,210,.6); }
@@ -352,6 +353,21 @@ a.card:hover::before, .card-link:hover::before { opacity: 1; }
 .legal p, .legal li { color: var(--muted); }
 .legal .lead { color: var(--muted); }
 .legal-updated { margin-top: 3rem; font-size: .95rem; }
+/* Articles reuse the legal page layout; the meta line sits between the title and the lead */
+.article-meta { margin: 1rem 0 0; color: var(--muted-2); font-size: .95rem; }
+.legal ul { padding-left: 1.2rem; }
+.legal li { margin-top: .5rem; }
+.article-card { display: flex; flex-direction: column; }
+.article-card .card-tag { align-self: flex-start; }
+.article-card h3 { font-size: 1.25rem; line-height: 1.25; }
+.article-more { margin-top: auto; padding-top: 1rem; color: var(--accent); font: 500 .95rem/1.4 var(--display); }
+/* Technical design: receipt fields next to the example */
+.code-pair:has(.field-list) .code-panel { align-self: start; }
+.field-list { margin: 0; display: grid; gap: 0; align-content: start; }
+.field-list div { padding: .7rem 0; border-top: 1px solid var(--line); }
+.field-list dt code { color: var(--accent-2); font: 500 .9rem var(--mono); }
+.field-list dd { margin: .25rem 0 0; color: var(--muted); font-size: 1rem; }
+.design-link { margin: 1.4rem 0 0; color: var(--muted); font-size: 1.0625rem; }
 
 .not-found .lead + .lead { margin-top: .8rem; color: var(--muted); }
 
@@ -443,8 +459,8 @@ a.card:hover::before, .card-link:hover::before { opacity: 1; }
 .side { position: relative; z-index: 1; padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: 24px; overflow: visible; }
 .side-where { font: 500 .875rem/1 var(--display); letter-spacing: -.005em; text-transform: none; color: var(--muted-2); }
 .side h3 { margin: .9rem 0 .6rem; font: 600 clamp(1.625rem, 2.45vw, 2.1875rem)/1.05 var(--display); color: var(--ink); letter-spacing: -.02em; }
-.side-control h3 { color: #900e75; }
-.side-passport h3 { color: #1e3b93; }
+.side-control h3 { color: var(--accent); }
+.side-passport h3 { color: var(--accent-2); }
 .side p { margin: 0; max-width: 38ch; color: var(--muted); font-size: 1.0625rem; }
 .sides-link { position: absolute; left: 50%; top: 50%; width: 4rem; transform: translate(-50%, -50%); }
 .sides-link span { display: block; height: 2px; background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 8px); }

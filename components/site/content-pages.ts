@@ -15,6 +15,8 @@ type Solution = {
   body: readonly string[];
   check: string;
   private: string;
+  talk?: string;
+  effort?: string;
 };
 
 const es = {
@@ -131,6 +133,8 @@ const es = {
     othersTitle: "El mismo núcleo en otros sectores.",
     checkLabel: "Qué necesita comprobar el otro",
     privateLabel: "Qué sigue siendo privado",
+    talkLabel: "Con quién hablaremos",
+    effortLabel: "Qué trabajo supondrá para tu equipo",
     matrixKicker: "Qué cambia",
     matrixTitle: "Cuatro sectores, tres diferencias.",
     matrixHead: ["Sector", "Marco", "Quién firma", "A quién se demuestra"] as Quad,
@@ -153,6 +157,8 @@ const es = {
         ],
         check: "Tu cliente regulado necesita comprobar que tus agentes están registrados, actúan bajo mandato y piden firma humana en lo crítico.",
         private: "Los datos de tus otros clientes y los detalles internos de tu producto.",
+        talk: "En tu empresa, con la persona responsable de producto o técnica. En tu cliente, con la persona responsable de seguridad y con quienes aprueban las operaciones.",
+        effort: "Conectar una o dos operaciones a Control, definir con tu cliente las reglas y quién firma, adaptar el sistema protegido para que solo acepte operaciones autorizadas por Control (o dejar que Control guarde las credenciales) y participar en la medición del piloto. El esfuerzo lo estimaremos juntos en la primera llamada.",
       },
       {
         id: "banca",
@@ -311,6 +317,8 @@ const en: PagesContent = {
     othersTitle: "The same core in other sectors.",
     checkLabel: "What the other party needs to check",
     privateLabel: "What stays private",
+    talkLabel: "Who we will talk to",
+    effortLabel: "What it will involve for your team",
     matrixKicker: "What changes",
     matrixTitle: "Four sectors, three differences.",
     matrixHead: ["Sector", "Framework", "Who signs", "Proven to"],
@@ -333,6 +341,8 @@ const en: PagesContent = {
         ],
         check: "Your regulated client needs to check that your agents are registered, act under a mandate and ask for a human signature on critical actions.",
         private: "Your other clients' data and the internals of your product.",
+        talk: "At your company, the product or technical lead. At your client, the security lead and the people who approve the operations.",
+        effort: "Connecting one or two operations to Control, defining the rules and who signs with your client, adapting the protected system so that it only accepts operations authorised by Control (or letting Control hold the credentials) and taking part in the pilot measurement. We will estimate the effort together on the first call.",
       },
       {
         id: "banca",
