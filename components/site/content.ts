@@ -44,7 +44,7 @@ const es = {
     ] as Triple[],
     sidesKicker: "Plataforma",
     sidesTitle: "Dos lados, una plataforma.",
-    sidesCopy: "Control aportará valor desde el primer día dentro de tu organización. Gleam Peak Passport lo ampliará cuando tus clientes o auditores quieran verificarlo.",
+    sidesCopy: "Control aportará valor dentro de tu organización desde el primer día de uso, una vez integrado y configurado. Gleam Peak Passport lo ampliará cuando tus clientes o auditores quieran verificarlo.",
     sides: [
       ["Gleam Peak Control", "Dentro de tu organización", "Pasarela de autorización para agentes de IA: cada agente con su mandato, sus reglas, su responsable y su botón de parada."],
       ["Gleam Peak Passport", "Hacia fuera", "Credencial verificable de controles que tus clientes y socios podrán comprobar sin ver tus datos."],
@@ -90,7 +90,7 @@ const es = {
     diffTitle: "En qué se diferencia.",
     diff: [
       ["Recibos que comprueba un tercero", "Cada decisión dejará un recibo firmado y encadenado que un cliente, un auditor o un supervisor podrán verificar por su cuenta, sin depender de Gleam Peak AI."],
-      ["Una credencial que se reutiliza", "Passport convertirá esos recibos en una credencial que podrás presentar a varias organizaciones, en lugar de repetir cuestionarios y documentos con cada una."],
+      ["Una credencial que se reutiliza", "Passport convertirá esos recibos en una credencial que podrás presentar a varias organizaciones, para repetir menos cuestionarios y documentos con cada una. Cuánto se ahorre dependerá de que esas organizaciones acepten la credencial y de los requisitos que cubra."],
       ["Las dos piezas, unidas", "Ya existen herramientas de identidad, de reglas y de aprobación para agentes, y Gleam Peak AI está pensado para integrarse con ellas. Su aportación será unir el control de cada operación con su demostración hacia fuera."],
     ] as Pair[],
     normsKicker: "Normas",
@@ -131,7 +131,7 @@ const es = {
   },
   collaborate: {
     eyebrow: "Hablemos · Pilotos y colaboración",
-    title: "Exploremos un piloto de Gleam\u00a0Peak Control y Gleam\u00a0Peak Passport en un caso real",
+    title: "Exploremos un piloto de Control y Passport en un caso real",
     lead: "Buscamos organizaciones con una operación concreta, sensible y delimitada en la que un agente de IA necesite actuar bajo mandato, políticas y supervisión humana.",
     pilot: {
       title: "Cómo será un piloto",
@@ -155,7 +155,7 @@ const es = {
       interests: ["Piloto tecnológico", "Colaboración institucional", "Investigación o consorcio", "Inversión", "Otro"],
       message: "Cuéntanos brevemente el caso o interés",
       confidential: "No incluyas información confidencial.",
-      next: "Después de enviarlo, te responderemos y haremos una llamada de 30 minutos. Hasta marzo de 2027 te enseñaremos el diseño aplicado a tu caso y definiremos juntos las reglas y quién firma; con la versión demostrable, lo verás funcionar. Si encaja, te reservaremos un hueco en el piloto.",
+      next: "Después de enviarlo, te responderemos y, si tu caso encaja con el piloto, te propondremos una llamada de 30 minutos. Hasta marzo de 2027 te enseñaremos el diseño aplicado a tu caso y definiremos juntos las reglas y quién firma; con la versión demostrable, lo verás funcionar. Si encaja y hay plazas disponibles, te ofreceremos un hueco en el piloto.",
       consentBefore: "He leído la ",
       consentLink: "política de privacidad",
       consentAfter: " y acepto que Gleam Peak AI utilice estos datos para responder a mi solicitud.",
@@ -209,7 +209,7 @@ const en: Content = {
     ],
     sidesKicker: "Platform",
     sidesTitle: "Two sides, one platform.",
-    sidesCopy: "Control will add value from day one inside your organisation. Gleam Peak Passport will extend it when your clients or auditors want to verify it.",
+    sidesCopy: "Control will add value inside your organisation from its first day of use, once integrated and configured. Gleam Peak Passport will extend it when your clients or auditors want to verify it.",
     sides: [
       ["Gleam Peak Control", "Inside your organisation", "An authorisation gateway for AI agents: every agent with its mandate, its rules, its owner and its stop button."],
       ["Gleam Peak Passport", "Facing outwards", "A verifiable controls credential that your clients and partners will be able to check without seeing your data."],
@@ -255,7 +255,7 @@ const en: Content = {
     diffTitle: "How it differs.",
     diff: [
       ["Receipts a third party can check", "Every decision will leave a signed, chained receipt that a client, an auditor or a supervisor will be able to verify on their own, without relying on Gleam Peak AI."],
-      ["A credential you can reuse", "Passport will turn those receipts into a credential you can present to several organisations, instead of repeating questionnaires and documents for each one."],
+      ["A credential you can reuse", "Passport will turn those receipts into a credential you can present to several organisations, so you repeat fewer questionnaires and documents for each one. How much you save will depend on those organisations accepting the credential and on the requirements it covers."],
       ["Both pieces, joined up", "Identity, policy and approval tools for agents already exist, and Gleam Peak AI is designed to work with them. What it will add is linking the control of each operation with proof of it to the outside world."],
     ],
     normsKicker: "Regulation",
@@ -296,7 +296,7 @@ const en: Content = {
   },
   collaborate: {
     eyebrow: "Let's talk · Pilots and collaboration",
-    title: "Let's explore a Gleam\u00a0Peak Control and Gleam\u00a0Peak Passport pilot on a real use case",
+    title: "Let's explore a Control and Passport pilot on a real use case",
     lead: "We are looking for organisations with a specific, sensitive and bounded operation where an AI agent needs to act under mandate, policy and human oversight.",
     pilot: {
       title: "What a pilot will look like",
@@ -320,7 +320,7 @@ const en: Content = {
       interests: ["Technology pilot", "Institutional collaboration", "Research or consortium", "Investment", "Other"],
       message: "Briefly describe your use case or interest",
       confidential: "Please do not include confidential information.",
-      next: "Once you send it, we will reply and set up a 30-minute call. Until March 2027 we will show you the design applied to your use case and define the rules and who signs together; with the demonstrable version, you will see it working. If it is a good fit, we will save you a place in the pilot.",
+      next: "Once you send it, we will reply and, if your use case fits the pilot, suggest a 30-minute call. Until March 2027 we will show you the design applied to your use case and define the rules and who signs together; with the demonstrable version, you will see it working. If it is a good fit and places are available, we will offer you a place in the pilot.",
       consentBefore: "I have read the ",
       consentLink: "privacy policy",
       consentAfter: " and agree that Gleam Peak AI may use this information to respond to my request.",

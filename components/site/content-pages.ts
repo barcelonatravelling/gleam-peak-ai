@@ -75,6 +75,8 @@ const es = {
     flow: ["Datos firmados", "Pruebas zero knowledge", "Verificación", "Resultado"],
     flowNote: "Los datos no salen de tu organización. Solo viaja la prueba.",
     flowDetail: "La prueba se calculará dentro de tu organización a partir de los recibos firmados. Gleam Peak AI comprobará la prueba y firmará la credencial sin recibir tus recibos ni tus datos.",
+    exampleTag: "Ejemplo ilustrativo",
+    exampleNote: "Credencial completa, como se prevé más adelante. La primera versión, prevista para marzo de 2027, demostrará una sola condición.",
     result: {
       title: "Resultado de la verificación",
       state: "Válido",
@@ -113,7 +115,7 @@ const es = {
       ["¿Qué es?", "Una credencial verificable de controles, basada en estándares abiertos. No es un sello oficial."],
       ["¿Qué recibe Gleam Peak AI para emitirla?", "Solo la prueba. Según el diseño previsto, la prueba se calculará dentro de tu organización a partir de los recibos firmados; Gleam Peak AI comprobará la prueba y firmará la credencial sin recibir tus recibos ni tus datos. Más adelante, la credencial podrá llevar también la firma de un auditor o de otra entidad que el verificador ya conozca."],
       ["¿Demuestra que todas las operaciones pasaron por Control?", "No por sí sola. Demostrará lo que dicen los recibos de las operaciones conectadas. Qué operaciones están conectadas se declarará en la credencial y, en su caso, lo revisará un auditor."],
-      ["¿Hace falta usar Control?", "No. Control aportará valor desde el primer día dentro de tu organización. Passport lo ampliará cuando tus clientes o auditores quieran verificarlo, y la capa de ciberseguridad básica no depende de Control."],
+      ["¿Hace falta usar Control?", "No. Control aportará valor dentro de tu organización desde el primer día de uso, una vez integrado y configurado. Passport lo ampliará cuando tus clientes o auditores quieran verificarlo, y la capa de ciberseguridad básica no depende de Control."],
       ["¿Sustituye una auditoría?", "No. Está pensado para que demostrar la confianza sea más rápido y continuo entre auditorías. Tampoco bastará por sí solo para cumplir el Reglamento de IA: el cumplimiento depende de cada organización y de su evaluación jurídica."],
       ["¿Cómo se verifica?", "Se podrá verificar desde una página o con una llamada a la API. Quien verifica verá el estado y las condiciones, nunca las evidencias."],
     ] as Pair[],
@@ -145,7 +147,7 @@ const es = {
         norm: "Lo que exija el cliente",
         title: "Llega a clientes regulados con el control integrado.",
         body: [
-          "Los clientes regulados piden pruebas de control antes de dejar que un agente toque sus sistemas. Podrás integrar Control en tu producto y entregar tu propio Passport: tu cliente verá las reglas, las firmas y los recibos desde el primer día.",
+          "Los clientes regulados piden pruebas de control antes de dejar que un agente toque sus sistemas. Podrás integrar Control en tu producto y entregar tu propio Passport: tu cliente definirá las reglas y quién firma, y conservará los recibos; a terceros, como un auditor o su supervisor, solo les mostrará el Passport.",
           "Tú integras y operas Control; tu cliente define las reglas y quién firma, y conserva los recibos.",
           "Por ejemplo, un integrador desplegaría sus agentes en un banco, detrás de Control. El banco definiría las reglas y quién firma y recibiría un recibo de cada acción, y el integrador presentaría su Passport en la evaluación de proveedores del banco.",
         ],
@@ -253,6 +255,8 @@ const en: PagesContent = {
     flow: ["Signed data", "Zero knowledge proofs", "Verification", "Result"],
     flowNote: "Your data stays inside your organisation. Only the proof travels.",
     flowDetail: "The proof will be computed inside your organisation from the signed receipts. Gleam Peak AI will check the proof and sign the credential without receiving your receipts or your data.",
+    exampleTag: "Illustrative example",
+    exampleNote: "A full credential, as planned for later. The first version, planned for March 2027, will prove a single condition.",
     result: {
       title: "Verification result",
       state: "Valid",
@@ -291,7 +295,7 @@ const en: PagesContent = {
       ["What is it?", "A verifiable controls credential, built on open standards. It is not an official seal."],
       ["What does Gleam Peak AI receive to issue it?", "Only the proof. Under the planned design, the proof will be computed inside your organisation from the signed receipts; Gleam Peak AI will check the proof and sign the credential without receiving your receipts or your data. Later on, the credential may also carry the signature of an auditor or another body the verifier already knows."],
       ["Does it prove that every operation went through Control?", "Not on its own. It will prove what the receipts of the connected operations say. Which operations are connected will be stated in the credential and, where appropriate, reviewed by an auditor."],
-      ["Do I need to use Control?", "No. Control will add value from day one inside your organisation. Passport will extend it when your clients or auditors want to verify it, and the basic cybersecurity layer does not depend on Control."],
+      ["Do I need to use Control?", "No. Control will add value inside your organisation from its first day of use, once integrated and configured. Passport will extend it when your clients or auditors want to verify it, and the basic cybersecurity layer does not depend on Control."],
       ["Does it replace an audit?", "No. It is designed to make demonstrating trust faster and continuous between audits. Nor will it be enough on its own to comply with the EU AI Act: compliance depends on each organisation and its legal assessment."],
       ["How is it verified?", "It will be verifiable from a web page or with an API call. The verifier will see the status and the conditions, never the evidence."],
     ],
@@ -323,7 +327,7 @@ const en: PagesContent = {
         norm: "Whatever the client requires",
         title: "Reach regulated clients with control built in.",
         body: [
-          "Regulated clients ask for proof of control before letting an agent anywhere near their systems. You will be able to build Control into your product and provide your own Passport: your client will see the rules, signatures and receipts from day one.",
+          "Regulated clients ask for proof of control before letting an agent anywhere near their systems. You will be able to build Control into your product and provide your own Passport: your client will define the rules and who signs, and keep the receipts; third parties such as an auditor or a supervisor will only be shown the Passport.",
           "You integrate and operate Control; your client sets the rules and who signs, and keeps the receipts.",
           "For example, an integrator would deploy its agents at a bank, behind Control. The bank would set the rules and who signs and get a receipt for every action, and the integrator would present its Passport in the bank's supplier assessment.",
         ],

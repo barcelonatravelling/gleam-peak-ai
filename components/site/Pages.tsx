@@ -593,6 +593,10 @@ export function PassportPage() {
     <div className="page">
       <SplitHero eyebrow={c.eyebrow} title={c.title} lead={c.lead}>
         <figure className="passport-hero">
+          <p className="example-note">
+            <span className="example-tag">{c.exampleTag}</span>
+            <span>{c.exampleNote}</span>
+          </p>
           <div className="verify-card">
             <div className="passport-head">
               <span>{c.result.title}</span>
