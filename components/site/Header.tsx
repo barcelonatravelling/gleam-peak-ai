@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "./Brand";
 import { useLang } from "./LangContext";
 import { navOrder, routeKeyFor, routes } from "./routes";
@@ -16,11 +16,15 @@ export default function Header() {
   const [menuPath, setMenuPath] = useState<string | null>(null);
   const menuOpen = menuPath === pathname;
   const current = routeKeyFor(pathname, lang);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuPath(null);
+      if (event.key === "Escape") {
+        setMenuPath(null);
+        menuButton.current?.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -73,6 +77,7 @@ export default function Header() {
             {t.nav.talk}
           </Link>
           <button
+            ref={menuButton}
             className="menu-button"
             type="button"
             aria-expanded={menuOpen}

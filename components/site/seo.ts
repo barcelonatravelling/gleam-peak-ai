@@ -24,7 +24,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     home: {
       title: "Gleam Peak AI | Controla tus agentes de IA sin revelar datos",
       description:
-        "Gleam Peak AI aplicará las reglas y autorizaciones que define tu organización a cada agente de IA, dejará un registro firmado de cada operación y lo convertirá en una credencial verificable con pruebas zero knowledge. Prototipo en desarrollo.",
+        "Gleam Peak AI aplicará las reglas y autorizaciones que define tu organización a cada agente de IA, dejará un registro firmado de cada operación conectada a Control y lo convertirá en una credencial verificable con pruebas zero knowledge. Prototipo en desarrollo.",
     },
     gateway: {
       title: "Gleam Peak Control: pasarela de autorización para agentes de IA",
@@ -77,7 +77,7 @@ const pages: Record<Lang, Record<RouteKey, PageMeta>> = {
     home: {
       title: "Gleam Peak AI | Control your AI agents without revealing data",
       description:
-        "Gleam Peak AI will apply the rules and authorisations your organisation sets for each AI agent, keep a signed record of every operation and turn it into a verifiable credential with zero knowledge proofs. Prototype in development.",
+        "Gleam Peak AI will apply the rules and authorisations your organisation sets for each AI agent, keep a signed record of every operation connected to Control and turn it into a verifiable credential with zero knowledge proofs. Prototype in development.",
     },
     gateway: {
       title: "Gleam Peak Control: an authorisation gateway for AI agents",

@@ -91,7 +91,7 @@ export const tech: Record<Lang, TechContent> = {
         ["prev", "La huella del recibo anterior. Encadena el registro, de modo que borrar, reordenar o alterar un recibo se pueda detectar."],
         ["signature", "La firma de Control sobre todo lo anterior."],
       ],
-      note: "Una operación dejará varios recibos, uno por cada cambio de estado. Las aprobaciones serán firmas aparte de cada persona, y el recibo las referenciará. Los datos personales no irán en claro: el recibo guardará solo huellas, y la organización conservará los datos aparte. Los nombres de los campos son los de este resumen público; el formato exacto se fijará en la versión demostrable.",
+      note: "Una operación dejará varios recibos, uno por cada cambio de estado. Las aprobaciones serán firmas aparte de cada persona, y el recibo las referenciará. Los datos personales no irán en claro: el recibo guardará huellas calculadas con una clave de la organización, distintas de payload_hash, para que no se puedan adivinar, y la organización conservará los datos aparte. Los nombres de los campos son los de este resumen público; el formato exacto se fijará en la versión demostrable.",
     },
     keys: {
       id: "claves",
@@ -109,7 +109,7 @@ export const tech: Record<Lang, TechContent> = {
       id: "passport-v0",
       kicker: "Gleam Peak Passport v0",
       title: "Qué demostrará la primera versión y qué no",
-      copy: "La versión demostrable, prevista para marzo de 2027, demostrará una sola condición con zero knowledge, solo con datos ficticios. Cuál será exactamente está por decidir.",
+      copy: "La versión demostrable, prevista para marzo de 2027, demostrará una sola condición con zero knowledge, solo con datos ficticios. Cuál será exactamente está por decidir. Habrá dos momentos distintos. En la emisión, la organización titular calculará la prueba dentro de su infraestructura, y Gleam Peak AI la comprobará y firmará la credencial. En la presentación, quien verifica fijará la condición y un reto de un solo uso; el titular responderá con una presentación ligada a ese reto, y quien verifica comprobará por su cuenta la firma del emisor, la validez, la revocación y la prueba.",
       willTag: "Demostrará",
       will: [
         "Una sola condición, demostrada con zero knowledge a partir de datos firmados por su fuente. Candidatas: que se cumplen controles básicos de ciberseguridad respaldados por fuentes firmadas (multifactor, copias probadas y parches), o un umbral sin revelar el valor exacto",
@@ -243,7 +243,7 @@ export const tech: Record<Lang, TechContent> = {
         ["prev", "The fingerprint of the previous receipt. It chains the log, so that deleting, reordering or altering a receipt can be detected."],
         ["signature", "Control's signature over all of the above."],
       ],
-      note: "An operation will leave several receipts, one for each change of state. Approvals will be separate signatures by each person, referenced by the receipt. Personal data will not be stored in the clear: the receipt will only hold fingerprints, and the organisation will keep the data separately. The field names are those of this public summary; the exact format will be fixed in the demonstrable version.",
+      note: "An operation will leave several receipts, one for each change of state. Approvals will be separate signatures by each person, referenced by the receipt. Personal data will not be stored in the clear: the receipt will hold fingerprints computed with a key of the organisation's own, separate from payload_hash, so that they cannot be guessed, and the organisation will keep the data separately. The field names are those of this public summary; the exact format will be fixed in the working prototype.",
     },
     keys: {
       id: "keys",
@@ -261,7 +261,7 @@ export const tech: Record<Lang, TechContent> = {
       id: "passport-v0",
       kicker: "Gleam Peak Passport v0",
       title: "What the first version will prove, and what it will not",
-      copy: "The demonstrable version, expected in March 2027, will prove a single condition with zero knowledge, using fictitious data only. Exactly which condition is still to be decided.",
+      copy: "The working prototype, expected in March 2027, will prove a single condition with zero knowledge, using fictitious data only. Exactly which condition is still to be decided. There will be two separate moments. At issuance, the holder organisation will compute the proof inside its own infrastructure, and Gleam Peak AI will check it and sign the credential. At presentation, the verifier will set the condition and a single-use challenge; the holder will reply with a presentation bound to that challenge, and the verifier will check on its own the issuer's signature, validity, revocation and the proof.",
       willTag: "Will prove",
       will: [
         "A single condition, proved with zero knowledge from data signed by its source. Candidates: that basic cybersecurity controls backed by signed sources are in place (multi-factor authentication, tested backups and patching), or a threshold without revealing the exact value",
@@ -311,7 +311,7 @@ export const tech: Record<Lang, TechContent> = {
         ["Exact Passport v0 condition", "Basic cybersecurity controls backed by signed sources, or a threshold without revealing the exact value."],
         ["Credential format", "Based on open standards. The candidate is SD-JWT VC, still an IETF draft; it has to fit the zero knowledge proof."],
         ["Rules engine", "OPA or Cedar."],
-        ["Revocation in the demonstrable version", "With a standard status list. If it is not checked in the demonstration, the screen will say so."],
+        ["Revocation in the working prototype", "With a standard status list. If it is not checked in the demonstration, the screen will say so."],
         ["Key custody and cloud", "Which key service (KMS or HSM) and which provider, with each pilot."],
         ["Where the anchor is published", "Outside the gateway's control, for example with a timestamping service or a transparency log."],
         ["How approvers sign", "A key in the browser, a passkey or the method each organisation already uses."],

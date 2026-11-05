@@ -141,6 +141,7 @@ img { max-width: 100%; }
 .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
 .mobile-nav {
   position: absolute; left: 16px; right: 16px; top: calc(100% + 8px); padding: .6rem;
+  max-height: calc(100dvh - 100% - 24px); overflow-y: auto; overscroll-behavior: contain;
   border: 1px solid var(--line); border-radius: 20px; background: var(--surface); box-shadow: 0 24px 60px -24px rgba(20,17,40,.35);
   opacity: 0; visibility: hidden; transform: translateY(-10px) scale(.98); transform-origin: top center;
   transition: opacity .25s ease, transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s linear .35s;
